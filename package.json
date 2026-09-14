@@ -1,0 +1,32 @@
+{
+  "name": "domy-na-polnej-stage-01-12",
+  "private": true,
+  "version": "0.7.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -b --pretty false",
+    "test": "node tests/source-check.mjs",
+    "test:visual": "node tests/visual-qa.mjs",
+    "test:admin": "node tests/admin-qa.mjs"
+  },
+  "dependencies": {
+    "@fontsource/lato": "5.2.6",
+    "@fontsource/montserrat": "5.2.6",
+    "lucide-react": "0.544.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "three": "^0.185.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "@types/three": "^0.185.0",
+    "@vitejs/plugin-react": "5.0.2",
+    "typescript": "5.9.2",
+    "vite": "7.1.5"
+  }
+}

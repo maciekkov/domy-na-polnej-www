@@ -1,0 +1,112 @@
+[
+  {
+    "test": "brak overflow 1440x900",
+    "status": "PASS",
+    "detail": "1440/1440px"
+  },
+  {
+    "test": "brak błędów konsoli 1440x900",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "brak overflow 1024x768",
+    "status": "PASS",
+    "detail": "1024/1024px"
+  },
+  {
+    "test": "brak błędów konsoli 1024x768",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "brak overflow 768x1024",
+    "status": "PASS",
+    "detail": "768/768px"
+  },
+  {
+    "test": "brak błędów konsoli 768x1024",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "brak overflow 390x844",
+    "status": "PASS",
+    "detail": "390/390px"
+  },
+  {
+    "test": "brak błędów konsoli 390x844",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "3 karty zespołu",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "3 materiały zespołu",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "asset zespołu 1",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "asset zespołu 2",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "asset zespołu 3",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "10 pozycji FAQ",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "pierwszy FAQ otwarty",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "FAQ termin",
+    "status": "PASS",
+    "detail": "I kwartał 2026"
+  },
+  {
+    "test": "FAQ interakcja",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "selectedHouse -> formularz",
+    "status": "PASS",
+    "detail": "Dom C"
+  },
+  {
+    "test": "walidacja formularza",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "preview submit formularza",
+    "status": "PASS",
+    "detail": "Dziękujemy. Wiadomość została przyjęta — skontaktujemy się z Tobą."
+  },
+  {
+    "test": "footer widoczny",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "brak błędów konsoli final",
+    "status": "PASS",
+    "detail": ""
+  }
+]

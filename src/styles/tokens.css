@@ -1,0 +1,17 @@
+:root {
+  --graphite: #252a2c;
+  --graphite-deep: #171d1b;
+  --olive: #5d673d;
+  --olive-deep: #4b5630;
+  --off-white: #f4f1ea;
+  --paper: #faf8f3;
+  --sand: #d7c6a1;
+  --wood: #b7824a;
+  --line: rgba(37, 42, 44, 0.13);
+  --shadow: 0 14px 40px rgba(37, 42, 44, 0.08);
+  --shadow-hover: 0 20px 56px rgba(37, 42, 44, 0.13);
+  --radius-card: 22px;
+  --radius-image: 26px;
+  --shell: min(1240px, calc(100% - 56px));
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
