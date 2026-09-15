@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#121814" />
+  <title>Konfigurator Spaceru 360</title>
+  <style>
+    :root {
+      --bg:#111713; --panel:#18201b; --panel-soft:#141b17; --border:rgba(255,255,255,.1); --text:#f4f0e7; --muted:rgba(244,240,231,.68); --gold:#e4c16d;
+      --radius:18px; --radius-sm:12px; --shadow:0 18px 50px rgba(0,0,0,.24); --ease:cubic-bezier(.22,1,.36,1);
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; min-height:100%; background:linear-gradient(180deg,#111713 0%,#0d130f 100%); color:var(--text); font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    body { padding:22px; }
+    button, input, select, textarea { font:inherit; }
+    .app { display:grid; grid-template-columns: 360px minmax(0,1fr) 360px; gap:18px; min-height:calc(100vh - 44px); }
+    .panel { display:flex; flex-direction:column; gap:14px; padding:18px; border:1px solid var(--border); border-radius:24px; background:rgba(19,25,21,.88); box-shadow:var(--shadow); }
+    .panel h1, .panel h2, .panel h3 { margin:0; }
+    .eyebrow { color:var(--gold); font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    .lead { color:var(--muted); font-size:14px; line-height:1.45; }
+    .stack { display:flex; flex-direction:column; gap:10px; }
+    .row { display:flex; gap:10px; }
+    .row > * { flex:1; }
+    label { display:flex; flex-direction:column; gap:6px; font-size:12px; color:var(--muted); }
+    input[type="text"], input[type="number"], select, textarea { width:100%; min-height:42px; padding:10px 12px; border:1px solid rgba(255,255,255,.12); border-radius:12px; color:var(--text); background:#101511; }
+    textarea { min-height:90px; resize:vertical; }
+    button { min-height:42px; padding:0 14px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:var(--text); background:#101611; cursor:pointer; transition:transform 160ms var(--ease), border-color 160ms, background 160ms; }
+    button:hover { transform:translateY(-1px); border-color:rgba(228,193,109,.35); background:#162019; }
+    .button-primary { background:rgba(228,193,109,.14); border-color:rgba(228,193,109,.38); }
+    .button-danger { background:rgba(116,28,28,.16); border-color:rgba(255,110,110,.22); }
+    .helper { color:var(--muted); font-size:12px; line-height:1.45; }
+    .scene-list { display:flex; flex-direction:column; gap:8px; max-height:calc(100vh - 410px); overflow:auto; padding-right:4px; }
+    .scene-card { display:flex; align-items:center; gap:10px; width:100%; padding:8px; border:1px solid rgba(255,255,255,.08); border-radius:14px; background:#111712; text-align:left; }
+    .scene-card.is-active { border-color:rgba(228,193,109,.42); box-shadow:0 0 0 1px rgba(228,193,109,.18); }
+    .scene-card img { width:74px; height:56px; object-fit:cover; border-radius:10px; background:#0f1411; }
+    .scene-card__meta { min-width:0; }
+    .scene-card__title { color:var(--text); font-size:13px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .scene-card__file { color:var(--muted); font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .preview-wrap { display:flex; flex-direction:column; gap:14px; }
+    .preview-header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .preview-stage { position:relative; min-height:640px; border:1px solid var(--border); border-radius:26px; overflow:hidden; background:#0f1411; }
+    .preview-stage img { width:100%; height:100%; object-fit:contain; display:block; }
+    .preview-overlay { position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.15),transparent 22%,transparent 74%,rgba(0,0,0,.28)); pointer-events:none; }
+    .preview-hotspot { position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; gap:8px; padding:8px; border:0; background:none; color:#fff; cursor:pointer; }
+    .preview-hotspot__core { position:relative; display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:rgba(15,18,15,.8); border:1px solid rgba(255,255,255,.7); }
+    .preview-hotspot__core::before { content:""; position:absolute; inset:-5px; border-radius:inherit; border:1px solid rgba(228,193,109,.24); opacity:var(--pulse,0); animation:pulse 2.5s ease-out infinite; }
+    @keyframes pulse { 0%{transform:scale(.9);opacity:.6} 70%,100%{transform:scale(1.34);opacity:0} }
+    .preview-hotspot__label { padding:7px 11px; border-radius:999px; background:rgba(15,18,15,.68); border:1px solid rgba(255,255,255,.12); font-size:12px; white-space:nowrap; }
+    .hint { position:absolute; left:16px; top:16px; padding:10px 12px; border-radius:999px; background:rgba(15,18,15,.68); border:1px solid rgba(255,255,255,.12); font-size:12px; color:var(--muted); }
+    .hotspot-list { display:flex; flex-direction:column; gap:12px; max-height:360px; overflow:auto; }
+    .hotspot-item { padding:12px; border:1px solid rgba(255,255,255,.09); border-radius:16px; background:#111712; }
+    .hotspot-item.is-active { border-color:rgba(228,193,109,.36); }
+    .muted-box { padding:12px; border:1px dashed rgba(255,255,255,.14); border-radius:14px; color:var(--muted); font-size:12px; line-height:1.5; }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid rgba(255,255,255,.11); border-radius:999px; color:var(--muted); font-size:12px; }
+    @media (max-width: 1380px) { .app { grid-template-columns: 330px minmax(0,1fr); } .panel--editor { grid-column: 1 / -1; } }
+    @media (max-width: 980px) { body { padding:14px; } .app { grid-template-columns: 1fr; } .preview-stage { min-height: 420px; } .scene-list { max-height: 320px; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="panel">
+      <div class="stack">
+        <span class="eyebrow">Narzędzie robocze</span>
+        <h1>Konfigurator Spaceru 360</h1>
+        <p class="lead">Lekki konfigurator bez wbudowanych zdjęć. Ładujesz własne sceny, ustawiasz hotspoty i eksportujesz czysty plik JSON do playera.</p>
+      </div>
+
+      <div class="stack">
+        <label>Nazwa spaceru
+          <input id="tourName" type="text" value="Spacer 360 — nowy projekt" />
+        </label>
+        <label>Slug / identyfikator
+          <input id="tourSlug" type="text" value="spacer-360-nowy" />
+        </label>
+      </div>
+
+      <div class="stack">
+        <div class="row">
+          <button id="addImages" class="button-primary" type="button">Dodaj obrazy</button>
+          <button id="loadDemo" type="button">Wczytaj demo DNP</button>
+        </div>
+        <div class="row">
+          <button id="importJson" type="button">Importuj JSON</button>
+          <button id="exportJson" class="button-primary" type="button">Eksportuj JSON</button>
+        </div>
+        <div class="row">
+          <button id="clearAll" class="button-danger" type="button">Wyczyść sceny</button>
+          <button id="copyJson" type="button">Kopiuj JSON</button>
+        </div>
+        <input id="imageInput" type="file" accept="image/*" multiple hidden />
+        <input id="jsonInput" type="file" accept="application/json,.json" hidden />
+        <p class="helper">Zdjęcia są ładowane lokalnie tylko do podglądu. Konfigurator nie zapisuje obrazów do środka JSON-a.</p>
+      </div>
+
+      <div class="stack">
+        <div class="row" style="align-items:center; justify-content:space-between;">
+          <h2>Sceny</h2>
+          <span class="pill" id="sceneCounter">0 scen</span>
+        </div>
+        <div id="sceneList" class="scene-list"></div>
+      </div>
+    </section>
+
+    <section class="panel preview-wrap">
+      <div class="preview-header">
+        <div>
+          <span class="eyebrow">Podgląd sceny</span>
+          <h2 id="previewTitle">Brak aktywnej sceny</h2>
+        </div>
+        <div class="pill" id="previewMeta">Kliknij „Dodaj obrazy” lub „Wczytaj demo DNP”</div>
+      </div>
+      <div class="preview-stage" id="previewStage">
+        <div class="hint">Kliknij w obraz, aby dodać hotspot (maks. 3 na scenę).</div>
+        <img id="previewImage" alt="Podgląd sceny" />
+        <div class="preview-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="muted-box">Schemat playera: <strong>scene.id</strong>, <strong>scene.title</strong>, <strong>scene.image</strong>, <strong>scene.thumb</strong>, <strong>hotspots[]</strong> z polami <em>x, y, label, target, align, pulse</em>.</div>
+    </section>
+
+    <section class="panel panel--editor">
+      <div class="stack">
+        <span class="eyebrow">Edytor aktywnej sceny</span>
+        <h2>Ustawienia sceny i hotspotów</h2>
+      </div>
+
+      <div id="sceneEditorEmpty" class="muted-box">Wybierz scenę z lewej strony, aby edytować jej tytuł, ścieżkę obrazu i hotspoty.</div>
+
+      <div id="sceneEditor" class="stack" hidden>
+        <div class="row">
+          <label>Tytuł sceny
+            <input id="sceneTitle" type="text" />
+          </label>
+          <label>ID sceny
+            <input id="sceneId" type="text" />
+          </label>
+        </div>
+        <div class="row">
+          <label>Ścieżka obrazu / URL
+            <input id="sceneImage" type="text" />
+          </label>
+          <label>Ścieżka miniatury (opcjonalnie)
+            <input id="sceneThumb" type="text" />
+          </label>
+        </div>
+        <div class="row">
+          <button id="moveSceneUp" type="button">Przesuń scenę w górę</button>
+          <button id="moveSceneDown" type="button">Przesuń scenę w dół</button>
+          <button id="setStartScene" class="button-primary" type="button">Ustaw jako startową</button>
+          <button id="deleteScene" class="button-danger" type="button">Usuń scenę</button>
+        </div>
+
+        <div class="stack">
+          <div class="row" style="align-items:center; justify-content:space-between;">
+            <h3>Hotspoty</h3>
+            <span class="pill" id="hotspotCounter">0 / 3</span>
+          </div>
+          <div id="hotspotList" class="hotspot-list"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const state = {
+      tourName: 'Spacer 360 — nowy projekt',
+      tourSlug: 'spacer-360-nowy',
+      startScene: '',
+      scenes: [],
+      selectedSceneId: null,
+      selectedHotspotIndex: null,
+    }
+
+    const els = {
+      tourName: document.getElementById('tourName'),
+      tourSlug: document.getElementById('tourSlug'),
+      sceneList: document.getElementById('sceneList'),
+      sceneCounter: document.getElementById('sceneCounter'),
+      previewTitle: document.getElementById('previewTitle'),
+      previewMeta: document.getElementById('previewMeta'),
+      previewStage: document.getElementById('previewStage'),
+      previewImage: document.getElementById('previewImage'),
+      sceneEditorEmpty: document.getElementById('sceneEditorEmpty'),
+      sceneEditor: document.getElementById('sceneEditor'),
+      sceneTitle: document.getElementById('sceneTitle'),
+      sceneId: document.getElementById('sceneId'),
+      sceneImage: document.getElementById('sceneImage'),
+      sceneThumb: document.getElementById('sceneThumb'),
+      hotspotList: document.getElementById('hotspotList'),
+      hotspotCounter: document.getElementById('hotspotCounter'),
+      addImages: document.getElementById('addImages'),
+      imageInput: document.getElementById('imageInput'),
+      exportJson: document.getElementById('exportJson'),
+      importJson: document.getElementById('importJson'),
+      jsonInput: document.getElementById('jsonInput'),
+      clearAll: document.getElementById('clearAll'),
+      loadDemo: document.getElementById('loadDemo'),
+      copyJson: document.getElementById('copyJson'),
+      moveSceneUp: document.getElementById('moveSceneUp'),
+      moveSceneDown: document.getElementById('moveSceneDown'),
+      setStartScene: document.getElementById('setStartScene'),
+      deleteScene: document.getElementById('deleteScene'),
+    }
+
+    const slugify = (value) => value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '')
+
+    const getSelectedScene = () => state.scenes.find((scene) => scene.id === state.selectedSceneId) || null
+
+    function exportData() {
+      return {
+        tourName: state.tourName,
+        tourSlug: state.tourSlug,
+        startScene: state.startScene || state.scenes[0]?.id || '',
+        scenes: state.scenes.map((scene) => ({
+          id: scene.id,
+          title: scene.title,
+          image: scene.image,
+          thumb: scene.thumb || scene.image,
+          hotspots: scene.hotspots.map((hotspot) => ({ ...hotspot })),
+        })),
+      }
+    }
+
+    function renderSceneList() {
+      els.sceneList.innerHTML = ''
+      state.scenes.forEach((scene, index) => {
+        const button = document.createElement('button')
+        button.type = 'button'
+        button.className = `scene-card${scene.id === state.selectedSceneId ? ' is-active' : ''}`
+        button.innerHTML = `
+          <img src="${scene.previewSrc || scene.image}" alt="${scene.title}" />
+          <span class="scene-card__meta">
+            <span class="scene-card__title">${String(index + 1).padStart(2,'0')} · ${scene.title}</span>
+            <span class="scene-card__file">${scene.id}</span>
+          </span>
+        `
+        button.addEventListener('click', () => {
+          state.selectedSceneId = scene.id
+          state.selectedHotspotIndex = null
+          render()
+        })
+        els.sceneList.appendChild(button)
+      })
+      els.sceneCounter.textContent = `${state.scenes.length} ${state.scenes.length === 1 ? 'scena' : 'scen'}`
+    }
+
+    function renderPreview() {
+      const scene = getSelectedScene()
+      els.previewStage.querySelectorAll('.preview-hotspot').forEach((node) => node.remove())
+      if (!scene) {
+        els.previewTitle.textContent = 'Brak aktywnej sceny'
+        els.previewMeta.textContent = 'Kliknij „Dodaj obrazy” lub „Wczytaj demo DNP”'
+        els.previewImage.src = ''
+        return
+      }
+      els.previewTitle.textContent = scene.title
+      els.previewMeta.textContent = `${scene.id} · hotspoty: ${scene.hotspots.length}/3`
+      els.previewImage.src = scene.previewSrc || scene.image
+      scene.hotspots.forEach((hotspot, index) => {
+        const button = document.createElement('button')
+        button.type = 'button'
+        button.className = 'preview-hotspot'
+        button.style.left = `${hotspot.x}%`
+        button.style.top = `${hotspot.y}%`
+        button.innerHTML = `
+          <span class="preview-hotspot__core" style="--pulse:${hotspot.pulse ? 1 : 0}">↗</span>
+          <span class="preview-hotspot__label">${hotspot.label}</span>
+        `
+        button.addEventListener('click', (event) => {
+          event.stopPropagation()
+          state.selectedHotspotIndex = index
+          renderHotspotList()
+        })
+        els.previewStage.appendChild(button)
+      })
+    }
+
+    function renderEditor() {
+      const scene = getSelectedScene()
+      if (!scene) {
+        els.sceneEditor.hidden = true
+        els.sceneEditorEmpty.hidden = false
+        return
+      }
+      els.sceneEditor.hidden = false
+      els.sceneEditorEmpty.hidden = true
+      els.sceneTitle.value = scene.title
+      els.sceneId.value = scene.id
+      els.sceneImage.value = scene.image
+      els.sceneThumb.value = scene.thumb || ''
+      renderHotspotList()
+    }
+
+    function renderHotspotList() {
+      const scene = getSelectedScene()
+      els.hotspotList.innerHTML = ''
+      if (!scene) return
+      els.hotspotCounter.textContent = `${scene.hotspots.length} / 3`
+      if (!scene.hotspots.length) {
+        const empty = document.createElement('div')
+        empty.className = 'muted-box'
+        empty.textContent = 'Brak hotspotów. Kliknij w podgląd obrazu, aby dodać pierwszy hotspot.'
+        els.hotspotList.appendChild(empty)
+        return
+      }
+      scene.hotspots.forEach((hotspot, index) => {
+        const wrapper = document.createElement('div')
+        wrapper.className = `hotspot-item${state.selectedHotspotIndex === index ? ' is-active' : ''}`
+        wrapper.innerHTML = `
+          <div class="row" style="align-items:center; justify-content:space-between; margin-bottom:10px;">
+            <strong>Hotspot ${index + 1}</strong>
+            <button type="button" data-action="remove-hotspot" data-index="${index}" class="button-danger">Usuń</button>
+          </div>
+          <div class="stack">
+            <label>Etykieta
+              <input type="text" data-field="label" data-index="${index}" value="${hotspot.label}" />
+            </label>
+            <label>Scena docelowa
+              <select data-field="target" data-index="${index}">
+                ${state.scenes.map((sceneOption) => `<option value="${sceneOption.id}" ${sceneOption.id === hotspot.target ? 'selected' : ''}>${sceneOption.title}</option>`).join('')}
+              </select>
+            </label>
+            <div class="row">
+              <label>Pozycja X (%)
+                <input type="number" min="0" max="100" step="0.1" data-field="x" data-index="${index}" value="${hotspot.x}" />
+              </label>
+              <label>Pozycja Y (%)
+                <input type="number" min="0" max="100" step="0.1" data-field="y" data-index="${index}" value="${hotspot.y}" />
+              </label>
+            </div>
+            <div class="row">
+              <label>Ułożenie etykiety
+                <select data-field="align" data-index="${index}">
+                  <option value="right" ${hotspot.align === 'right' ? 'selected' : ''}>Po prawej</option>
+                  <option value="left" ${hotspot.align === 'left' ? 'selected' : ''}>Po lewej</option>
+                </select>
+              </label>
+              <label>Wyróżnij pineskę
+                <select data-field="pulse" data-index="${index}">
+                  <option value="true" ${hotspot.pulse ? 'selected' : ''}>Tak</option>
+                  <option value="false" ${!hotspot.pulse ? 'selected' : ''}>Nie</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        `
+        els.hotspotList.appendChild(wrapper)
+      })
+    }
+
+    function render() {
+      state.tourName = els.tourName.value
+      state.tourSlug = els.tourSlug.value
+      renderSceneList()
+      renderPreview()
+      renderEditor()
+    }
+
+    function addSceneFromFile(file) {
+      const objectUrl = URL.createObjectURL(file)
+      const base = slugify(file.name.replace(/\.[^.]+$/, '')) || `scena_${state.scenes.length + 1}`
+      const title = base.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
+      const scene = {
+        id: base,
+        title,
+        image: file.name,
+        thumb: file.name,
+        previewSrc: objectUrl,
+        hotspots: [],
+      }
+      state.scenes.push(scene)
+      if (!state.selectedSceneId) state.selectedSceneId = scene.id
+      if (!state.startScene) state.startScene = scene.id
+    }
+
+    function loadData(payload) {
+      state.tourName = payload.tourName || 'Spacer 360 — nowy projekt'
+      state.tourSlug = payload.tourSlug || 'spacer-360-nowy'
+      state.startScene = payload.startScene || payload.scenes?.[0]?.id || ''
+      state.scenes = (payload.scenes || []).map((scene) => ({
+        id: scene.id,
+        title: scene.title,
+        image: scene.image,
+        thumb: scene.thumb || scene.image,
+        previewSrc: scene.image,
+        hotspots: (scene.hotspots || []).map((hotspot) => ({
+          x: Number(hotspot.x),
+          y: Number(hotspot.y),
+          label: hotspot.label,
+          target: hotspot.target,
+          align: hotspot.align || 'right',
+          pulse: Boolean(hotspot.pulse),
+        })),
+      }))
+      state.selectedSceneId = state.scenes[0]?.id || null
+      state.selectedHotspotIndex = null
+      els.tourName.value = state.tourName
+      els.tourSlug.value = state.tourSlug
+      render()
+    }
+
+    els.tourName.addEventListener('input', () => { state.tourName = els.tourName.value; })
+    els.tourSlug.addEventListener('input', () => { state.tourSlug = els.tourSlug.value; })
+
+    els.addImages.addEventListener('click', () => els.imageInput.click())
+    els.imageInput.addEventListener('change', () => {
+      Array.from(els.imageInput.files || []).forEach(addSceneFromFile)
+      els.imageInput.value = ''
+      render()
+    })
+
+    els.previewStage.addEventListener('click', (event) => {
+      const scene = getSelectedScene()
+      if (!scene) return
+      if (scene.hotspots.length >= 3) {
+        alert('Na jednej scenie mogą być maksymalnie 3 hotspoty.')
+        return
+      }
+      const rect = els.previewStage.getBoundingClientRect()
+      const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100))
+      const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100))
+      const fallbackTarget = state.scenes.find((candidate) => candidate.id !== scene.id)?.id || scene.id
+      scene.hotspots.push({ x: Number(x.toFixed(1)), y: Number(y.toFixed(1)), label: 'Nowy hotspot', target: fallbackTarget, align: 'right', pulse: scene.hotspots.length === 0 })
+      state.selectedHotspotIndex = scene.hotspots.length - 1
+      renderPreview()
+      renderHotspotList()
+    })
+
+    ;[els.sceneTitle, els.sceneId, els.sceneImage, els.sceneThumb].forEach((input) => {
+      input.addEventListener('input', () => {
+        const scene = getSelectedScene()
+        if (!scene) return
+        scene.title = els.sceneTitle.value
+        scene.id = els.sceneId.value || scene.id
+        scene.image = els.sceneImage.value
+        scene.thumb = els.sceneThumb.value || els.sceneImage.value
+        if (scene.previewSrc && scene.previewSrc.startsWith('blob:')) {
+          // keep local preview
+        } else {
+          scene.previewSrc = scene.image
+        }
+        if (state.startScene === state.selectedSceneId) state.startScene = scene.id
+        state.selectedSceneId = scene.id
+        render()
+      })
+    })
+
+    els.hotspotList.addEventListener('input', (event) => {
+      const target = event.target
+      if (!(target instanceof HTMLElement)) return
+      const field = target.dataset.field
+      const index = Number(target.dataset.index)
+      const scene = getSelectedScene()
+      if (!scene || Number.isNaN(index) || !field || !scene.hotspots[index]) return
+      const hotspot = scene.hotspots[index]
+      if (field === 'x' || field === 'y') hotspot[field] = Number(target.value)
+      else if (field === 'pulse') hotspot[field] = target.value === 'true'
+      else hotspot[field] = target.value
+      renderPreview()
+    })
+
+    els.hotspotList.addEventListener('click', (event) => {
+      const target = event.target
+      if (!(target instanceof HTMLElement)) return
+      if (target.dataset.action === 'remove-hotspot') {
+        const index = Number(target.dataset.index)
+        const scene = getSelectedScene()
+        if (!scene || Number.isNaN(index)) return
+        scene.hotspots.splice(index, 1)
+        state.selectedHotspotIndex = null
+        renderPreview()
+        renderHotspotList()
+      }
+    })
+
+    els.moveSceneUp.addEventListener('click', () => {
+      const index = state.scenes.findIndex((scene) => scene.id === state.selectedSceneId)
+      if (index > 0) {
+        ;[state.scenes[index - 1], state.scenes[index]] = [state.scenes[index], state.scenes[index - 1]]
+        render()
+      }
+    })
+    els.moveSceneDown.addEventListener('click', () => {
+      const index = state.scenes.findIndex((scene) => scene.id === state.selectedSceneId)
+      if (index >= 0 && index < state.scenes.length - 1) {
+        ;[state.scenes[index + 1], state.scenes[index]] = [state.scenes[index], state.scenes[index + 1]]
+        render()
+      }
+    })
+    els.setStartScene.addEventListener('click', () => {
+      if (state.selectedSceneId) {
+        state.startScene = state.selectedSceneId
+        renderPreview()
+        els.previewMeta.textContent += ' · scena startowa'
+      }
+    })
+    els.deleteScene.addEventListener('click', () => {
+      const index = state.scenes.findIndex((scene) => scene.id === state.selectedSceneId)
+      if (index < 0) return
+      state.scenes.splice(index, 1)
+      state.selectedSceneId = state.scenes[Math.max(0, index - 1)]?.id || null
+      if (!state.scenes.find((scene) => scene.id === state.startScene)) state.startScene = state.scenes[0]?.id || ''
+      render()
+    })
+
+    els.exportJson.addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(exportData(), null, 2)], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const anchor = document.createElement('a')
+      anchor.href = url
+      anchor.download = `${state.tourSlug || 'spacer-360'}.json`
+      anchor.click()
+      URL.revokeObjectURL(url)
+    })
+
+    els.copyJson.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(JSON.stringify(exportData(), null, 2))
+        alert('JSON skopiowany do schowka.')
+      } catch {
+        alert('Nie udało się skopiować JSON-a do schowka.')
+      }
+    })
+
+    els.importJson.addEventListener('click', () => els.jsonInput.click())
+    els.jsonInput.addEventListener('change', async () => {
+      const file = els.jsonInput.files?.[0]
+      if (!file) return
+      const text = await file.text()
+      loadData(JSON.parse(text))
+      els.jsonInput.value = ''
+    })
+
+    els.loadDemo.addEventListener('click', async () => {
+      const response = await fetch('/assets/data/spacer-360-zewnetrzny.json', { cache: 'no-store' })
+      const payload = await response.json()
+      loadData(payload)
+    })
+
+    els.clearAll.addEventListener('click', () => {
+      state.scenes = []
+      state.selectedSceneId = null
+      state.selectedHotspotIndex = null
+      state.startScene = ''
+      render()
+    })
+
+    render()
+  </script>
+</body>
+</html>

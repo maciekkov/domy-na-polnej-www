@@ -1,9 +1,13 @@
 import { ExternalLink, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
-type TourFrameModalProps = { onClose: () => void }
+type TourFrameModalProps = {
+  onClose: () => void
+  src: string
+  title: string
+}
 
-export function TourFrameModal({ onClose }: TourFrameModalProps) {
+export function TourFrameModal({ onClose, src, title }: TourFrameModalProps) {
   const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
@@ -22,15 +26,15 @@ export function TourFrameModal({ onClose }: TourFrameModalProps) {
   }, [onClose])
 
   return (
-    <div className="tour-frame-modal" role="dialog" aria-modal="true" aria-label="Wirtualny spacer 360 stopni">
+    <div className="tour-frame-modal" role="dialog" aria-modal="true" aria-label={title}>
       <iframe
-        src="/tour/dnp-spacer-12-kadrow.html"
-        title="Wirtualny spacer po Domach na Polnej"
+        src={src}
+        title={title}
         allow="fullscreen"
         allowFullScreen
       />
       <div className="tour-frame-modal__actions">
-        <a href="/tour/dnp-spacer-12-kadrow.html" target="_blank" rel="noreferrer" aria-label="Otwórz spacer w nowej karcie">
+        <a href={src} target="_blank" rel="noreferrer" aria-label="Otwórz spacer w nowej karcie">
           <ExternalLink aria-hidden="true" />
         </a>
         <button ref={closeRef} type="button" onClick={onClose} aria-label="Zamknij spacer">

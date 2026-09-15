@@ -14,11 +14,31 @@ export const galleryCategories: Array<{ id: GalleryCategory; label: string }> = 
 
 export const galleryImages: Record<GalleryCategory, GalleryImage[]> = {
   outside: [
-    { src: '/assets/images/gallery/front.webp', title: 'Front domu', alt: 'Frontowa elewacja Domu na Polnej z wejściem i podjazdem' },
-    { src: '/assets/images/gallery/front-angle.webp', title: 'Bryła od strony podjazdu', alt: 'Dom na Polnej widziany pod kątem od strony podjazdu' },
-    { src: '/assets/images/gallery/rear.webp', title: 'Elewacja ogrodowa', alt: 'Tylna elewacja domu z dużymi przeszkleniami' },
-    { src: '/assets/images/gallery/panorama.webp', title: 'Dom w otoczeniu', alt: 'Dom na Polnej na tle zielonego otoczenia' },
-    { src: '/assets/images/gallery/garden-house.webp', title: 'Dom od strony ogrodu', alt: 'Widok domu i tarasu od strony ogrodu' },
+    {
+      src: '/assets/images/spacer-360/exterior/webp/14_dom_i_dzialka_z_gory.webp',
+      title: 'Dom i działka z góry',
+      alt: 'Widok domu i działki z góry w inwestycji Domy na Polnej',
+    },
+    {
+      src: '/assets/images/spacer-360/exterior/webp/02_front_domu_i_podjazd.webp',
+      title: 'Front domu i podjazd',
+      alt: 'Front domu z podjazdem, wejściem i ogrodem frontowym',
+    },
+    {
+      src: '/assets/images/spacer-360/exterior/webp/05_podjazd_i_wiata.webp',
+      title: 'Podjazd i wiata',
+      alt: 'Bryła domu od strony podjazdu i wiaty',
+    },
+    {
+      src: '/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp',
+      title: 'Elewacja ogrodowa',
+      alt: 'Tylna elewacja domu z ogrodem i tarasem',
+    },
+    {
+      src: '/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp',
+      title: 'Dom od strony ogrodu',
+      alt: 'Szeroki widok domu od strony ogrodu i tarasu',
+    },
   ],
   inside: [
     { src: '/assets/images/gallery/living.webp', title: 'Strefa dzienna', alt: 'Jasny salon i jadalnia w Domu na Polnej' },

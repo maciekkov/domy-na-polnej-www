@@ -4,17 +4,27 @@ import type { HouseId } from '../../data/houses'
 import { galleryCategories, galleryImages, type GalleryCategory } from '../../data/gallery'
 import { GalleryLightbox } from './GalleryLightbox'
 import { PanoramaModal } from './PanoramaModal'
+import { TourChoiceModal } from './TourChoiceModal'
 import { TourFrameModal } from './TourFrameModal'
 import { track } from '../../lib/analytics'
 
 type GalleryProps = { selectedHouse: HouseId }
 
+const EXTERIOR_TOUR_PATH = '/tour/spacer-360-zewnatrz.html'
+
 export function Gallery({ selectedHouse }: GalleryProps) {
   const [category, setCategory] = useState<GalleryCategory>('outside')
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [tourPickerOpen, setTourPickerOpen] = useState(false)
   const [tourOpen, setTourOpen] = useState(false)
   const [panoramaOpen, setPanoramaOpen] = useState(false)
   const images = galleryImages[category]
+
+  const openExteriorTour = () => {
+    setTourPickerOpen(false)
+    setTourOpen(true)
+    track('tour_start', selectedHouse)
+  }
 
   return (
     <section id="galeria" className="gallery-section" aria-labelledby="gallery-title">
@@ -41,21 +51,21 @@ export function Gallery({ selectedHouse }: GalleryProps) {
         </div>
 
         <div className="immersive-heading">
-          <div><span>Dwa sposoby oglądania</span><h3>Wejdź do domu. Rozejrzyj się po okolicy.</h3></div>
-          <p>Spacer prowadzi przez dom i działkę, a osobna fotografia sferyczna pokazuje rzeczywiste otoczenie inwestycji z perspektywy drona.</p>
+          <div><span>Dwa sposoby oglądania</span><h3>Wejdź w Spacer 360 albo obejrzyj panoramę okolicy.</h3></div>
+          <p>Spacer prowadzi obecnie wokół domu i działki. Zobacz podjazd, wejście, wiatę, ogród i taras, a osobno uruchom prawdziwą panoramę 360° z drona.</p>
         </div>
 
         <div className="immersive-grid">
           <article className="immersive-card immersive-card--tour">
-            <img src="/assets/images/tour/living.webp" alt="Jasny salon z wyjściem na taras i ogród" loading="lazy" decoding="async" />
+            <img src="/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp" alt="Elewacja ogrodowa domu i ogród w Spacerze 360" loading="lazy" decoding="async" />
             <div className="immersive-card__shade" aria-hidden="true" />
-            <div className="immersive-card__badge">12 kadrów</div>
+            <div className="immersive-card__badge">14 kadrów · na zewnątrz</div>
             <div className="immersive-card__content">
               <Move3d aria-hidden="true" />
               <div className="eyebrow eyebrow--light">Dom i działka</div>
               <h3>Spacer 360°</h3>
-              <p>Przejdź od podjazdu przez wejście i wnętrza aż do tarasu oraz ogrodu.</p>
-              <button className="button button--olive" type="button" onClick={() => { setTourOpen(true); track('tour_start', selectedHouse) }}>Rozpocznij spacer <ChevronRight size={17} /></button>
+              <p>Przejdź wokół domu krok po kroku. Odkryj wejście, podcień, wiatę, elewację ogrodową, taras i cały ogród.</p>
+              <button className="button button--olive" type="button" onClick={() => setTourPickerOpen(true)}>Wybierz spacer <ChevronRight size={17} /></button>
               <small>Interaktywny spacer · Dom {selectedHouse}</small>
             </div>
           </article>
@@ -77,7 +87,8 @@ export function Gallery({ selectedHouse }: GalleryProps) {
       </div>
 
       {lightboxIndex !== null && <GalleryLightbox images={images} index={lightboxIndex} onIndex={setLightboxIndex} onClose={() => setLightboxIndex(null)} />}
-      {tourOpen && <TourFrameModal onClose={() => setTourOpen(false)} />}
+      {tourPickerOpen && <TourChoiceModal onClose={() => setTourPickerOpen(false)} onChooseExterior={openExteriorTour} />}
+      {tourOpen && <TourFrameModal onClose={() => setTourOpen(false)} src={EXTERIOR_TOUR_PATH} title="Spacer 360 po Domach na Polnej — zewnętrzny spacer wokół domu" />}
       {panoramaOpen && <PanoramaModal onClose={() => setPanoramaOpen(false)} />}
     </section>
   )

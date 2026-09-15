@@ -79,7 +79,10 @@ h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; letter-spacing: -0.03
 
 /* Hero */
 .hero { position: relative; min-height: max(680px, 88svh); color: var(--off-white); overflow: hidden; background: var(--graphite); }
-.hero__media, .hero__media img, .hero__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__media-stack, .hero__media, .hero__media img, .hero__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__media-stack { overflow: hidden; }
+.hero__media--slide { opacity: 0; transition: opacity 1100ms var(--ease); }
+.hero__media--slide.is-active { opacity: 1; }
 .hero__media img { object-fit: cover; object-position: 54% center; animation: hero-zoom 10s ease-out both; }
 .hero__shade {
   background:
@@ -356,6 +359,22 @@ h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; letter-spacing: -0.03
 .tour-frame-modal__actions { position: absolute; z-index: 2; right: 18px; top: 18px; display: flex; gap: 8px; }
 .tour-frame-modal__actions a, .tour-frame-modal__actions button { display: grid; place-items: center; width: 46px; height: 46px; padding: 0; color: #fff; background: rgba(18,24,20,.72); border: 1px solid rgba(255,255,255,.28); border-radius: 50%; cursor: pointer; backdrop-filter: blur(10px); }
 .tour-frame-modal__actions svg { width: 20px; }
+
+
+.tour-choice-modal { position: fixed; inset: 0; z-index: 1080; display: grid; place-items: center; padding: 26px; background: rgba(11,15,12,.72); backdrop-filter: blur(8px); }
+.tour-choice-modal__card { position: relative; width: min(760px, 100%); padding: 33px 34px 30px; color: #fff; border: 1px solid rgba(255,255,255,.15); border-radius: 28px; background: linear-gradient(145deg, rgba(24,31,26,.97), rgba(13,18,15,.96)); box-shadow: 0 28px 80px rgba(0,0,0,.38); }
+.tour-choice-modal__card h3 { margin-bottom: 10px; color: #fff; font-size: clamp(31px, 3vw, 40px); font-weight: 600; line-height: 1.06; }
+.tour-choice-modal__card p { max-width: 640px; margin-bottom: 26px; color: rgba(255,255,255,.74); font-size: 16px; line-height: 1.58; }
+.tour-choice-modal__close { position: absolute; right: 16px; top: 16px; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: #fff; background: rgba(255,255,255,.07); cursor: pointer; }
+.tour-choice-modal__options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.tour-choice-option { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 215px; padding: 22px; text-align: left; color: #fff; border: 1px solid rgba(255,255,255,.15); border-radius: 24px; background: rgba(255,255,255,.04); cursor: pointer; transition: transform 260ms var(--ease), border-color 260ms var(--ease), background 260ms var(--ease), box-shadow 260ms var(--ease); }
+.tour-choice-option strong { font-size: 29px; font-weight: 600; line-height: 1.05; }
+.tour-choice-option span:not(.tour-choice-option__kicker):not(.tour-choice-option__cta) { color: rgba(255,255,255,.72); font-size: 15px; line-height: 1.5; }
+.tour-choice-option__kicker { color: #e7d2a4; font-family: 'Montserrat', Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.tour-choice-option__cta { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; color: #fff; font-size: 14px; font-weight: 700; }
+.tour-choice-option--active:hover { transform: translateY(-4px); border-color: rgba(231,195,111,.52); background: rgba(231,195,111,.08); box-shadow: 0 18px 42px rgba(0,0,0,.2); }
+.tour-choice-option--disabled { opacity: .64; cursor: not-allowed; }
+.tour-choice-option--disabled .tour-choice-option__cta { color: rgba(255,255,255,.62); }
 
 /* Modal */
 .modal { position: fixed; inset: 0; z-index: 500; }
@@ -756,6 +775,12 @@ h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; letter-spacing: -0.03
   .gallery-lightbox__close { right: 12px; top: 12px; }
   .tour-frame-modal__actions { right: 10px; top: 10px; }
   .tour-frame-modal__actions a, .tour-frame-modal__actions button { width: 42px; height: 42px; }
+  .tour-choice-modal { padding: 18px; }
+  .tour-choice-modal__card { padding: 26px 18px 18px; border-radius: 24px; }
+  .tour-choice-modal__card p { margin-bottom: 18px; font-size: 15px; }
+  .tour-choice-modal__options { grid-template-columns: 1fr; }
+  .tour-choice-option { min-height: 0; padding: 18px; border-radius: 20px; }
+  .tour-choice-option strong { font-size: 24px; }
   .house-modal__body { padding: 26px 20px 32px; }
   .house-modal__heading h2 { font-size: 36px; }
   .house-modal__facts { grid-template-columns: 1fr; }

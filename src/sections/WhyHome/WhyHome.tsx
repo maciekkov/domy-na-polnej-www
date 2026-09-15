@@ -44,7 +44,7 @@ export function WhyHome() {
         </div>
 
         <figure className="why-home__visual">
-          <img src="/assets/images/why-home.webp" alt="Dom na Polnej od strony przestronnego, zielonego ogrodu" width="1700" height="950" loading="eager" decoding="async" />
+          <img src={asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp')} alt="Dom na Polnej od strony ogrodu z widokiem na tylną elewację" width="1672" height="941" loading="eager" decoding="async" />
         </figure>
       </div>
     </section>
