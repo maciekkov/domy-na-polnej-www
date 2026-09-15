@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import './HeroRefinement.css'
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
@@ -69,7 +70,7 @@ export function Hero() {
             <a className="button button--light" href="#domy">
               Zobacz domy i ceny <ArrowRight size={17} aria-hidden="true" />
             </a>
-            <a className="button button--outline" href="#galeria">
+            <a className="button button--outline" href="#spacer-360">
               Wejdź do spaceru — <strong>360°</strong> <ArrowRight size={17} aria-hidden="true" />
             </a>
           </div>

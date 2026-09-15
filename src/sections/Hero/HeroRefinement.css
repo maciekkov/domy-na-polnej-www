@@ -1,0 +1,16 @@
+/* Final Hero-only refinements requested 15.09.2026.
+   Intentionally scoped to .hero so no other section can inherit these changes. */
+.hero .hero__fact dt {
+  color: #fff;
+  text-shadow: none;
+}
+
+.hero .button--outline strong {
+  color: #fff;
+}
+
+@media (min-width: 961px) {
+  .hero .hero__copy {
+    transform: translate(-22px, 18px);
+  }
+}

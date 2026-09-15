@@ -1,0 +1,299 @@
+/*
+  Isolated styling for section 08 only.
+  Deliberately uses security-ref__* selectors so this iteration cannot leak into
+  Hero, Homes, WhyHome, Standard, masterplan or any other site section.
+*/
+
+.security-ref__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.security-ref__pillar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 154px;
+  padding: 24px 24px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 193, 108, .62);
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(197, 174, 91, .10), transparent 42%),
+    rgba(255, 255, 255, .026);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .025),
+    0 0 0 1px rgba(226, 193, 108, .08),
+    0 0 20px rgba(226, 193, 108, .13),
+    0 8px 30px rgba(0, 0, 0, .10);
+}
+
+.security-ref__pillar::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(255, 236, 175, .10), transparent 24%, transparent 76%, rgba(227, 194, 109, .08));
+  opacity: .75;
+}
+
+.security-ref__pillar-icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(219, 190, 102, .32);
+  border-radius: 50%;
+  color: #f0e5c8;
+  background: radial-gradient(circle at 38% 28%, rgba(208, 190, 99, .28), rgba(94, 105, 54, .76) 74%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 0 18px rgba(198, 179, 89, .13);
+}
+
+.security-ref__pillar-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.55;
+}
+
+.security-ref__pillar > div {
+  position: relative;
+  z-index: 1;
+}
+
+.security-ref__pillar h3 {
+  margin: 2px 0 7px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.security-ref__pillar p {
+  margin: 0;
+  color: rgba(255,255,255,.66);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.security-ref__process {
+  margin-top: 39px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.security-ref__process-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 31px;
+}
+
+.security-ref__process-heading h3 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.security-ref__process-heading p {
+  margin: 0;
+  color: rgba(255,255,255,.60);
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.security-ref__timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.security-ref__step {
+  position: relative;
+  min-width: 0;
+}
+
+.security-ref__step-head {
+  width: 88px;
+  margin-bottom: 17px;
+  text-align: center;
+}
+
+.security-ref__medallion {
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  border: 1px solid rgba(222, 191, 109, .82);
+  border-radius: 50%;
+  color: #e4cf98;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255,255,255,.035), transparent 36%),
+    rgba(17, 24, 23, .58);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.025),
+    0 8px 18px rgba(0,0,0,.13);
+}
+
+.security-ref__medallion svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.55;
+}
+
+.security-ref__step-head b {
+  display: block;
+  margin-top: 11px;
+  color: #e6d29f;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .05em;
+}
+
+.security-ref__connector {
+  position: absolute;
+  top: 42px;
+  left: 99px;
+  width: calc(100% + 28px - 99px + 1px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(224, 197, 129, .27), rgba(224, 197, 129, .52), rgba(224, 197, 129, .27));
+  pointer-events: none;
+}
+
+.security-ref__connector i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  color: rgba(232, 208, 150, .90);
+  background: #252a2c;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 25px;
+  font-style: normal;
+  line-height: 1;
+  transform: translate(-50%, -54%);
+}
+
+.security-ref__step h4 {
+  margin: 0 0 7px;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.24;
+}
+
+.security-ref__step > p {
+  margin: 0;
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1080px) {
+  .security-ref__pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .security-ref__timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 32px;
+  }
+
+  .security-ref__connector {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .security-ref__pillar {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 14px;
+    min-height: 0;
+    padding: 19px 18px;
+  }
+
+  .security-ref__pillar-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .security-ref__pillar-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .security-ref__process-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 27px;
+  }
+
+  .security-ref__process-heading p {
+    text-align: left;
+  }
+
+  .security-ref__timeline {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .security-ref__step {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+  }
+
+  .security-ref__step-head {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 68px;
+    margin: 0;
+  }
+
+  .security-ref__medallion {
+    width: 64px;
+    height: 64px;
+  }
+
+  .security-ref__medallion svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .security-ref__step-head b {
+    margin-top: 7px;
+    font-size: 14px;
+  }
+
+  .security-ref__step h4 {
+    grid-column: 2;
+    align-self: end;
+    margin-top: 4px;
+    font-size: 18px;
+  }
+
+  .security-ref__step > p {
+    grid-column: 2;
+  }
+}

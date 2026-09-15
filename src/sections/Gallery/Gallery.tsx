@@ -50,7 +50,7 @@ export function Gallery({ selectedHouse }: GalleryProps) {
           ))}
         </div>
 
-        <div className="immersive-heading">
+        <div id="spacer-360" className="immersive-heading" style={{ scrollMarginTop: '88px' }}>
           <div><span>Dwa sposoby oglądania</span><h3>Wejdź w Spacer 360 albo obejrzyj panoramę okolicy.</h3></div>
           <p>Spacer prowadzi obecnie wokół domu i działki. Zobacz podjazd, wejście, wiatę, ogród i taras, a osobno uruchom prawdziwą panoramę 360° z drona.</p>
         </div>
