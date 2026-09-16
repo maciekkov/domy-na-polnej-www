@@ -15,7 +15,6 @@ import './styles/tokens.css'
 import './styles/globals.css'
 import './styles/motion.css'
 import './styles/admin.css'
-import './styles/v6-production.css'
 
 const route = window.location.pathname.replace(/\/+$/, '') || '/'
 const isLocalHost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)
@@ -30,5 +29,7 @@ function RoutedApp() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode><SiteDataProvider><RoutedApp /></SiteDataProvider></React.StrictMode>,
+  <React.StrictMode>
+    <SiteDataProvider><RoutedApp /></SiteDataProvider>
+  </React.StrictMode>,
 )

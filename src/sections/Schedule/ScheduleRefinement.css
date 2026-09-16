@@ -1,4 +1,14 @@
 /* Local-only replacement of the visual in “Od działki do kluczy”. */
-.schedule-section .schedule-section__visual--agreement::after { display: none; }
-.schedule-section .schedule-section__visual--agreement > img { object-fit: cover; object-position: center; transform: none; }
-.schedule-section .schedule-section__visual--agreement:hover > img { transform: none; }
+.schedule-section .schedule-section__visual--agreement::after {
+  display: none;
+}
+
+.schedule-section .schedule-section__visual--agreement > img {
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+}
+
+.schedule-section .schedule-section__visual--agreement:hover > img {
+  transform: none;
+}

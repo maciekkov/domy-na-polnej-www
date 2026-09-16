@@ -49,6 +49,7 @@ function storeLocal(event: AnalyticsEvent) {
     current.push(event)
     localStorage.setItem(ANALYTICS_EVENTS_KEY, JSON.stringify(current.slice(-5000)))
   } catch {
+    // Local preview analytics must never interrupt the sales path.
   }
 }
 
@@ -73,6 +74,7 @@ function sendFirstParty(event: AnalyticsEvent) {
       keepalive: true,
     })
   } catch {
+    // Analytics is optional and must never interrupt the sales path.
   }
 }
 

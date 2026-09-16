@@ -18,8 +18,10 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 RewriteBase /
 
+# Istniejące pliki i katalogi obsługuje serwer bez udziału SPA.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# Pozostałe, nieznane ścieżki mają zwracać prawdziwe 404 zamiast strony głównej.
 RewriteRule ^ - [R=404,L]

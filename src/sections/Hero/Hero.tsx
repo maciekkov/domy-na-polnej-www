@@ -12,8 +12,8 @@ const facts = [
 ]
 
 const heroSlides = [
-  { src: asset('assets/images/gallery/aerial.webp'), alt: 'Widok całej inwestycji Domy na Polnej — pięć domów w jednym rzędzie' },
-  { src: asset('assets/images/hero_front_nowe.webp'), alt: 'Fotorealistyczny front domu z ogrodem, wejściem i wiatą' },
+  { src: asset('assets/images/hero-all-houses.webp'), alt: 'Widok całej inwestycji Domy na Polnej — pięć domów w jednym rzędzie' },
+  { src: asset('assets/images/hero-front-photoreal.webp'), alt: 'Fotorealistyczny front domu z ogrodem, wejściem i wiatą' },
   { src: asset('assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp'), alt: 'Zbliżenie na podcień wejściowy i strefę wejścia domu' },
   { src: asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp'), alt: 'Tylna elewacja domu z ogrodem i tarasem' },
 ]

@@ -24,6 +24,8 @@ const masterplanPaths: Record<HouseId, string> = {
 const statusClass = (status: House['status']) => status === 'Rezerwacja' ? 'reserved' : status === 'Sprzedany' ? 'sold' : 'available'
 
 export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }: MasterplanProps) {
+  // Hover has visual priority. When the cursor leaves the plan, the clicked/selected
+  // parcel becomes the only highlighted one again.
   const visualActiveId = hoveredId ?? selectedId
 
   const handleKey = (event: KeyboardEvent<SVGPathElement>, id: HouseId) => {

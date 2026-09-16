@@ -50,6 +50,7 @@ $file = $dataDir . '/analytics-' . gmdate('Y-m-d') . '.ndjson';
 $line = json_encode($record, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n";
 if (file_put_contents($file, $line, FILE_APPEND | LOCK_EX) === false) respond(503, ['ok' => false]);
 
+// Lekki housekeeping: sporadycznie usuń pliki starsze niż 395 dni.
 if (random_int(1, 100) === 1) {
     $cutoff = time() - 395 * 86400;
     foreach (glob($dataDir . '/analytics-*.ndjson') ?: [] as $candidate) {

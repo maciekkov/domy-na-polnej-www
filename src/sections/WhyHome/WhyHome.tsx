@@ -30,14 +30,27 @@ export function WhyHome() {
           <div className="section-kicker"><b>03 / 12</b><span />Dlaczego ten dom</div>
           <h2 id="why-home-title">Więcej niż dom.<br />Większa jakość życia.</h2>
           <p className="why-home__lead">Domy na Polnej to połączenie nowoczesnej architektury, prywatności i bliskości natury. Miejsce stworzone z myślą o rodzinach, które szukają spokoju, przestrzeni i trwałej wartości.</p>
+
           <div className="why-home__benefits">
             {benefits.map(({ icon, title, text }) => (
-              <article className="benefit" key={title}><img className="benefit__icon" src={asset(icon)} alt="" aria-hidden="true" loading="lazy" decoding="async" /><h3>{title}</h3><p>{text}</p></article>
+              <article className="benefit" key={title}>
+                <img className="benefit__icon" src={asset(icon)} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
             ))}
           </div>
-          <div className="why-home__certainty" aria-label="Przewaga gotowego procesu"><strong>Dom bez prowadzenia budowy samemu</strong><p>Znany zakres, określony standard i uporządkowany proces — zamiast samodzielnego koordynowania projektu, wykonawców, dostaw i odbiorów.</p></div>
+
+          <div className="why-home__certainty" aria-label="Przewaga gotowego procesu">
+            <strong>Dom bez prowadzenia budowy samemu</strong>
+            <p>Znany zakres, określony standard i uporządkowany proces — zamiast samodzielnego koordynowania projektu, wykonawców, dostaw i odbiorów.</p>
+          </div>
+
         </div>
-        <figure className="why-home__visual"><img src={asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp')} alt="Dom na Polnej od strony ogrodu z widokiem na tylną elewację" width="1672" height="941" loading="lazy" decoding="async" /></figure>
+
+        <figure className="why-home__visual">
+          <img src={asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp')} alt="Dom na Polnej od strony ogrodu z widokiem na tylną elewację" width="1672" height="941" loading="lazy" decoding="async" />
+        </figure>
       </div>
     </section>
   )
