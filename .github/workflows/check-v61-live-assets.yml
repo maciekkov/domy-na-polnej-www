@@ -1,0 +1,44 @@
+name: Check V6.1 live assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/check-v61-live-assets.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check exact V6.1 asset URLs
+        shell: bash
+        run: |
+          set +e
+          base="https://domynapolnej.pl/assets/images"
+          assets=(
+            "hero-all-houses.webp"
+            "hero-front-photoreal.webp"
+            "schedule/umowa_deweloperska.webp"
+            "standard/standard-lifestyle.webp"
+            "location-map.webp"
+            "layout/plan-2d-precise.webp"
+            "team/mateusz-kempinski-site-manager-v108.webp"
+            "team/mr-atelier-portfolio-panel.webp"
+            "dnp-masterplan.svg"
+          )
+          for rel in "${assets[@]}"; do
+            tmp="/tmp/$(echo "$rel" | tr '/' '_')"
+            code=$(curl -L --connect-timeout 10 --max-time 45 -sS -w "%{http_code}" -o "$tmp" "$base/$rel")
+            if [ "$code" = "200" ]; then
+              bytes=$(stat -c%s "$tmp")
+              gitsha=$(git hash-object "$tmp")
+              sha1=$(sha1sum "$tmp" | awk '{print $1}')
+              echo "ASSET|$rel|HTTP=$code|BYTES=$bytes|GIT_SHA=$gitsha|SHA1=$sha1"
+            else
+              echo "ASSET|$rel|HTTP=$code"
+            fi
+          done
