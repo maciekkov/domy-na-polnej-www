@@ -1,40 +1,138 @@
-# Domy na Polnej — strona 01–12 + panel administratora DEMO
+# Domy na Polnej — V6 production-ready source package
 
-Kompletna strona inwestycji z sekcjami 01–12, galerią, spacerem 360°, panoramą dronową, dokumentami PDF, formularzem oraz spójnym panelem administracyjnym.
+Aktualna paczka strony inwestycji Domy na Polnej. Zawiera frontend React/Vite, formularz PHP, first-party analytics, strony prawne, SEO, spacer 360°, panoramę, dokumenty PDF i lokalny panel administratora DEMO.
 
-Wersja zawiera finalne poprawki wizualne: pełnoekranowy hero, uporządkowany masterplan bez bocznego panelu, numery działek 589/20–589/16, kompaktowy interaktywny rzut, ikony wycięte z dostarczonej planszy, uczciwy placeholder dziennika budowy z newsletterem oraz odświeżony proces zakupu i kontakt MK Develop 2006.
+## Uruchomienie lokalne
 
-## Najprostszy podgląd
-
-- Windows: uruchom `START_PREVIEW.bat`.
-- macOS / Linux: uruchom `./START_PREVIEW.sh` lub `node preview-server.mjs`.
-- Strona publiczna: `http://127.0.0.1:4173/`
-- Panel: `http://127.0.0.1:4173/administrator`
-- Login demo: `admin`
-- Hasło demo: `admin`
-
-Gotowy katalog `dist` znajduje się w paczce, więc podgląd nie wymaga budowania projektu.
-
-## Praca developerska
+Wymagania: Node.js 20+ i npm.
 
 ```bash
-npm ci
+npm install
 npm run dev
-npm run typecheck
-npm test
+```
+
+Następnie otwórz adres pokazany przez Vite, standardowo `http://localhost:5173/`.
+
+Panel administratora DEMO działa wyłącznie lokalnie pod `/administrator` lub `/administracja`.
+Login demo: `admin`  
+Hasło demo: `admin`
+
+## Podgląd wersji produkcyjnej
+
+Po jednorazowym `npm install` możesz użyć:
+
+- Windows: `START_PREVIEW.bat`
+- macOS/Linux: `./START_PREVIEW.sh`
+
+Skrypt wykonuje `npm run build`, tworzy kompletny `dist` i uruchamia podgląd na `http://127.0.0.1:4173/`.
+
+`dist` jest artefaktem generowanym podczas builda, a nie źródłem prawdy repozytorium. Dzięki temu nie ma ryzyka, że w paczce pozostanie stary build niezgodny z kodem.
+
+## Build produkcyjny
+
+```bash
 npm run build
 ```
 
-Testy przeglądarkowe: `npm run test:visual` i `npm run test:admin` (wymagają działającego serwera podglądu i Chromium Playwright).
+Build wykonuje kolejno:
 
-## Panel DEMO
+1. TypeScript typecheck,
+2. Vite production build,
+3. `scripts/prepare-dist.mjs`, który dokłada API, statyczne warianty stron prawnych i własny `404.html`.
 
-Panel obejmuje: Pulpit, Domy i ceny, Budowę, Dokumenty, Zapytania, Analitykę i Ustawienia. Zmiany trafiają najpierw do draftu i stają się widoczne publicznie dopiero po użyciu „Publikuj zmiany”. W tej paczce dane są zapisywane lokalnie w przeglądarce.
+Wynik: `dist/`.
 
-Login `admin/admin` nie jest zabezpieczeniem produkcyjnym. Przed wdrożeniem publicznym trzeba podłączyć backend, bazę, hashowane hasła i bezpieczne sesje.
+## Formularz kontaktowy — konfiguracja serwera
 
-## Bezpieczeństwo integracji cenowej
+Sekretów SMTP celowo nie ma w repozytorium ani w `dist`.
 
-Gov Sync pozostaje wyłącznie podglądem DEMO. Nie zawiera endpointu ani danych dostępowych i nie może wysłać żadnego żądania zewnętrznego.
+1. Skopiuj `api/config.example.php` do `api/config.php`.
+2. Uzupełnij prawdziwe dane skrzynki SMTP wyłącznie na serwerze.
+3. Po wdrożeniu umieść ten prywatny plik jako `dist/api/config.php` / `/api/config.php` zależnie od sposobu publikacji.
+4. Nie commituj `api/config.php` — jest chroniony przez `.gitignore`.
 
-Pełne ustalenia i lista materiałów do potwierdzenia znajdują się w `AUDIT_IMPLEMENTACJI.md` oraz `MISSING_CONTENT.md`.
+Domyślna konfiguracja zakłada domenową skrzynkę `biuro@domynapolnej.pl` i serwer SMTP Hostinger zgodnie z poprzednią konfiguracją projektu. Hasło musi zostać wprowadzone ręcznie na serwerze.
+
+## Wdrożenie
+
+Szczegółowa checklista: `DEPLOYMENT.md`.
+
+Najprostszy wariant na hostingu Apache/PHP:
+
+```bash
+npm install
+npm run build
+```
+
+Następnie wgraj zawartość `dist/` do katalogu WWW i dodaj prywatny `api/config.php`.
+
+## Co zmieniono w V6
+
+Najważniejsze elementy:
+
+- poprawny proces build/deployment frontend + PHP API,
+- brak sekretów SMTP w paczce,
+- rzeczywiste strony Polityki prywatności i Cookies,
+- canonical, robots.txt, sitemap.xml, Open Graph, Twitter Card i JSON-LD,
+- prawdziwe HTTP 404 dla nieznanych tras,
+- panel administratora DEMO dostępny tylko lokalnie,
+- usunięty newsletter udający zapis bez backendu,
+- first-party analytics po zgodzie, z identyfikatorem sesji i bez danych formularza,
+- poprawione liczenie sesji w lokalnym panelu DEMO,
+- zoptymalizowane pozostałe assety; masterplan pozostaje celowo 1:1 z poprzedniej wersji: pełny `dnp-masterplan.svg` wraz z oryginalnym kompasem,
+- właściwy preload Hero i tylko jeden renderowany obraz Hero naraz,
+- lazy-loading elementów poniżej pierwszego ekranu,
+- FAQ: 17 pytań, 3 grupy desktop, wcześniejsze przejście do 2 kolumn przy 880–1100 px,
+- większa minimalna typografia FAQ i formularza,
+- walidacja opcjonalnego e-maila w przeglądarce,
+- link do polityki prywatności w zgodzie formularza,
+- pełniejsza obsługa klawiatury zakładek i focus-trapy w modalach,
+- argument sprzedażowy względem samodzielnego prowadzenia budowy,
+- cena „od 779 000 zł” pokazana wcześniej w Hero,
+- jednoznaczne CTA „Zadzwoń”.
+
+Pełna lista: `CHANGELOG_V6_PRODUCTION.md`.
+
+## Testy
+
+```bash
+npm test
+npm run build
+npm run test:visual
+npm run test:admin
+```
+
+Lub pełny przebieg:
+
+```bash
+npm run test:all
+```
+
+`npm test` jest niezależnym audytem źródeł i sprawdza m.in. wymagany oryginalny masterplan SVG, brak pozostałych ciężkich, nieużywanych assetów, 17 pozycji FAQ, harmonogram 0/1/4, SEO, routing, API i prywatność danych.
+
+Testy Playwright generują aktualne screenshoty do `qa/`.
+
+## Dane publiczne
+
+Kontakt na stronie:
+
+- tel. `+48 455 563 962`
+- e-mail `biuro@domynapolnej.pl`
+- inwestycja: Grabik, ul. Polna, 68-200 Żary
+
+Dane administratora strony użyte w stopce/polityce prywatności:
+
+- X-SMART DEVELOP sp. z o.o.
+- ul. Warszawska 58/3, 68-300 Lubsko
+- KRS 0001091198
+- NIP 8943230686
+- REGON 527945971
+
+## Ważne przed publikacją
+
+Pozostają dwie rzeczy wymagające danych spoza kodu:
+
+1. wprowadzenie prawdziwego hasła SMTP do prywatnego `api/config.php` na serwerze,
+2. podpięcie finalnego prospektu informacyjnego, gdy jego publikacyjna wersja będzie gotowa.
+
+Panel `/administrator` nadal jest narzędziem demonstracyjnym do lokalnego zarządzania wariantem strony. Nie jest publicznym CMS-em i celowo nie działa na domenie produkcyjnej.

@@ -12,12 +12,6 @@ export type TeamMember = {
   website?: string
 }
 
-export type Testimonial = {
-  quote: string
-  name: string
-  detail: string
-}
-
 export const teamMembers: TeamMember[] = [
   {
     id: 'maciej-kowalski',
@@ -46,19 +40,5 @@ export const teamMembers: TeamMember[] = [
     brandGraphicAlt: 'Panel pracowni architektonicznej MR Atelier',
     brandLogo: '/assets/images/team/mr-atelier-logo.png',
     website: 'https://mratelier.pl/',
-  },
-]
-
-// Treści pochodzą z zaakceptowanej planszy referencyjnej sekcji 11–12.
-export const testimonials: Testimonial[] = [
-  {
-    quote: 'Profesjonalne podejście, świetna komunikacja i wysoka jakość wykonania. Cały proces przebiegł sprawnie i bez stresu. Z przyjemnością polecam.',
-    name: 'Tomasz K.',
-    detail: 'Klient, Żary',
-  },
-  {
-    quote: 'Rzetelny lokalny inwestor, któremu naprawdę zależy na jakości i dobrych relacjach z klientami. Widać zaangażowanie na każdym etapie.',
-    name: 'Katarzyna S.',
-    detail: 'Klientka, Żary',
   },
 ]

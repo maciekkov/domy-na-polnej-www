@@ -10,48 +10,48 @@ export type ScheduleStage = {
 }
 
 /**
- * Copy and dates currently mirror the accepted section 09 reference board.
- * Before production publication, confirm the schedule against the current investor HRF.
+ * Public, high-level schedule aligned with the current investor HRF baseline.
+ * The detailed HRF/OMRP remains the source of truth for contractual stages.
  */
 export const scheduleStages: ScheduleStage[] = [
   {
     id: 'I',
     title: 'Przygotowanie inwestycji',
-    description: 'Zakup działki, projekt, uzgodnienia, pozwolenia.',
-    status: 'Zakończone',
-    term: 'IV kw. 2024',
-    state: 'completed',
+    description: 'Dokumentacja, finansowanie, kontraktacja oraz przygotowanie terenu i infrastruktury do rozpoczęcia robót.',
+    status: 'W trakcie',
+    term: '2026 – I kw. 2027',
+    state: 'current',
   },
   {
     id: 'II',
     title: 'Start budowy',
-    description: 'Rozpoczęcie prac na działce.',
-    status: 'Zakończone',
-    term: 'I kw. 2025',
-    state: 'completed',
+    description: 'Rozpoczęcie robót budowlanych i prac stanu zero.',
+    status: 'Planowane',
+    term: 'marzec 2027',
+    state: 'planned',
   },
   {
     id: 'III',
     title: 'Stan surowy',
-    description: 'Fundamenty, ściany, stropy, dach.',
-    status: 'W trakcie',
-    term: 'II–III kw. 2025',
-    state: 'current',
+    description: 'Fundamenty, konstrukcja, ściany, dach i zamknięcie brył budynków.',
+    status: 'Planowane',
+    term: '2027',
+    state: 'planned',
   },
   {
     id: 'IV',
     title: 'Instalacje i wykończenie',
-    description: 'Instalacje wewnętrzne, tynki, elewacja, wykończenia.',
+    description: 'Instalacje, tynki, posadzki, elewacje oraz prace związane z zagospodarowaniem działek.',
     status: 'Planowane',
-    term: 'III–IV kw. 2025',
+    term: '2027 – I kw. 2028',
     state: 'planned',
   },
   {
     id: 'V',
     title: 'Odbiory i przekazanie',
-    description: 'Kontrole, odbiory techniczne, przekazanie kluczy.',
+    description: 'Kontrole, dokumentacja powykonawcza, odbiory domów i przygotowanie do przeniesienia własności.',
     status: 'Planowane',
-    term: 'I kw. 2026',
+    term: 'I kw. 2028',
     state: 'planned',
   },
 ]

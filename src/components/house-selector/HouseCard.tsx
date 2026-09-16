@@ -48,16 +48,7 @@ export function HouseCard({ house, fallbackHouse, onAsk }: HouseCardProps) {
             <Download size={18} aria-hidden="true" /> Pobierz kartę PDF
           </a>
         </>
-      ) : (
-        <div className="house-card__placeholder-note">
-          <p>Kliknij działkę na masterplanie albo wybierz odpowiedni rekord w tabeli, aby odświeżyć szczegóły po prawej stronie.</p>
-          <ul className="house-card__placeholder-list" aria-label="Instrukcja wyboru domu">
-            <li><span>A–E</span> wybór na planie</li>
-            <li><span>SVG</span> kolor statusu po najechaniu</li>
-            <li><span>Tabela</span> kliknięcie również wybiera dom</li>
-          </ul>
-        </div>
-      )}
+      ) : null}
     </article>
   )
 }

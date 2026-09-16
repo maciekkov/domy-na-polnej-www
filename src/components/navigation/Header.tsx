@@ -2,6 +2,7 @@ import { Menu, Phone, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { BrandLogo } from '../common/BrandLogo'
 import type { ContactData } from '../../data/runtime/types'
+import { track } from '../../lib/analytics'
 
 type HeaderProps = {
   activeSection: 'hero' | 'homes' | 'why-home' | 'location' | 'layout' | 'gallery' | 'standard' | 'security' | 'schedule' | 'journal' | 'team' | 'faq'
@@ -37,10 +38,8 @@ export function Header({ activeSection, contact }: HeaderProps) {
   }, [menuOpen])
 
   const darkHeader = scrolled || menuOpen
-
-  const handleNav = () => {
-    setMenuOpen(false)
-  }
+  const handleNav = () => setMenuOpen(false)
+  const phoneClick = () => track('phone_click')
 
   return (
     <header className={`site-header ${darkHeader ? 'site-header--scrolled' : ''}`}>
@@ -63,11 +62,11 @@ export function Header({ activeSection, contact }: HeaderProps) {
         </nav>
 
         <div className="site-header__actions">
-          <a className="site-header__phone" href={contact.phoneHref} aria-label={`Zadzwoń: ${contact.phoneDisplay}`}>
+          <a className="site-header__phone" href={contact.phoneHref} aria-label={`Zadzwoń: ${contact.phoneDisplay}`} onClick={phoneClick}>
             <Phone size={16} aria-hidden="true" />
             <span>{contact.phoneDisplay}</span>
           </a>
-          <a className="button button--header" href={contact.phoneHref}>Umów rozmowę</a>
+          <a className="button button--header" href={contact.phoneHref} onClick={phoneClick}>Zadzwoń</a>
         </div>
 
         <button
@@ -84,15 +83,9 @@ export function Header({ activeSection, contact }: HeaderProps) {
 
       <nav id="mobile-menu" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Nawigacja mobilna">
         {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            onClick={handleNav}
-          >
-            {item.label}<span aria-hidden="true">↗</span>
-          </a>
+          <a key={item.label} href={item.href} onClick={handleNav}>{item.label}<span aria-hidden="true">↗</span></a>
         ))}
-        <a className="button button--olive" href={contact.phoneHref}>Zadzwoń: {contact.phoneDisplay}</a>
+        <a className="button button--olive" href={contact.phoneHref} onClick={phoneClick}>Zadzwoń: {contact.phoneDisplay}</a>
       </nav>
     </header>
   )

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /administrator
+Disallow: /administracja
+Disallow: /api/
+
+Sitemap: https://domynapolnej.pl/sitemap.xml

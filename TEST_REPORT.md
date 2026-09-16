@@ -1,20 +1,17 @@
-# Raport testów — strona 01–12 + panel DEMO
+# TEST REPORT — V6.1
 
-Data weryfikacji: 14.09.2026.
+Data: 16.09.2026
 
-## Wynik końcowy
+Repozytorium zawiera zsynchronizowane testy źródłowe i przeglądarkowe dla V6.1.
 
-- `npm run typecheck` — PASS.
-- `npm test` — PASS: struktura 01–12, panel, runtime data, zgody i formularz.
-- `npm run build` — PASS: produkcyjny katalog `dist` wygenerowany.
-- `npm run test:visual` — PASS: 1440, 1024 i 390 px, brak poziomego overflow, sekcje 01–12, galeria, spacer, panorama, plan, Standard, proces, harmonogram, dziennik, FAQ, formularz i modale.
-- `npm run test:admin` — PASS: błędne i poprawne logowanie, siedem modułów, publikacja snapshotu do strony publicznej, modal/Escape oraz mobilny sidebar.
-- nowy masterplan — PASS: dokładny obraz źródłowy, pięć ścieżek SVG, hover/focus/click oraz synchronizacja domu C z tabelą i modalem.
+`npm test` sprawdza m.in.: oryginalny `dnp-masterplan.svg`, brak `masterplan.webp`, routing/404, API, SEO, 17 FAQ, harmonogram 0/1/4, formularz, analitykę i responsywność.
 
-## Ostrzeżenie builda
+`npm run test:visual` sprawdza 1440/1024/390 px, aktywny SVG masterplanu, 17 FAQ, układ 2-kolumnowy FAQ przy 1024 px, harmonogram oraz strony prawne i HTTP 404.
 
-Moduł Three.js używany przez panoramę ma około 735 kB przed gzip i jest ładowany dynamicznie dopiero po otwarciu panoramy. Vite zgłasza standardowe ostrzeżenie o rozmiarze chunka, ale nie jest to błąd kompilacji ani obciążenie pierwszego widoku.
+Pełny przebieg po instalacji zależności:
 
-## Ograniczenie środowiska
+```bash
+npm run test:all
+```
 
-Nie wykonano lokalnego `php -l`, ponieważ interpreter PHP nie jest dostępny w bieżącym środowisku. Endpoint był wcześniej obecny i pozostaje objęty testem źródłowym pod kątem rate limitu, honeypotu, sanityzacji oraz braku sekretów SMTP w repozytorium.
+Sekrety SMTP nie są częścią testów ani repozytorium.

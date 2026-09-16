@@ -12,42 +12,51 @@ const facts = [
 ]
 
 const heroSlides = [
-  {
-    desktop: asset('assets/images/house-front.webp'),
-    mobile: asset('assets/images/house-front.webp'),
-    alt: 'Front domu z ogrodem frontowym, wejściem i wiatą',
-  },
-  {
-    desktop: asset('assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp'),
-    mobile: asset('assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp'),
-    alt: 'Zbliżenie na podcień wejściowy i strefę wejścia domu',
-  },
-  {
-    desktop: asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp'),
-    mobile: asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp'),
-    alt: 'Tylna elewacja domu z ogrodem i tarasem',
-  },
+  { src: asset('assets/images/gallery/aerial.webp'), alt: 'Widok całej inwestycji Domy na Polnej — pięć domów w jednym rzędzie' },
+  { src: asset('assets/images/hero_front_nowe.webp'), alt: 'Fotorealistyczny front domu z ogrodem, wejściem i wiatą' },
+  { src: asset('assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp'), alt: 'Zbliżenie na podcień wejściowy i strefę wejścia domu' },
+  { src: asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp'), alt: 'Tylna elewacja domu z ogrodem i tarasem' },
 ]
 
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [reduceMotion, setReduceMotion] = useState(false)
 
   useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduceMotion(query.matches)
+    update()
+    query.addEventListener?.('change', update)
+    return () => query.removeEventListener?.('change', update)
+  }, [])
+
+  useEffect(() => {
+    if (reduceMotion) return
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length)
-    }, 4000)
+    }, 5000)
     return () => window.clearInterval(interval)
-  }, [])
+  }, [reduceMotion])
+
+  useEffect(() => {
+    if (reduceMotion) return
+    const timer = window.setTimeout(() => {
+      const next = heroSlides[(activeSlide + 1) % heroSlides.length]
+      const preload = new Image()
+      preload.decoding = 'async'
+      preload.src = next.src
+    }, 1400)
+    return () => window.clearTimeout(timer)
+  }, [activeSlide, reduceMotion])
+
+  const slide = heroSlides[activeSlide]
 
   return (
     <section className="hero" id="start" aria-labelledby="hero-title">
       <div className="hero__media-stack" aria-hidden="true">
-        {heroSlides.map((slide, index) => (
-          <picture className={`hero__media hero__media--slide ${activeSlide === index ? 'is-active' : ''}`} key={slide.desktop}>
-            <source media="(max-width: 640px)" srcSet={slide.mobile} />
-            <img src={slide.desktop} alt={slide.alt} width="1672" height="941" fetchPriority={index === 0 ? 'high' : 'auto'} />
-          </picture>
-        ))}
+        <picture className="hero__media hero__media--slide is-active" key={slide.src}>
+          <img src={slide.src} alt="" width="1672" height="941" loading="eager" fetchPriority="high" decoding="async" />
+        </picture>
       </div>
       <div className="hero__shade" aria-hidden="true" />
 
@@ -65,6 +74,8 @@ export function Hero() {
               </div>
             ))}
           </dl>
+
+          <p className="hero__price"><span>Aktualne ceny</span><strong>od 779 000 zł</strong></p>
 
           <div className="hero__buttons">
             <a className="button button--light" href="#domy">

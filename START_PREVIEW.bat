@@ -1,9 +1,5 @@
 @echo off
-where node >nul 2>nul
-if errorlevel 1 (
-  echo Do uruchomienia podgladu potrzebny jest Node.js: https://nodejs.org/
-  pause
-  exit /b 1
-)
-start "" "http://127.0.0.1:4173"
+setlocal
+call npm run build
+if errorlevel 1 exit /b %errorlevel%
 node preview-server.mjs

@@ -1,54 +1,94 @@
 export type FaqItem = { id: string; question: string; answer: string }
 
+/**
+ * FAQ is intentionally based on the current project documents rather than the
+ * early visual-reference copy. Dates and transactional mechanics must stay in
+ * sync with the current HRF / contract package before production publication.
+ */
 export const faqItems: FaqItem[] = [
   {
-    id: 'completion',
-    question: 'Kiedy planowane jest zakończenie?',
-    answer: 'Planowane zakończenie budowy to I kwartał 2026 roku. Harmonogram może ulec niewielkim zmianom, o których zawsze informujemy z wyprzedzeniem.',
+    id: 'timeline',
+    question: 'Kiedy rozpocznie się budowa i kiedy planowane są odbiory?',
+    answer: 'Start robót budowlanych planowany jest na marzec 2027 roku. Aktualny harmonogram roboczy zakłada realizację przedsięwzięcia do końca lutego 2028 roku. Termin odbioru konkretnego domu oraz termin przeniesienia własności będą wskazane w Karcie Domu i dokumentach umownych dotyczących wybranej nieruchomości.',
   },
   {
-    id: 'standard',
-    question: 'Co obejmuje standard?',
-    answer: 'Standard obejmuje m.in. pompę ciepła, rekuperację, ogrzewanie podłogowe, rolety elektryczne, stolarkę trzyszybową, duże przeszklenia, przygotowanie PV oraz ogrodzenie. Pełny zakres znajduje się w dokumencie Standard techniczny.',
+    id: 'formal-status',
+    question: 'Jaki jest status formalny inwestycji?',
+    answer: 'Inwestycja posiada ostateczną decyzję o warunkach zabudowy oraz uzyskane pozwolenie na budowę. Przed zawarciem umowy nabywca otrzymuje dokumentację dotyczącą konkretnego domu, w tym prospekt informacyjny i dokumenty wymagane dla transakcji deweloperskiej.',
   },
   {
     id: 'plot',
-    question: 'Czy działka jest własnością kupującego?',
-    answer: 'Każdy dom jest oferowany wraz z przypisaną działką. Szczegółowy sposób przeniesienia własności i dokumentacja prawna są przedstawiane kupującemu przed podpisaniem umowy.',
+    question: 'Czy działka będzie własnością kupującego?',
+    answer: 'Tak. Każdy dom A–E jest realizowany na przypisanej mu indywidualnej działce, która wraz z domem jest przedmiotem przeniesienia na nabywcę. Razem z nieruchomością nabywany jest również udział w drodze wewnętrznej obsługującej inwestycję.',
   },
   {
-    id: 'changes',
-    question: 'Czy można wprowadzać zmiany?',
-    answer: 'Możliwość zmian zależy od etapu budowy, zakresu technicznego i wpływu na dokumentację. Każdą zmianę oceniamy indywidualnie przed jej potwierdzeniem.',
+    id: 'price-scope',
+    question: 'Co dokładnie obejmuje cena całkowita?',
+    answer: 'Dokładne rozbicie ceny znajduje się w Karcie Domu. Dokument wskazuje osobno cenę domu oraz cenę udziału w drodze wewnętrznej, a ich suma stanowi Cenę Całkowitą. Zakres wykonania nieruchomości wynika z aktualnego Standardu technicznego i załączników do umowy.',
   },
   {
-    id: 'reservation',
-    question: 'Jak działa rezerwacja?',
-    answer: 'Po wyborze konkretnego domu przekazujemy dokumentację i warunki rezerwacji. Następnie uzgadniany jest termin podpisania właściwej umowy i dalszy harmonogram płatności.',
+    id: 'standard',
+    question: 'Co obejmuje standard techniczny domu?',
+    answer: 'W standardzie przewidziano m.in. pompę ciepła, ogrzewanie podłogowe, rekuperację, elektryczne rolety zewnętrzne, stolarkę trzyszybową, duże przeszklenia, przygotowanie PV Ready, utwardzony podjazd i dojście oraz ogrodzenie z bramą i furtką. Wiążący, pełny zakres określa aktualny dokument Standard techniczny.',
   },
   {
-    id: 'visit',
-    question: 'Czy można obejrzeć działkę?',
-    answer: 'Tak. Termin prezentacji terenu inwestycji ustalamy indywidualnie. Skontaktuj się z nami telefonicznie lub przez formularz poniżej.',
+    id: 'not-included',
+    question: 'Czego nie obejmuje podstawowy standard?',
+    answer: 'Poza podstawowym zakresem pozostają m.in. końcowe wykończenie wnętrz, kuchnia i meble, wyposażenie łazienek, klimatyzacja, ładowarka samochodu elektrycznego oraz kompletna instalacja fotowoltaiczna z modułami i falownikiem. Trawnik, nasadzenia i system nawadniania również nie należą do podstawowego standardu. Taras i wiata są wykonywane tylko wtedy, gdy przewiduje to odrębne ustalenie.',
+  },
+  {
+    id: 'visualisations',
+    question: 'Czy wszystko, co widać na wizualizacjach, jest w cenie?',
+    answer: 'Wizualizacje pokazują charakter architektury i przykładowe zagospodarowanie, ale nie zastępują dokumentów sprzedażowych. O tym, co jest objęte ceną konkretnego domu, decydują Karta Domu, Standard techniczny, prospekt i właściwa umowa. Dotyczy to w szczególności elementów takich jak taras, wiata, zieleń i wyposażenie wnętrz.',
   },
   {
     id: 'attic',
     question: 'Czy dom ma strych?',
-    answer: 'Tak. Budynek ma poddasze nieużytkowe przewidziane jako dodatkowa przestrzeń techniczna i magazynowa; szczegóły zakresu i dostępu wynikają z dokumentacji domu.',
+    answer: 'Dom posiada poddasze nieużytkowe, które może pełnić funkcję pomocniczej przestrzeni technicznej lub magazynowej. Szczegółowy zakres, sposób dostępu i możliwości wykorzystania wynikają z dokumentacji projektowej konkretnego domu.',
   },
   {
-    id: 'finance',
-    question: 'Jak wygląda finansowanie?',
-    answer: 'Zakup jest prowadzony w modelu deweloperskim, a płatności są powiązane z etapami realizacji. Szczegóły finansowania własnego lub kredytowego ustala kupujący ze swoim bankiem.',
+    id: 'changes',
+    question: 'Czy można wprowadzać zmiany lokatorskie?',
+    answer: 'Takie zmiany są możliwe wyłącznie po ich technicznej ocenie i pisemnej akceptacji dewelopera. Zakres, koszt oraz wpływ zmiany na termin realizacji ustalane są indywidualnie. Im wcześniejszy etap budowy, tym większa możliwość wprowadzenia zmian bez ingerencji w wykonane już roboty.',
   },
   {
-    id: 'extra-costs',
-    question: 'Jakie są koszty dodatkowe?',
-    answer: 'Koszty zależą od wybranego domu, sposobu finansowania oraz ewentualnych zmian ponad standard. Przed decyzją klient otrzymuje zestawienie ceny i dokumentów dotyczących konkretnego domu.',
+    id: 'reservation',
+    question: 'Jak wygląda rezerwacja domu?',
+    answer: 'Po wyborze domu przekazujemy dokumentację i warunki rezerwacji właściwe dla danej transakcji. Jeżeli umowa rezerwacyjna przewiduje opłatę rezerwacyjną, jej wysokość i zasady są podane w umowie; po zawarciu umowy deweloperskiej opłata jest rozliczana na poczet Ceny Całkowitej zgodnie z obowiązującymi przepisami.',
+  },
+  {
+    id: 'escrow',
+    question: 'Gdzie trafiają wpłaty kupującego?',
+    answer: 'Wpłaty na poczet Ceny Całkowitej są dokonywane na otwarty mieszkaniowy rachunek powierniczy, a nie na zwykły rachunek operacyjny dewelopera. Bank wypłaca środki deweloperowi zgodnie z zasadami rachunku i po weryfikacji zakończenia odpowiednich etapów przedsięwzięcia.',
   },
   {
     id: 'security',
     question: 'Jak zabezpieczony jest zakup?',
-    answer: 'Proces przewiduje mieszkaniowy rachunek powierniczy, ochronę Deweloperskiego Funduszu Gwarancyjnego oraz płatności zgodne z postępem budowy. Mechanizmy opisujemy szczegółowo w sekcji Bezpieczeństwo i proces zakupu.',
+    answer: 'Proces wykorzystuje mechanizmy przewidziane ustawą deweloperską: otwarty mieszkaniowy rachunek powierniczy, Deweloperski Fundusz Gwarancyjny oraz płatności powiązane z postępem realizacji. Przed podpisaniem umowy nabywca otrzymuje prospekt i dokumenty opisujące zasady ochrony środków oraz harmonogram przedsięwzięcia.',
+  },
+  {
+    id: 'developer-financing',
+    question: 'Czy budowa jest finansowana wyłącznie z wpłat klientów?',
+    answer: 'Nie. Model przedsięwzięcia zakłada również finansowanie po stronie inwestora/dewelopera oraz finansowanie projektu. Wpłaty klientów podlegają zasadom otwartego mieszkaniowego rachunku powierniczego i nie są traktowane jak swobodne środki na zwykłym rachunku dewelopera.',
+  },
+  {
+    id: 'mortgage',
+    question: 'Czy zakup można sfinansować kredytem hipotecznym?',
+    answer: 'Tak. Nabywca może finansować zakup środkami własnymi lub kredytem hipotecznym w wybranym przez siebie banku. Na potrzeby procesu kredytowego udostępniamy dokumenty dotyczące inwestycji i konkretnego domu; decyzja kredytowa należy do banku nabywcy.',
+  },
+  {
+    id: 'extra-costs',
+    question: 'Jakie dodatkowe koszty mogą pojawić się przy zakupie?',
+    answer: 'Poza Ceną Całkowitą mogą wystąpić koszty zależne od konkretnej transakcji, np. finansowania bankowego, wyceny, wpisów i czynności notarialnych, a także wybranych zmian lokatorskich lub elementów ponad standard. Przed podpisaniem umowy klient otrzymuje dokumenty i zestawienie dotyczące wybranego domu.',
+  },
+  {
+    id: 'handover',
+    question: 'Jak wygląda odbiór domu i zgłaszanie wad?',
+    answer: 'Odbiór odbywa się przed przeniesieniem własności i jest dokumentowany protokołem. Nabywca może zgłosić zauważone wady i może uczestniczyć w odbiorze z wybranym przez siebie specjalistą. Zgłoszenia są następnie rozpatrywane i usuwane na zasadach wynikających z ustawy oraz dokumentów umownych; przekazywane są również dokumenty gwarancyjne urządzeń objętych standardem.',
+  },
+  {
+    id: 'visit',
+    question: 'Czy można obejrzeć działkę i miejsce inwestycji?',
+    answer: 'Tak. Prezentację terenu inwestycji umawiamy indywidualnie. Skontaktuj się z nami telefonicznie lub przez formularz, a ustalimy dogodny termin i pokażemy położenie wybranego domu oraz jego działki.',
   },
 ]

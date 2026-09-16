@@ -32,3 +32,8 @@ build/
 .env
 .env.*
 !.env.example
+
+# Sekrety formularza i dane first-party analytics
+api/config.php
+api/data/*.ndjson
+!api/data/.gitkeep

@@ -20,7 +20,7 @@ $raw = file_get_contents('php://input');
 $data = json_decode($raw ?: '', true);
 if (!is_array($data)) respond(400, ['ok' => false, 'message' => 'Nieprawidłowe dane formularza.']);
 
-if (!empty($data['website'])) respond(200, ['ok' => true]); // honeypot
+if (!empty($data['website'])) respond(200, ['ok' => true]);
 
 session_start();
 $now = time();

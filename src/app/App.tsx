@@ -16,7 +16,7 @@ import { Team } from '../sections/Team/Team'
 import { FaqContact } from '../sections/FaqContact/FaqContact'
 import { Footer } from '../sections/Footer/Footer'
 import { ConsentBanner } from '../components/common/ConsentBanner'
-import { track } from '../lib/analytics'
+import { track, trackPageView } from '../lib/analytics'
 
 type SectionId = 'hero' | 'homes' | 'why-home' | 'location' | 'layout' | 'gallery' | 'standard' | 'security' | 'schedule' | 'journal' | 'team' | 'faq'
 
@@ -42,6 +42,8 @@ export function App() {
     window.setTimeout(() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' }), 0)
     track('house_contact_click', id)
   }, [selectHouse])
+
+  useEffect(() => { trackPageView() }, [])
 
   useEffect(() => {
     const sections: Array<[SectionId, string]> = [

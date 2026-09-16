@@ -1,0 +1,7 @@
+.standard-section .standard-lifestyle { height:auto!important; overflow:visible!important; display:flex; flex-direction:column; border-radius:23px; background:#f7f4ec; box-shadow:0 25px 60px rgba(37,42,44,.13); }
+.standard-section .standard-lifestyle::after { display:none!important; }
+.standard-section .standard-lifestyle__media { width:100%; aspect-ratio:4/3; overflow:hidden; border-radius:23px 23px 0 0; background:#f7f4ec; }
+.standard-section .standard-lifestyle__media>img { display:block; width:100%; height:100%; object-fit:contain!important; object-position:center!important; transform:none!important; }
+.standard-section .standard-lifestyle figcaption { position:static!important; inset:auto!important; display:grid; grid-template-columns:35px 1fr; gap:12px; align-items:center; width:100%; padding:17px 20px 18px; color:#fff; border:0!important; border-radius:0 0 23px 23px; background:linear-gradient(135deg,#344027,#263021); box-shadow:none!important; backdrop-filter:none!important; }
+.standard-section .standard-lifestyle figcaption>svg { width:28px; color:#decda9; stroke-width:1.5; }
+@media(max-width:700px){.standard-section .standard-lifestyle,.standard-section .standard-lifestyle__media{border-radius:19px 19px 0 0}.standard-section .standard-lifestyle figcaption{border-radius:0 0 19px 19px;padding:15px 16px 16px}}
