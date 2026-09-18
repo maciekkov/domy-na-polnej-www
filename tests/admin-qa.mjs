@@ -1,35 +1,33 @@
-import { chromium } from 'playwright'
-import { spawn } from 'node:child_process'
-import { existsSync } from 'node:fs'
-
-const BASE = 'http://127.0.0.1:4173'
-if (!existsSync('dist/index.html')) throw new Error('Brak dist/index.html. Uruchom najpierw npm run build.')
-let server = null
-try { const r = await fetch(`${BASE}/`, { signal: AbortSignal.timeout(700) }); if (!r.ok) throw new Error() } catch {
-  server = spawn(process.execPath, ['preview-server.mjs'], { stdio: 'ignore' })
-  for (let i=0;i<50;i++) { await new Promise((r)=>setTimeout(r,150)); try { if ((await fetch(`${BASE}/`)).ok) break } catch {} }
-}
-
-const browser = await chromium.launch({ headless: true })
-try {
-  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } })
-  const page = await context.newPage()
-  await page.goto(`${BASE}/administrator`, { waitUntil: 'networkidle' })
-  await page.getByLabel('Login').fill('admin')
-  await page.getByLabel('Hasło').fill('admin')
-  await page.getByRole('button', { name: 'Zaloguj' }).click()
-  await page.getByRole('heading', { name: 'Pulpit' }).waitFor()
-  if (await page.locator('.admin-metric').count() !== 6) throw new Error('Panel demo nie ma 6 KPI')
-  for (const label of ['Domy i ceny','Budowa','Dokumenty','Zapytania','Analityka','Ustawienia']) {
-    await page.locator('.admin-sidebar nav').getByRole('button', { name: label }).click()
-    await page.getByRole('heading', { name: label, exact: true }).first().waitFor()
+import { expect } from '@playwright/test'
+import { readFileSync } from 'node:fs'
+import { browser, startServer, noOverflow } from './browser-utils.mjs'
+import { parseSiteData } from '../src/data/runtime/siteSchema.mjs'
+// Admin is tested in explicit development mode, NEVER in the production preview.
+const server=await startServer('scripts/dev-admin.mjs',4190,['--port','4190','--strictPort'],{DNP_NO_OPEN:'1'}),chrome=await browser()
+try{
+  const context=await chrome.newContext({viewport:{width:1440,height:1000}})
+  const page=await context.newPage(),errors=[]
+  page.on('pageerror',error=>errors.push(error.message))
+  await page.goto(server.url+'/administrator',{waitUntil:'networkidle'})
+  await page.getByLabel('Login').fill('admin');await page.getByLabel('Hasło').fill('admin');await page.getByRole('button',{name:'Zaloguj'}).click()
+  await expect(page.getByRole('heading',{name:'Pulpit',exact:true})).toBeVisible()
+  await expect(page.locator('.admin-safety-banner')).toContainText('tylko w tej przeglądarce')
+  for(const name of ['Domy i ceny','Budowa','Dokumenty','Zapytania','Analityka','Ustawienia']){
+    await page.locator('.admin-sidebar nav').getByRole('button',{name,exact:true}).click()
+    await expect(page.locator('.admin-topbar h1')).toHaveText(name)
   }
-  await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto(`${BASE}/administrator`, { waitUntil: 'networkidle' })
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)
-  if (overflow > 1) throw new Error(`Panel demo ma poziomy overflow: ${overflow}px`)
-  console.log('PASS admin demo V6: lokalny login, moduły i mobile; panel pozostaje wyłączony na produkcji')
-} finally {
-  await browser.close()
-  if (server) server.kill('SIGTERM')
-}
+  const data=JSON.parse(readFileSync('public/data/site-data.json','utf8'));data.revision+=3;data.houses[0].price=888000
+  await page.locator('.admin-topbar input[type=file]').setInputFiles({name:'site-data.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(data))})
+  await page.getByRole('button',{name:'Zapisz podgląd demo'}).click()
+  const local=await page.evaluate(()=>JSON.parse(localStorage.getItem('dnp-published-site-data-v1')))
+  if(local.houses[0].price!==888000)throw new Error('Nie zapisano lokalnego snapshotu')
+  const download=page.waitForEvent('download');await page.getByRole('button',{name:'Eksport danych produkcyjnych'}).click()
+  const file=await download
+  const exported=parseSiteData(JSON.parse(readFileSync(await file.path(),'utf8')))
+  if('leads' in exported||exported.houses[0].price!==888000)throw new Error('Zły eksport publiczny')
+  const disk=JSON.parse(readFileSync('public/data/site-data.json','utf8'))
+  if(disk.houses[0].price===888000)throw new Error('Demo nadpisało plik produkcyjny')
+  await page.setViewportSize({width:390,height:844});await noOverflow(page)
+  if(errors.length)throw new Error(errors.join('\n'))
+  console.log('PASS demo: jawne włączenie, moduły, import, lokalny zapis, publiczny eksport bez CRM, brak zapisu na serwer i mobile.')
+}finally{await chrome.close();server.child.kill('SIGTERM')}

@@ -1,9 +1,9 @@
-import { BarChart3, Settings2, X } from 'lucide-react'
+import { Cookie, Settings2, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { ANALYTICS_CONSENT_KEY, trackPageView } from '../../lib/analytics'
+import { readConsent, setConsent, trackPageView } from '../../lib/analytics'
 
 export function ConsentBanner() {
-  const [open, setOpen] = useState(() => !localStorage.getItem(ANALYTICS_CONSENT_KEY))
+  const [open, setOpen] = useState(() => !readConsent())
   const [settings, setSettings] = useState(false)
 
   useEffect(() => {
@@ -12,25 +12,25 @@ export function ConsentBanner() {
     return () => window.removeEventListener('dnp-open-cookie-settings', reopen)
   }, [])
 
-  const decide = (value: 'accepted' | 'necessary') => {
-    localStorage.setItem(ANALYTICS_CONSENT_KEY, value)
+  const decide = (value: 'all' | 'necessary') => {
+    setConsent(value)
     setOpen(false)
-    if (value === 'accepted') trackPageView()
+    if (value === 'all') trackPageView()
   }
 
   if (!open) return null
   return (
-    <aside className="consent-banner" aria-label="Ustawienia prywatności">
-      <button className="consent-banner__close" type="button" onClick={() => decide('necessary')} aria-label="Zamknij i pozostaw tylko niezbędne"><X /></button>
-      <div className="consent-banner__icon"><BarChart3 aria-hidden="true" /></div>
+    <aside className="consent-banner" aria-label="Ustawienia plików cookie">
+      <button className="consent-banner__close" type="button" onClick={() => decide('necessary')} aria-label="Zamknij i pozostaw tylko niezbędne pliki cookie"><X /></button>
+      <div className="consent-banner__icon"><Cookie aria-hidden="true" /></div>
       <div className="consent-banner__copy">
-        <strong>Twoja prywatność</strong>
-        <p>Używamy danych niezbędnych do działania strony. Za Twoją zgodą zbieramy podstawowe, first-party statystyki pomagające ocenić zainteresowanie ofertą.</p>
-        {settings && <p className="consent-banner__detail"><b>Niezbędne</b> — zawsze aktywne. <b>Analityczne</b> — opcjonalne, bez danych z formularza i bez reklamowych trackerów.</p>}
-        <a className="consent-banner__policy" href="/polityka-cookies/">Dowiedz się więcej</a>
+        <strong>Pliki cookie</strong>
+        <p>Używamy niezbędnych plików cookie do działania strony i zapamiętania ustawień. Za zgodą możemy także używać własnych plików cookie do pomiaru korzystania z serwisu.</p>
+        {settings && <p className="consent-banner__detail"><b>Niezbędne</b> — działanie i zapamiętanie ustawień. <b>Analityczne</b> — rozpoznanie powrotów, urządzenia oraz czasu spędzonego w sekcjach i spacerach; bez danych wpisywanych do formularza i bez reklamowych trackerów.</p>}
+        <a className="consent-banner__policy" href="/polityka-cookies/">Polityka cookies</a>
       </div>
       <div className="consent-banner__actions">
-        <button className="button button--olive" type="button" onClick={() => decide('accepted')}>Akceptuj analitykę</button>
+        <button className="button button--olive" type="button" onClick={() => decide('all')}>Akceptuj wszystkie</button>
         <button className="button consent-banner__necessary" type="button" onClick={() => decide('necessary')}>Tylko niezbędne</button>
         {!settings && <button className="consent-banner__settings" type="button" onClick={() => setSettings(true)}><Settings2 /> Ustawienia</button>}
       </div>

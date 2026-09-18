@@ -16,4 +16,6 @@ export type JournalEntry = {
 }
 
 // Rzeczywiste wpisy będą publikowane z panelu po rozpoczęciu budowy.
-export const journalEntries: JournalEntry[] = []
+import snapshot from '../../public/data/site-data.json'
+import { parseSiteData } from './runtime/siteSchema.mjs'
+export const journalEntries: JournalEntry[] = parseSiteData(snapshot).journal

@@ -1,0 +1,15 @@
+{
+  "originalFiles": 244,
+  "modifiedOriginalFiles": [
+    "public/assets/data/spacer-360-zewnetrzny.json",
+    "public/tour/spacer-360-zewnatrz.html",
+    "public/tour/spacer-360-zewnatrz.js",
+    "src/sections/Gallery/Gallery.tsx",
+    "src/sections/Gallery/GalleryRefinement.css",
+    "src/sections/Gallery/TourChoiceModal.tsx",
+    "src/sections/Gallery/TourFrameModal.tsx",
+    "package.json"
+  ],
+  "missingOriginalFiles": [],
+  "unchangedLocationMap": true
+}

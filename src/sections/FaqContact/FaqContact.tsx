@@ -1,17 +1,18 @@
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import type { FormEvent } from 'react'
 import { faqItems } from '../../data/faq'
-import type { HouseId } from '../../data/houses'
+import { isHouseId, type HouseSelection } from '../../data/houses'
 import type { ContactData } from '../../data/runtime/types'
-import { recordDemoLead } from '../../admin/demoStore'
+import { demoAdminAllowed } from '../../data/runtime/demoMode'
 import { track } from '../../lib/analytics'
+import { validateContact, type ContactErrors } from '../../lib/contactValidation.mjs'
 
-type Props = { selectedHouse: HouseId; contact: ContactData }
+type Props = { selectedHouse: HouseSelection; onHouseChange: (value: HouseSelection) => void; contact: ContactData }
 type FormState = 'idle' | 'sending' | 'success' | 'error'
 
 type ContactFields = {
-  house: string
+  house: HouseSelection
   name: string
   phone: string
   email: string
@@ -21,7 +22,7 @@ type ContactFields = {
   website: string
 }
 
-const initialFields = (selectedHouse: HouseId): ContactFields => ({
+const initialFields = (selectedHouse: HouseSelection): ContactFields => ({
   house: selectedHouse,
   name: '',
   phone: '',
@@ -32,14 +33,19 @@ const initialFields = (selectedHouse: HouseId): ContactFields => ({
   website: '',
 })
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-export function FaqContact({ selectedHouse, contact }: Props) {
+export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
   const [openFaq, setOpenFaq] = useState('')
   const [fields, setFields] = useState<ContactFields>(() => initialFields(selectedHouse))
   const [formState, setFormState] = useState<FormState>('idle')
   const [formMessage, setFormMessage] = useState('')
   const [started, setStarted] = useState(false)
+  const [errors, setErrors] = useState<ContactErrors>({})
+  const sending = useRef(false)
+  const formRef = useRef<HTMLFormElement>(null)
+  const statusRef = useRef<HTMLDivElement>(null)
+  const fieldError = (name: keyof ContactErrors) => errors[name] ? <span className="contact-form__field-error" id={`contact-${name}-error`}>{errors[name]}</span> : null
+  const fieldA11y = (name: keyof ContactErrors) => ({ id: `contact-${name}`, name, disabled: formState === 'sending', 'aria-invalid': Boolean(errors[name]), 'aria-describedby': errors[name] ? `contact-${name}-error` : undefined })
 
   useEffect(() => {
     setFields((current) => ({ ...current, house: selectedHouse }))
@@ -47,6 +53,7 @@ export function FaqContact({ selectedHouse, contact }: Props) {
 
   const update = <K extends keyof ContactFields>(key: K, value: ContactFields[K]) => {
     setFields((current) => ({ ...current, [key]: value }))
+    setErrors(current => { const copy = {...current}; delete copy[key as keyof ContactErrors]; return copy })
     if (formState !== 'idle') {
       setFormState('idle')
       setFormMessage('')
@@ -55,42 +62,50 @@ export function FaqContact({ selectedHouse, contact }: Props) {
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (sending.current) return
+    const validation = validateContact(fields)
+    setErrors(validation)
+    if (Object.keys(validation).length) {
+      setFormState('error')
+      setFormMessage('Sprawdź zaznaczone pola formularza.')
+      requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus())
+      return
+    }
+    sending.current = true
     setFormState('sending')
-    setFormMessage('')
-
-    const phoneDigits = fields.phone.replace(/\D/g, '')
+    setFormMessage('Wysyłanie wiadomości…')
     const email = fields.email.trim()
-    if (fields.name.trim().length < 2 || phoneDigits.length < 7 || !fields.consentContact || !fields.consentPrivacy) {
-      setFormState('error')
-      setFormMessage('Uzupełnij imię i telefon oraz zaznacz wymagane zgody.')
-      return
-    }
-    if (email && !emailPattern.test(email)) {
-      setFormState('error')
-      setFormMessage('Podaj poprawny adres e-mail albo pozostaw to pole puste.')
-      return
-    }
 
     try {
-      const localPreview = import.meta.env.DEV || ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)
-      if (localPreview) {
+      let previewOnly = false
+      if (import.meta.env.DEV && demoAdminAllowed()) {
+        const { recordDemoLead } = await import('../../admin/demoStore')
+        previewOnly = true
         recordDemoLead({ name: fields.name.trim(), phone: fields.phone.trim(), email, houseCode: fields.house, message: fields.message.trim() })
       } else {
         const response = await fetch('/api/contact.php', {
           method: 'POST',
+          signal: AbortSignal.timeout(25000),
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ...fields, email }),
         })
         const result = await response.json().catch(() => ({ ok: false }))
         if (!response.ok || !result.ok) throw new Error(result.message || 'Nie udało się wysłać wiadomości.')
+        previewOnly = result.preview === true
       }
-      track('contact_submit', fields.house)
+      if (!previewOnly) track('contact_submit', fields.house)
       setFormState('success')
-      setFormMessage('Dziękujemy. Wiadomość została przyjęta — skontaktujemy się z Tobą.')
+      setFormMessage(previewOnly
+        ? 'Tryb podglądu: formularz został sprawdzony, ale wiadomość nie została wysłana do biura.'
+        : 'Dziękujemy. Wiadomość została przyjęta — skontaktujemy się z Tobą.')
       setFields((current) => ({ ...initialFields(selectedHouse), house: current.house }))
+      setErrors({})
     } catch (error) {
       setFormState('error')
-      setFormMessage(error instanceof Error ? error.message : 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub zadzwoń.')
+      setFormMessage(error instanceof DOMException && error.name === 'TimeoutError' ? 'Serwer nie odpowiedział na czas. Zadzwoń do biura lub spróbuj ponownie później.' : error instanceof Error ? error.message : 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub zadzwoń.')
+    } finally {
+      sending.current = false
+      requestAnimationFrame(() => statusRef.current?.focus())
     }
   }
 
@@ -145,35 +160,40 @@ export function FaqContact({ selectedHouse, contact }: Props) {
               <a href={contact.emailHref} onClick={() => track('email_click')}><Mail aria-hidden="true" /><span><strong>{contact.email}</strong><small>Odpowiadamy zwykle w ciągu 24h</small></span></a>
               <a href={contact.mapHref} target="_blank" rel="noreferrer" onClick={() => track('directions_click')}><MapPin aria-hidden="true" /><span><strong>{contact.addressLine1}</strong><small>{contact.addressLine2}</small><u>Zobacz na mapie →</u></span></a>
             </address>
-            <div className="contact-section__botanical" aria-hidden="true"><img src={`${import.meta.env.BASE_URL}assets/images/botanical-corner.svg`} alt="" /></div>
+            <div className="contact-section__botanical" aria-hidden="true"><img src={`${import.meta.env.BASE_URL}assets/images/botanical-corner.svg?v=c58b540488b17455`} alt="" /></div>
           </div>
 
-          <form className="contact-form" onSubmit={submit} noValidate onFocus={() => { if (!started) { setStarted(true); track('contact_start', fields.house) } }}>
-            <h3>Wyślij wiadomość</h3>
-            <label className="contact-form__wide">Wybieram dom
-              <select value={fields.house} onChange={(event) => update('house', event.target.value)}>
-                <option value="A">Dom A</option><option value="B">Dom B</option><option value="C">Dom C</option><option value="D">Dom D</option><option value="E">Dom E</option><option value="unknown">Jeszcze nie wiem</option>
+          <form ref={formRef} className="contact-form" aria-labelledby="contact-form-title" aria-busy={formState === 'sending'} onSubmit={submit} noValidate onFocus={() => { if (!started && track('contact_start', fields.house)) setStarted(true) }}>
+            <h3 id="contact-form-title">Wyślij wiadomość</h3>
+            <p className="contact-form__hint contact-form__wide">Pola oznaczone * są wymagane. E-mail i wiadomość są opcjonalne.</p>
+            <label className="contact-form__wide"><span>Wybieram dom</span>
+              <select name="house" value={fields.house} disabled={formState === 'sending'} onChange={(event) => {
+                const value: HouseSelection = isHouseId(event.target.value) ? event.target.value : 'unknown'
+                update('house', value)
+                onHouseChange(value)
+              }}>
+                <option value="unknown">Jeszcze nie wybrałem</option><option value="A">Dom A</option><option value="B">Dom B</option><option value="C">Dom C</option><option value="D">Dom D</option><option value="E">Dom E</option>
               </select>
             </label>
-            <label>Imię <span aria-hidden="true">*</span>
-              <input value={fields.name} onChange={(event) => update('name', event.target.value)} autoComplete="name" placeholder="Twoje imię" required />
+            <label><span>Imię <span aria-hidden="true">*</span></span>
+              <input {...fieldA11y('name')} value={fields.name} onChange={(event) => update('name', event.target.value)} autoComplete="given-name" placeholder="Twoje imię" maxLength={100} required />{fieldError('name')}
             </label>
-            <label>Telefon <span aria-hidden="true">*</span>
-              <input value={fields.phone} onChange={(event) => update('phone', event.target.value)} autoComplete="tel" inputMode="tel" placeholder="+48 123 456 789" required />
+            <label><span>Telefon <span aria-hidden="true">*</span></span>
+              <input {...fieldA11y('phone')} type="tel" value={fields.phone} onChange={(event) => update('phone', event.target.value)} autoComplete="tel" inputMode="tel" placeholder="+48 123 456 789" maxLength={50} required />{fieldError('phone')}
             </label>
-            <label className="contact-form__wide">E-mail <small>(opcjonalnie)</small>
-              <input value={fields.email} onChange={(event) => update('email', event.target.value)} type="email" autoComplete="email" inputMode="email" placeholder="Twój e-mail" />
+            <label className="contact-form__wide"><span>E-mail <small>(opcjonalnie)</small></span>
+              <input {...fieldA11y('email')} value={fields.email} onChange={(event) => update('email', event.target.value)} type="email" autoComplete="email" inputMode="email" placeholder="Twój e-mail" maxLength={160} />{fieldError('email')}
             </label>
-            <label className="contact-form__wide">Wiadomość
-              <textarea value={fields.message} onChange={(event) => update('message', event.target.value)} rows={3} placeholder="Napisz, o co chcesz zapytać…" />
+            <label className="contact-form__wide"><span>Wiadomość <small>(opcjonalnie)</small></span>
+              <textarea {...fieldA11y('message')} value={fields.message} onChange={(event) => update('message', event.target.value)} rows={4} maxLength={3000} placeholder="Napisz, o co chcesz zapytać…" />{fieldError('message')}
             </label>
-            <label className="contact-form__honeypot" aria-hidden="true">Strona internetowa<input tabIndex={-1} autoComplete="off" value={fields.website} onChange={(event) => update('website', event.target.value)} /></label>
-            <label className="contact-form__consent contact-form__wide"><input type="checkbox" checked={fields.consentContact} onChange={(event) => update('consentContact', event.target.checked)} required /><span>Wyrażam zgodę na kontakt telefoniczny i mailowy w celu przedstawienia oferty Domy na Polnej.</span></label>
-            <label className="contact-form__consent contact-form__wide"><input type="checkbox" checked={fields.consentPrivacy} onChange={(event) => update('consentPrivacy', event.target.checked)} required /><span>Zapoznałem/am się z <a href="/polityka-prywatnosci/" target="_blank" rel="noreferrer">polityką prywatności</a>.</span></label>
+            <label className="contact-form__honeypot" aria-hidden="true">Strona internetowa<input name="website" tabIndex={-1} autoComplete="off" value={fields.website} onChange={(event) => update('website', event.target.value)} /></label>
+            <div className="contact-form__wide"><label className="contact-form__consent"><input {...fieldA11y('consentContact')} type="checkbox" checked={fields.consentContact} onChange={(event) => update('consentContact', event.target.checked)} required /><span>Wyrażam zgodę na kontakt telefoniczny i mailowy w celu przedstawienia oferty Domy na Polnej. *</span></label>{fieldError('consentContact')}</div>
+            <div className="contact-form__wide"><label className="contact-form__consent"><input {...fieldA11y('consentPrivacy')} type="checkbox" checked={fields.consentPrivacy} onChange={(event) => update('consentPrivacy', event.target.checked)} required /><span>Zapoznałem/am się z <a href="/polityka-prywatnosci/" target="_blank" rel="noreferrer">polityką prywatności</a>. *</span></label>{fieldError('consentPrivacy')}</div>
             <button className="button button--olive contact-form__submit contact-form__wide" type="submit" disabled={formState === 'sending'}>
               {formState === 'sending' ? 'Wysyłanie…' : 'Poproś o kontakt'} <ArrowRight size={17} aria-hidden="true" />
             </button>
-            <div className={`contact-form__status contact-form__wide contact-form__status--${formState}`} role="status" aria-live="polite">{formMessage}</div>
+            <div ref={statusRef} tabIndex={-1} className={`contact-form__status contact-form__wide contact-form__status--${formState}`} role={formState === 'error' ? 'alert' : 'status'} aria-live={formState === 'error' ? 'assertive' : 'polite'} aria-atomic="true">{formMessage}</div>
           </form>
         </div>
       </section>

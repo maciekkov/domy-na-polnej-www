@@ -7,153 +7,873 @@
     {
       "id": "01_widok_posesji_od_frontu",
       "title": "Widok posesji od frontu",
-      "image": "/assets/images/spacer-360/exterior/webp/01_widok_posesji_od_frontu.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/01_widok_posesji_od_frontu.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/01_widok_posesji_od_frontu.webp?v=5811ffa54252b6dc",
+      "thumb": "/assets/images/spacer-360/exterior/webp/01_widok_posesji_od_frontu.webp?v=5811ffa54252b6dc",
       "hotspots": [
-        { "x": 49, "y": 77, "label": "Wejdź na posesję", "target": "02_front_domu_i_podjazd", "align": "right", "pulse": true },
-        { "x": 84, "y": 58, "label": "Zobacz dom z góry", "target": "14_dom_i_dzialka_z_gory", "align": "left", "pulse": false },
-        { "x": 17, "y": 70, "label": "Obejdź dom lewą stroną", "target": "13_powrot_w_strone_frontu", "align": "right", "pulse": false }
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 59,
+          "y": 73,
+          "label": "Wejdź na\nposesję",
+          "kind": "up",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 92,
+          "y": 64,
+          "label": "Prawy\nnarożnik",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "13_powrot_w_strone_frontu",
+          "x": 17,
+          "y": 70,
+          "label": "Obejdź dom\nlewą stroną",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "14_dom_i_dzialka_z_gory",
+          "x": 50,
+          "y": 18,
+          "label": "Widok z\ngóry",
+          "kind": "up",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 59,
+          "y": 73,
+          "label": "Wejdź na\nposesję",
+          "kind": "up",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 92,
+          "y": 64,
+          "label": "Prawy\nnarożnik",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "13_powrot_w_strone_frontu",
+          "x": 17,
+          "y": 70,
+          "label": "Obejdź dom\nlewą stroną",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "14_dom_i_dzialka_z_gory",
+          "x": 50,
+          "y": 18,
+          "label": "Widok z\ngóry",
+          "kind": "up",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "02_front_domu_i_podjazd",
       "title": "Front domu i podjazd",
-      "image": "/assets/images/spacer-360/exterior/webp/02_front_domu_i_podjazd.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/02_front_domu_i_podjazd.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/02_front_domu_i_podjazd.webp?v=eac5c68a6f9190ac",
+      "thumb": "/assets/images/spacer-360/exterior/webp/02_front_domu_i_podjazd.webp?v=eac5c68a6f9190ac",
       "hotspots": [
-        { "x": 44, "y": 74, "label": "Podejdź do wejścia", "target": "03_wejscie_glowne", "align": "right", "pulse": true },
-        { "x": 76, "y": 67, "label": "Przejdź w stronę wiaty", "target": "05_podjazd_i_wiata", "align": "left", "pulse": false },
-        { "x": 17, "y": 64, "label": "Wróć do szerokiego widoku", "target": "01_widok_posesji_od_frontu", "align": "right", "pulse": false }
+        {
+          "target": "03_wejscie_glowne",
+          "x": 36,
+          "y": 60,
+          "label": "Podejdź do\nwejścia",
+          "kind": "upLeft",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 75,
+          "y": 62,
+          "label": "W stronę\nwiaty",
+          "kind": "upRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "01_widok_posesji_od_frontu",
+          "x": 8,
+          "y": 65,
+          "label": "Szeroki\nwidok",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "03_wejscie_glowne",
+          "x": 36,
+          "y": 60,
+          "label": "Podejdź do\nwejścia",
+          "kind": "upLeft",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 75,
+          "y": 62,
+          "label": "W stronę\nwiaty",
+          "kind": "upRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "01_widok_posesji_od_frontu",
+          "x": 8,
+          "y": 65,
+          "label": "Szeroki\nwidok",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "03_wejscie_glowne",
       "title": "Wejście główne",
-      "image": "/assets/images/spacer-360/exterior/webp/03_wejscie_glowne.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/03_wejscie_glowne.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/03_wejscie_glowne.webp?v=35c1feeb7bcf44b1",
+      "thumb": "/assets/images/spacer-360/exterior/webp/03_wejscie_glowne.webp?v=35c1feeb7bcf44b1",
       "hotspots": [
-        { "x": 62, "y": 64, "label": "Podejdź pod podcień", "target": "04_podcien_wejsciowy", "align": "left", "pulse": true },
-        { "x": 32, "y": 70, "label": "Wróć na front posesji", "target": "02_front_domu_i_podjazd", "align": "right", "pulse": false },
-        { "x": 84, "y": 66, "label": "Przejdź w stronę wiaty", "target": "05_podjazd_i_wiata", "align": "left", "pulse": false }
+        {
+          "target": "04_podcien_wejsciowy",
+          "x": 62,
+          "y": 64,
+          "label": "Podejdź pod\npodcień",
+          "kind": "forward",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 32,
+          "y": 70,
+          "label": "Wróć na\nfront",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 84,
+          "y": 66,
+          "label": "W stronę\nwiaty",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "04_podcien_wejsciowy",
+          "x": 62,
+          "y": 64,
+          "label": "Podejdź pod\npodcień",
+          "kind": "forward",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 32,
+          "y": 70,
+          "label": "Wróć na\nfront",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 84,
+          "y": 66,
+          "label": "W stronę\nwiaty",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "04_podcien_wejsciowy",
       "title": "Podcień wejściowy",
-      "image": "/assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp?v=53b469e6311733ca",
+      "thumb": "/assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp?v=53b469e6311733ca",
       "hotspots": [
-        { "x": 86, "y": 72, "label": "Przejdź pod wiatę", "target": "06_przejscie_pod_wiata", "align": "left", "pulse": true },
-        { "x": 27, "y": 69, "label": "Wróć do wejścia", "target": "03_wejscie_glowne", "align": "right", "pulse": false },
-        { "x": 74, "y": 59, "label": "Spójrz na wiatę z zewnątrz", "target": "05_podjazd_i_wiata", "align": "left", "pulse": false }
+        {
+          "target": "06_przejscie_pod_wiata",
+          "x": 86,
+          "y": 72,
+          "label": "Przejdź pod\nwiatę",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "03_wejscie_glowne",
+          "x": 27,
+          "y": 69,
+          "label": "Wróć do\nwejścia",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int00-podcien-wejsciowy",
+          "x": 50,
+          "y": 56,
+          "label": "Otwórz\ndrzwi",
+          "kind": "portal",
+          "align": "left",
+          "pulse": true,
+          "tour": "interior"
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "06_przejscie_pod_wiata",
+          "x": 86,
+          "y": 72,
+          "label": "Przejdź pod\nwiatę",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "03_wejscie_glowne",
+          "x": 27,
+          "y": 69,
+          "label": "Wróć do\nwejścia",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int00-podcien-wejsciowy",
+          "x": 50,
+          "y": 56,
+          "label": "Otwórz\ndrzwi",
+          "kind": "portal",
+          "align": "left",
+          "pulse": true,
+          "tour": "interior"
+        }
       ]
     },
     {
       "id": "05_podjazd_i_wiata",
       "title": "Podjazd i wiata",
-      "image": "/assets/images/spacer-360/exterior/webp/05_podjazd_i_wiata.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/05_podjazd_i_wiata.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/05_podjazd_i_wiata.webp?v=3e8df6a9456f3f09",
+      "thumb": "/assets/images/spacer-360/exterior/webp/05_podjazd_i_wiata.webp?v=3e8df6a9456f3f09",
       "hotspots": [
-        { "x": 77, "y": 73, "label": "Wejdź pod wiatę", "target": "06_przejscie_pod_wiata", "align": "left", "pulse": true },
-        { "x": 89, "y": 58, "label": "Wyjdź do ogrodu", "target": "07_naroznik_ogrodowy", "align": "left", "pulse": false },
-        { "x": 29, "y": 76, "label": "Wróć na front", "target": "02_front_domu_i_podjazd", "align": "right", "pulse": false }
+        {
+          "target": "06_przejscie_pod_wiata",
+          "x": 77,
+          "y": 73,
+          "label": "Wejdź pod\nwiatę",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "07_naroznik_ogrodowy",
+          "x": 89,
+          "y": 58,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 29,
+          "y": 76,
+          "label": "Wróć na\nfront",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "06_przejscie_pod_wiata",
+          "x": 77,
+          "y": 73,
+          "label": "Wejdź pod\nwiatę",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "07_naroznik_ogrodowy",
+          "x": 89,
+          "y": 58,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 29,
+          "y": 76,
+          "label": "Wróć na\nfront",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "06_przejscie_pod_wiata",
       "title": "Przejście pod wiatą",
-      "image": "/assets/images/spacer-360/exterior/webp/06_przejscie_pod_wiata.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/06_przejscie_pod_wiata.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/06_przejscie_pod_wiata.webp?v=c2a691a318a1e6f6",
+      "thumb": "/assets/images/spacer-360/exterior/webp/06_przejscie_pod_wiata.webp?v=c2a691a318a1e6f6",
       "hotspots": [
-        { "x": 55, "y": 73, "label": "Wyjdź do ogrodu", "target": "07_naroznik_ogrodowy", "align": "left", "pulse": true },
-        { "x": 26, "y": 70, "label": "Wróć do podjazdu", "target": "05_podjazd_i_wiata", "align": "right", "pulse": false }
+        {
+          "target": "07_naroznik_ogrodowy",
+          "x": 55,
+          "y": 73,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "forward",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 26,
+          "y": 70,
+          "label": "Wróć do\npodjazdu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "07_naroznik_ogrodowy",
+          "x": 55,
+          "y": 73,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "forward",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 26,
+          "y": 70,
+          "label": "Wróć do\npodjazdu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "07_naroznik_ogrodowy",
       "title": "Narożnik ogrodowy",
-      "image": "/assets/images/spacer-360/exterior/webp/07_naroznik_ogrodowy.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/07_naroznik_ogrodowy.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/07_naroznik_ogrodowy.webp?v=0e855694472187d9",
+      "thumb": "/assets/images/spacer-360/exterior/webp/07_naroznik_ogrodowy.webp?v=0e855694472187d9",
       "hotspots": [
-        { "x": 54, "y": 74, "label": "Stań naprzeciw elewacji", "target": "08_elewacja_ogrodowa", "align": "left", "pulse": true },
-        { "x": 76, "y": 77, "label": "Obejdź dalej ogród", "target": "10_dom_od_strony_ogrodu", "align": "left", "pulse": false },
-        { "x": 20, "y": 60, "label": "Wróć pod wiatę", "target": "06_przejscie_pod_wiata", "align": "right", "pulse": false }
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 74,
+          "y": 70,
+          "label": "Stań naprzeciw\nelewacji",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "06_przejscie_pod_wiata",
+          "x": 7,
+          "y": 53,
+          "label": "Wróć pod\nwiatę",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 74,
+          "y": 70,
+          "label": "Stań naprzeciw\nelewacji",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "06_przejscie_pod_wiata",
+          "x": 7,
+          "y": 53,
+          "label": "Wróć pod\nwiatę",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "08_elewacja_ogrodowa",
       "title": "Elewacja ogrodowa",
-      "image": "/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b",
+      "thumb": "/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b",
       "hotspots": [
-        { "x": 49, "y": 76, "label": "Podejdź do tarasu", "target": "09_taras_przy_salonie", "align": "left", "pulse": true },
-        { "x": 76, "y": 73, "label": "Obejdź prawy narożnik", "target": "10_dom_od_strony_ogrodu", "align": "left", "pulse": false },
-        { "x": 24, "y": 74, "label": "Wróć na lewy narożnik", "target": "07_naroznik_ogrodowy", "align": "right", "pulse": false }
+        {
+          "target": "09_taras_przy_salonie",
+          "x": 51,
+          "y": 71,
+          "label": "Podejdź do\ntarasu",
+          "kind": "forward",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 88,
+          "y": 39,
+          "label": "Prawy\nnarożnik",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "07_naroznik_ogrodowy",
+          "x": 10,
+          "y": 34,
+          "label": "Lewy\nnarożnik",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "09_taras_przy_salonie",
+          "x": 51,
+          "y": 71,
+          "label": "Podejdź do\ntarasu",
+          "kind": "forward",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 88,
+          "y": 39,
+          "label": "Prawy\nnarożnik",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "07_naroznik_ogrodowy",
+          "x": 10,
+          "y": 34,
+          "label": "Lewy\nnarożnik",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "09_taras_przy_salonie",
       "title": "Taras przy salonie",
-      "image": "/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp?v=cb834c2f372c4006",
+      "thumb": "/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp?v=cb834c2f372c4006",
       "hotspots": [
-        { "x": 57, "y": 74, "label": "Wróć do szerokiego kadru", "target": "08_elewacja_ogrodowa", "align": "left", "pulse": true },
-        { "x": 84, "y": 76, "label": "Obejdź dalej ogród", "target": "10_dom_od_strony_ogrodu", "align": "left", "pulse": false },
-        { "x": 20, "y": 74, "label": "Cofnij do narożnika", "target": "07_naroznik_ogrodowy", "align": "right", "pulse": false }
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 27,
+          "y": 73,
+          "label": "Wróć do\nelewacji",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 84,
+          "y": 76,
+          "label": "Dalej przez\nogród",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 56,
+          "y": 44,
+          "label": "Wejdź do\nsalonu",
+          "kind": "portal",
+          "align": "right",
+          "pulse": true,
+          "tour": "interior"
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 27,
+          "y": 73,
+          "label": "Wróć do\nelewacji",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 84,
+          "y": 76,
+          "label": "Dalej przez\nogród",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 56,
+          "y": 44,
+          "label": "Wejdź do\nsalonu",
+          "kind": "portal",
+          "align": "right",
+          "pulse": true,
+          "tour": "interior"
+        }
       ]
     },
     {
       "id": "10_dom_od_strony_ogrodu",
       "title": "Dom od strony ogrodu",
-      "image": "/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp?v=3d050a9fe333ba1a",
+      "thumb": "/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp?v=3d050a9fe333ba1a",
       "hotspots": [
-        { "x": 77, "y": 74, "label": "Obejdź bok domu", "target": "11_przejscie_wzdluz_domu", "align": "left", "pulse": true },
-        { "x": 43, "y": 74, "label": "Wróć na środek ogrodu", "target": "08_elewacja_ogrodowa", "align": "right", "pulse": false },
-        { "x": 30, "y": 66, "label": "Podejdź do tarasu", "target": "09_taras_przy_salonie", "align": "right", "pulse": false }
+        {
+          "target": "11_przejscie_wzdluz_domu",
+          "x": 75,
+          "y": 51,
+          "label": "Obejdź bok\ndomu",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 8,
+          "y": 84,
+          "label": "Wróć na środek\nogrodu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "09_taras_przy_salonie",
+          "x": 24,
+          "y": 75,
+          "label": "Podejdź do\ntarasu",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int11b-sypialnia-ogrod",
+          "x": 49,
+          "y": 63,
+          "label": "Wejdź do\nsypialni",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false,
+          "tour": "interior"
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "11_przejscie_wzdluz_domu",
+          "x": 75,
+          "y": 51,
+          "label": "Obejdź bok\ndomu",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 8,
+          "y": 84,
+          "label": "Wróć na środek\nogrodu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "09_taras_przy_salonie",
+          "x": 24,
+          "y": 75,
+          "label": "Podejdź do\ntarasu",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int11b-sypialnia-ogrod",
+          "x": 49,
+          "y": 63,
+          "label": "Wejdź do\nsypialni",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false,
+          "tour": "interior"
+        }
       ]
     },
     {
       "id": "11_przejscie_wzdluz_domu",
       "title": "Przejście wzdłuż domu",
-      "image": "/assets/images/spacer-360/exterior/webp/11_przejscie_wzdluz_domu.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/11_przejscie_wzdluz_domu.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/11_przejscie_wzdluz_domu.webp?v=85c14c7527b0c9f2",
+      "thumb": "/assets/images/spacer-360/exterior/webp/11_przejscie_wzdluz_domu.webp?v=85c14c7527b0c9f2",
       "hotspots": [
-        { "x": 76, "y": 77, "label": "Idź do ogrodu bocznego", "target": "12_ogrod_boczny", "align": "left", "pulse": true },
-        { "x": 28, "y": 74, "label": "Wróć do ogrodu", "target": "10_dom_od_strony_ogrodu", "align": "right", "pulse": false }
+        {
+          "target": "12_ogrod_boczny",
+          "x": 76,
+          "y": 77,
+          "label": "Ogród\nboczny",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 28,
+          "y": 46,
+          "label": "Wróć do\nogrodu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "12_ogrod_boczny",
+          "x": 76,
+          "y": 77,
+          "label": "Ogród\nboczny",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 28,
+          "y": 46,
+          "label": "Wróć do\nogrodu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "12_ogrod_boczny",
       "title": "Ogród boczny",
-      "image": "/assets/images/spacer-360/exterior/webp/12_ogrod_boczny.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/12_ogrod_boczny.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/12_ogrod_boczny.webp?v=111c7ccd6354ac81",
+      "thumb": "/assets/images/spacer-360/exterior/webp/12_ogrod_boczny.webp?v=111c7ccd6354ac81",
       "hotspots": [
-        { "x": 77, "y": 76, "label": "Wróć w stronę frontu", "target": "13_powrot_w_strone_frontu", "align": "left", "pulse": true },
-        { "x": 26, "y": 73, "label": "Cofnij wzdłuż domu", "target": "11_przejscie_wzdluz_domu", "align": "right", "pulse": false }
+        {
+          "target": "13_powrot_w_strone_frontu",
+          "x": 77,
+          "y": 76,
+          "label": "W stronę\nfrontu",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "11_przejscie_wzdluz_domu",
+          "x": 26,
+          "y": 73,
+          "label": "Wróć wzdłuż\ndomu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "13_powrot_w_strone_frontu",
+          "x": 77,
+          "y": 76,
+          "label": "W stronę\nfrontu",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "11_przejscie_wzdluz_domu",
+          "x": 26,
+          "y": 73,
+          "label": "Wróć wzdłuż\ndomu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "13_powrot_w_strone_frontu",
       "title": "Powrót w stronę frontu",
-      "image": "/assets/images/spacer-360/exterior/webp/13_powrot_w_strone_frontu.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/13_powrot_w_strone_frontu.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/13_powrot_w_strone_frontu.webp?v=175909ffc22baa36",
+      "thumb": "/assets/images/spacer-360/exterior/webp/13_powrot_w_strone_frontu.webp?v=175909ffc22baa36",
       "hotspots": [
-        { "x": 79, "y": 77, "label": "Wróć na front posesji", "target": "02_front_domu_i_podjazd", "align": "left", "pulse": true },
-        { "x": 25, "y": 74, "label": "Cofnij do bocznego ogrodu", "target": "12_ogrod_boczny", "align": "right", "pulse": false },
-        { "x": 57, "y": 49, "label": "Zobacz dom z góry", "target": "14_dom_i_dzialka_z_gory", "align": "left", "pulse": false }
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 79,
+          "y": 77,
+          "label": "Wróć na\nfront",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "12_ogrod_boczny",
+          "x": 69,
+          "y": 75,
+          "label": "Ogród\nboczny",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "11_przejscie_wzdluz_domu",
+          "x": 17,
+          "y": 63,
+          "label": "Wzdłuż\ndomu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "02_front_domu_i_podjazd",
+          "x": 79,
+          "y": 77,
+          "label": "Wróć na\nfront",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "12_ogrod_boczny",
+          "x": 69,
+          "y": 75,
+          "label": "Ogród\nboczny",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "11_przejscie_wzdluz_domu",
+          "x": 17,
+          "y": 63,
+          "label": "Wzdłuż\ndomu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
       ]
     },
     {
       "id": "14_dom_i_dzialka_z_gory",
       "title": "Dom i działka z góry",
-      "image": "/assets/images/spacer-360/exterior/webp/14_dom_i_dzialka_z_gory.webp",
-      "thumb": "/assets/images/spacer-360/exterior/webp/14_dom_i_dzialka_z_gory.webp",
+      "image": "/assets/images/spacer-360/exterior/webp/14_dom_i_dzialka_z_gory.webp?v=3bd8114029500b44",
+      "thumb": "/assets/images/spacer-360/exterior/webp/14_dom_i_dzialka_z_gory.webp?v=3bd8114029500b44",
       "hotspots": [
-        { "x": 49, "y": 75, "label": "Zejdź na front posesji", "target": "01_widok_posesji_od_frontu", "align": "right", "pulse": true },
-        { "x": 31, "y": 65, "label": "Podejdź do ogrodu", "target": "08_elewacja_ogrodowa", "align": "right", "pulse": false },
-        { "x": 77, "y": 70, "label": "Spójrz na podjazd i wiatę", "target": "05_podjazd_i_wiata", "align": "left", "pulse": false }
+        {
+          "target": "01_widok_posesji_od_frontu",
+          "x": 49,
+          "y": 75,
+          "label": "Zejdź na\nfront",
+          "kind": "down",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 31,
+          "y": 65,
+          "label": "Ogród",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 77,
+          "y": 70,
+          "label": "Podjazd i\nwiata",
+          "kind": "downRight",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "fallbackHotspots": [
+        {
+          "target": "01_widok_posesji_od_frontu",
+          "x": 49,
+          "y": 75,
+          "label": "Zejdź na\nfront",
+          "kind": "down",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "08_elewacja_ogrodowa",
+          "x": 31,
+          "y": 65,
+          "label": "Ogród",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "05_podjazd_i_wiata",
+          "x": 77,
+          "y": 70,
+          "label": "Podjazd i\nwiata",
+          "kind": "downRight",
+          "align": "left",
+          "pulse": false
+        }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "mode": "exterior",
+  "coordinateSystem": "image",
+  "loop": true,
+  "description": "Spacer wokół domu z zachowaniem wszystkich kadrów, spójną trasą obwodową i kierunkowymi strzałkami zgodnymi z położeniem celu."
 }

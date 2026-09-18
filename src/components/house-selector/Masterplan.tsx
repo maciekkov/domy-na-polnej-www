@@ -1,8 +1,6 @@
 import type { KeyboardEvent } from 'react'
 import type { House, HouseId } from '../../data/houses'
 import { formatPrice } from '../../data/houses'
-import './MasterplanRefinement.css'
-
 type MasterplanProps = {
   houses: House[]
   selectedId: HouseId | null
@@ -37,7 +35,7 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
 
   return (
     <div className="masterplan" aria-label="Interaktywny plan domów A–E" onMouseLeave={() => onHover(null)}>
-      <img src={asset('assets/images/dnp-masterplan.svg')} alt="Widok z góry na pięć działek i domów przy ulicy Polnej" width="1672" height="941" />
+      <img src={asset('assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f')} alt="Widok z góry na pięć działek i domów przy ulicy Polnej" width="1672" height="941" loading="lazy" decoding="async" />
       <svg className="masterplan__polygons" viewBox="0 0 442.38331 248.97291" preserveAspectRatio="none" aria-label="Wybierz dom na planie">
         {houses.map((house) => (
           <path
@@ -77,7 +75,7 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
 
       <img
         className="masterplan__compass"
-        src={asset('assets/images/ui/masterplan-compass.png')}
+        src={asset('assets/images/ui/masterplan-compass.png?v=a3ef53cfd0a90b2f')}
         alt=""
         aria-hidden="true"
         draggable="false"

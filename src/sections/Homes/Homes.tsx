@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { HouseCard, StatusBadge } from '../../components/house-selector/HouseCard'
 import { Masterplan } from '../../components/house-selector/Masterplan'
 import type { House, HouseId } from '../../data/houses'
-import { formatPrice } from '../../data/houses'
+import { formatArea, formatPrice, formatPricePerSqm } from '../../data/houses'
 
 type HomesProps = {
   houses: House[]
@@ -38,9 +38,9 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
 
         <div className="homes-table-wrap">
           <table className="homes-table">
-            <caption className="sr-only">Lista domów, ich statusy, powierzchnie działek i ceny</caption>
+            <caption className="sr-only">Lista domów, statusy, powierzchnie, działki, ceny brutto i ceny brutto za metr kwadratowy powierzchni użytkowej</caption>
             <thead>
-              <tr><th>Dom</th><th>Nr działki</th><th>Status</th><th>Powierzchnia</th><th>Działka</th><th>Pokoje</th><th>Cena</th></tr>
+              <tr><th>Dom</th><th>Nr działki</th><th>Status</th><th>Pow. użytkowa</th><th>Działka</th><th>Pokoje</th><th>Cena brutto</th><th>Brutto / m²</th></tr>
             </thead>
             <tbody>
               {houses.map((house) => (
@@ -56,13 +56,12 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
                   <th scope="row"><button type="button" onClick={(event) => { event.stopPropagation(); onSelect(house.id) }}>{house.name}</button></th>
                   <td>{house.parcel}</td>
                   <td><StatusBadge status={house.status} /></td>
-                  <td>{house.area} m²</td><td>{house.plot} m²</td><td>{house.rooms}</td><td>{formatPrice(house.price)}</td>
+                  <td>{formatArea(house.area)}</td><td>{house.plot} m²</td><td>{house.rooms}</td><td>{formatPrice(house.price)}</td><td>{formatPricePerSqm(house)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
         <div className="homes-mobile-list" aria-label="Lista domów">
           {houses.map((house) => (
             <button
@@ -72,7 +71,7 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
               onClick={() => onSelect(house.id)}
             >
               <span className="homes-mobile-list__top"><strong>{house.name}</strong><StatusBadge status={house.status} /></span>
-              <span className="homes-mobile-list__meta"><span>{house.plot} m² działki</span><b>{formatPrice(house.price)}</b></span>
+              <span className="homes-mobile-list__meta"><span>{formatArea(house.area)} · działka {house.plot} m²</span><b>{formatPrice(house.price)}</b></span><span className="homes-mobile-list__unit-price">{formatPricePerSqm(house)} brutto</span>
               <span className="homes-mobile-list__link">Wybierz ten dom</span>
             </button>
           ))}

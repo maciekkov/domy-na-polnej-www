@@ -1,0 +1,7 @@
+# This directory contains only Vite content-hashed chunks and fonts.
+# A new build creates new URLs. Do not put mutable/manual files in this directory.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

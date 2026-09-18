@@ -1,0 +1,2075 @@
+{
+  "description": "Źródła z poprawkami 1–12. Bez node_modules i bez potwierdzonego dist.",
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 91,
+      "sha256": "8e3051660d7277011d1b322f5afd0c73ae8d85314a8d42209c7eac8c61847a15"
+    },
+    {
+      "path": ".github/workflows/check-app.yml",
+      "bytes": 806,
+      "sha256": "fcf3e27bafbbfb6b2b667c8f602c01df5d328b867629ecf03123be7841bfa4a4"
+    },
+    {
+      "path": ".github/workflows/check-v61-live-assets.yml",
+      "bytes": 1464,
+      "sha256": "2005f715b172c8623ffd20eb03cd6ce9f1e39d327e3119aea32d127a4a2938aa"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 603,
+      "sha256": "aee3006d807cfdff21cb205d7fc80c70beceb1488650301c3c54fc3d71119bb8"
+    },
+    {
+      "path": "ASSET_INVENTORY.md",
+      "bytes": 4334,
+      "sha256": "594aa8f4276898be12d4f5976331108ddcc22e81f4929f70421f5495b92bf0e5"
+    },
+    {
+      "path": "AUDIT_IMPLEMENTACJI.md",
+      "bytes": 1992,
+      "sha256": "83a05f4cb5544265f55318328bb85fd5af7a119d1f57fa94ebab48cec3bd6d6f"
+    },
+    {
+      "path": "AUDYT_POPRAWEK_1-6.md",
+      "bytes": 9649,
+      "sha256": "dd8284103c0a1d0d16f5b3e62f71cc98e3c3f8c966e2e5ec85f1ed07df601fc9"
+    },
+    {
+      "path": "AUDYT_POPRAWEK_7-12.md",
+      "bytes": 9893,
+      "sha256": "0755b99d9171ceec2543fc5dc82d09c6b0a7768cff27cebc3e44ed0a86deae43"
+    },
+    {
+      "path": "AUDYT_SPACERU_WNETRZA.html",
+      "bytes": 1607513,
+      "sha256": "0f58abd188807322ec4ef927c6327cee1f68808b7466edecd8cfa226805ac55d"
+    },
+    {
+      "path": "BUDUJ-WDROZENIE.cmd",
+      "bytes": 627,
+      "sha256": "ee77fd274fa83a96baab14cba9cb970ad62234c7fac9d97e75c549cb9f8f325f"
+    },
+    {
+      "path": "CHANGELOG_V6_PRODUCTION.md",
+      "bytes": 2882,
+      "sha256": "251deeaf0ece9497bcae9744f6c80077319cb99c89cc1c062ecdb33e9c9786bd"
+    },
+    {
+      "path": "DEPLOYMENT.md",
+      "bytes": 2566,
+      "sha256": "958dbe38ff809d62d1735b3690d8da387d9431e44471e8ca1390a43902d63c24"
+    },
+    {
+      "path": "EDYCJA-SPACERU-README.txt",
+      "bytes": 812,
+      "sha256": "600797cf139f733b857ba428738d134d73097bf825c89f945d172c89509a1788"
+    },
+    {
+      "path": "EDYTUJ-DANE-DEMO.cmd",
+      "bytes": 57,
+      "sha256": "fe7eba0feb9cfab7e8ce3fb7f7cd09fd226409205ca1ab34bd9a3b3e24d3c4bb"
+    },
+    {
+      "path": "EDYTUJ-SPACER.cmd",
+      "bytes": 266,
+      "sha256": "c1873a238682cfbe814efc09734b19ebc6a09066bc2f5a8bb2587f391d2e2691"
+    },
+    {
+      "path": "IMPLEMENTATION_NOTES.md",
+      "bytes": 2595,
+      "sha256": "f0aa4653418547ccc6288f9479f79d4f5299f25382dc7e5e41a04c72f0c539b0"
+    },
+    {
+      "path": "MISSING_CONTENT.md",
+      "bytes": 1249,
+      "sha256": "02c385b00eb718eb03f05cb3af87601a2321136be0c1fda6cfc3c71e783d9429"
+    },
+    {
+      "path": "PODGLAD-SPACERU.cmd",
+      "bytes": 232,
+      "sha256": "525a757660b1fb7c175490a1f7aba50688f816028b90551c7da6c396168c3e06"
+    },
+    {
+      "path": "README-SPACER-WNETRZA.md",
+      "bytes": 7082,
+      "sha256": "3124a06c724051fcb2ea6b570e66a350b9a454a107e43fd2d47b419477235ce4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7567,
+      "sha256": "1586b8df900ff5f1265caa5d8a48c9a046962b05785a0790a98811d5daad7a28"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 423,
+      "sha256": "7e0026b664f325d460d7da29fe0f24ce6528c9e70de446dfbea68d82b2260370"
+    },
+    {
+      "path": "STAGE_09_10_AUDIT.md",
+      "bytes": 2242,
+      "sha256": "b522df60f60386b19426dc11b246c3205150855e891cc4d381d64e0ae3e43928"
+    },
+    {
+      "path": "STAGE_11_12_AUDIT.md",
+      "bytes": 1914,
+      "sha256": "f57aea307140711544e639606f3d7d11fbe7b9fc63f20f1a648eeb2d7b4813e4"
+    },
+    {
+      "path": "START_PREVIEW.bat",
+      "bytes": 99,
+      "sha256": "1b6a7c598e3a6d52cc1d11676ad3536eaba352f58bb1a3cca5138bb609a3726b"
+    },
+    {
+      "path": "START_PREVIEW.sh",
+      "bytes": 64,
+      "sha256": "13357795dadb6c71808f522d70f9dba1eb8d116cb9fc2d7e568cce979dbc15a5"
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "bytes": 454,
+      "sha256": "334ec01660eaa0b435b07be57467ddbf173d0d8b40a61f7b00e5ccaafc86b6cf"
+    },
+    {
+      "path": "V10_RZUT2D_IMPLEMENTACJA.md",
+      "bytes": 1004,
+      "sha256": "ef3c5e8ba56d6ceec7399df277b1c2e1d40b3cb3be74586ac8a436e7d0cb38bb"
+    },
+    {
+      "path": "VISUAL_QA.md",
+      "bytes": 5935,
+      "sha256": "6c9a33496d2f76eaee0159f3789ec3767c5c5490942d67321afd8566c4a3cc50"
+    },
+    {
+      "path": "api/.htaccess",
+      "bytes": 216,
+      "sha256": "034081daca9fe3207d13cba7477e23f57103445bd327ac73f497eed8789fa9d9"
+    },
+    {
+      "path": "api/analytics.php",
+      "bytes": 1478,
+      "sha256": "fd57ff196030252d9d973378ea5fe2f36617ebd010836179fe57e04e8fd4c726"
+    },
+    {
+      "path": "api/config.example.php",
+      "bytes": 959,
+      "sha256": "8640fa047eb116dea21e3d46738afc7a1482e3f456e1094e8916aa1355fa5205"
+    },
+    {
+      "path": "api/contact.php",
+      "bytes": 6057,
+      "sha256": "6d904f64791ed7c06d24963cbfbb6ea8d294d411bf768196e9a701b956f933a6"
+    },
+    {
+      "path": "api/data/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "api/event-names.json",
+      "bytes": 253,
+      "sha256": "ead0ec6e747b66c0694ebeece8c1aea07d41613a9d0c564550e9b92dd465ac91"
+    },
+    {
+      "path": "api/lib/security.php",
+      "bytes": 9115,
+      "sha256": "3d5ea69be6922ef30aaa4113dbb85eec0bebab831d57b881bffe375afe4d49e4"
+    },
+    {
+      "path": "buduj-wdrozenie.sh",
+      "bytes": 195,
+      "sha256": "ada81a9a2c3a759d447c687c052b3ce18451e69c64828c9d5dbdc2b26f226e0f"
+    },
+    {
+      "path": "docs/archive/ASSET_INVENTORY.md",
+      "bytes": 4276,
+      "sha256": "c802dbfb3b38cb7319b46af112f8a6294d7f98c37ebca115172ae72174cd0b9a"
+    },
+    {
+      "path": "docs/archive/AUDIT_IMPLEMENTACJI.md",
+      "bytes": 1955,
+      "sha256": "d4996847e3df3be772175a17a2bd626772b809f82efa25d38bf5b9d7f32d1774"
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V10_FAQ_3_COLUMNS.md",
+      "bytes": 663,
+      "sha256": "51433ea52322edfc6b3cf684f519f179fc46d23a6eb203f99d09ddeee33afab2"
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V7_TARGETED.md",
+      "bytes": 1354,
+      "sha256": "ce8021507b9b8223d8f12d36950a7d534e602ad895758bcb5061175d939f6b0d"
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V8_UI_REFINEMENTS.md",
+      "bytes": 1046,
+      "sha256": "67ac1409af3f003149c7498214c5ca4004cdabf3126279fa81bd71deb90a41d8"
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V9_FAQ_SCHEDULE.md",
+      "bytes": 1345,
+      "sha256": "523d8a850826d198f88b1ee7bdbb033917e36b550a15fcbd3584ef7d6f58cc20"
+    },
+    {
+      "path": "docs/archive/IMPLEMENTATION_NOTES.md",
+      "bytes": 2531,
+      "sha256": "d91183b37994d8291f5d36c942096e3316ab2de6b3c0f4f98c76a5a65e7e605b"
+    },
+    {
+      "path": "docs/archive/STAGE_09_10_AUDIT.md",
+      "bytes": 2214,
+      "sha256": "c3ff71a52c860ae1d309498fa3cf50130c5d50c01ee95325f8223b11d8722d21"
+    },
+    {
+      "path": "docs/archive/STAGE_11_12_AUDIT.md",
+      "bytes": 1893,
+      "sha256": "a1dae636487de1cb3625713dbcd1533e0dafc0d3ad7a51457c75519137101d38"
+    },
+    {
+      "path": "docs/archive/V10_RZUT2D_IMPLEMENTACJA.md",
+      "bytes": 994,
+      "sha256": "4bc990050cabd8d917c71e24eaba22948257ebbcdc8f3c52550381edd1de205d"
+    },
+    {
+      "path": "docs/archive/VISUAL_QA.md",
+      "bytes": 5857,
+      "sha256": "232a33b69cd42b64d55b700f91e25a05b388e96c2f5f2d22b1dda71b3b4282f0"
+    },
+    {
+      "path": "docs/audit-7-12/api-security-test.json",
+      "bytes": 4422,
+      "sha256": "4b3a13e239b55772f8e14b690c6f5d197e5de6b0048eca07c822ef4b9b4d53a3"
+    },
+    {
+      "path": "docs/audit-7-12/build-unverified.log",
+      "bytes": 3507,
+      "sha256": "19d182141615a57db57a95795a8dacd15ded2bfc539ad755eb5da0cf302acbf3"
+    },
+    {
+      "path": "docs/audit-7-12/contact-1440.png",
+      "bytes": 108546,
+      "sha256": "c0de5157a635e3fa31b3c5d86dfc66879edf16a9f83eef4982d9ae2718e93d72"
+    },
+    {
+      "path": "docs/audit-7-12/contact-390.png",
+      "bytes": 86898,
+      "sha256": "8a7542a7ba196b3201549192f29db654ff375be7f2f07db529cfd5918d86d31e"
+    },
+    {
+      "path": "docs/audit-7-12/css-comparison-differences.json",
+      "bytes": 1208,
+      "sha256": "0ce6ed1b08bb542f499c8bb0ac18e6ec573fd0573db2f9cacd9229524ac14b04"
+    },
+    {
+      "path": "docs/audit-7-12/css-refactor.json",
+      "bytes": 713,
+      "sha256": "a45d2c2fe48a0f9f0161b20412430464f3e515615f4184afbf9a2ee02f6d6871"
+    },
+    {
+      "path": "docs/audit-7-12/http-apache.json",
+      "bytes": 2987,
+      "sha256": "1868ca7d4853612ea3baa1d08521576893bd42d851e4b7c5ff849ebf5c0efa5f"
+    },
+    {
+      "path": "docs/audit-7-12/npm-install.log",
+      "bytes": 270,
+      "sha256": "0adc93790c9048c44c0245e4cca7758ce1e0efab06a661ad85a88b009a6a4b04"
+    },
+    {
+      "path": "docs/audit-7-12/offer-a-1440.png",
+      "bytes": 1538507,
+      "sha256": "0a956f70984b03e0626a492b496dab17fab05c90f5c27ff7a339ff3915c88f29"
+    },
+    {
+      "path": "docs/audit-7-12/offer-a-390.png",
+      "bytes": 638191,
+      "sha256": "5a01b7ace31bf2c42fe18590bb8ec6bd80b6117713dbe15c2d453e226f70e88f"
+    },
+    {
+      "path": "docs/audit-7-12/php-lint.log",
+      "bytes": 142,
+      "sha256": "4d7d1d5ca924a11c94a8c3316fd5143c567d97ac84015a13d61b08fec3f9596a"
+    },
+    {
+      "path": "docs/audit-7-12/preserved-data.json",
+      "bytes": 173,
+      "sha256": "73261ef65301849111abe2d79803f63ab6b1c8cf27c6119a6adc06412be45cf0"
+    },
+    {
+      "path": "docs/audit-7-12/static-layout-test.json",
+      "bytes": 10351,
+      "sha256": "a9cd8433ca795d484bf5d0eaf11c3e1cbd729082a09544d20aff97cf2f01a862"
+    },
+    {
+      "path": "docs/audit-7-12/syntax.log",
+      "bytes": 125,
+      "sha256": "2d1f89468524fcc15366a8c60205a6c56c8fcd8ac31dcff9c3e03236c3fbc8ec"
+    },
+    {
+      "path": "docs/audit-7-12/tests.log",
+      "bytes": 16370,
+      "sha256": "cd0bda8e5992cc6ed30afbba7f74c2d408323f79a2c75ababa003704029d4a4a"
+    },
+    {
+      "path": "docs/cleanup-six/apache-http-test.json",
+      "bytes": 2289,
+      "sha256": "eea52e7c3e2915c7c2aa4ef4afd611fac5e241c279e9d2a4d46d926994a105a2"
+    },
+    {
+      "path": "docs/cleanup-six/asset-inventory.json",
+      "bytes": 84,
+      "sha256": "c4869c6ec2d446d4ba8ac1bf1bc0e96b862df5aa8788a2f72e8c5e4001b45032"
+    },
+    {
+      "path": "docs/cleanup-six/browser-http-attempt.log",
+      "bytes": 1894,
+      "sha256": "a1c343a5ab6c5a5b552654a95322548720b4caf36e05b7613c2cad33a436ffb1"
+    },
+    {
+      "path": "docs/cleanup-six/build-attempt.log",
+      "bytes": 3392,
+      "sha256": "dedb610f1974ca13cb6caecfd686d1d473c112a7a8c01f12ad1417a9223d3f7b"
+    },
+    {
+      "path": "docs/cleanup-six/changed-files.json",
+      "bytes": 7423,
+      "sha256": "62be1e82b5e24dc292115a4ae7e843147cd95a4f66cb9196696cee7d25bd8c6a"
+    },
+    {
+      "path": "docs/cleanup-six/exterior-component-smoke.png",
+      "bytes": 1454959,
+      "sha256": "f2e1fa0dbca38e7dc58f613b0e07d9fcc526cf1b17829b55689eadad651b5d30"
+    },
+    {
+      "path": "docs/cleanup-six/interior-component-smoke.png",
+      "bytes": 1263004,
+      "sha256": "cf3cb432f8cbe807927bcc2097145c58594a5c119d8c9d39a5d8cda12e97e676"
+    },
+    {
+      "path": "docs/cleanup-six/metrics.json",
+      "bytes": 208,
+      "sha256": "650abce4bb9cb1272a755ed50ddb228af264485f1a7c20d8650843c9b778d4ef"
+    },
+    {
+      "path": "docs/cleanup-six/node-tests.log",
+      "bytes": 6639,
+      "sha256": "9aa5aa5e0e2becd4ea94e8055e72dc1ec1af16e9cf2b8dc63876b09b2814d0d7"
+    },
+    {
+      "path": "docs/cleanup-six/npm-network-check.log",
+      "bytes": 418,
+      "sha256": "484c53dfe980242105cc3822bec8973a096e16ddfbf765ea79ea0b8f67cf4c7b"
+    },
+    {
+      "path": "docs/cleanup-six/php-lint.log",
+      "bytes": 144,
+      "sha256": "146f15edc6d4f08d98723a84440dca8737b5939e699fb6e7ea28e8c8f2bc911b"
+    },
+    {
+      "path": "docs/cleanup-six/removed-assets.json",
+      "bytes": 18375,
+      "sha256": "d0a3806dc6d6f6dbda5562734d49ae0effa85190ce62cc06616d2ab0aae1fe69"
+    },
+    {
+      "path": "docs/cleanup-six/syntax-check.log",
+      "bytes": 204,
+      "sha256": "ad885d903eb35dd64bf5eedf7311ed3e2033c98f51c68a9e36f09f10f6ee2193"
+    },
+    {
+      "path": "docs/cleanup-six/tour-browser-test.json",
+      "bytes": 194,
+      "sha256": "08fc102c3de93d176eeedbb07c59aa495aa92dea99c46bf76925c7db99d3d33b"
+    },
+    {
+      "path": "docs/cleanup-six/tour-dom-smoke.json",
+      "bytes": 205,
+      "sha256": "c67dad953513e33dafe58df1c41b518ef3b19dfe95736f15bbfbbc6639f3426a"
+    },
+    {
+      "path": "docs/cleanup-six/verification.json",
+      "bytes": 1726,
+      "sha256": "496cb0ec84e17ea5a7c88d5af1aae2e917581a7cf96b2c1b8a60d87f56370178"
+    },
+    {
+      "path": "docs/cleanup-six/version-assets.log",
+      "bytes": 159,
+      "sha256": "5d06f05851091e81a78cc246dcfaf1477085c8cc3eebccddf352cccd119d3f3b"
+    },
+    {
+      "path": "docs/spacer-wnetrza/AUDYT_UX_SPACER_360_FINAL.md",
+      "bytes": 2309,
+      "sha256": "815d8c722536da453e6193a1b10076d37f930a87614fa338bc9ba262b75253c1"
+    },
+    {
+      "path": "docs/spacer-wnetrza/TESTY.md",
+      "bytes": 4315,
+      "sha256": "4e49bae0b90c6cff20ae4b312347ca0467a4a7654af6fb9fe519f11eaeef4341"
+    },
+    {
+      "path": "docs/spacer-wnetrza/browser-qa.json",
+      "bytes": 1185,
+      "sha256": "0129415ddba5f68a0ec289a9d1076de5192c48ef5f81e94d1c8d9a9a42b2b67f"
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/README.txt",
+      "bytes": 303,
+      "sha256": "3468b61ff57cffeb8e4ce1946be27b1d5c2242857c4bf0a79c78ade622960078"
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-wewnetrzny-FINAL.json",
+      "bytes": 60761,
+      "sha256": "bccceea21a2d3e64144ace9c9bbc1af6a921f879133c1ab5a6621fc2c7bf28e1"
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-wewnetrzny-UX.json",
+      "bytes": 58491,
+      "sha256": "1845891d76644e4ec58c417169967471bc0ff32b65cafe206b39479f52cf9b76"
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-zewnetrzny-FINAL.json",
+      "bytes": 12177,
+      "sha256": "78cc36f7b1380ecda104140161afc1ec5398061544cc3ebb78456b4865c8475b"
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-zewnetrzny-UX.json",
+      "bytes": 23093,
+      "sha256": "388775300529e34de6cf995cb2bdd4dde16c29e5c223f9721eb8b32f3fc31235"
+    },
+    {
+      "path": "docs/spacer-wnetrza/klasyfikacja.json",
+      "bytes": 32946,
+      "sha256": "138b211efaad0b760ebdde7196c640dd2aa78203097658bb6738d76a1e1b7490"
+    },
+    {
+      "path": "docs/spacer-wnetrza/original-change-check.json",
+      "bytes": 466,
+      "sha256": "98f03044241e141f0571015830671aed6c4d02463041047d4cbfb3690b3ba40c"
+    },
+    {
+      "path": "docs/spacer-wnetrza/package-manifest.json",
+      "bytes": 1024,
+      "sha256": "a783ea33e60ec96ceaaceb8ac93d0787ccd96d232a2e111e5393d8903afdbf64"
+    },
+    {
+      "path": "docs/spacer-wnetrza/preview-server-check.json",
+      "bytes": 852,
+      "sha256": "10b94a95fee638f80668e9b7d0bcf64b2ba82a990279666803524024eb87f9f8"
+    },
+    {
+      "path": "docs/spacer-wnetrza/source-check.log",
+      "bytes": 760,
+      "sha256": "5bb625e013b9153d253f5c542d0c883defbe2a4c8ef09f261ca74034ea705656"
+    },
+    {
+      "path": "docs/spacer-wnetrza/tour-check.log",
+      "bytes": 116,
+      "sha256": "5ba9eda0068b3894d23f92dc6bf9b7c44ce02765a9cf8995b2a56c78efe05a01"
+    },
+    {
+      "path": "docs/spacer-wnetrza/tsx-syntax-check.json",
+      "bytes": 243,
+      "sha256": "42793d4435ad1a2d5854380dfeff0708e1e0c2af9c8ddfed288ad8c0c264b10c"
+    },
+    {
+      "path": "docs/spacer-wnetrza/warianty/int23-pokoj-dzieciecy-kontrkadr-wariant-renderu.webp",
+      "bytes": 151322,
+      "sha256": "5b44d221420480ea6827c8af6fbabea979fc2055607d80a006cb263371a9d578"
+    },
+    {
+      "path": "docs/spacer-wnetrza/warianty/int24-pokoj-mlodziezowy-kontrkadr-wariant-renderu.webp",
+      "bytes": 134990,
+      "sha256": "c97b92066bdaace76cf45a27d67077008b0aa2f1776f6507711068693573f5cd"
+    },
+    {
+      "path": "dom-a/index.html",
+      "bytes": 9024,
+      "sha256": "7791d0e33aa9df254808b4d13d95414f0d57f21562340ce1348a35a24e150e13"
+    },
+    {
+      "path": "dom-b/index.html",
+      "bytes": 9024,
+      "sha256": "e534da3631fb598e9fde8e93efc3f8c7e41d24a50bd9468d5fc0757b5468071f"
+    },
+    {
+      "path": "dom-c/index.html",
+      "bytes": 9047,
+      "sha256": "2ab38c7ecb479141325e17da77148f734d742509fec11ef23d8dab0eb5ad0bca"
+    },
+    {
+      "path": "dom-d/index.html",
+      "bytes": 9024,
+      "sha256": "3b1bec9d89582d2d374f71ab055406038dcf209e664066e300012763b19c04a6"
+    },
+    {
+      "path": "dom-e/index.html",
+      "bytes": 9035,
+      "sha256": "41d070e938a6af211c8954843a5fbcfb8f2e818b1e0b042e16f6d822236261cf"
+    },
+    {
+      "path": "index.html",
+      "bytes": 3692,
+      "sha256": "899b9bfc43189764263ea66f7060bf029d885f441e6032f5fe5d37b832d52a76"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 67507,
+      "sha256": "9fec5430ea31755a1e7535c166303bee646f0f16a4a7f724d407f82c5bf69999"
+    },
+    {
+      "path": "package.json",
+      "bytes": 2022,
+      "sha256": "35657baf8a26a5168f0c2063ed3676d8db56dce13695caba16a1e39bc801713b"
+    },
+    {
+      "path": "preview-server.mjs",
+      "bytes": 4596,
+      "sha256": "c406d18b92d7bdab497b3c4a369b1d9888974e898e8692f9d2dd350d27f1cc9e"
+    },
+    {
+      "path": "preview-tour.mjs",
+      "bytes": 2138,
+      "sha256": "ea217736bea487176f1da52ad1d484b805c5b1bbe9c7255b88c02aed2c0b0faf"
+    },
+    {
+      "path": "public/.htaccess",
+      "bytes": 1089,
+      "sha256": "9c3f4e037b35077889b877a3ff3f364c78d661bd33ce3ad0834f8baa93f408dd"
+    },
+    {
+      "path": "public/assets/data/asset-versions.json",
+      "bytes": 11849,
+      "sha256": "a69aaa6a5a7bfe9876366dfc3e56cfe20d728806200e5efa5398440004719c38"
+    },
+    {
+      "path": "public/assets/data/spacer-360-wewnetrzny.json",
+      "bytes": 60201,
+      "sha256": "3417d71e66cc6e07c1a6e8ab4ebf19ecf7ae188d5d0f86596167171e2130a829"
+    },
+    {
+      "path": "public/assets/data/spacer-360-zewnetrzny.json",
+      "bytes": 23625,
+      "sha256": "44dfef55695774e4875b058b262db6544f8fd041f9c1074a485911abb242e1e3"
+    },
+    {
+      "path": "public/assets/images/botanical-corner.svg",
+      "bytes": 1340,
+      "sha256": "c58b540488b174558a1b9fb2eb5ae39a80c74aaf1fe13074672b283e8474911b"
+    },
+    {
+      "path": "public/assets/images/dnp-masterplan.webp",
+      "bytes": 796526,
+      "sha256": "513c9a85fe20f11fe19b4f70e947381ea6f3b7ade597871dff4e2d2f89439106"
+    },
+    {
+      "path": "public/assets/images/hero-all-houses.webp",
+      "bytes": 459528,
+      "sha256": "0ce61987a164f08ce6f063ceeebb09fe2f2407012f11c4ea604b7a43e8b4dac9"
+    },
+    {
+      "path": "public/assets/images/hero-front-photoreal.webp",
+      "bytes": 502942,
+      "sha256": "33b923d13b43bc92d9deec7a03a556ee37ba31e7816c4942f769917c457e3959"
+    },
+    {
+      "path": "public/assets/images/layout/plan-2d-precise.webp",
+      "bytes": 169354,
+      "sha256": "3c79d8033e9a6bfeda3b199bff6d48a29b461af7037457465ec1f18ea63559e2"
+    },
+    {
+      "path": "public/assets/images/layout/plan-3d.webp",
+      "bytes": 382842,
+      "sha256": "449065e32367b32d2ed2de753da1d8d662c7c3fe6b26eebc8fd287ed271925ba"
+    },
+    {
+      "path": "public/assets/images/location-map.webp",
+      "bytes": 112620,
+      "sha256": "165b294398bf3ee5750e8f8a4e1b05cd7ee877e14524710976e748d27c59742a"
+    },
+    {
+      "path": "public/assets/images/neighborhood/fields.webp",
+      "bytes": 373908,
+      "sha256": "24b8be2341f1952fbe2d14b5abcde97294deab96b6b59a20ec9b055f12647176"
+    },
+    {
+      "path": "public/assets/images/neighborhood/forest-panorama.webp",
+      "bytes": 292724,
+      "sha256": "66a5cc20b925ff3b32f68a7e273cf90230bf8cf4eed6e935161c067ab2505bc0"
+    },
+    {
+      "path": "public/assets/images/neighborhood/panorama-360-grabik.webp",
+      "bytes": 1440548,
+      "sha256": "c7a1986872c74640a03a60f4cedd2b4bf6212fe3176436db342e218d69fcc496"
+    },
+    {
+      "path": "public/assets/images/neighborhood/plots-aerial.webp",
+      "bytes": 299310,
+      "sha256": "1e1c177287ce686dcf663b9a28ddc4e04bc39b42e84b0679a1f5e5506b3bd387"
+    },
+    {
+      "path": "public/assets/images/neighborhood/plots-front.webp",
+      "bytes": 173050,
+      "sha256": "0039f4e4dda29388d5251a308890c5f4720f4d526784d48f1e662a5600a1837d"
+    },
+    {
+      "path": "public/assets/images/schedule/umowa_deweloperska.webp",
+      "bytes": 321918,
+      "sha256": "6bcf0eaef255fc8319d4854fd575e6a2be5e891751808fa7b19d2dcab57ee217"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/01_widok_posesji_od_frontu.webp",
+      "bytes": 377556,
+      "sha256": "5811ffa54252b6dc17c6ffc197e48b79995ff0a2c27ad566d6cde66a269e5ee9"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/02_front_domu_i_podjazd.webp",
+      "bytes": 549478,
+      "sha256": "eac5c68a6f9190acfa09f474847374383134249882988e326d088f24c3f34484"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/03_wejscie_glowne.webp",
+      "bytes": 315672,
+      "sha256": "35c1feeb7bcf44b1d270059506cf2da843163f39b72b35670b9d8924433e3f78"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp",
+      "bytes": 233218,
+      "sha256": "53b469e6311733ca9363eabeffac0fe1306b88572590ab8c75574ba57257d003"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/05_podjazd_i_wiata.webp",
+      "bytes": 346914,
+      "sha256": "3e8df6a9456f3f0954fec766770b7dce7f0d8a5d21edd8ce1cb4c4634db8c2a8"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/06_przejscie_pod_wiata.webp",
+      "bytes": 346706,
+      "sha256": "c2a691a318a1e6f6bd379398a3dfdcc4cf947983493b244c7e9a5c9158d4e282"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/07_naroznik_ogrodowy.webp",
+      "bytes": 425880,
+      "sha256": "0e855694472187d99345eac41452f7a71edbfa27c7936a51c956e9b603de7e5d"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp",
+      "bytes": 389248,
+      "sha256": "a20526b4ebd0cc9b310e7f0ef681a709e6562269aaf1c766617f090a4e626292"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp",
+      "bytes": 378834,
+      "sha256": "cb834c2f372c4006364a9b5c0dd1c071da9b71185dfcf60a3dc5db0a6be69a76"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp",
+      "bytes": 396900,
+      "sha256": "3d050a9fe333ba1a4e37dca10de4db27e42e70a9d7f56b6d450a435b4bd97f08"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/11_przejscie_wzdluz_domu.webp",
+      "bytes": 326010,
+      "sha256": "85c14c7527b0c9f20d438b7070d58b0283a8de2e5605b8a3fdfa8d0d3578b366"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/12_ogrod_boczny.webp",
+      "bytes": 519878,
+      "sha256": "111c7ccd6354ac81becb7033ac223d46cf5f69b106a80b2fa1b0367eb35c5cb8"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/13_powrot_w_strone_frontu.webp",
+      "bytes": 354206,
+      "sha256": "175909ffc22baa3619191846de5288736035a64e7321f00fb342cd89b3b46195"
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/webp/14_dom_i_dzialka_z_gory.webp",
+      "bytes": 549208,
+      "sha256": "3bd8114029500b44fbffc036703927092a3b5bad480e6e536cf6b85fa6f0d1b1"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int01-wejscie-do-domu.webp",
+      "bytes": 59278,
+      "sha256": "a780efddaacf316c7302820ef792ea2a9f714f9b2c30541ed659c89c4271b71f"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int03-jadalnia-i-taras.webp",
+      "bytes": 52178,
+      "sha256": "1e9c2fea4dc212abdd9f510840e9bf16013b0b9c73d0d41b4c322c0128b84be6"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int05-kuchnia-barek.webp",
+      "bytes": 41754,
+      "sha256": "1822a43bd8cfedc71c1c54aab3617667afcad235447ae46fe3767498b4068f58"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int06-kuchnia-wejscie-do-spizarni.webp",
+      "bytes": 64700,
+      "sha256": "fce8238a745584c52ac30e085840d69f461071a04ab81d4c58117295badf5d97"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int08-gabinet-szafa-i-wylaz.webp",
+      "bytes": 26948,
+      "sha256": "64b085671bbb711716ee275f13132a3eb02759e18aa3b82fd80b6bae6a576d90"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int09-pokoj-dzieciecy.webp",
+      "bytes": 35162,
+      "sha256": "aaa5b3b6a6dfc843fb81fcd221dc6131b730f3cdfae123bff0825e1b2d96495e"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int10-pokoj-mlodziezowy.webp",
+      "bytes": 34544,
+      "sha256": "078e4c2b22990cefc0d8ad9ff27434fe4a1edf650b0ff0691f8ab3cad976de71"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int11-sypialnia-rodzicow.webp",
+      "bytes": 41064,
+      "sha256": "d273777498b5f63463fabae3612a753702b5d8599a4cc729e246745a8bd3b078"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int12-lazienka-prywatna-powrot.webp",
+      "bytes": 39656,
+      "sha256": "e8e7ccaae3ad75a1d9e7cd2c59429c400b4bbf7ac2d5d380b5027f2b9f383e3e"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int14-pralnia-wejscie.webp",
+      "bytes": 35718,
+      "sha256": "21da3544c929f9dd641ffe0072487463d807a3285e6d8bf15e15db42cc3d5a5f"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int15-strych-widok-techniczny.webp",
+      "bytes": 72266,
+      "sha256": "0f79bf33c35acc2018c19abc138a98cda34cc44d9d8d41de72c8a8c5de3eee70"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int17-wiatrolap-i-kuchnia.webp",
+      "bytes": 40264,
+      "sha256": "f5fa59f27b9fd3092cc24724a01beabd8b403e55b27fc803ba57c78f03c686bf"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int18-salon-wysoki-sufit.webp",
+      "bytes": 50764,
+      "sha256": "e843158a1dc560d084f8a0fa8f76ea895bd0a12fc8a1bfe13171558126a48bb5"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int20-spizarnia.webp",
+      "bytes": 31858,
+      "sha256": "a9360cad43feea372d2eaf84706ea60a1cb0e6f4a5fe76afeeac6c8727043fd1"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int21-korytarz-do-salonu.webp",
+      "bytes": 27944,
+      "sha256": "98259610608aa8313a0ad08a0896e5eb4f18a4ca624f9f754126c9ebf00c69da"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int22-gabinet-biurko.webp",
+      "bytes": 47850,
+      "sha256": "13c9d2173a3fc02c57024334203f6aef9bb42f203750509bf9bd86564b3d35f6"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int25-lazienka-prywatna-wanna.webp",
+      "bytes": 36046,
+      "sha256": "808d14f25103fdaaf981a26693c7a11381ec5ae6aa5d5ebc63a1ffb6e38337f2"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int26-lazienka-prywatna-umywalka.webp",
+      "bytes": 38150,
+      "sha256": "4ab51027019dcc546d89992a7aecae0e20ff45462a9d3d317840f06159117a6f"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int28-pralnia-widok-na-wiatrolap.webp",
+      "bytes": 36890,
+      "sha256": "7294c95678dffc3c6461fbfecd9da3280ea24feca4f4203176e54eae12cbbde4"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int00-podcien-wejsciowy.webp",
+      "bytes": 17824,
+      "sha256": "ed384e2e09c4f609cf8450910022a770f9e80671ad735dd728711716f68171f2"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int01-wejscie-do-domu.webp",
+      "bytes": 14940,
+      "sha256": "9b3e7430d26e21141dd4a78ac60ba2aacda670ef1c1a9c2edb1dcf87264b0a38"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int03-jadalnia-i-taras.webp",
+      "bytes": 14500,
+      "sha256": "cc805a72a2cd1b6d2def9bc2d0b11b086873eacc830c97d5994316c2d2197582"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int05-kuchnia-barek.webp",
+      "bytes": 13226,
+      "sha256": "1e6a4da041f1102301acd405af9a36bcf7765dda11a5e1b4e319c96953f7f92c"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int05b-widok-na-salon.webp",
+      "bytes": 14820,
+      "sha256": "7c814e1f9d0824fe94fc6b7066fe24d537a3122c6ea05adf4fb21d4c3b172ef2"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int06-kuchnia-wejscie-do-spizarni.webp",
+      "bytes": 13924,
+      "sha256": "23ab249ea38b66d2069260a6cacbf6edc19461a0a2db1f439f8eb6181cb47f90"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int07-korytarz-do-pokojow.webp",
+      "bytes": 9344,
+      "sha256": "8913a78f44d257503d40d13bc8636fcdbff9f8400c6903bf72856cc6ec9f2373"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int08-gabinet-szafa-i-wylaz.webp",
+      "bytes": 8312,
+      "sha256": "b50073bb3df791649f7cab2f376c32ec1e4f6631f1700ea5297e547c4debb159"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int08a-gabinet-wylaz-otwarty.webp",
+      "bytes": 10942,
+      "sha256": "a5f8f2f0c545d2741d71f32951b5662634ea84df45725fd07dab37e2c4a53936"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int09-pokoj-dzieciecy.webp",
+      "bytes": 10262,
+      "sha256": "bed56638de2ee9175ae78c1c6628c2a9d52c1404487b52d044aff1775c82534f"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int09b-pokoj-dzieciecy-druga-strona.webp",
+      "bytes": 14576,
+      "sha256": "7573df663a4a1b62388de8acaf25cec302a667991a7d27cbea95fe2a479987d3"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int10-pokoj-mlodziezowy.webp",
+      "bytes": 9984,
+      "sha256": "168ea4f30d9999e1ef4bf3d80e8052f403e8cd761dcc024e38997d8ea42d4ca0"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int10b-pokoj-mlodziezowy-druga-strona.webp",
+      "bytes": 15304,
+      "sha256": "eaf3c631950d34cadb36bb22aeb6c088b04da25fbd07d088895a8d3329f17029"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int11-sypialnia-rodzicow.webp",
+      "bytes": 12162,
+      "sha256": "b0797e42419f21af46bf7c7cbc7db3ec3f2c782f143b9c6302b28d0cf3fd76f2"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int11b-sypialnia-ogrod.webp",
+      "bytes": 13672,
+      "sha256": "ef2606ec98f7d02e6da3137fd6ec9f85a4775d549e3282840c28e7377c9e5abf"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int11c-idz-do-jadalni.webp",
+      "bytes": 13826,
+      "sha256": "6aca307e5a043909b771fad12b0f811b1119ec240d3cf7f0732196cab6df5156"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int12-lazienka-prywatna-powrot.webp",
+      "bytes": 9224,
+      "sha256": "e92c6d0c453afd70d482f37502b3cae8f2eb875949c40b6c74011837e889304e"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int13-lazienka-ogolna-wejscie.webp",
+      "bytes": 9748,
+      "sha256": "b8b514f496a497e2c5ae449e1e7847770916faf2d924edda091d4cbcbb7425cc"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int14-pralnia-wejscie.webp",
+      "bytes": 7798,
+      "sha256": "17e9ff850a343f15f5b37d77d2f54b8ddf96697997f0aed66b64e0f09bf5e1b7"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int15-strych-widok-techniczny.webp",
+      "bytes": 19226,
+      "sha256": "7d30358632f448408d8d5599aedea8b6279ff81c4904f594ad36573e32e0abe2"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int17-wiatrolap-i-kuchnia.webp",
+      "bytes": 9328,
+      "sha256": "9c2068efc99b9c87dcafe970615a3dcdce937f7fe633e9c715feb3d2818782ae"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int18-salon-wysoki-sufit.webp",
+      "bytes": 20796,
+      "sha256": "35802b0e7feea383a7c49fadc1eec00a57f7457f181a11de379077d873dd8942"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int18b-idz-do-salonu.webp",
+      "bytes": 15526,
+      "sha256": "8f342b5a180b048e80e19a4b1efe62db09e1d2820d5d88ec7627edf6af883d1b"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int20-spizarnia.webp",
+      "bytes": 9826,
+      "sha256": "49e5337c1881b2489cb45492a7fcc2bb41aba431c7a613bb1f169503265cb1b4"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int21-korytarz-do-salonu.webp",
+      "bytes": 8140,
+      "sha256": "634caa2f1f8432191360e897064347bf1e8668dd07564b022806abc91bc1d322"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int22-gabinet-biurko.webp",
+      "bytes": 15114,
+      "sha256": "92bde5f77b23fb9fb9d671bd7b96af4aa46c9ed6942259874ec8cd13fb2cf63d"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int25-lazienka-prywatna-wanna.webp",
+      "bytes": 14492,
+      "sha256": "8bb52e4451c45bc27f775301c2bcdcca1165adf201cb61455112ca3e2ca1205d"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int26-lazienka-prywatna-umywalka.webp",
+      "bytes": 10284,
+      "sha256": "08c6873a7ca9c89c5eca8e104a0b305b20430f7bfc8edf7a9428a3e8fd6c4406"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int27-lazienka-ogolna-prysznic.webp",
+      "bytes": 11548,
+      "sha256": "2fdf19c1a1227e30d6ba8cd570e636208b299b7e5aca5aa3fbb7ee44bf453bad"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int28-pralnia-widok-na-wiatrolap.webp",
+      "bytes": 9336,
+      "sha256": "176fa094ef4ae14c3bba04585dd7782321d4e5fa6df86c079a65b2524a425971"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int00-podcien-wejsciowy.webp",
+      "bytes": 214822,
+      "sha256": "3ad94d1b66cf6caf502bb394f7de444f81329495b87792995f02604900a2d831"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int01-wejscie-do-domu.webp",
+      "bytes": 233564,
+      "sha256": "59c47b62136ad48e664d30a4f91cbc4533112003546f1e8dee19246b33b32507"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int03-jadalnia-i-taras.webp",
+      "bytes": 184484,
+      "sha256": "bb365188991df0386bf58fecb0aad0d267faf1303df16b226cb584949e601abe"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int05-kuchnia-barek.webp",
+      "bytes": 108596,
+      "sha256": "d06346667d18e94d891ce578f3f12ab2d8cb6c73b02479f0ec3da60560ece865"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int05b-widok-na-salon.webp",
+      "bytes": 165694,
+      "sha256": "c01584849fdd6ae92e41d2ef88dc5f9d150fbccacdeaa1de260a5272d0394e22"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int06-kuchnia-wejscie-do-spizarni.webp",
+      "bytes": 165618,
+      "sha256": "826d02025421725deae1e01a88c58415ace71dfe0fc45b32d384f0d3f7e38d87"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int07-korytarz-do-pokojow.webp",
+      "bytes": 94360,
+      "sha256": "e7b4fdeda647d4d308e813198b109e38b3f704122741e80dbf8299581221458f"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int08-gabinet-szafa-i-wylaz.webp",
+      "bytes": 68268,
+      "sha256": "afbc05641e38f2cb6c1eea124f4f01230e06154ab63ea3511c665e337c4fb840"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int08a-gabinet-wylaz-otwarty.webp",
+      "bytes": 87466,
+      "sha256": "cb2c8969eb26601adef10e9dcae783324db3f86457aa5accf874a07a59c3c18c"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int09-pokoj-dzieciecy.webp",
+      "bytes": 147966,
+      "sha256": "ce716a80cb8d9442b39190032626661606dee1725c53d3c83584e4e3c9f854ae"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int09b-pokoj-dzieciecy-druga-strona.webp",
+      "bytes": 134990,
+      "sha256": "c97b92066bdaace76cf45a27d67077008b0aa2f1776f6507711068693573f5cd"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int10-pokoj-mlodziezowy.webp",
+      "bytes": 123224,
+      "sha256": "18a8658df5814ed0b0010294daeecd4b3fdd203b73512abdb184bf332992f7db"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int10b-pokoj-mlodziezowy-druga-strona.webp",
+      "bytes": 151322,
+      "sha256": "5b44d221420480ea6827c8af6fbabea979fc2055607d80a006cb263371a9d578"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int11-sypialnia-rodzicow.webp",
+      "bytes": 124222,
+      "sha256": "42499901945415f4af7ec217b57ef488ab552cf9c13b64b2435e69ca73d791f9"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int11b-sypialnia-ogrod.webp",
+      "bytes": 152896,
+      "sha256": "0647d63f199d58eb8f608e91b5e2b532ef5e9510edcab2391a36891f24f52800"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp",
+      "bytes": 129712,
+      "sha256": "ebd95fd4d4eaacba345abc74fdbf314c4216b844ffce45d9a96cfde7d15c9248"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int12-lazienka-prywatna-powrot.webp",
+      "bytes": 186838,
+      "sha256": "694b98b17f1c902ac86ca7dce1537be3427e719aaead5528451539381697a374"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int13-lazienka-ogolna-wejscie.webp",
+      "bytes": 103340,
+      "sha256": "ffc2569492b752d44e206adcda37c0061121baec4f418a7ac688e9ca1eece250"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int14-pralnia-wejscie.webp",
+      "bytes": 85892,
+      "sha256": "15a211958770aa49f1ede58bd3ba629918fd91eaf99abfab70fbf9bf02d5fe34"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int15-strych-widok-techniczny.webp",
+      "bytes": 173168,
+      "sha256": "2293c28403d4dcaabb92d7b6847a4f69af73affeee943a7606f9cfb9c0ab2a7c"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int17-wiatrolap-i-kuchnia.webp",
+      "bytes": 101110,
+      "sha256": "8008444c43140eb7bdd0248ab94eedb36301c68bd842cfb1fd083e50f625dd99"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int18-salon-wysoki-sufit.webp",
+      "bytes": 233764,
+      "sha256": "89ef48e750b4a615334c33353caff0afe61ca2aff8ba35821435576850ba1bdd"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int18b-idz-do-salonu.webp",
+      "bytes": 153792,
+      "sha256": "a96048a7aaf7643b9b58d495532a726e4a370392df711ecdd0a10de78011863e"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int20-spizarnia.webp",
+      "bytes": 111440,
+      "sha256": "ecbcea6ff42e40dc6a43e0f77a72f687a0b5524ec8d9a41a662eadc1fc628180"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int21-korytarz-do-salonu.webp",
+      "bytes": 74014,
+      "sha256": "59403f54a3fc04e33326518349bd571f5f550af7b846ec560cf3179bc62d3f53"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int22-gabinet-biurko.webp",
+      "bytes": 139874,
+      "sha256": "5b9e699e8dafbdc87ae2f364e7a78e2db7578baed8cc95924630984bce4db961"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int25-lazienka-prywatna-wanna.webp",
+      "bytes": 260320,
+      "sha256": "ad3127025113ccd7ad9d9466f568a130bcfa7a80482b1e94a4cfa3cce876fbed"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int26-lazienka-prywatna-umywalka.webp",
+      "bytes": 150340,
+      "sha256": "d96fafd9db516411446b1dcfa699c1002f35e74a39c64d06da96fbed1d74f2be"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int27-lazienka-ogolna-prysznic.webp",
+      "bytes": 145944,
+      "sha256": "3b32aaaca5ebcfc255f5c3c01565f3c8dd7e36860a6a18617fe76f4f369f0e63"
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int28-pralnia-widok-na-wiatrolap.webp",
+      "bytes": 101818,
+      "sha256": "4c6f05467f3ff5d44d00a4fbd8f6ea1e3c7fc8f3bdf07bb4a5acdd58155e96c1"
+    },
+    {
+      "path": "public/assets/images/standard/icons/blinds.webp",
+      "bytes": 3490,
+      "sha256": "5c15e3b5433ca95950b70a383c2997e305e6382d4d8feb53586686a4a403935a"
+    },
+    {
+      "path": "public/assets/images/standard/icons/fence.webp",
+      "bytes": 4428,
+      "sha256": "884b8d74ac69f57a0dd1beaf345ccf08fa5a4aaeba368ad49446aac4d6bc1e02"
+    },
+    {
+      "path": "public/assets/images/standard/icons/floor-heating.webp",
+      "bytes": 3256,
+      "sha256": "877e3b536d21f806dd46e8279cf2028990e74abb8e7222f7c32594453724fd17"
+    },
+    {
+      "path": "public/assets/images/standard/icons/glazing.webp",
+      "bytes": 3130,
+      "sha256": "43c12e61f41f2f19dffdeb9fcb0c64d39b08ef72ec18226d3619514e27c8eeb0"
+    },
+    {
+      "path": "public/assets/images/standard/icons/heat-pump.webp",
+      "bytes": 4936,
+      "sha256": "0d246325b83caa8cee6057540c3795e9369a68eddc8239c4a61232c283c3b1cd"
+    },
+    {
+      "path": "public/assets/images/standard/icons/pv.webp",
+      "bytes": 4082,
+      "sha256": "e73bf2d3bb4b45d1283f743405d2e186482a933630753fb65c4668aeb6b44459"
+    },
+    {
+      "path": "public/assets/images/standard/icons/ventilation.webp",
+      "bytes": 3674,
+      "sha256": "4bd4c63b0864f1ab3441ef8993d645e824757b6c4f4fb58aadc9ed34b2775387"
+    },
+    {
+      "path": "public/assets/images/standard/icons/windows.webp",
+      "bytes": 3778,
+      "sha256": "757b907c1483ebdefcd1c5813d3f1e03f6f95ea119fc3fc11e4123519c987fea"
+    },
+    {
+      "path": "public/assets/images/standard/standard-cover.webp",
+      "bytes": 71500,
+      "sha256": "ad2bd4e03804787a67e947f00ccd5a52f3a643694d01d34a57b77734614b46fb"
+    },
+    {
+      "path": "public/assets/images/standard/standard-lifestyle.webp",
+      "bytes": 375726,
+      "sha256": "9b64a08031e958bb94f26b9a8673686ae889538a5b716c4562e523bc0b0d9920"
+    },
+    {
+      "path": "public/assets/images/team/maciej-kowalski.webp",
+      "bytes": 103928,
+      "sha256": "516a00590257b26d38480820bd0bf127b1bcadfd14a35599340ff6456c349faf"
+    },
+    {
+      "path": "public/assets/images/team/mateusz-kempinski-site-manager-v108.webp",
+      "bytes": 75444,
+      "sha256": "556744a754023b69e4e4f914537591ada33f3c7894ded719bb19ded245c9c8fa"
+    },
+    {
+      "path": "public/assets/images/team/mr-atelier-logo.png",
+      "bytes": 6493,
+      "sha256": "addcc29f6392c1e100529c5f8778d18edf8c521aef4a2a4980d4e66217343b29"
+    },
+    {
+      "path": "public/assets/images/team/mr-atelier-portfolio-panel.webp",
+      "bytes": 84596,
+      "sha256": "a4e39e93e79a81d07cf24b4029305b8b5f2aff742bb5c6b822b01b27b54d5b11"
+    },
+    {
+      "path": "public/assets/images/ui/masterplan-compass.png",
+      "bytes": 1836459,
+      "sha256": "a3ef53cfd0a90b2fce9bb1a710ae12992c9288e29a10cddc83af8f7f6c17cce8"
+    },
+    {
+      "path": "public/assets/images/ui/why-home/architecture.png",
+      "bytes": 197665,
+      "sha256": "2a1a28acc5f65157a4aab42bf1901b1a14f4d1f89ca4e2d6e0babea6721ccca8"
+    },
+    {
+      "path": "public/assets/images/ui/why-home/garden.png",
+      "bytes": 207343,
+      "sha256": "5bc240f2929e0bc537a81f8d471f14b9772c1ccb246c8b4cf9243910170f5ae5"
+    },
+    {
+      "path": "public/assets/images/ui/why-home/nature.png",
+      "bytes": 200879,
+      "sha256": "b06f93bac258b697f8a860066219973edc4b72f64bc0947e5a22e52d6fe0963c"
+    },
+    {
+      "path": "public/assets/images/ui/why-home/value.png",
+      "bytes": 207101,
+      "sha256": "94a0f04c1336b7e4c611cdb69e26620cba2610e9b2dd8642d21a4c130787cb2b"
+    },
+    {
+      "path": "public/data/site-data.json",
+      "bytes": 6812,
+      "sha256": "539bc0ecea6b57cc11e7b886efc31dbfb19ab809442a6b295aeb529361454750"
+    },
+    {
+      "path": "public/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf",
+      "bytes": 6294686,
+      "sha256": "738a769f8cee7741c94ece2a346b66b7e8c71e7c59887b966eccd83a4da1fc10"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 1009,
+      "sha256": "4b6bb65c5c886838d38aac6a055db0882fec8d883d44be33285cd837b35a306e"
+    },
+    {
+      "path": "public/pdf/karta-dom-a.pdf",
+      "bytes": 233019,
+      "sha256": "d496976d39fc20d8d055c305380891f8f302bf9f6f3ef3cea64c6596a26f7c8d"
+    },
+    {
+      "path": "public/pdf/karta-dom-b.pdf",
+      "bytes": 226898,
+      "sha256": "752a11d9b10306e909265e8b1c4a81898e32f8b04ed9a80c26e11ccb3064056e"
+    },
+    {
+      "path": "public/pdf/karta-dom-c.pdf",
+      "bytes": 221808,
+      "sha256": "744391c1b5a126635e2fdcba9557116d4f6755cb8dcf797e5e771b7a4b96acf5"
+    },
+    {
+      "path": "public/pdf/karta-dom-d.pdf",
+      "bytes": 225019,
+      "sha256": "0f4d3bbe850c50eb8e1a62a350fb091ec272694690a8f2a6d953724337bf40d3"
+    },
+    {
+      "path": "public/pdf/karta-dom-e.pdf",
+      "bytes": 227962,
+      "sha256": "7b2e1f3d1910105e73a5c8bc769b1dee72db432093e40a750df92aa4afb2e764"
+    },
+    {
+      "path": "public/robots.txt",
+      "bytes": 135,
+      "sha256": "c9a0bb147181ed55e8f2331435ffed9620aae68b771e07be949c4b4365fb3dc0"
+    },
+    {
+      "path": "public/sitemap.xml",
+      "bytes": 570,
+      "sha256": "0fcfab9514d35cface3708ec63dba800ecd2f481b74fe3d21ef9f797117e7172"
+    },
+    {
+      "path": "public/tour/preview.html",
+      "bytes": 3474,
+      "sha256": "3a4a1fea4557e64b8b74518a38b691d70533d8612e712e96e55a6084276261a8"
+    },
+    {
+      "path": "public/tour/spacer-360-player.css",
+      "bytes": 17525,
+      "sha256": "f92e952a89ba92775e3adaaacc7154f253f01fb3f7640fff52576d591c55c951"
+    },
+    {
+      "path": "public/tour/spacer-360-player.js",
+      "bytes": 49669,
+      "sha256": "a6fe8f00c7ec3671616c521b7edc956712c69cbeb7941cd1ebcf5e03d34298af"
+    },
+    {
+      "path": "public/tour/spacer-360-wewnatrz.html",
+      "bytes": 5456,
+      "sha256": "1072dfeed84c55da29211e7b3f138847484617f874b95223a968e3a74e7c999b"
+    },
+    {
+      "path": "public/tour/spacer-360-wewnatrz.js",
+      "bytes": 109,
+      "sha256": "cb74f2cdfb7618d5c676dae4e5f1516fe913f7dc133d711382f19f9285f363e1"
+    },
+    {
+      "path": "public/tour/spacer-360-zewnatrz.css",
+      "bytes": 12344,
+      "sha256": "876f8c3fb913963ee9cb00e1c6f70c64ef744de5820d80f28f7395763450c8f3"
+    },
+    {
+      "path": "public/tour/spacer-360-zewnatrz.html",
+      "bytes": 5471,
+      "sha256": "9115128a9c797fd9ddde92a3eaa4b9a3b1384c1b1a5c9be4728df0ef8a044486"
+    },
+    {
+      "path": "public/tour/spacer-360-zewnatrz.js",
+      "bytes": 109,
+      "sha256": "cb74f2cdfb7618d5c676dae4e5f1516fe913f7dc133d711382f19f9285f363e1"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-01-int01-wejscie-do-domu.jpg",
+      "bytes": 157186,
+      "sha256": "145a25526fdc1b33eb6ce2831cb5509fffc6b4aa129b63993cb1076a887f0a77"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-02-int17-wiatrolap-i-kuchnia.jpg",
+      "bytes": 110691,
+      "sha256": "72dae658c616771eef300766226d4791890e8f4e80740fa46e34d0a979d30b35"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-03-int14-pralnia-wejscie.jpg",
+      "bytes": 106371,
+      "sha256": "4d5ffba4294ac359e51bbdb37d4fa05f2f5d6a979649b8dd14bad5cd95d5ef2e"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-04-int28-pralnia-widok-na-wiatrolap.jpg",
+      "bytes": 109940,
+      "sha256": "e28715e07a7cfa81561e7d5643ff43648f23b1f2070296748c0b47c884696f4a"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-05-int05-kuchnia-barek.jpg",
+      "bytes": 79984,
+      "sha256": "47c5241a955ef9cc218f7ffe8741964115c38214177e47dcac9643fd0e8c30e4"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-06-int06-kuchnia-wejscie-do-spizarni.jpg",
+      "bytes": 148133,
+      "sha256": "2faa9ba0266530d88dc1435a7c5dd8975397450c4f0360d9b2cd4b32bfd66e32"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-07-int20-spizarnia.jpg",
+      "bytes": 115631,
+      "sha256": "800da137356301d0242744d359ffba058e4f948963be3808db75fb90d1ee1c34"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-08-int02-salon-w-strone-kuchni.jpg",
+      "bytes": 141457,
+      "sha256": "32487e02fcb24505125805501bdba06959578f2712b89514653342c72ac34bf5"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-09-int03-jadalnia-i-taras.jpg",
+      "bytes": 147895,
+      "sha256": "31507aeccf7fe45c7b232e442075cec9fec41df18067f75116bf3806df944237"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-10-int11-sypialnia-rodzicow.jpg",
+      "bytes": 79094,
+      "sha256": "d4b8624a9610ec8d3db328a948c8af08424455774dd46793ccf2b715e9cb1c1a"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-11-int25-lazienka-prywatna-wanna.jpg",
+      "bytes": 162927,
+      "sha256": "bc59b464a343be84b7dd6dc0a8dcb61e8df54b3c93bef326a42ac81ff5ef354d"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-12-int26-lazienka-prywatna-umywalka.jpg",
+      "bytes": 127582,
+      "sha256": "21505cf75bca6a2c89f37eb135246f8b0ccf6dfd103858bae9d79a6b1a139e25"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-13-int12-lazienka-prywatna-powrot.jpg",
+      "bytes": 137788,
+      "sha256": "d7b9fddff94fe3eeb4bbc1bdfe9cec08a639b478ea89b8043d8dec331e2f7a9c"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-14-int18-salon-wysoki-sufit.jpg",
+      "bytes": 126746,
+      "sha256": "b09b76d7e0ae30268438270cad36b38b3b5a1e209f152b8ff2523de3460a044f"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-15-int07-korytarz-do-pokojow.jpg",
+      "bytes": 119206,
+      "sha256": "ae5096cb40e4ad7afdf3dd82d1c2b81ea5d61230882019a8eaa2925434c0cd6c"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-16-int10-pokoj-mlodziezowy.jpg",
+      "bytes": 119611,
+      "sha256": "c3c7f79e8bb971212d6c46a81d09b542651dc452810f86ca90ed6bcd8d5b0e1f"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-17-int09-pokoj-dzieciecy.jpg",
+      "bytes": 129399,
+      "sha256": "0856f9cb1b37e4dd932be4581f9acc37979342d8eb3d0f875253e668c5e431b3"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-18-int21-korytarz-do-salonu.jpg",
+      "bytes": 67907,
+      "sha256": "040960ff90ca1027767c9adfae020e38527006c876101dbe4cf22d0b262734ff"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-19-int13-lazienka-ogolna-wejscie.jpg",
+      "bytes": 67559,
+      "sha256": "3ccb04a59425f1534cb80556e9a733d2d3276701e206af70929d99672ab21695"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-20-int27-lazienka-ogolna-prysznic.jpg",
+      "bytes": 63802,
+      "sha256": "32c13a5a14821bafede3e111ea3b462cffa4414893621b4661273ced60895acd"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-21-int22-gabinet-biurko.jpg",
+      "bytes": 137661,
+      "sha256": "a89dfec0ddae8c7c3afa407040899d954c421a301fbec06416ba24511df25fd3"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-22-int08-gabinet-szafa-i-wylaz.jpg",
+      "bytes": 66282,
+      "sha256": "fac83af2d90fa825e7d462f84131da2af2dde61ba58629015f62eeafcbc7910a"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-23-int15-strych-widok-techniczny.jpg",
+      "bytes": 111975,
+      "sha256": "a104ebfb5ed5c19b3becb71a5f0ff253aa4dd7637fff7ef370b425317289cf63"
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-24-int16-strych-wiazary.jpg",
+      "bytes": 90694,
+      "sha256": "e1431f720150e02eee3bef6bf27b8c3d73237ec377b4c22509dfab148de3ccaf"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-01-int01-wejscie-do-domu.jpg",
+      "bytes": 40092,
+      "sha256": "1837c5e927d1b52dcd035d211ec3d0b9a3d81b2bdae131edfaa1ecaeab51030e"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-02-int17-wiatrolap-i-kuchnia.jpg",
+      "bytes": 42574,
+      "sha256": "17f1daed6f3a87f571ee6e462f4834d2c14e58ed692b3c05bfaa2efef2f9101f"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-03-int14-pralnia-wejscie.jpg",
+      "bytes": 41097,
+      "sha256": "a62fe521eaa76be82367955655ecbaa0c48173f98004e494aec1e5d2597f5537"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-04-int28-pralnia-widok-na-wiatrolap.jpg",
+      "bytes": 36587,
+      "sha256": "4ead503699aa110076a9ef382651c949c464e98b2ed9266268750a9e2fd805e6"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-05-int05-kuchnia-barek.jpg",
+      "bytes": 33137,
+      "sha256": "dfa4a25d5229dd4386a375df83aa7d3463eed4bfec65c134487fd5574b18e7c3"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-06-int06-kuchnia-wejscie-do-spizarni.jpg",
+      "bytes": 40454,
+      "sha256": "4f4bf7c65a1ede9a9023facb5b8168ac08807ad1136e2de5d196d3a4fbaa97dd"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-07-int20-spizarnia.jpg",
+      "bytes": 35491,
+      "sha256": "cbe945366491a84cd48a505abfb96100fc325eb3b7d5c36c3d3f897e785ebadd"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-08-int02-salon-w-strone-kuchni.jpg",
+      "bytes": 40366,
+      "sha256": "ee8d5f03029a2ab85fda13c6150595e01369a77c455d804dd0a131ad0c7483d9"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-09-int03-jadalnia-i-taras.jpg",
+      "bytes": 41172,
+      "sha256": "02082c47b56c46014e790d84899cccf455bfac4434c485562b7c6607f997228d"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-10-int11-sypialnia-rodzicow.jpg",
+      "bytes": 32562,
+      "sha256": "1e9ed95a94b29c9d51cfbab9ad96672d84a65956cbda6febee57d9ad9481e3b1"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-11-int25-lazienka-prywatna-wanna.jpg",
+      "bytes": 41408,
+      "sha256": "cbf71bf1f784b4dbea64078667a4d07d020fba27764bf8da4f55a6d18b92633f"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-12-int26-lazienka-prywatna-umywalka.jpg",
+      "bytes": 38268,
+      "sha256": "be4a7a2c0152ec616f01751e9258758fe7333ba2af3c4d841778e4dc05c02ed4"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-13-int12-lazienka-prywatna-powrot.jpg",
+      "bytes": 37234,
+      "sha256": "866122ef5016c264dc87749621c3edd91db1efbe1ae108807ce1d5911ccad97d"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-14-int18-salon-wysoki-sufit.jpg",
+      "bytes": 38345,
+      "sha256": "243734faa71c20a63b15924939152a5b84b69c659d58916c9aad8f3c4f094c91"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-15-int07-korytarz-do-pokojow.jpg",
+      "bytes": 36918,
+      "sha256": "b8bcf334bb5ed52904fac9ee0bf0eaf4392ba08a8d504140ae75380f7358e8ed"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-16-int10-pokoj-mlodziezowy.jpg",
+      "bytes": 35906,
+      "sha256": "7415fb6e282c02a7c09799d9e3d6b2bb8ac54ed9fec34de28e20724a227148c4"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-17-int09-pokoj-dzieciecy.jpg",
+      "bytes": 35790,
+      "sha256": "ca3887b91b4875cc8838ec3cc38b8a73f943825faeb5a534268c3b50b2f4fb4f"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-18-int21-korytarz-do-salonu.jpg",
+      "bytes": 30430,
+      "sha256": "c5a94cbf2e85793095b6ec10de6d31f3c5daf81ade6d1b751f9107fbb63271d9"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-19-int13-lazienka-ogolna-wejscie.jpg",
+      "bytes": 31024,
+      "sha256": "07f070c885dea8eaccaccfb739990ee6585c42fcb59e59e6502b13d6514e6c21"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-20-int27-lazienka-ogolna-prysznic.jpg",
+      "bytes": 28498,
+      "sha256": "5fe160a4ccba649af64a195036e212fc1866190c392b7c0f65215337841e9e95"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-21-int22-gabinet-biurko.jpg",
+      "bytes": 38662,
+      "sha256": "88328c97cfc805df85ee474d204f7676875084b90f5e6d7e96aa5c0d03da02c3"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-22-int08-gabinet-szafa-i-wylaz.jpg",
+      "bytes": 31135,
+      "sha256": "09452a5935bd1603acbd293f2a0236a4f72b89dfcf4553d50a40e13469062a98"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-23-int15-strych-widok-techniczny.jpg",
+      "bytes": 39395,
+      "sha256": "b2a7676a212ab94ae2ce58b7fded255ba48bd9a2918091deaa12a0eb2ade6e87"
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-24-int16-strych-wiazary.jpg",
+      "bytes": 33857,
+      "sha256": "5ff1e3175dda1e26d8fdfa43b982d0a5b4869554b463ed1af121c512298b15df"
+    },
+    {
+      "path": "scripts/asset-inventory.mjs",
+      "bytes": 2913,
+      "sha256": "cf1ba0293919156dbc0c413b5d0a64d7e8b0a1293dbc31831d5bec9a64a47ca6"
+    },
+    {
+      "path": "scripts/build-cache.htaccess",
+      "bytes": 312,
+      "sha256": "ea012f960063795b81954ef8a9ec7e089cf93f66e857a50bf41cc0f29ebe2662"
+    },
+    {
+      "path": "scripts/dev-admin.mjs",
+      "bytes": 584,
+      "sha256": "238f0285fa6808e73b901d276c0bd0e3de31422f1e8ea69cdac891c0d60096e5"
+    },
+    {
+      "path": "scripts/generate-seo.mjs",
+      "bytes": 7174,
+      "sha256": "fbc5a2c8fa33951ac370478d55c5d9c5787e9b235f34391fb0a8a53452cbcee5"
+    },
+    {
+      "path": "scripts/http-cache.mjs",
+      "bytes": 405,
+      "sha256": "256296980ec0408deace3fbce3f59ebbe1a0249ef68ba0e81c20d63418055650"
+    },
+    {
+      "path": "scripts/prepare-dist.mjs",
+      "bytes": 3452,
+      "sha256": "d60dc9dbe6fd287c26487b128dca1435830e60eb449153cff930b4865cff5500"
+    },
+    {
+      "path": "scripts/publish-site-data.mjs",
+      "bytes": 3945,
+      "sha256": "0209c3ecd012c85e84c51d345e63019d89268717786d81b8af0d546d34a2f016"
+    },
+    {
+      "path": "scripts/version-assets.mjs",
+      "bytes": 3364,
+      "sha256": "58639c1383bb619e45fd5c87b518395c149eb5894164d23df358ba5470f09e6c"
+    },
+    {
+      "path": "src/admin/AdminApp.tsx",
+      "bytes": 40984,
+      "sha256": "0a8d9696da18253cbbdf7a03d1d1f8ce096f53d9a412ca1214e43b6c293f2f97"
+    },
+    {
+      "path": "src/admin/demoStore.ts",
+      "bytes": 4706,
+      "sha256": "dc933fcdcfd4180c3adbf226fc01a7ce7f9d0c0f4eb6357142bf167281b5f308"
+    },
+    {
+      "path": "src/app/App.tsx",
+      "bytes": 4971,
+      "sha256": "f6f44160e8cc8113fd22b0d8af7f5a4a9ffed4fe03835ad65dc20f471d6f7a79"
+    },
+    {
+      "path": "src/components/common/BrandLogo.tsx",
+      "bytes": 1034,
+      "sha256": "a1f8d35ef2b036ad0b1ed016f1599820d436e9a28b6c08a6c1a2eb7418e7f7aa"
+    },
+    {
+      "path": "src/components/common/ConsentBanner.tsx",
+      "bytes": 2116,
+      "sha256": "e3b608a4202fc09886bbf4da614cf1bc9e8f3c967a334efb0ec6d316b5341ab4"
+    },
+    {
+      "path": "src/components/house-selector/HouseCard.tsx",
+      "bytes": 3604,
+      "sha256": "03de6eefea166914a303553d7db6bdb338141147f01e30e8d9bec9c6cb9dffde"
+    },
+    {
+      "path": "src/components/house-selector/Masterplan.tsx",
+      "bytes": 3727,
+      "sha256": "d90d827c5d3ffc98ed5ae1249c47a898376494c7db8e121a4fd939f34954a466"
+    },
+    {
+      "path": "src/components/navigation/Header.tsx",
+      "bytes": 3776,
+      "sha256": "e2c418c3ab30cffce6e6667cfcb2f5a3aa8432ec2290da3a44f407ea6d424137"
+    },
+    {
+      "path": "src/data/contact.ts",
+      "bytes": 96,
+      "sha256": "ee3b30940fd56a38f5ba52a2cbeba0ea049db535bbfd96ca949093799b68920b"
+    },
+    {
+      "path": "src/data/faq.ts",
+      "bytes": 7254,
+      "sha256": "13edda5f7b12bcde4e5cb33425681b4a51888db21914a1e9bacbc94f376036c7"
+    },
+    {
+      "path": "src/data/gallery.ts",
+      "bytes": 3134,
+      "sha256": "170c3bdf97927b96be41a36b313e286ca6cb743e698e3d614c011ef042348d9b"
+    },
+    {
+      "path": "src/data/houses.ts",
+      "bytes": 851,
+      "sha256": "9e3e25628676ccbd4a8d6d0b9d0b69f14a13b206837a0accad98990a3762f396"
+    },
+    {
+      "path": "src/data/journal.ts",
+      "bytes": 519,
+      "sha256": "709dde95f698f70404e546fe54f4eb9b261eed5276e69a2911f34dedda3ebde5"
+    },
+    {
+      "path": "src/data/layoutRooms.ts",
+      "bytes": 8683,
+      "sha256": "0e2cf3fa8a5a168a7790b68f7735bf0a7cf7b864a5c149eca43169680f4ecc7b"
+    },
+    {
+      "path": "src/data/purchaseProcess.ts",
+      "bytes": 1349,
+      "sha256": "ea0f2877eb560957575e468f6f12fc158a2221ec986252486e1d8b29359e877b"
+    },
+    {
+      "path": "src/data/runtime/SiteDataProvider.tsx",
+      "bytes": 3905,
+      "sha256": "4547fe1d03f9e3e9dc06bb6fa25eed4c4c05436fe1994fba040d276dfc30077f"
+    },
+    {
+      "path": "src/data/runtime/demoMode.ts",
+      "bytes": 285,
+      "sha256": "d56c4143f29e153eda74d79e2f6f15a5575f5039937c6aaab547e05a7d1c9d14"
+    },
+    {
+      "path": "src/data/runtime/fallback.ts",
+      "bytes": 244,
+      "sha256": "6e516fea72d369a21739084dbaca0b0023d3c49390664660324ded9224af5a94"
+    },
+    {
+      "path": "src/data/runtime/siteSchema.d.mts",
+      "bytes": 159,
+      "sha256": "8f532e92ad677b0ff62cf9963966b7a22fc124def9cecc0286c7aa9f203d9b0b"
+    },
+    {
+      "path": "src/data/runtime/siteSchema.mjs",
+      "bytes": 7871,
+      "sha256": "8d2583b2b280bf4f8aeab46c4cd5a04ca3ca3e9848e4d3ed01bc2037dbf76d78"
+    },
+    {
+      "path": "src/data/runtime/types.ts",
+      "bytes": 891,
+      "sha256": "c2a4bdda6ee1e068c93d486bc20144d585f3d157ee04f6996923be2b56d3d94c"
+    },
+    {
+      "path": "src/data/schedule.ts",
+      "bytes": 423,
+      "sha256": "afd285d53fbfe85d4d1d678b23292d677fa53b75fa7bdcb8871c982dbd66f4e9"
+    },
+    {
+      "path": "src/data/standard.ts",
+      "bytes": 2750,
+      "sha256": "cafa829453d74276d9f23977fd54e856c5fcbda92d26c73f87e9f7d6ce800609"
+    },
+    {
+      "path": "src/data/team.ts",
+      "bytes": 1656,
+      "sha256": "c3dfcc11f6b0fa0f05e9e25b276a361146fdefd44b7c3dde691b89c655536ad2"
+    },
+    {
+      "path": "src/data/tours.ts",
+      "bytes": 570,
+      "sha256": "2a92dd7619ac7e0a90613fac9991fd321804be8d84844cbc132b1f0e4abd87f2"
+    },
+    {
+      "path": "src/house-page.tsx",
+      "bytes": 2349,
+      "sha256": "e4c68097cc85e96d24edab5e087425a60084fba6e57d538fb216381f88713be2"
+    },
+    {
+      "path": "src/lib/analytics.ts",
+      "bytes": 4417,
+      "sha256": "55d16194efeb9c58c4a343901d5e8d7c4b2a06299808b4d17ab668b8e1863c81"
+    },
+    {
+      "path": "src/lib/assetUrl.ts",
+      "bytes": 376,
+      "sha256": "9f986c9ba7ece886037272874cd4626a32bb91bcf07232152b537ad459761920"
+    },
+    {
+      "path": "src/lib/contactValidation.d.mts",
+      "bytes": 278,
+      "sha256": "d0f9ed3bbde4bcb7b849203bce4bf2a874a456c1b88fe96d23926450356bcab0"
+    },
+    {
+      "path": "src/lib/contactValidation.mjs",
+      "bytes": 1076,
+      "sha256": "631710c9fafe593ccf1ba5148756b72dd246e5dc63e6efb0ff2ca6c91a9dd929"
+    },
+    {
+      "path": "src/lib/offerMarkup.d.mts",
+      "bytes": 150,
+      "sha256": "18e52bdaaf26fa3a4fa42fbe11ff35b9d7689e46ca5828792087121e945f64a1"
+    },
+    {
+      "path": "src/lib/offerMarkup.mjs",
+      "bytes": 4547,
+      "sha256": "40b86d2ede96bd2118a54fa5dfbb639e61f64a1ffa4100bf8e5e6530812bd141"
+    },
+    {
+      "path": "src/lib/offers.d.mts",
+      "bytes": 763,
+      "sha256": "d346716f9465da23b6d57dc627b719364505f03d1ed45c2fc560d24bda107af0"
+    },
+    {
+      "path": "src/lib/offers.mjs",
+      "bytes": 5000,
+      "sha256": "74cea95c9d4fa24955afc538539e855deb80fe882cd33c3c8cd3f807fe24ea49"
+    },
+    {
+      "path": "src/main.tsx",
+      "bytes": 1392,
+      "sha256": "5f29ba63fcd4c4d755ae40b11fcb13ebed1644b2af8a66d6b89ae0f2e882e747"
+    },
+    {
+      "path": "src/pages/CookiePolicy.tsx",
+      "bytes": 2120,
+      "sha256": "92dcb369bb78abbd4db3ae2b04f988461db2b307056a05ebeda27148c01ea5ae"
+    },
+    {
+      "path": "src/pages/LegalLayout.tsx",
+      "bytes": 1594,
+      "sha256": "3ee0ce48d17b432dc8eaac714788f14644a5d3996595198d58a094fb250aa73f"
+    },
+    {
+      "path": "src/pages/NotFound.tsx",
+      "bytes": 612,
+      "sha256": "994b6ad4a9c1da7cd748bba350202c46d4856684999cbab166ead4bcbbbb0422"
+    },
+    {
+      "path": "src/pages/PrivacyPolicy.tsx",
+      "bytes": 4265,
+      "sha256": "77fa808ef9b3a65d1de0e57d0d4e021ca52330722392d676cf1c51e8c7cef108"
+    },
+    {
+      "path": "src/sections/FaqContact/FaqContact.tsx",
+      "bytes": 12675,
+      "sha256": "ac1446aea420080b926fa9945f37b32ab4d4442465695d7684b6e43c4b25a21d"
+    },
+    {
+      "path": "src/sections/Footer/Footer.tsx",
+      "bytes": 2734,
+      "sha256": "48c7bc8a9d6e2d857e48b43ea37df59fca12e39d9dcdab6d1322fdb581189e33"
+    },
+    {
+      "path": "src/sections/Gallery/Gallery.tsx",
+      "bytes": 6897,
+      "sha256": "d9df83862bbb4e4b14e6a457e74924cb47c19ec40d58374caaaf5807fc4235a4"
+    },
+    {
+      "path": "src/sections/Gallery/GalleryLightbox.tsx",
+      "bytes": 2875,
+      "sha256": "da0fa3fa4dfab5beee2b308fb5418fcb85fee2a6d7c649be3bc112d9f3875219"
+    },
+    {
+      "path": "src/sections/Gallery/PanoramaModal.tsx",
+      "bytes": 8587,
+      "sha256": "5dd70bbfca95b21a0c2d93464c5235f02cc4116d9e880541cfbc58650954fa19"
+    },
+    {
+      "path": "src/sections/Gallery/TourChoiceModal.tsx",
+      "bytes": 3499,
+      "sha256": "b125190c778f5d9b76aa0b7bb9bb0e541078c27f129b8dfa26985a78f6cb2177"
+    },
+    {
+      "path": "src/sections/Gallery/TourFrameModal.tsx",
+      "bytes": 3156,
+      "sha256": "0b305079337b6d3d1d2beeae75ea1b601101767d6fee4697cce3b2e3cb42c2b4"
+    },
+    {
+      "path": "src/sections/Hero/Hero.tsx",
+      "bytes": 4065,
+      "sha256": "3f918125e820ac3d60bad7c0e2ff38c1b06d9a3560fc5943855958230122d782"
+    },
+    {
+      "path": "src/sections/Homes/Homes.tsx",
+      "bytes": 3777,
+      "sha256": "e0bd25df1c35d6bc503f8bb14c5c17601c6421bb0418165bc4cff44b985ed75b"
+    },
+    {
+      "path": "src/sections/Journal/Journal.tsx",
+      "bytes": 5863,
+      "sha256": "6af4ba9432ea12fa6dbce905f3954d6721fb0c86caf2ef65b10f43954c987069"
+    },
+    {
+      "path": "src/sections/Layout/Layout.tsx",
+      "bytes": 9385,
+      "sha256": "101afd0d917d3d7f030b0ca4969bbcb6785ab6679261a129e5e9ee3d3dd7c692"
+    },
+    {
+      "path": "src/sections/Location/Location.tsx",
+      "bytes": 2492,
+      "sha256": "03a2fe5f7cc6bf7c7cc735744897319b5f43cd043e302f3203d233235efc752c"
+    },
+    {
+      "path": "src/sections/Schedule/Schedule.tsx",
+      "bytes": 2241,
+      "sha256": "c70118c6b859c879d8522d1de6369b70f9606035c9a6dea559676c1afbfa56e9"
+    },
+    {
+      "path": "src/sections/SecurityProcess/SecurityProcess.tsx",
+      "bytes": 3245,
+      "sha256": "cb5d3a8b5510cf28765789e43515bc79de9c7bfb942fa869baa98ba7c4c8bf08"
+    },
+    {
+      "path": "src/sections/Standard/Standard.tsx",
+      "bytes": 4028,
+      "sha256": "d75dc500dd40abefe49f8a509a9f6c1ccb674653a00ff4cdb725595278d0dec8"
+    },
+    {
+      "path": "src/sections/Team/Team.tsx",
+      "bytes": 2899,
+      "sha256": "fe17fc9ef0db4def3c0476c3f13975be993bb85d35c00ebe45852a548cb47d38"
+    },
+    {
+      "path": "src/sections/WhyHome/WhyHome.tsx",
+      "bytes": 2898,
+      "sha256": "c7d966eae43ff5e414a3f97779dbb175262adb9b580a5af85e29039586753268"
+    },
+    {
+      "path": "src/styles/admin.css",
+      "bytes": 20188,
+      "sha256": "d0feeb6d051f019826bf4d69e51e036466ad02c2c5de3a6c13d49095c209091d"
+    },
+    {
+      "path": "src/styles/fonts.ts",
+      "bytes": 259,
+      "sha256": "4de9919171442c9b77f391ac133a3bbf2edcbb8b6b68d2972340035b7a7e7c8e"
+    },
+    {
+      "path": "src/styles/globals.css",
+      "bytes": 4441,
+      "sha256": "28dc9c355df59c239ecc6cddf522a70fdd7f4e6b7780faf796f41df6f947cdd1"
+    },
+    {
+      "path": "src/styles/keyframes.css",
+      "bytes": 984,
+      "sha256": "a8a3276e170dfc6dd6a650ff78c4f3e24df1fd8f474733fda4d14b6ba19b8863"
+    },
+    {
+      "path": "src/styles/motion.css",
+      "bytes": 385,
+      "sha256": "1c906389222c3103dd6e2d44e30ee2261b3d35f1503751a597e816ff6e8dcb9c"
+    },
+    {
+      "path": "src/styles/offer-page.css",
+      "bytes": 5045,
+      "sha256": "36c6eb6f61ee677155cfb438c94711c948633efea284026b68304ad1e582f09e"
+    },
+    {
+      "path": "src/styles/sections/consent.css",
+      "bytes": 153,
+      "sha256": "1cd2571c3a7b442874714e132dd664aef54b17152e2e41f4830d94bc69a7ee00"
+    },
+    {
+      "path": "src/styles/sections/contact.css",
+      "bytes": 4557,
+      "sha256": "6ed06eafd31541f2eaa196d58bca6229a20529d0bf045104da22a61e6c6452e7"
+    },
+    {
+      "path": "src/styles/sections/faq.css",
+      "bytes": 5679,
+      "sha256": "63d0197ed8376ca9ae9c4d58facf6006727e3fa04af2d10796b451c8bd07e3b1"
+    },
+    {
+      "path": "src/styles/sections/footer.css",
+      "bytes": 4395,
+      "sha256": "819762e0cf9ffcf3ee82b3686509ed3c1cdadae4642f7b0d947169c7f184cdca"
+    },
+    {
+      "path": "src/styles/sections/gallery.css",
+      "bytes": 18582,
+      "sha256": "12e672112fa9c2d3374d21b1741119e8e2b742150dbdafead13982c473256889"
+    },
+    {
+      "path": "src/styles/sections/hero.css",
+      "bytes": 5403,
+      "sha256": "93c43b005d822e2b4d9b4922cf74bb468729396a586c9fa39f5193422b28d394"
+    },
+    {
+      "path": "src/styles/sections/homes.css",
+      "bytes": 25444,
+      "sha256": "df3648a2ca3f136a634f1607a515fe7e1afeb56c08ac3695f5c274a3f8fdb881"
+    },
+    {
+      "path": "src/styles/sections/journal.css",
+      "bytes": 11657,
+      "sha256": "0fc9a10f625803c56bf5bc159ec329175401c5cf69c3021c174bf16e15112d89"
+    },
+    {
+      "path": "src/styles/sections/layout.css",
+      "bytes": 15384,
+      "sha256": "3aad3f4db0e709fdf3aa596f30fbadde6cd8d0ebc05e8be5306cd60fb8b8edbc"
+    },
+    {
+      "path": "src/styles/sections/legal.css",
+      "bytes": 5098,
+      "sha256": "d18b0940674a5854d1ec7d8fc91fd6cb179fc839048ed1dc8ce09536145731b3"
+    },
+    {
+      "path": "src/styles/sections/location.css",
+      "bytes": 5761,
+      "sha256": "cf5288cab40ca760aa78736e6c85b9a2347744fa4c0d981382ee858636bc00e0"
+    },
+    {
+      "path": "src/styles/sections/navigation.css",
+      "bytes": 4649,
+      "sha256": "639bd6887bf4604b5c9f231d3bdf9eca42b406e4b92cd6e0c2311d890967fcaf"
+    },
+    {
+      "path": "src/styles/sections/schedule.css",
+      "bytes": 10872,
+      "sha256": "5882c432bb10ef4ac2c1cf3baa8b9abc27b79a280b07cb39dca6c0abf9d41f35"
+    },
+    {
+      "path": "src/styles/sections/security.css",
+      "bytes": 8484,
+      "sha256": "ebfaad1e29e3a1fe1e5fed02d237f048ffff823753986a200311d425843cf260"
+    },
+    {
+      "path": "src/styles/sections/standard.css",
+      "bytes": 9200,
+      "sha256": "8d99f36b14e16231e885562521fdd0d0a9e44b3998cf5805eb5015ce5c6e2fec"
+    },
+    {
+      "path": "src/styles/sections/team.css",
+      "bytes": 6759,
+      "sha256": "903c61c65ed7e17184c8376b384f58aa14de6d9809f4198619cf7164ff1a4341"
+    },
+    {
+      "path": "src/styles/sections/why-home.css",
+      "bytes": 6260,
+      "sha256": "9b5345d63b3694c4b6d20c2ded12c706d94978c44c533e6c37b926b1148cbeb6"
+    },
+    {
+      "path": "src/styles/site.css",
+      "bytes": 670,
+      "sha256": "74b994bca399f59cba44c8ef718b16213d3479387bc8c1e52b0462cc8f384c8e"
+    },
+    {
+      "path": "src/styles/tokens.css",
+      "bytes": 456,
+      "sha256": "94aba61356bd20bd96d06efad7fda73dd57aeee68fd2dd704c6747b9522da6ee"
+    },
+    {
+      "path": "src/vite-env.d.ts",
+      "bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "tests/admin-qa.mjs",
+      "bytes": 2653,
+      "sha256": "5ce7d6176a5b3f4d018824d9973d59b44f3e95672315b55915a0e4c1a015db53"
+    },
+    {
+      "path": "tests/analytics-runtime.test.mjs",
+      "bytes": 4981,
+      "sha256": "1d2195b6b6549f2bea9733307f254959a85243373f87207767c1af519c927caa"
+    },
+    {
+      "path": "tests/api-security-qa.py",
+      "bytes": 12650,
+      "sha256": "aacb7bf49ea3ee4aa3ec1ea9217534c47af38f056a7c7d1b7a0a18e3c110c3f1"
+    },
+    {
+      "path": "tests/audit-7-12.test.mjs",
+      "bytes": 8911,
+      "sha256": "aaf18e5f77b3f6c3c69faa52b12134558d237fd9689f998d30300bed34e9be33"
+    },
+    {
+      "path": "tests/browser-utils.mjs",
+      "bytes": 1300,
+      "sha256": "3f424127053ef5cf3070988ff76e1ffe45ad1d415db082bffec8fcad7482d94c"
+    },
+    {
+      "path": "tests/dist-check.mjs",
+      "bytes": 2162,
+      "sha256": "23984a3c090f8f52f978a8b36c3aef66d30a32d78e2258233b403934aec8cf5d"
+    },
+    {
+      "path": "tests/fixtures/business-baseline.json",
+      "bytes": 6489,
+      "sha256": "e5ddf5745d3a3d0676d5a3e4689625cc7eb43c1e20932d1744b5c9f24938ee26"
+    },
+    {
+      "path": "tests/fixtures/masterplan.json",
+      "bytes": 881,
+      "sha256": "c106b58b2c689bc96d1733d83ba55e6c822055f548b33a2220b2fb683ff1426a"
+    },
+    {
+      "path": "tests/fixtures/tour-wewnetrzny.json",
+      "bytes": 58491,
+      "sha256": "1845891d76644e4ec58c417169967471bc0ff32b65cafe206b39479f52cf9b76"
+    },
+    {
+      "path": "tests/fixtures/tour-zewnetrzny.json",
+      "bytes": 23093,
+      "sha256": "388775300529e34de6cf995cb2bdd4dde16c29e5c223f9721eb8b32f3fc31235"
+    },
+    {
+      "path": "tests/http-apache.py",
+      "bytes": 4628,
+      "sha256": "58e50d8607b5d3d3a36a94053d59743256c32021250d83c7902b762f2faaeb08"
+    },
+    {
+      "path": "tests/logic-six.test.mjs",
+      "bytes": 8568,
+      "sha256": "a186197723ed1189c64ff5c6fc8ef1d3b44ffb471933da02b5d61f591c03abab"
+    },
+    {
+      "path": "tests/offer-browser-qa.mjs",
+      "bytes": 3674,
+      "sha256": "0969eb99db8b1ef5ffd527597a2000f58131816574895da8588a08089b9944d9"
+    },
+    {
+      "path": "tests/source-check.mjs",
+      "bytes": 7109,
+      "sha256": "cf6f54a006eb9f0ede08ce67484ce39860718d00ea338aedbdcb95f8d307e676"
+    },
+    {
+      "path": "tests/syntax-check.mjs",
+      "bytes": 1550,
+      "sha256": "5cda47c00faf2e99886b19922ec10a3c2604bc74dbe54172017d7877f49c29a0"
+    },
+    {
+      "path": "tests/tour-browser-qa.py",
+      "bytes": 5874,
+      "sha256": "337408a96dac8dba65286eda221d3e79a1a4998996a89d777f5ca8332e782fae"
+    },
+    {
+      "path": "tests/tour-check.mjs",
+      "bytes": 5257,
+      "sha256": "c59347abec15b3faf5e51836aa18648002ebe63689ee095a9d1189a861740fe5"
+    },
+    {
+      "path": "tests/tour-dom-smoke.py",
+      "bytes": 4495,
+      "sha256": "c992cbdf134fb763e96175217adc2630090356228929301baa4262e7819ba89f"
+    },
+    {
+      "path": "tests/visual-qa.mjs",
+      "bytes": 5264,
+      "sha256": "fff89eb7b09c32c24d8902bb63906cf882bf3ccd8ec46ba308b5ecf635ea7eb5"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "bytes": 578,
+      "sha256": "18eef6f87ef638fb29585831d4c1898a1d06b725164f01d36be48120f6afa6d7"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 119,
+      "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "bytes": 413,
+      "sha256": "2fba2f25e1859f193b54edef5d2d2cd08cae2a37fab64c08699f6f8672bea2cc"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 437,
+      "sha256": "cdad8e4225b0005fb52c922787d8f3815582821b45fbc1c006c737dfd61391bc"
+    }
+  ]
+}

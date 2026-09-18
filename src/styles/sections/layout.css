@@ -1,0 +1,785 @@
+/* layout — maintained component styles. */
+.interactive-plan {
+  position: relative;
+  overflow: hidden;
+  background: #f6f2e9;
+  border-radius: var(--radius-image);
+}
+
+.interactive-plan > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 220ms var(--ease), transform 520ms var(--ease);
+  user-select: none;
+}
+
+.interactive-plan--furniture > img {
+  object-fit: cover;
+}
+
+.interactive-plan > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.interactive-plan polygon {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  transition: fill 180ms var(--ease), stroke 180ms var(--ease), filter 180ms var(--ease);
+}
+
+.interactive-plan polygon:hover ,
+.interactive-plan polygon:focus ,
+.interactive-plan polygon.is-active {
+  fill: color-mix(in srgb, var(--room-color) 22%, transparent);
+  stroke: var(--room-color);
+  filter: drop-shadow(0 3px 8px rgba(44,54,32,.18));
+  outline: none;
+}
+
+.interactive-plan polygon.is-zone {
+  fill: color-mix(in srgb, var(--room-color) 16%, transparent);
+  stroke: color-mix(in srgb, var(--room-color) 62%, transparent);
+}
+
+.interactive-plan polygon.is-zone.is-active ,
+.interactive-plan polygon.is-zone:hover ,
+.interactive-plan polygon.is-zone:focus {
+  fill: color-mix(in srgb, var(--room-color) 32%, transparent);
+  stroke: #fff;
+}
+
+.interactive-plan__badge {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 15px;
+  color: #fff;
+  background: rgba(37,42,44,.72);
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 1180px) {
+  .interactive-plan {
+    height: 475px;
+  }
+}
+
+@media (max-width: 960px) {
+  .interactive-plan {
+    height: min(570px, 68vw);
+  }
+}
+
+@media (max-width: 640px) {
+  .interactive-plan {
+    height: 340px;
+  }
+
+  .interactive-plan__badge {
+    left: 10px;
+    bottom: 10px;
+    min-height: 32px;
+    padding-inline: 11px;
+    font-size: 10px;
+  }
+}
+
+.interactive-plan {
+  height: 494px;
+  border: 12px solid rgba(255,255,255,.65);
+  box-shadow: 0 12px 35px rgba(37,42,44,.06);
+}
+
+.interactive-plan__compass {
+  position: absolute;
+  right: 16px;
+  bottom: 15px;
+  display: grid;
+  grid-template-columns: 22px auto;
+  align-items: center;
+  gap: 2px;
+  min-width: 55px;
+  min-height: 38px;
+  padding: 5px 8px;
+  color: var(--olive-deep);
+  background: rgba(250,248,243,.88);
+  border: 1px solid rgba(93,103,61,.2);
+  border-radius: 9px;
+  box-shadow: 0 8px 20px rgba(37,42,44,.12);
+}
+
+.interactive-plan__compass svg {
+  width: 22px;
+  transform: rotate(90deg);
+}
+
+.interactive-plan__compass b {
+  font-size: 10px;
+}
+
+@media (max-width: 700px) {
+  .interactive-plan {
+    height: 380px;
+  }
+}
+
+.interactive-plan:not(.interactive-plan--furniture) {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1195 / 896;
+  background: #f7f4ec;
+}
+
+.interactive-plan:not(.interactive-plan--furniture) > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+  transform: none;
+}
+
+.interactive-plan:not(.interactive-plan--furniture) > svg {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.interactive-plan:not(.interactive-plan--furniture) path {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: .55;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  outline: none;
+}
+
+.interactive-plan__compass {
+  z-index: 5;
+}
+
+.interactive-plan:not(.interactive-plan--furniture) {
+  border-color: rgba(255,255,255,.92);
+  box-shadow: 0 24px 58px rgba(37,42,44,.11),
+    0 5px 18px rgba(37,42,44,.07),
+    0 0 0 1px rgba(93,103,61,.10);
+}
+
+.interactive-plan:not(.interactive-plan--furniture)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  border-radius: calc(var(--radius-image) - 12px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.50),
+    inset 0 0 32px rgba(93,103,61,.035);
+}
+
+.interactive-plan:not(.interactive-plan--furniture) path {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  paint-order: stroke fill;
+  transition: fill 180ms cubic-bezier(.2,.72,.22,1),
+    stroke 180ms cubic-bezier(.2,.72,.22,1),
+    stroke-width 180ms cubic-bezier(.2,.72,.22,1),
+    filter 220ms cubic-bezier(.2,.72,.22,1),
+    opacity 180ms ease;
+}
+
+.interactive-plan:not(.interactive-plan--furniture) path:hover ,
+.interactive-plan:not(.interactive-plan--furniture) path:focus-visible ,
+.interactive-plan:not(.interactive-plan--furniture) path.is-hovered {
+  fill: rgba(104,123,55,.10);
+  stroke: rgba(198,216,124,.98);
+  stroke-width: 1.28;
+  filter: drop-shadow(0 0 2px rgba(239,244,191,.98))
+    drop-shadow(0 0 6px rgba(174,196,94,.92))
+    drop-shadow(0 0 13px rgba(111,137,55,.62))
+    drop-shadow(0 0 23px rgba(80,102,39,.25));
+}
+
+.interactive-plan:not(.interactive-plan--furniture) path.is-selected {
+  fill: rgba(103,123,51,.16);
+  stroke: rgba(215,229,141,1);
+  stroke-width: 1.62;
+  filter: drop-shadow(0 0 2px rgba(249,251,215,1))
+    drop-shadow(0 0 7px rgba(190,211,108,.98))
+    drop-shadow(0 0 15px rgba(126,151,60,.82))
+    drop-shadow(0 0 26px rgba(87,109,42,.38));
+  animation: plan-mask-premium-in-v12 320ms cubic-bezier(.16,.75,.25,1) both;
+}
+
+.interactive-plan:not(.interactive-plan--furniture) path.is-selected:hover ,
+.interactive-plan:not(.interactive-plan--furniture) path.is-selected:focus-visible ,
+.interactive-plan:not(.interactive-plan--furniture) path.is-selected.is-hovered {
+  fill: rgba(106,127,54,.20);
+  stroke: rgba(232,240,166,1);
+  stroke-width: 1.78;
+  filter: drop-shadow(0 0 2px rgba(255,255,229,1))
+    drop-shadow(0 0 8px rgba(204,222,122,1))
+    drop-shadow(0 0 17px rgba(137,162,65,.88))
+    drop-shadow(0 0 29px rgba(88,111,42,.42));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-plan:not(.interactive-plan--furniture) path.is-selected {
+    animation: none;
+  }
+}
+
+@media (min-width: 961px) {
+  .layout-section .room-panel {
+    margin-top: 60px;
+    height: auto;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout-section .layout-section__grid--zones .room-panel {
+    margin-top: 102px;
+  }
+
+  .layout-section .room-panel__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout-section .room-picker {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.layout-section .room-picker > div {
+  grid-template-columns: 32px repeat(4, minmax(0, 1fr)) 32px;
+  grid-template-rows: 1fr;
+  align-items: stretch;
+}
+
+.layout-section .room-picker button.room-picker__arrow {
+  grid-row: 1;
+  height: 100%;
+}
+
+.layout-section .room-picker button.room-picker__arrow:first-child {
+  grid-column: 1;
+}
+
+.layout-section .room-picker button.room-picker__arrow:last-child {
+  grid-column: 6;
+}
+
+@media (max-width: 700px) {
+  .layout-section .room-picker > div {
+    grid-template-columns: 30px repeat(4, minmax(0, 1fr)) 30px;
+    gap: 4px;
+  }
+
+  .layout-section .room-picker button {
+    padding-inline: 4px;
+    font-size: 8px;
+  }
+}
+
+.layout-section {
+  padding: 82px 0 88px;
+  background: linear-gradient(135deg, #fbfaf6 0%, #f5f2ea 100%);
+  scroll-margin-top: 72px;
+}
+
+.layout-section__heading .section-kicker {
+  margin-bottom: 13px;
+  color: rgba(37,42,44,.68);
+}
+
+.layout-section__heading .section-kicker b {
+  color: var(--graphite);
+}
+
+.layout-section__heading h2 {
+  margin-bottom: 7px;
+  color: #171a1a;
+  font-size: clamp(39px, 3.25vw, 52px);
+  font-weight: 600;
+  line-height: 1.07;
+}
+
+.layout-section__heading > p {
+  margin: 0;
+  color: rgba(37,42,44,.76);
+  font-size: 16.5px;
+  line-height: 1.48;
+}
+
+.layout-section__grid {
+  display: grid;
+  align-items: stretch;
+}
+
+.plan-column {
+  min-width: 0;
+}
+
+.plan-modes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: min(475px, 100%);
+  padding: 3px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 8px 26px rgba(37,42,44,.05);
+}
+
+.plan-modes button {
+  min-height: 42px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  color: rgba(37,42,44,.72);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 180ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
+}
+
+.plan-modes button.is-active {
+  color: #fff;
+  background: linear-gradient(110deg, var(--olive-deep), var(--olive));
+  box-shadow: 0 9px 22px rgba(75,86,48,.21);
+}
+
+.room-panel {
+  min-width: 0;
+  overflow: hidden;
+  background: rgba(250,248,243,.9);
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+}
+
+.room-panel__image {
+  overflow: hidden;
+}
+
+.room-panel__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: room-image-in 260ms var(--ease) both;
+}
+
+.room-panel__image:hover img {
+  transform: scale(1.025);
+  transition: transform 600ms var(--ease);
+}
+
+.room-panel__body h3 {
+  color: #171a1a;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.room-panel__body h3 span {
+  white-space: nowrap;
+}
+
+.room-panel__body > p {
+  color: rgba(37,42,44,.72);
+  line-height: 1.45;
+}
+
+.room-panel__benefits {
+  border-block: 1px solid var(--line);
+}
+
+.room-panel__benefits > div {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.room-panel__benefits > div:last-child {
+  border-bottom: 0;
+}
+
+.room-panel__benefits svg {
+  color: var(--olive-deep);
+  stroke-width: 1.55;
+}
+
+.room-panel__benefits strong ,
+.room-panel__benefits span ,
+.room-panel__benefits small {
+  display: block;
+}
+
+.room-panel__benefits strong {
+  color: var(--graphite);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.room-panel__benefits small {
+  margin-top: 2px;
+  color: rgba(37,42,44,.6);
+  line-height: 1.3;
+}
+
+.room-panel .room-panel__benefits + .room-panel__body ,
+.room-panel .room-panel__benefits + * {
+  margin-top: 0;
+}
+
+.room-panel .room-panel__benefits {
+  margin-bottom: 13px;
+}
+
+.room-picker > span {
+  display: block;
+  color: rgba(37,42,44,.72);
+}
+
+.room-picker > div {
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.room-picker button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: rgba(37,42,44,.73);
+  background: #eeebe2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.room-picker button.room-picker__more {
+  width: 34px;
+  padding: 0;
+  flex: none;
+}
+
+.room-picker--mobile {
+  display: none;
+}
+
+.room-picker--desktop {
+  display: block;
+}
+
+.room-picker--all {
+  margin-top: 18px;
+}
+
+.room-picker--all > div {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.room-picker--all > span {
+  color: rgba(37,42,44,.52);
+}
+
+@media (max-width: 1180px) {
+  .layout-section__grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(350px, .82fr);
+    gap: 24px;
+  }
+
+  .room-panel__image {
+    height: 190px;
+  }
+
+  .room-panel__body {
+    padding: 19px 21px 17px;
+  }
+
+  .room-panel__benefits > div {
+    min-height: 58px;
+  }
+
+  .room-panel .room-panel__body > .room-panel__benefits {
+    min-height: 175px;
+  }
+}
+
+@media (max-width: 960px) {
+  .room-panel {
+    display: grid;
+    grid-template-columns: minmax(280px, .78fr) 1fr;
+  }
+
+  .room-panel__image {
+    height: 100%;
+    min-height: 360px;
+  }
+
+  .room-picker--desktop {
+    display: none;
+  }
+
+  .room-picker--mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout-section {
+    padding: 62px 0 68px;
+  }
+
+  .layout-section__heading {
+    margin-bottom: 22px;
+  }
+
+  .layout-section__heading h2 {
+    font-size: 34px;
+  }
+
+  .layout-section__heading > p {
+    font-size: 16px;
+  }
+
+  .plan-modes {
+    margin-bottom: 14px;
+  }
+
+  .plan-modes button {
+    min-height: 38px;
+    padding-inline: 10px;
+    font-size: 11px;
+  }
+
+  .room-panel {
+    display: block;
+  }
+
+  .room-panel__image {
+    height: 210px;
+    min-height: 0;
+  }
+
+  .room-panel__body {
+    padding: 18px;
+  }
+
+  .room-panel__body h3 {
+    font-size: 22px;
+  }
+
+  .room-panel__body > p {
+    min-height: 0;
+  }
+
+  .room-panel__benefits > div {
+    min-height: 56px;
+  }
+
+  .room-panel .room-panel__body > .room-panel__benefits {
+    min-height: 0;
+  }
+
+  .room-picker--all {
+    display: none;
+  }
+}
+
+.layout-section {
+  padding-block: 68px 72px;
+}
+
+.layout-section__heading {
+  margin-bottom: 22px;
+}
+
+.layout-section__grid {
+  grid-template-columns: minmax(0,1.42fr) minmax(370px,.88fr);
+  gap: 22px;
+}
+
+.plan-modes {
+  margin-bottom: 12px;
+}
+
+.room-panel {
+  height: 548px;
+}
+
+.room-panel__image {
+  height: 186px;
+}
+
+.room-panel__body {
+  padding: 17px 20px 15px;
+}
+
+.room-panel__body h3 {
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.room-panel__body > p {
+  min-height: 39px;
+  margin-bottom: 9px;
+  font-size: 12.5px;
+}
+
+.room-panel .room-panel__body > .room-panel__benefits {
+  min-height: 0;
+  margin-bottom: 9px;
+}
+
+.room-panel__benefits > div {
+  grid-template-columns: 28px 1fr;
+  min-height: 46px;
+}
+
+.room-panel__benefits svg {
+  width: 22px;
+}
+
+.room-panel__benefits strong {
+  font-size: 11px;
+}
+
+.room-panel__benefits small {
+  font-size: 9.5px;
+}
+
+.room-picker > span {
+  margin-bottom: 5px;
+  font-size: 10px;
+}
+
+.room-picker > div {
+  display: grid;
+  grid-template-columns: 32px repeat(4,minmax(0,1fr)) 32px;
+  gap: 5px;
+  overflow: visible;
+}
+
+.room-picker button {
+  min-width: 0;
+  min-height: 27px;
+  padding: 0 6px;
+  overflow: hidden;
+  font-size: 8.5px;
+  text-overflow: ellipsis;
+}
+
+.room-picker button.room-picker__arrow {
+  grid-row: 1 / span 3;
+  width: 32px;
+  height: 100%;
+  padding: 0;
+}
+
+.room-picker button.room-picker__arrow:first-child {
+  grid-column: 1;
+}
+
+.room-picker button.room-picker__arrow:last-child {
+  grid-column: 6;
+}
+
+@media (max-width: 960px) {
+  .layout-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-panel {
+    height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .room-picker > div {
+    grid-template-columns: 30px repeat(2,minmax(0,1fr)) 30px;
+  }
+
+  .room-picker button.room-picker__arrow:last-child {
+    grid-column: 4;
+  }
+}
+
+.plan-zones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: -2px 0 12px;
+}
+
+.plan-zones button {
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(93,103,61,.2);
+  border-radius: 999px;
+  color: rgba(37,42,44,.72);
+  background: rgba(255,255,255,.58);
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 160ms var(--ease), background 160ms var(--ease), border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+
+.plan-zones button:hover ,
+.plan-zones button:focus-visible {
+  color: var(--olive-deep);
+  border-color: rgba(93,103,61,.42);
+  outline: none;
+}
+
+.plan-zones button.is-active ,
+.room-picker button.is-active {
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .plan-zones {
+    gap: 5px;
+    margin-bottom: 9px;
+  }
+
+  .plan-zones button {
+    min-height: 29px;
+    padding-inline: 9px;
+    font-size: 9px;
+  }
+}
+
+.plan-zones button.is-active ,
+.room-picker button.is-active {
+  border-color: rgba(144,164,77,.95);
+  background: linear-gradient(135deg, #566331 0%, #77854a 100%);
+  box-shadow: 0 7px 18px rgba(74,85,48,.20),
+    0 0 0 2px rgba(128,147,70,.10),
+    0 0 16px rgba(110,132,55,.15);
+}

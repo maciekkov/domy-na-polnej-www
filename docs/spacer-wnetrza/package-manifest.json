@@ -1,0 +1,29 @@
+{
+  "originalArchive": "domy-na-polnej-www(1).rar",
+  "omittedOriginalQaScreenshotsOnly": [
+    "qa/stage-11-12-reference-vs-implementation.png",
+    "qa/stage-11-12-390-full-final.png",
+    "qa/.gitkeep",
+    "qa/stage-09-10-1440-final.png",
+    "qa/stage-09-10-1024-final.png",
+    "qa/modal-dom-c-1440x900.png",
+    "qa/full-stage-390.png",
+    "qa/stage-09-10-390-final.png",
+    "qa/reference-vs-implementation.png",
+    "qa/stage-11-12-functional.json",
+    "qa/section-03-04-check.png",
+    "qa/stage-11-12-1440-final.png",
+    "qa/viewport-1024x768.png",
+    "qa/viewport-390x844.png",
+    "qa/stage-09-10-1055-final.png",
+    "qa/full-stage-1440.png",
+    "qa/stage-11-12-390-final.png",
+    "qa/full-stage-1024.png",
+    "qa/stage-09-10-final.html",
+    "qa/stage-11-12-1024-final.png",
+    "qa/viewport-1440x900.png"
+  ],
+  "runtimeAndSourceFilesRemoved": [],
+  "includedFiles": 364,
+  "notes": "node_modules i dist nie są dołączone. Nie usunięto źródeł ani publicznych zasobów istniejącej aplikacji."
+}

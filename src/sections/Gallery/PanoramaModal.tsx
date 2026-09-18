@@ -89,7 +89,7 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
         observer.observe(container)
         resize()
 
-        new THREE.TextureLoader().load('/assets/images/neighborhood/panorama-360-grabik.webp', (loaded) => {
+        new THREE.TextureLoader().load('/assets/images/neighborhood/panorama-360-grabik.webp?v=c7a1986872c74640', (loaded) => {
           if (disposed) { loaded.dispose(); return }
           texture = loaded
           loaded.colorSpace = THREE.SRGBColorSpace

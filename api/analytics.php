@@ -1,62 +1,64 @@
 <?php
 declare(strict_types=1);
-header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-store');
+require_once __DIR__.'/lib/security.php';
 
-function respond(int $status, array $payload = []): never {
-    http_response_code($status);
-    if ($payload) echo json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    exit;
+function dnpAnalyticsId(mixed $value, string $field): string {
+    if (!is_string($value) || !preg_match('/^[a-zA-Z0-9_-]{8,100}$/', $value)) dnpRespond(422,['ok'=>false,'message'=>'Nieprawidłowy identyfikator: '.$field]);
+    return $value;
+}
+function dnpAnalyticsText(mixed $value, int $max = 120, string $pattern = '/[^a-zA-Z0-9._:\/-]/'): ?string {
+    if ($value === null || $value === '') return null;
+    if (!is_string($value)) dnpRespond(422,['ok'=>false,'message'=>'Nieprawidłowy typ pola.']);
+    $clean = substr((string)preg_replace($pattern, '', $value), 0, $max);
+    return $clean === '' ? null : $clean;
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') respond(405, ['ok' => false]);
+try {
+    [$data,$dir] = dnpGuard('analytics', 12288, dnpConfig());
+    $allowed = json_decode(file_get_contents(__DIR__.'/event-names.json'), true, 8, JSON_THROW_ON_ERROR);
+    $event = $data['eventName'] ?? '';
+    if (!is_string($event) || !in_array($event,$allowed,true)) dnpRespond(422,['ok'=>false,'message'=>'Nieprawidłowe zdarzenie.']);
 
-$raw = file_get_contents('php://input');
-if ($raw === false || strlen($raw) > 8192) respond(413, ['ok' => false]);
-$data = json_decode($raw ?: '', true);
-if (!is_array($data)) respond(400, ['ok' => false]);
+    $visitor = dnpAnalyticsId($data['visitorId'] ?? '', 'visitorId');
+    $visit = dnpAnalyticsId($data['visitId'] ?? '', 'visitId');
+    $session = dnpAnalyticsId($data['sessionId'] ?? '', 'sessionId');
+    $eventId = isset($data['eventId']) && $data['eventId'] !== '' ? dnpAnalyticsId($data['eventId'],'eventId') : null;
 
-$allowed = [
-    'page_view', 'house_select', 'house_card_open', 'house_contact_click', 'house_pdf_download',
-    'gallery_open', 'tour_start', 'tour_engaged', 'contact_start', 'contact_submit',
-    'phone_click', 'email_click', 'directions_click'
-];
-$event = (string)($data['eventName'] ?? '');
-if (!in_array($event, $allowed, true)) respond(422, ['ok' => false]);
+    $house = $data['houseCode'] ?? 'unknown';
+    if (!in_array($house,['A','B','C','D','E','unknown'],true)) $house='unknown';
+    $path = $data['pagePath'] ?? '/';
+    if (!is_string($path) || strlen($path)>180 || !preg_match('~^/[a-zA-Z0-9._/-]*$~',$path)) $path='/';
+    $device = $data['deviceClass'] ?? 'desktop';
+    if (!in_array($device,['mobile','tablet','desktop'],true)) $device='desktop';
+    $viewport = $data['viewportBucket'] ?? 'unknown';
+    if (!in_array($viewport,['<480','480-767','768-1023','1024-1439','1440+','unknown'],true)) $viewport='unknown';
+    $tourMode = $data['tourMode'] ?? null;
+    if ($tourMode !== null && !in_array($tourMode,['interior','exterior'],true)) $tourMode=null;
+    $duration = $data['durationMs'] ?? null;
+    if ($duration !== null && (!is_int($duration) && !is_float($duration))) dnpRespond(422,['ok'=>false,'message'=>'Nieprawidłowy czas zdarzenia.']);
+    if ($duration !== null) $duration = max(0,min(21600000,(int)round((float)$duration)));
 
-$sessionId = preg_replace('/[^a-zA-Z0-9_-]/', '', (string)($data['sessionId'] ?? '')) ?: '';
-if (strlen($sessionId) < 8 || strlen($sessionId) > 80) respond(422, ['ok' => false]);
-
-$house = strtoupper((string)($data['houseCode'] ?? ''));
-if ($house !== '' && !in_array($house, ['A','B','C','D','E'], true)) $house = '';
-
-$path = substr((string)($data['pagePath'] ?? '/'), 0, 180);
-if (!str_starts_with($path, '/')) $path = '/';
-$source = preg_replace('/[^a-zA-Z0-9._-]/', '', (string)($data['source'] ?? 'direct')) ?: 'direct';
-$source = substr($source, 0, 80);
-
-$record = [
-    'createdAt' => gmdate('c'),
-    'eventName' => $event,
-    'sessionId' => $sessionId,
-    'houseCode' => $house ?: null,
-    'pagePath' => $path,
-    'source' => $source,
-];
-
-$dataDir = __DIR__ . '/data';
-if (!is_dir($dataDir) && !mkdir($dataDir, 0750, true) && !is_dir($dataDir)) respond(503, ['ok' => false]);
-$file = $dataDir . '/analytics-' . gmdate('Y-m-d') . '.ndjson';
-$line = json_encode($record, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n";
-if (file_put_contents($file, $line, FILE_APPEND | LOCK_EX) === false) respond(503, ['ok' => false]);
-
-// Lekki housekeeping: sporadycznie usuń pliki starsze niż 395 dni.
-if (random_int(1, 100) === 1) {
-    $cutoff = time() - 395 * 86400;
-    foreach (glob($dataDir . '/analytics-*.ndjson') ?: [] as $candidate) {
-        $mtime = filemtime($candidate);
-        if ($mtime !== false && $mtime < $cutoff) @unlink($candidate);
-    }
+    // Deliberately pseudonymous: no IP, form fields, names, phone/e-mail, full user-agent or query string.
+    $record = [
+      'createdAt'=>gmdate('c'), 'eventName'=>$event,
+      'visitorId'=>$visitor, 'visitId'=>$visit, 'sessionId'=>$session,
+      'houseCode'=>$house, 'pagePath'=>$path,
+      'source'=>dnpAnalyticsText($data['source'] ?? 'direct',80) ?? 'direct',
+      'utmMedium'=>dnpAnalyticsText($data['utmMedium'] ?? null,80),
+      'utmCampaign'=>dnpAnalyticsText($data['utmCampaign'] ?? null,120),
+      'utmContent'=>dnpAnalyticsText($data['utmContent'] ?? null,120),
+      'referrerHost'=>dnpAnalyticsText($data['referrerHost'] ?? null,120),
+      'deviceClass'=>$device, 'viewportBucket'=>$viewport,
+      'sectionId'=>dnpAnalyticsText($data['sectionId'] ?? null,80),
+      'tourMode'=>$tourMode,
+      'sceneId'=>dnpAnalyticsText($data['sceneId'] ?? null,100),
+      'durationMs'=>$duration,
+    ];
+    if ($eventId !== null) $record['eventId']=$eventId;
+    $record=array_filter($record, static fn($value)=>$value!==null);
+    if (!dnpAppendAnalytics($dir,$record)) dnpRespond(503,['ok'=>false],3600);
+    dnpRespond(200,['ok'=>true]);
+} catch(Throwable $error){
+    error_log('[DNP analytics] storage or configuration failure');
+    dnpRespond(503,['ok'=>false],60);
 }
-
-respond(200, ['ok' => true]);

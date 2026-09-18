@@ -1,0 +1,33 @@
+name: Verify application source and production build
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package*.json'
+      - 'vite.config.ts'
+      - '.github/workflows/**'
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:dist
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:visual
+      - run: npm run test:admin
+      - run: npm run test:offers
+      - run: php --version && python3 tests/api-security-qa.py

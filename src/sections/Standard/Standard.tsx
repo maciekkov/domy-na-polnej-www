@@ -1,9 +1,8 @@
+import { assetUrl } from '../../lib/assetUrl'
 import { Download, FileText, Leaf, Minus, Plus } from 'lucide-react'
 import { useState } from 'react'
 import { standardGroups, standardHighlights } from '../../data/standard'
-import './StandardRefinement.css'
-
-const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+const asset = (path: string) => assetUrl(`${import.meta.env.BASE_URL}${path}`)
 
 export function Standard({ pdfUrl }: { pdfUrl: string }) {
   const [openId, setOpenId] = useState<string | null>('windows')
@@ -45,7 +44,7 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
         <div className="standard-section__visuals">
           <figure className="standard-lifestyle">
             <div className="standard-lifestyle__media">
-              <img src="/assets/images/standard/standard-lifestyle.webp" alt="Zestawienie standardu domu: duże przeszklenia, trzyszybowe okna i pompa ciepła" width="1448" height="1086" loading="lazy" decoding="async" />
+              <img src="/assets/images/standard/standard-lifestyle.webp?v=9b64a08031e958bb" alt="Zestawienie standardu domu: duże przeszklenia, trzyszybowe okna i pompa ciepła" width="1448" height="1086" loading="lazy" decoding="async" />
             </div>
             <figcaption><Leaf aria-hidden="true" /><span><strong>Wyższy standard lepszego życia.</strong><small>Rozwiązania, które realnie wpływają na codzienny komfort.</small></span></figcaption>
           </figure>
@@ -55,10 +54,10 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
               <FileText aria-hidden="true" />
               <h3>Pełny standard w jednym dokumencie</h3>
               <p>Pobierz 13-stronicowy opis standardu technicznego, materiałów i instalacji.</p>
-              <a className="button button--olive" href={pdfUrl} download>Pobierz pełny standard PDF <Download size={17} aria-hidden="true" /></a>
+              <a className="button button--olive" href={pdfUrl || undefined} aria-disabled={!pdfUrl} download>Pobierz pełny standard PDF <Download size={17} aria-hidden="true" /></a>
             </div>
-            <a className="standard-pdf-card__cover" href={pdfUrl} target="_blank" rel="noreferrer" aria-label="Otwórz standard techniczny w nowej karcie">
-              <img src="/assets/images/standard/standard-cover.webp" alt="Okładka dokumentu Standard naszych domów" width="760" height="1075" loading="lazy" decoding="async" />
+            <a className="standard-pdf-card__cover" href={pdfUrl || undefined} aria-disabled={!pdfUrl} target="_blank" rel="noreferrer" aria-label="Otwórz standard techniczny w nowej karcie">
+              <img src="/assets/images/standard/standard-cover.webp?v=ad2bd4e03804787a" alt="Okładka dokumentu Standard naszych domów" width="760" height="1075" loading="lazy" decoding="async" />
             </a>
           </article>
         </div>

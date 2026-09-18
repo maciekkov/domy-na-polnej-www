@@ -15,7 +15,7 @@ export function Location() {
   return (
     <section id="lokalizacja" className="location" aria-labelledby="location-title">
       <div className="location__media" aria-hidden="true">
-        <img src="/assets/images/location-map.webp" alt="" width="2048" height="682" loading="lazy" decoding="async" />
+        <img src="/assets/images/location-map.webp?v=165b294398bf3ee5" alt="" width="2048" height="682" loading="lazy" decoding="async" />
       </div>
       <div className="location__shade" aria-hidden="true" />
 

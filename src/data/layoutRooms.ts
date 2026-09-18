@@ -32,7 +32,7 @@ export const zoneOrder: ZoneId[] = ['day', 'private', 'entry', 'utility', 'flex'
 export const layoutRooms: LayoutRoom[] = [
   {
     id: 'living', title: 'Salon + jadalnia', shortTitle: 'Salon + jadalnia', area: '29 m²', zone: 'day',
-    image: '/assets/images/layout/room-living.webp',
+    image: '/assets/images/spacer-360/interior/webp/int18-salon-wysoki-sufit.webp?v=89ef48e750b4a615',
     description: 'Otwarta strefa dzienna z wysokim sufitem i dużymi przeszkleniami prowadzącymi wprost na zachodni ogród.',
     benefits: [
       { title: 'Naturalne światło', text: 'Duże okna tarasowe od strony ogrodu' },
@@ -43,7 +43,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'kitchen', title: 'Kuchnia', shortTitle: 'Kuchnia', area: '11 m²', zone: 'day',
-    image: '/assets/images/layout/room-kitchen.webp',
+    image: '/assets/images/spacer-360/interior/webp/int05-kuchnia-barek.webp?v=d06346667d18e94d',
     description: 'Funkcjonalna kuchnia pozostaje blisko stołu i rozmów, a spiżarnia przejmuje zapasy i małe AGD.',
     benefits: [
       { title: 'Blisko jadalni', text: 'Krótka droga od blatu do stołu' },
@@ -54,7 +54,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'pantry', title: 'Spiżarnia', shortTitle: 'Spiżarnia', area: '', zone: 'day',
-    image: '/assets/images/layout/room-kitchen.webp',
+    image: '/assets/images/spacer-360/interior/webp/int20-spizarnia.webp?v=ecbcea6ff42e40dc',
     description: 'Osobna spiżarnia porządkuje zapasy i małe AGD, pozostając bezpośrednio przy kuchni.',
     benefits: [
       { title: 'Zapasy pod ręką', text: 'Codzienne produkty w jednym miejscu' },
@@ -65,7 +65,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'bedroom', title: 'Sypialnia rodziców', shortTitle: 'Sypialnia', area: '11 m²', zone: 'private',
-    image: '/assets/images/layout/room-bedroom.webp',
+    image: '/assets/images/spacer-360/interior/webp/int11b-sypialnia-ogrod.webp?v=0647d63f199d58eb',
     description: 'Spokojna część rodziców z widokiem na ogród i własną łazienką bez przecinania strefy dziennej.',
     benefits: [
       { title: 'Prywatna strefa', text: 'Oddzielenie od pokoi dzieci i salonu' },
@@ -76,7 +76,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'child-one', title: 'Pokój dziecięcy 1', shortTitle: 'Pokój 1', area: '12 m²', zone: 'private',
-    image: '/assets/images/layout/room-child.webp',
+    image: '/assets/images/spacer-360/interior/webp/int09b-pokoj-dzieciecy-druga-strona.webp?v=c97b92066bdaace7',
     description: 'Ustawny pokój z miejscem na łóżko, biurko i pełnowymiarową zabudowę.',
     benefits: [
       { title: 'Dobre proporcje', text: 'Czytelne miejsce do snu, nauki i zabawy' },
@@ -87,7 +87,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'child-two', title: 'Pokój dziecięcy 2', shortTitle: 'Pokój 2', area: '11 m²', zone: 'private',
-    image: '/assets/images/layout/room-child-two.webp',
+    image: '/assets/images/spacer-360/interior/webp/int10b-pokoj-mlodziezowy-druga-strona.webp?v=5b44d221420480ea',
     description: 'Drugi ustawny pokój może być sypialnią dziecka, pokojem gościnnym albo spokojnym gabinetem.',
     benefits: [
       { title: 'Elastyczne przeznaczenie', text: 'Pokój dziecka, gościnny lub pracownia' },
@@ -98,7 +98,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'master-bath', title: 'Łazienka przy sypialni', shortTitle: 'Łazienka master', area: '6 m²', zone: 'private',
-    image: '/assets/images/layout/room-bath.webp',
+    image: '/assets/images/spacer-360/interior/webp/int25-lazienka-prywatna-wanna.webp?v=ad3127025113ccd7',
     description: 'Prywatna łazienka rodziców z miejscem na wannę, umywalkę i wygodną zabudowę.',
     benefits: [
       { title: 'Bez porannej kolejki', text: 'Druga łazienka porządkuje rytm rodziny' },
@@ -109,7 +109,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'main-bath', title: 'Łazienka główna', shortTitle: 'Łazienka', area: '4 m²', zone: 'private',
-    image: '/assets/images/layout/room-bath-main.webp',
+    image: '/assets/images/spacer-360/interior/webp/int13-lazienka-ogolna-wejscie.webp?v=ffc2569492b752d4',
     description: 'Kompaktowa łazienka w centrum prywatnej części domu, dostępna dla dzieci i gości.',
     benefits: [
       { title: 'Centralna lokalizacja', text: 'Blisko pokoi i strefy dziennej' },
@@ -120,7 +120,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'office', title: 'Gabinet', shortTitle: 'Gabinet', area: 'ok. 10 m²', zone: 'flex',
-    image: '/assets/images/layout/room-office.webp',
+    image: '/assets/images/spacer-360/interior/webp/int22-gabinet-biurko.webp?v=5b9e699e8dafbdc8',
     description: 'Dodatkowe pomieszczenie może pełnić funkcję gabinetu, miejsca nauki, hobby albo pokoju gościnnego.',
     benefits: [
       { title: 'Dom dopasowany do Ciebie', text: 'Praca, nauka albo hobby' },
@@ -130,9 +130,9 @@ export const layoutRooms: LayoutRoom[] = [
     paths: ['m 27.646624,180.79201 h 42.65419 l 0.40751,-62.25867 h -42.79 z'],
   },
   {
-    id: 'utility', title: 'Pomieszczenie techniczne', shortTitle: 'Techniczne', area: '6 m²', zone: 'utility',
-    image: '/assets/images/layout/room-utility.webp',
-    description: 'Technika, pranie i domowe zaplecze pozostają poza reprezentacyjną częścią domu.',
+    id: 'utility', title: 'Pomieszczenie gospodarcze', shortTitle: 'Gospodarcze', area: '6 m²', zone: 'utility',
+    image: '/assets/images/spacer-360/interior/webp/int28-pralnia-widok-na-wiatrolap.webp?v=4c6f05467f3ff5d4',
+    description: 'Pranie, instalacje i codzienne zaplecze domu pozostają poza reprezentacyjną częścią wnętrza.',
     benefits: [
       { title: 'Technika w jednym miejscu', text: 'Pompa ciepła i instalacje poza salonem' },
       { title: 'Strefa prania', text: 'Miejsce na pralkę, suszarkę i chemię' },
@@ -142,7 +142,7 @@ export const layoutRooms: LayoutRoom[] = [
   },
   {
     id: 'entry', title: 'Wiatrołap i komunikacja', shortTitle: 'Wejście', area: '7 m²', zone: 'entry',
-    image: '/assets/images/layout/room-entry.webp',
+    image: '/assets/images/spacer-360/interior/webp/int14-pralnia-wejscie.webp?v=15a211958770aa49',
     description: 'Wiatrołap i krótka komunikacja prowadzą do najważniejszych części domu bez marnowania powierzchni.',
     benefits: [
       { title: 'Czytelne wejście', text: 'Miejsce na kurtki, buty i zakupy' },

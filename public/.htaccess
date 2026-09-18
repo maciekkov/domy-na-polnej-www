@@ -1,27 +1,29 @@
 Options -Indexes -MultiViews
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
+FileETag MTime Size
 
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  <FilesMatch "\.(html)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
+
+  # Stable filenames can change. A cached image/document must be revalidated.
+  <FilesMatch "\.(webp|png|jpg|jpeg|svg|gif|avif|mp4|woff2|woff|pdf|css|js|xml|txt)$">
+    Header set Cache-Control "public, no-cache, max-age=0, must-revalidate"
   </FilesMatch>
-  <FilesMatch "\.(webp|png|jpg|jpeg|svg|woff2|woff|pdf)$">
-    Header set Cache-Control "public, max-age=2592000"
+  # Never let an old offer/route configuration survive a release.
+  <FilesMatch "\.(html|json)$">
+    Header set Cache-Control "no-store"
   </FilesMatch>
 </IfModule>
 
 RewriteEngine On
 RewriteBase /
-
-# Istniejące pliki i katalogi obsługuje serwer bez udziału SPA.
+# Hidden files/configuration are never public; .well-known remains available for TLS.
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
-
-# Pozostałe, nieznane ścieżki mają zwracać prawdziwe 404 zamiast strony głównej.
 RewriteRule ^ - [R=404,L]

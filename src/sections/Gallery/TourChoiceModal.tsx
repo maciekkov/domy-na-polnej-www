@@ -1,14 +1,16 @@
 import { ArrowRight, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
+import { tours } from '../../data/tours'
 
 type TourChoiceModalProps = {
   onClose: () => void
   onChooseExterior: () => void
+  onChooseInterior: () => void
 }
 
 const FOCUSABLE = 'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-export function TourChoiceModal({ onClose, onChooseExterior }: TourChoiceModalProps) {
+export function TourChoiceModal({ onClose, onChooseExterior, onChooseInterior }: TourChoiceModalProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
 
@@ -54,21 +56,22 @@ export function TourChoiceModal({ onClose, onChooseExterior }: TourChoiceModalPr
 
         <div className="eyebrow eyebrow--light">Spacer 360</div>
         <h3 id="tour-choice-title">Wybierz obszar spaceru</h3>
-        <p>Na tym etapie gotowy jest pełny spacer zewnętrzny wokół domu i działki. Wersja wnętrz pojawi się jako kolejny moduł.</p>
+        <p>Przejdź wokół domu i działki albo wejdź do środka. Obie trasy mają ten sam interfejs: opisane pinezki, trzy miniatury i płynne przejścia.</p>
 
         <div className="tour-choice-modal__options">
           <button className="tour-choice-option tour-choice-option--active" type="button" onClick={onChooseExterior}>
             <span className="tour-choice-option__kicker">Dostępne teraz</span>
             <strong>Na zewnątrz</strong>
-            <span>14 kadrów · dom, podjazd, wiata, taras i ogród</span>
+            <span>{tours.exterior.count} kadrów · dom, podjazd, wiata, taras i ogród</span>
             <span className="tour-choice-option__cta">Wejdź do spaceru <ArrowRight size={16} /></span>
           </button>
 
-          <button className="tour-choice-option tour-choice-option--disabled" type="button" disabled>
-            <span className="tour-choice-option__kicker">W przygotowaniu</span>
+          <button className="tour-choice-option tour-choice-option--active tour-choice-option--interior" type="button" onClick={onChooseInterior}>
+            <span className="tour-choice-option__kicker">Od wejścia po cały dom</span>
             <strong>Do wewnątrz</strong>
-            <span>Salon, kuchnia, sypialnie i łazienki pojawią się w następnym etapie.</span>
-            <span className="tour-choice-option__cta">Wkrótce dostępne</span>
+            <span>{tours.interior.count} kadry · salon, kuchnia, pokoje, łazienki i zaplecze</span>
+            <small className="tour-choice-option__note">Brakujące rendery zastępują oznaczone szkice z Blendera.</small>
+            <span className="tour-choice-option__cta">Wejdź do domu <ArrowRight size={16} /></span>
           </button>
         </div>
       </div>

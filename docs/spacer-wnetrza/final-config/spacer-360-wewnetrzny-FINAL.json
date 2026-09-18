@@ -1,0 +1,2148 @@
+{
+  "schemaVersion": 2,
+  "tourName": "Spacer 360 — Wnętrze domu",
+  "tourSlug": "spacer-360-wewnetrzny",
+  "mode": "interior",
+  "coordinateSystem": "image",
+  "loop": false,
+  "startScene": "int00-podcien-wejsciowy",
+  "description": "Spacer po wnętrzu domu zaczynający się od podcienia wejściowego, z logicznym wejściem przez drzwi do wiatrołapu, zaktualizowanymi łazienkami, korytarzem oraz dwustronnymi widokami pokoi.",
+  "stats": {
+    "scenes": 30,
+    "renders": 30,
+    "blender": 0,
+    "inputSketches": 29,
+    "inputRenderFiles": 37,
+    "uniqueRenders": 34
+  },
+  "rooms": [
+    {
+      "id": "entry",
+      "title": "Wejście i wiatrołap",
+      "scene": "int00-podcien-wejsciowy"
+    },
+    {
+      "id": "utility",
+      "title": "Pomieszczenie gospodarcze",
+      "scene": "int14-pralnia-wejscie"
+    },
+    {
+      "id": "day",
+      "title": "Strefa dzienna",
+      "scene": "int05-kuchnia-barek"
+    },
+    {
+      "id": "pantry",
+      "title": "Spiżarnia",
+      "scene": "int20-spizarnia"
+    },
+    {
+      "id": "bedroom",
+      "title": "Sypialnia rodziców",
+      "scene": "int11-sypialnia-rodzicow"
+    },
+    {
+      "id": "master-bath",
+      "title": "Łazienka prywatna",
+      "scene": "int25-lazienka-prywatna-wanna"
+    },
+    {
+      "id": "hall",
+      "title": "Korytarz",
+      "scene": "int21-korytarz-do-salonu"
+    },
+    {
+      "id": "bath",
+      "title": "Łazienka ogólna",
+      "scene": "int13-lazienka-ogolna-wejscie"
+    },
+    {
+      "id": "child",
+      "title": "Pokój dziecięcy",
+      "scene": "int09-pokoj-dzieciecy"
+    },
+    {
+      "id": "teen",
+      "title": "Pokój młodzieżowy",
+      "scene": "int10-pokoj-mlodziezowy"
+    },
+    {
+      "id": "office",
+      "title": "Gabinet",
+      "scene": "int22-gabinet-biurko"
+    },
+    {
+      "id": "attic",
+      "title": "Strych",
+      "scene": "int15-strych-widok-techniczny"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "int00-podcien-wejsciowy",
+      "title": "Podcień wejściowy",
+      "room": "entry",
+      "roomLabel": "Wejście i wiatrołap",
+      "image": "/assets/images/spacer-360/interior/webp/int00-podcien-wejsciowy.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int00-podcien-wejsciowy.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int00-podcien-wejsciowy.webp",
+      "sourceType": "render",
+      "width": 1600,
+      "height": 900,
+      "hotspots": [
+        {
+          "target": "int01-wejscie-do-domu",
+          "x": 53.5,
+          "y": 42.8,
+          "label": "Otwórz\ndrzwi",
+          "kind": "portal",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "tour": "exterior",
+          "target": "03_wejscie_glowne",
+          "x": 24,
+          "y": 67.4,
+          "label": "Wróć przed\nwejście",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "EXT_04",
+        "renderFile": "04_podcien_wejsciowy.webp"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int01-wejscie-do-domu",
+          "x": 52.7,
+          "y": 42.3,
+          "label": "Otwórz\ndrzwi",
+          "kind": "portal",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "tour": "exterior",
+          "target": "03_wejscie_glowne",
+          "x": 24,
+          "y": 67.4,
+          "label": "Wróć przed\nwejście",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int01-wejscie-do-domu",
+      "title": "Wejście do domu",
+      "room": "entry",
+      "roomLabel": "Wejście i wiatrołap",
+      "image": "/assets/images/spacer-360/interior/webp/int01-wejscie-do-domu.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int01-wejscie-do-domu.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int01-wejscie-do-domu.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int14-pralnia-wejscie",
+          "x": 49.9,
+          "y": 33.5,
+          "label": "Wejdź do\ndomu",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int00-podcien-wejsciowy",
+          "x": 13,
+          "y": 68.7,
+          "label": "Wróć pod\npodcień",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_01",
+        "sketchFile": "INT_01_PRZEDSIONEK_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 20_31_44.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int14-pralnia-wejscie",
+          "x": 49.9,
+          "y": 33.5,
+          "label": "Wejdź do\ndomu",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int00-podcien-wejsciowy",
+          "x": 13,
+          "y": 68.7,
+          "label": "Wróć pod\npodcień",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int14-pralnia-wejscie",
+      "title": "Pomieszczenie gospodarcze · wejście",
+      "room": "utility",
+      "roomLabel": "Pomieszczenie gospodarcze",
+      "image": "/assets/images/spacer-360/interior/webp/int14-pralnia-wejscie.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int14-pralnia-wejscie.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int14-pralnia-wejscie.webp",
+      "sourceType": "render",
+      "width": 1448,
+      "height": 1086,
+      "hotspots": [
+        {
+          "target": "int28-pralnia-widok-na-wiatrolap",
+          "x": 59,
+          "y": 33.3,
+          "label": "Wejdź do\npomieszczenia",
+          "kind": "up",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int17-wiatrolap-i-kuchnia",
+          "x": 21.3,
+          "y": 64.6,
+          "label": "Przejdź do\nstrefy dziennej",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int01-wejscie-do-domu",
+          "x": 93.1,
+          "y": 61.7,
+          "label": "Wróć do\nwiatrołapu",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_14",
+        "sketchFile": "INT_14_PRALNIA_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 19_51_02.png"
+      },
+      "reviewNote": "Render ma proporcje 4:3. Zachowano pełny obraz; nie rozciągano ani nie przycinano do 16:9.",
+      "fallbackHotspots": [
+        {
+          "target": "int28-pralnia-widok-na-wiatrolap",
+          "x": 59,
+          "y": 33.3,
+          "label": "Wejdź do\npomieszczenia",
+          "kind": "up",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int17-wiatrolap-i-kuchnia",
+          "x": 21.3,
+          "y": 64.6,
+          "label": "Przejdź do\nstrefy dziennej",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int01-wejscie-do-domu",
+          "x": 93.1,
+          "y": 61.7,
+          "label": "Wróć do\nwiatrołapu",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int28-pralnia-widok-na-wiatrolap",
+      "title": "Pomieszczenie gospodarcze · widok na wiatrołap",
+      "room": "utility",
+      "roomLabel": "Pomieszczenie gospodarcze",
+      "image": "/assets/images/spacer-360/interior/webp/int28-pralnia-widok-na-wiatrolap.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int28-pralnia-widok-na-wiatrolap.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int28-pralnia-widok-na-wiatrolap.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int14-pralnia-wejscie",
+          "x": 49.1,
+          "y": 51.6,
+          "label": "Wróć do\nwiatrołapu",
+          "kind": "up",
+          "align": "right",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_28",
+        "sketchFile": "INT_28_PRALNIA_B_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 19_43_14.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int14-pralnia-wejscie",
+          "x": 49.1,
+          "y": 51.6,
+          "label": "Wróć do\nwiatrołapu",
+          "kind": "up",
+          "align": "right",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int17-wiatrolap-i-kuchnia",
+      "title": "Hol wejściowy · przy kuchni",
+      "room": "entry",
+      "roomLabel": "Wejście i wiatrołap",
+      "image": "/assets/images/spacer-360/interior/webp/int17-wiatrolap-i-kuchnia.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int17-wiatrolap-i-kuchnia.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int17-wiatrolap-i-kuchnia.webp",
+      "sourceType": "render",
+      "width": 1448,
+      "height": 1086,
+      "hotspots": [
+        {
+          "target": "int14-pralnia-wejscie",
+          "x": 31,
+          "y": 46.6,
+          "label": "Wiatrołap",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int18-salon-wysoki-sufit",
+          "x": 100,
+          "y": 65.6,
+          "label": "Strefa\ndzienna",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 83.6,
+          "y": 26.9,
+          "label": "Kuchnia",
+          "kind": "left",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "x": 57.7,
+          "y": 77.8,
+          "label": "Jadalnia",
+          "kind": "down",
+          "align": "right",
+          "pulse": false,
+          "target": "int03-jadalnia-i-taras"
+        },
+        {
+          "x": 90.2,
+          "y": 43.7,
+          "label": "Korytarz",
+          "kind": "right",
+          "align": "right",
+          "pulse": false,
+          "target": "int07-korytarz-do-pokojow"
+        }
+      ],
+      "source": {
+        "camera": "INT_17",
+        "sketchFile": "INT_17_WEJSCIE_B_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 19_29_15.png"
+      },
+      "reviewNote": "Render ma proporcje 4:3. Zachowano pełny obraz; nie rozciągano ani nie przycinano do 16:9.",
+      "fallbackHotspots": [
+        {
+          "target": "int14-pralnia-wejscie",
+          "x": 31,
+          "y": 46.6,
+          "label": "Wiatrołap",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 91.7,
+          "y": 40.1,
+          "label": "Strefa\ndzienna",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "x": 62.2,
+          "y": 66.3,
+          "label": "Jadalnia",
+          "kind": "down",
+          "align": "right",
+          "pulse": false,
+          "target": "int03-jadalnia-i-taras"
+        }
+      ]
+    },
+    {
+      "id": "int05-kuchnia-barek",
+      "title": "Strefa dzienna · przy kuchni",
+      "room": "day",
+      "roomLabel": "Strefa dzienna",
+      "image": "/assets/images/spacer-360/interior/webp/int05-kuchnia-barek.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int05-kuchnia-barek.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int05-kuchnia-barek.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int17-wiatrolap-i-kuchnia",
+          "x": 27.2,
+          "y": 37.3,
+          "label": "Wiatrołap",
+          "kind": "backRight",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int06-kuchnia-wejscie-do-spizarni",
+          "x": 84.1,
+          "y": 51.5,
+          "label": "Spiżarnia",
+          "kind": "forwardLeft",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 8.9,
+          "y": 55.7,
+          "label": "Salon i\njadalnia",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 86.8,
+          "y": 76.8,
+          "label": "Korytarz",
+          "kind": "downRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int05b-widok-na-salon",
+          "x": 55.9,
+          "y": 56.5,
+          "label": "Widok na\nsalon",
+          "kind": "forward",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_05",
+        "sketchFile": "INT_05_KUCHNIA_BAREK_DZIEN.png",
+        "renderFile": "upload 2026-09-17 kitchen"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int17-wiatrolap-i-kuchnia",
+          "x": 25.5,
+          "y": 44.9,
+          "label": "Wróć do\nwiatrołapu",
+          "kind": "backRight",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int06-kuchnia-wejscie-do-spizarni",
+          "x": 82.1,
+          "y": 60.8,
+          "label": "Spiżarnia",
+          "kind": "forwardLeft",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 9.5,
+          "y": 60.3,
+          "label": "Salon i\njadalnia",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 75.3,
+          "y": 85.2,
+          "label": "Korytarz",
+          "kind": "downRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int05b-widok-na-salon",
+          "x": 48.5,
+          "y": 71.5,
+          "label": "Widok na\nsalon",
+          "kind": "forward",
+          "align": "left",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int05b-widok-na-salon",
+      "title": "Widok na salon",
+      "room": "day",
+      "roomLabel": "Strefa dzienna",
+      "image": "/assets/images/spacer-360/interior/webp/int05b-widok-na-salon.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int05b-widok-na-salon.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int05b-widok-na-salon.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int18-salon-wysoki-sufit",
+          "x": 37.5,
+          "y": 55.7,
+          "label": "Salon",
+          "kind": "forward",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 62.7,
+          "y": 37.4,
+          "label": "Jadalnia",
+          "kind": "forwardLeft",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 20.3,
+          "y": 22.1,
+          "label": "Korytarz",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int06-kuchnia-wejscie-do-spizarni",
+          "x": 4.9,
+          "y": 72.7,
+          "label": "Spiżarnia",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "UPLOAD_2026_09_18",
+        "sketchFile": null,
+        "renderFile": "c6ae9675-1ae8-5c65-8a0a-f88b9bf7ab8d.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int18-salon-wysoki-sufit",
+          "x": 43.8,
+          "y": 55,
+          "label": "Salon",
+          "kind": "forward",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 68.8,
+          "y": 46.5,
+          "label": "Jadalnia",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 75.8,
+          "y": 33.5,
+          "label": "Korytarz",
+          "kind": "upRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 14.2,
+          "y": 79,
+          "label": "Wróć do\nkuchni",
+          "kind": "backLeft",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int06-kuchnia-wejscie-do-spizarni",
+      "title": "Kuchnia · wejście do spiżarni",
+      "room": "day",
+      "roomLabel": "Strefa dzienna",
+      "image": "/assets/images/spacer-360/interior/webp/int06-kuchnia-wejscie-do-spizarni.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int06-kuchnia-wejscie-do-spizarni.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int06-kuchnia-wejscie-do-spizarni.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int20-spizarnia",
+          "x": 45.1,
+          "y": 35.5,
+          "label": "Wejdź do\nspiżarni",
+          "kind": "forwardLeft",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 85,
+          "y": 47.5,
+          "label": "Wyjdź z Kuchni",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "x": 23.4,
+          "y": 64.1,
+          "label": "Widok na Salon",
+          "kind": "right",
+          "align": "right",
+          "pulse": false,
+          "target": "int05b-widok-na-salon"
+        }
+      ],
+      "source": {
+        "camera": "INT_06",
+        "sketchFile": "INT_06_SPIZARNIA_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 20_32_56.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int20-spizarnia",
+          "x": 44.6,
+          "y": 37.4,
+          "label": "Wejdź do\nspiżarni",
+          "kind": "forwardLeft",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 74,
+          "y": 70.2,
+          "label": "Wróć do\nkuchni",
+          "kind": "downRight",
+          "align": "left",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int20-spizarnia",
+      "title": "Spiżarnia",
+      "room": "pantry",
+      "roomLabel": "Spiżarnia",
+      "image": "/assets/images/spacer-360/interior/webp/int20-spizarnia.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int20-spizarnia.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int20-spizarnia.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int06-kuchnia-wejscie-do-spizarni",
+          "x": 45,
+          "y": 64,
+          "label": "Wyjdź do\nkuchni",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_20",
+        "sketchFile": "INT_20_SPIZARNIA_B_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 20_36_24.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int06-kuchnia-wejscie-do-spizarni",
+          "x": 45,
+          "y": 64,
+          "label": "Wyjdź do\nkuchni",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int18-salon-wysoki-sufit",
+      "title": "Salon i jadalnia · widok na ogród",
+      "room": "day",
+      "roomLabel": "Strefa dzienna",
+      "image": "/assets/images/spacer-360/interior/webp/int18-salon-wysoki-sufit.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int18-salon-wysoki-sufit.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int18-salon-wysoki-sufit.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 82.3,
+          "y": 80.6,
+          "label": "W stronę\nkuchni",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 75.4,
+          "y": 52,
+          "label": "Jadalnia i\ntaras",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 88.5,
+          "y": 29.3,
+          "label": "Korytarz",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "tour": "exterior",
+          "target": "09_taras_przy_salonie",
+          "x": 27.3,
+          "y": 28.9,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "x": 7.3,
+          "y": 67.1,
+          "label": "Korytarz",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false,
+          "target": "int07-korytarz-do-pokojow"
+        }
+      ],
+      "source": {
+        "camera": "INT_18",
+        "sketchFile": "INT_18_SALON_B_DZIEN.png",
+        "renderFile": "upload 2026-09-17 living garden"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 82.3,
+          "y": 80.6,
+          "label": "W stronę\nkuchni",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 75.4,
+          "y": 52,
+          "label": "Jadalnia i\ntaras",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 88.5,
+          "y": 29.3,
+          "label": "Korytarz",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "tour": "exterior",
+          "target": "09_taras_przy_salonie",
+          "x": 27.3,
+          "y": 28.9,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "x": 13,
+          "y": 88.8,
+          "label": "Korytarz",
+          "kind": "downLeft",
+          "align": "right",
+          "pulse": false,
+          "target": "int07-korytarz-do-pokojow"
+        }
+      ]
+    },
+    {
+      "id": "int18b-idz-do-salonu",
+      "title": "Idź do salonu",
+      "room": "day",
+      "roomLabel": "Strefa dzienna",
+      "image": "/assets/images/spacer-360/interior/webp/int18b-idz-do-salonu.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int18b-idz-do-salonu.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int18b-idz-do-salonu.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int18-salon-wysoki-sufit",
+          "x": 80.6,
+          "y": 67.5,
+          "label": "Salon i ogród",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 13.4,
+          "y": 77.1,
+          "label": "Jadalnia",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 57.2,
+          "y": 43.8,
+          "label": "Kuchnia",
+          "kind": "forward",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_NEW_SALON",
+        "renderFile": "Salon.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int18-salon-wysoki-sufit",
+          "x": 83,
+          "y": 52,
+          "label": "Salon i ogród",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 13,
+          "y": 77,
+          "label": "Wróć do jadalni",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 50,
+          "y": 43,
+          "label": "Kuchnia",
+          "kind": "forward",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int03-jadalnia-i-taras",
+      "title": "Jadalnia · przy tarasie",
+      "room": "day",
+      "roomLabel": "Strefa dzienna",
+      "image": "/assets/images/spacer-360/interior/webp/int03-jadalnia-i-taras.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int03-jadalnia-i-taras.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int03-jadalnia-i-taras.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 56.9,
+          "y": 49.5,
+          "label": "Sypialnia\nrodziców",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int18b-idz-do-salonu",
+          "x": 8.4,
+          "y": 78.6,
+          "label": "Idź do salonu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "tour": "exterior",
+          "target": "09_taras_przy_salonie",
+          "x": 34.7,
+          "y": 31.6,
+          "label": "Wyjdź na\ntaras",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_03",
+        "sketchFile": "INT_03_JADALNIA_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 20_08_52.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 57,
+          "y": 47.6,
+          "label": "Sypialnia\nrodziców",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int18b-idz-do-salonu",
+          "x": 8.4,
+          "y": 78.6,
+          "label": "Idź do salonu",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "tour": "exterior",
+          "target": "09_taras_przy_salonie",
+          "x": 34.7,
+          "y": 31.6,
+          "label": "Wyjdź na\ntaras",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int11-sypialnia-rodzicow",
+      "title": "Sypialnia rodziców",
+      "room": "bedroom",
+      "roomLabel": "Sypialnia rodziców",
+      "image": "/assets/images/spacer-360/interior/webp/int11-sypialnia-rodzicow.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int11-sypialnia-rodzicow.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int11-sypialnia-rodzicow.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int11b-sypialnia-ogrod",
+          "x": 5.1,
+          "y": 44.6,
+          "label": "Widok na\nogród",
+          "kind": "downRight",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int25-lazienka-prywatna-wanna",
+          "x": 33,
+          "y": 35.2,
+          "label": "Łazienka\nprywatna",
+          "kind": "left",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int11c-idz-do-jadalni",
+          "x": 81,
+          "y": 64.5,
+          "label": "Idź do jadalni",
+          "kind": "up",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_11",
+        "sketchFile": "INT_11_SYPIALNIA_DZIEN.png",
+        "renderFile": "upload 2026-09-17 bedroom main"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int11b-sypialnia-ogrod",
+          "x": 5.1,
+          "y": 44.6,
+          "label": "Widok na\nogród",
+          "kind": "downRight",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int25-lazienka-prywatna-wanna",
+          "x": 33,
+          "y": 35.2,
+          "label": "Łazienka\nprywatna",
+          "kind": "left",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int11c-idz-do-jadalni",
+          "x": 81,
+          "y": 64.5,
+          "label": "Idź do jadalni",
+          "kind": "up",
+          "align": "left",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int11c-idz-do-jadalni",
+      "title": "Idź do jadalni",
+      "room": "bedroom",
+      "roomLabel": "Sypialnia rodziców",
+      "image": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int11c-idz-do-jadalni.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int18b-idz-do-salonu",
+          "x": 28,
+          "y": 47.4,
+          "label": "Kuchnia",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 13.3,
+          "y": 87.2,
+          "label": "Sypialnia",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "x": 3.8,
+          "y": 61.1,
+          "label": "Wiatrołap",
+          "kind": "up",
+          "align": "right",
+          "pulse": false,
+          "target": "int14-pralnia-wejscie"
+        }
+      ],
+      "source": {
+        "camera": "INT_NEW_DINING",
+        "renderFile": "ChatGPT Image 18 wrz 2026, 09_18_03.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 77,
+          "y": 58,
+          "label": "Idź do jadalni",
+          "kind": "forwardRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 12,
+          "y": 76,
+          "label": "Wróć do sypialni",
+          "kind": "back",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int11b-sypialnia-ogrod",
+      "title": "Sypialnia rodziców · widok na ogród",
+      "room": "bedroom",
+      "roomLabel": "Sypialnia rodziców",
+      "image": "/assets/images/spacer-360/interior/webp/int11b-sypialnia-ogrod.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int11b-sypialnia-ogrod.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int11b-sypialnia-ogrod.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 16,
+          "y": 78,
+          "label": "Wróć do\nłóżka",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "tour": "exterior",
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 58.9,
+          "y": 38.8,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_11B",
+        "sketchFile": "INT_11_SYPIALNIA_DZIEN.png",
+        "renderFile": "upload 2026-09-17 bedroom garden"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 16,
+          "y": 78,
+          "label": "Wróć do\nłóżka",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "tour": "exterior",
+          "target": "10_dom_od_strony_ogrodu",
+          "x": 58.9,
+          "y": 38.8,
+          "label": "Wyjdź do\nogrodu",
+          "kind": "portal",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int25-lazienka-prywatna-wanna",
+      "title": "Łazienka prywatna · wanna",
+      "room": "master-bath",
+      "roomLabel": "Łazienka prywatna",
+      "image": "/assets/images/spacer-360/interior/webp/int25-lazienka-prywatna-wanna.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int25-lazienka-prywatna-wanna.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int25-lazienka-prywatna-wanna.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int26-lazienka-prywatna-umywalka",
+          "x": 74,
+          "y": 44.2,
+          "label": "Strefa\numywalki",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int12-lazienka-prywatna-powrot",
+          "x": 18.8,
+          "y": 30.6,
+          "label": "Odwróć się",
+          "kind": "backRight",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_25",
+        "sketchFile": "INT_25_SYPIALNIA_B_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 18_34_56.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int26-lazienka-prywatna-umywalka",
+          "x": 74,
+          "y": 44.2,
+          "label": "Strefa\numywalki",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int12-lazienka-prywatna-powrot",
+          "x": 18.8,
+          "y": 30.6,
+          "label": "Odwróć się",
+          "kind": "backRight",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int26-lazienka-prywatna-umywalka",
+      "title": "Łazienka prywatna · umywalka",
+      "room": "master-bath",
+      "roomLabel": "Łazienka prywatna",
+      "image": "/assets/images/spacer-360/interior/webp/int26-lazienka-prywatna-umywalka.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int26-lazienka-prywatna-umywalka.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int26-lazienka-prywatna-umywalka.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 74.6,
+          "y": 35.2,
+          "label": "Wróć do\nsypialni",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int25-lazienka-prywatna-wanna",
+          "x": 24.9,
+          "y": 81.6,
+          "label": "Wanna",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_26",
+        "sketchFile": "INT_26_LAZIENKA_MASTER_B_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 18_42_26.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 72,
+          "y": 54,
+          "label": "Wróć do\nsypialni",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int25-lazienka-prywatna-wanna",
+          "x": 29.7,
+          "y": 79.7,
+          "label": "Wanna",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int12-lazienka-prywatna-powrot",
+      "title": "Łazienka prywatna · do sypialni",
+      "room": "master-bath",
+      "roomLabel": "Łazienka prywatna",
+      "image": "/assets/images/spacer-360/interior/webp/int12-lazienka-prywatna-powrot.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int12-lazienka-prywatna-powrot.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int12-lazienka-prywatna-powrot.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 33,
+          "y": 61,
+          "label": "Wróć do\nsypialni",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int25-lazienka-prywatna-wanna",
+          "x": 77,
+          "y": 76,
+          "label": "Wanna i\numywalka",
+          "kind": "turnRight",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_12",
+        "sketchFile": "INT_12_LAZIENKA_MASTER_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 18_42_20.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int11-sypialnia-rodzicow",
+          "x": 33,
+          "y": 61,
+          "label": "Wróć do\nsypialni",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int25-lazienka-prywatna-wanna",
+          "x": 77,
+          "y": 76,
+          "label": "Wanna i\numywalka",
+          "kind": "turnRight",
+          "align": "left",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int21-korytarz-do-salonu",
+      "title": "Korytarz · od strefy dziennej",
+      "room": "hall",
+      "roomLabel": "Korytarz",
+      "image": "/assets/images/spacer-360/interior/webp/int21-korytarz-do-salonu.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int21-korytarz-do-salonu.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int21-korytarz-do-salonu.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int13-lazienka-ogolna-wejscie",
+          "x": 64.4,
+          "y": 28.2,
+          "label": "Łazienka\nogólna",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int22-gabinet-biurko",
+          "x": 92.9,
+          "y": 48.7,
+          "label": "Gabinet",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 57.4,
+          "y": 74.7,
+          "label": "Kuchnia i\nstrefa dzienna",
+          "kind": "forward",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "x": 41.8,
+          "y": 47,
+          "label": "Pokój dziecięcy",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int09-pokoj-dzieciecy"
+        },
+        {
+          "x": 7.8,
+          "y": 70.2,
+          "label": "Pokój młodzieżowy ",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int10-pokoj-mlodziezowy"
+        }
+      ],
+      "source": {
+        "camera": "INT_21",
+        "sketchFile": "INT_21_KORYTARZ_B_DZIEN.png",
+        "renderFile": "upload 2026-09-18 korytarz"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int13-lazienka-ogolna-wejscie",
+          "x": 64.2,
+          "y": 52.2,
+          "label": "Łazienka\nogólna",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int22-gabinet-biurko",
+          "x": 85.6,
+          "y": 79.3,
+          "label": "Gabinet",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int03-jadalnia-i-taras",
+          "x": 47.4,
+          "y": 38.1,
+          "label": "Jadalnia",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int05-kuchnia-barek",
+          "x": 55.8,
+          "y": 77.1,
+          "label": "Kuchnia i\nstrefa dzienna",
+          "kind": "forward",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int18-salon-wysoki-sufit",
+          "x": 92,
+          "y": 60,
+          "label": "Salon i\njadalnia",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "x": 37.2,
+          "y": 65,
+          "label": "Pokój dziecięcy",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int00-podcien-wejsciowy"
+        },
+        {
+          "x": 9.7,
+          "y": 78.9,
+          "label": "Pokój młodzieżowy ",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int00-podcien-wejsciowy"
+        }
+      ]
+    },
+    {
+      "id": "int13-lazienka-ogolna-wejscie",
+      "title": "Łazienka ogólna · wejście",
+      "room": "bath",
+      "roomLabel": "Łazienka ogólna",
+      "image": "/assets/images/spacer-360/interior/webp/int13-lazienka-ogolna-wejscie.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int13-lazienka-ogolna-wejscie.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int13-lazienka-ogolna-wejscie.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int27-lazienka-ogolna-prysznic",
+          "x": 52,
+          "y": 35.5,
+          "label": "Wejdź do\nłazienki",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 78,
+          "y": 72,
+          "label": "Korytarz",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "x": 16.2,
+          "y": 58.4,
+          "label": "Kuchnia",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int05-kuchnia-barek"
+        }
+      ],
+      "source": {
+        "camera": "INT_13",
+        "renderFile": "upload 2026-09-18 lazienka wejscie"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int27-lazienka-ogolna-prysznic",
+          "x": 52,
+          "y": 35.5,
+          "label": "Wejdź do\nłazienki",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 78,
+          "y": 72,
+          "label": "Korytarz",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "x": 16.2,
+          "y": 58.4,
+          "label": "Kuchnia",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int05-kuchnia-barek"
+        }
+      ]
+    },
+    {
+      "id": "int27-lazienka-ogolna-prysznic",
+      "title": "Łazienka ogólna · prysznic",
+      "room": "bath",
+      "roomLabel": "Łazienka ogólna",
+      "image": "/assets/images/spacer-360/interior/webp/int27-lazienka-ogolna-prysznic.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int27-lazienka-ogolna-prysznic.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int27-lazienka-ogolna-prysznic.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 46.3,
+          "y": 60.4,
+          "label": "Wyjdź do\nkorytarza",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_27",
+        "renderFile": "upload 2026-09-18 lazienka srodek"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int13-lazienka-ogolna-wejscie",
+          "x": 82,
+          "y": 78,
+          "label": "Wyjdź do\nkorytarza",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int07-korytarz-do-pokojow",
+      "title": "Korytarz · do pokoi",
+      "room": "hall",
+      "roomLabel": "Korytarz",
+      "image": "/assets/images/spacer-360/interior/webp/int07-korytarz-do-pokojow.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int07-korytarz-do-pokojow.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int07-korytarz-do-pokojow.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int10-pokoj-mlodziezowy",
+          "x": 63,
+          "y": 36.2,
+          "label": "Pokój\nmłodzieżowy",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int09-pokoj-dzieciecy",
+          "x": 89.9,
+          "y": 52.1,
+          "label": "Pokój\ndziecięcy",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int13-lazienka-ogolna-wejscie",
+          "x": 7,
+          "y": 55.9,
+          "label": "Łazienka",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "x": 38,
+          "y": 54.3,
+          "label": "Gabinet",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int22-gabinet-biurko"
+        },
+        {
+          "x": 50.5,
+          "y": 75.1,
+          "label": "Odwróć się",
+          "kind": "down",
+          "align": "right",
+          "pulse": false,
+          "target": "int21-korytarz-do-salonu"
+        }
+      ],
+      "source": {
+        "camera": "INT_07",
+        "renderFile": "upload 2026-09-18 korytarz lustro"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int10-pokoj-mlodziezowy",
+          "x": 61.1,
+          "y": 37.9,
+          "label": "Pokój\nmłodzieżowy",
+          "kind": "right",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int09-pokoj-dzieciecy",
+          "x": 86.9,
+          "y": 60.2,
+          "label": "Pokój\ndziecięcy",
+          "kind": "right",
+          "align": "left",
+          "pulse": false
+        },
+        {
+          "target": "int13-lazienka-ogolna-wejscie",
+          "x": 9.2,
+          "y": 51.4,
+          "label": "Łazienka",
+          "kind": "left",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "x": 39,
+          "y": 48.4,
+          "label": "Gabinet",
+          "kind": "left",
+          "align": "right",
+          "pulse": false,
+          "target": "int22-gabinet-biurko"
+        },
+        {
+          "x": 50.9,
+          "y": 78.5,
+          "label": "Odwróć się",
+          "kind": "up",
+          "align": "right",
+          "pulse": false,
+          "target": "int21-korytarz-do-salonu"
+        }
+      ]
+    },
+    {
+      "id": "int09-pokoj-dzieciecy",
+      "title": "Pokój dziecięcy",
+      "room": "child",
+      "roomLabel": "Pokój dziecięcy",
+      "image": "/assets/images/spacer-360/interior/webp/int09-pokoj-dzieciecy.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int09-pokoj-dzieciecy.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int09-pokoj-dzieciecy.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int09b-pokoj-dzieciecy-druga-strona",
+          "x": 37.6,
+          "y": 32.9,
+          "label": "Druga strona\npokoju",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 73.9,
+          "y": 77.6,
+          "label": "Wyjdź",
+          "kind": "backRight",
+          "align": "right",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_09",
+        "sketchFile": "INT_09_POKOJ8_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 20_02_46.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int09b-pokoj-dzieciecy-druga-strona",
+          "x": 17,
+          "y": 78,
+          "label": "Druga strona\npokoju",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 48,
+          "y": 78,
+          "label": "Za Tobą ·\nkorytarz",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int09b-pokoj-dzieciecy-druga-strona",
+      "title": "Pokój dziecięcy · druga strona",
+      "room": "child",
+      "roomLabel": "Pokój dziecięcy",
+      "image": "/assets/images/spacer-360/interior/webp/int09b-pokoj-dzieciecy-druga-strona.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int09b-pokoj-dzieciecy-druga-strona.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int09b-pokoj-dzieciecy-druga-strona.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int09-pokoj-dzieciecy",
+          "x": 49.7,
+          "y": 27.8,
+          "label": "W stronę\nbiurka",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 31.3,
+          "y": 61.8,
+          "label": "Wyjdź",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_09B",
+        "sketchFile": "INT_09_POKOJ8_DZIEN.png",
+        "renderFile": "upload 2026-09-18 pokoj dzieciecy B"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int09-pokoj-dzieciecy",
+          "x": 16,
+          "y": 78,
+          "label": "W stronę\nbiurka",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 43,
+          "y": 57,
+          "label": "Wyjdź do\nkorytarza",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int10-pokoj-mlodziezowy",
+      "title": "Pokój młodzieżowy",
+      "room": "teen",
+      "roomLabel": "Pokój młodzieżowy",
+      "image": "/assets/images/spacer-360/interior/webp/int10-pokoj-mlodziezowy.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int10-pokoj-mlodziezowy.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int10-pokoj-mlodziezowy.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int10b-pokoj-mlodziezowy-druga-strona",
+          "x": 49.7,
+          "y": 21,
+          "label": "Druga strona\npokoju",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 56.5,
+          "y": 75.1,
+          "label": "Wyjdź",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_10",
+        "sketchFile": "INT_10_POKOJ9_DZIEN.png",
+        "renderFile": "ChatGPT Image 17 wrz 2026, 20_24_17.png"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int10b-pokoj-mlodziezowy-druga-strona",
+          "x": 17,
+          "y": 78,
+          "label": "Druga strona\npokoju",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 52,
+          "y": 78,
+          "label": "Za Tobą ·\nkorytarz",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int10b-pokoj-mlodziezowy-druga-strona",
+      "title": "Pokój młodzieżowy · druga strona",
+      "room": "teen",
+      "roomLabel": "Pokój młodzieżowy",
+      "image": "/assets/images/spacer-360/interior/webp/int10b-pokoj-mlodziezowy-druga-strona.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int10b-pokoj-mlodziezowy-druga-strona.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int10b-pokoj-mlodziezowy-druga-strona.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int10-pokoj-mlodziezowy",
+          "x": 47.7,
+          "y": 24.8,
+          "label": "W stronę\nokna",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 28.7,
+          "y": 46.8,
+          "label": "Wyjdź",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_10B",
+        "sketchFile": "INT_10_POKOJ9_DZIEN.png",
+        "renderFile": "upload 2026-09-18 pokoj mlodziezowy B"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int10-pokoj-mlodziezowy",
+          "x": 16,
+          "y": 78,
+          "label": "W stronę\nokna",
+          "kind": "turnLeft",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "target": "int07-korytarz-do-pokojow",
+          "x": 34,
+          "y": 55,
+          "label": "Wyjdź do\nkorytarza",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        }
+      ]
+    },
+    {
+      "id": "int22-gabinet-biurko",
+      "title": "Gabinet · stanowisko pracy",
+      "room": "office",
+      "roomLabel": "Gabinet",
+      "image": "/assets/images/spacer-360/interior/webp/int22-gabinet-biurko.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int22-gabinet-biurko.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int22-gabinet-biurko.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 9,
+          "y": 61,
+          "label": "Wróć na\nkorytarz",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int08-gabinet-szafa-i-wylaz",
+          "x": 52,
+          "y": 78,
+          "label": "Szafa i\nwłaz",
+          "kind": "turnRight",
+          "align": "right",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_22",
+        "sketchFile": "INT_22_GABINET_B_DZIEN.png",
+        "renderFile": "upload 2026-09-17 office desk"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int21-korytarz-do-salonu",
+          "x": 9,
+          "y": 61,
+          "label": "Wróć na\nkorytarz",
+          "kind": "back",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int08-gabinet-szafa-i-wylaz",
+          "x": 52,
+          "y": 78,
+          "label": "Szafa i\nwłaz",
+          "kind": "turnRight",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int08-gabinet-szafa-i-wylaz",
+      "title": "Gabinet · szafa i właz",
+      "room": "office",
+      "roomLabel": "Gabinet",
+      "image": "/assets/images/spacer-360/interior/webp/int08-gabinet-szafa-i-wylaz.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int08-gabinet-szafa-i-wylaz.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int08-gabinet-szafa-i-wylaz.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int22-gabinet-biurko",
+          "x": 84,
+          "y": 68.9,
+          "label": "Stanowisko\npracy",
+          "kind": "turnRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int08a-gabinet-wylaz-otwarty",
+          "x": 50,
+          "y": 8,
+          "label": "Otwórz\nwłaz",
+          "kind": "detail",
+          "align": "right",
+          "pulse": false
+        },
+        {
+          "x": 59.4,
+          "y": 54.7,
+          "label": "Korytarz",
+          "kind": "up",
+          "align": "right",
+          "pulse": false,
+          "target": "int21-korytarz-do-salonu"
+        }
+      ],
+      "source": {
+        "camera": "INT_08",
+        "sketchFile": "INT_08_GABINET_DZIEN.png",
+        "renderFile": "upload 2026-09-17 office hatch closed"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int22-gabinet-biurko",
+          "x": 86,
+          "y": 78,
+          "label": "Stanowisko\npracy",
+          "kind": "turnRight",
+          "align": "left",
+          "pulse": true
+        },
+        {
+          "target": "int08a-gabinet-wylaz-otwarty",
+          "x": 50,
+          "y": 8,
+          "label": "Otwórz\nwłaz",
+          "kind": "detail",
+          "align": "right",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int08a-gabinet-wylaz-otwarty",
+      "title": "Gabinet · otwarty właz",
+      "room": "office",
+      "roomLabel": "Gabinet",
+      "image": "/assets/images/spacer-360/interior/webp/int08a-gabinet-wylaz-otwarty.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int08a-gabinet-wylaz-otwarty.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/webp/int08a-gabinet-wylaz-otwarty.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int15-strych-widok-techniczny",
+          "x": 48,
+          "y": 27,
+          "label": "Wejdź na\nstrych",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int08-gabinet-szafa-i-wylaz",
+          "x": 73.7,
+          "y": 78.2,
+          "label": "Wróć do\ngabinetu",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": false
+        }
+      ],
+      "source": {
+        "camera": "INT_08A",
+        "sketchFile": "INT_08_GABINET_DZIEN.png",
+        "renderFile": "upload 2026-09-17 office hatch open"
+      },
+      "fallbackHotspots": [
+        {
+          "target": "int15-strych-widok-techniczny",
+          "x": 48,
+          "y": 27,
+          "label": "Wejdź na\nstrych",
+          "kind": "forward",
+          "align": "right",
+          "pulse": true
+        },
+        {
+          "target": "int08-gabinet-szafa-i-wylaz",
+          "x": 73,
+          "y": 79,
+          "label": "Wróć do\ngabinetu",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": false
+        }
+      ]
+    },
+    {
+      "id": "int15-strych-widok-techniczny",
+      "title": "Strych · widok techniczny",
+      "room": "attic",
+      "roomLabel": "Strych",
+      "image": "/assets/images/spacer-360/interior/webp/int15-strych-widok-techniczny.webp",
+      "thumb": "/assets/images/spacer-360/interior/thumbs/int15-strych-widok-techniczny.webp",
+      "fallbackImage": "/assets/images/spacer-360/interior/blender/int15-strych-widok-techniczny.webp",
+      "sourceType": "render",
+      "width": 1672,
+      "height": 941,
+      "hotspots": [
+        {
+          "target": "int08a-gabinet-wylaz-otwarty",
+          "x": 88.1,
+          "y": 75.9,
+          "label": "Wróć do\ngabinetu",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": true
+        }
+      ],
+      "source": {
+        "camera": "INT_15",
+        "sketchFile": "INT_15_STRYCH_DZIEN.png",
+        "renderFile": "upload 2026-09-17 attic technical"
+      },
+      "notice": "Widok techniczny strychu, nie aranżacja pomieszczenia mieszkalnego.",
+      "fallbackHotspots": [
+        {
+          "target": "int08a-gabinet-wylaz-otwarty",
+          "x": 89,
+          "y": 78,
+          "label": "Wróć do\ngabinetu",
+          "kind": "backRight",
+          "align": "left",
+          "pulse": true
+        }
+      ]
+    }
+  ]
+}

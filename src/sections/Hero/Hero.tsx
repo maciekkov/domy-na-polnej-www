@@ -1,6 +1,5 @@
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import './HeroRefinement.css'
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
@@ -12,10 +11,10 @@ const facts = [
 ]
 
 const heroSlides = [
-  { src: asset('assets/images/hero-all-houses.webp'), alt: 'Widok całej inwestycji Domy na Polnej — pięć domów w jednym rzędzie' },
-  { src: asset('assets/images/hero-front-photoreal.webp'), alt: 'Fotorealistyczny front domu z ogrodem, wejściem i wiatą' },
-  { src: asset('assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp'), alt: 'Zbliżenie na podcień wejściowy i strefę wejścia domu' },
-  { src: asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp'), alt: 'Tylna elewacja domu z ogrodem i tarasem' },
+  { src: asset('assets/images/hero-all-houses.webp?v=0ce61987a164f08c'), alt: 'Widok całej inwestycji Domy na Polnej — pięć domów w jednym rzędzie' },
+  { src: asset('assets/images/hero-front-photoreal.webp?v=33b923d13b43bc92'), alt: 'Fotorealistyczny front domu z ogrodem, wejściem i wiatą' },
+  { src: asset('assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp?v=53b469e6311733ca'), alt: 'Zbliżenie na podcień wejściowy i strefę wejścia domu' },
+  { src: asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b'), alt: 'Tylna elewacja domu z ogrodem i tarasem' },
 ]
 
 export function Hero() {
@@ -74,8 +73,6 @@ export function Hero() {
               </div>
             ))}
           </dl>
-
-          <p className="hero__price"><span>Aktualne ceny</span><strong>od 779 000 zł</strong></p>
 
           <div className="hero__buttons">
             <a className="button button--light" href="#domy">

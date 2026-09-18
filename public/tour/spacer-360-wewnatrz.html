@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d120f" />
+  <meta name="robots" content="noindex, follow" />
+  <title>Spacer 360 — Domy na Polnej</title>
+  <link rel="stylesheet" href="/tour/spacer-360-zewnatrz.css?v=96d18e73bde42cb5" />
+  <link rel="stylesheet" href="/tour/spacer-360-player.css?v=96d18e73bde42cb5" />
+</head>
+<body data-tour-mode="interior" data-tour-data="/assets/data/spacer-360-wewnetrzny.json">
+  <main class="tour-app" id="tourApp" aria-label="Spacer po Domach na Polnej" aria-busy="true">
+    <section class="tour-disclaimer" id="tourDisclaimer" hidden role="dialog" aria-modal="true" aria-labelledby="tourDisclaimerTitle" aria-describedby="tourDisclaimerText">
+      <div class="tour-disclaimer__card">
+        <span class="tour-disclaimer__eyebrow">Ważna informacja</span>
+        <h2 id="tourDisclaimerTitle">Wnętrza zgodne z projektem</h2>
+        <p id="tourDisclaimerText">To wizualizacje oparte na projekcie architektoniczno-budowlanym. Zachowano układ, proporcje i geometrię domu, a wykończenie pokazuje możliwy wariant realizacji.</p>
+        <button type="button" id="tourDisclaimerAccept">Rozumiem · rozpocznij spacer</button>
+      </div>
+    </section>
+    <div class="tour-stage-backdrop" id="tourBackdrop" aria-hidden="true"></div>
+    <img class="tour-image-layer" id="tourImageA" alt="" aria-hidden="true" />
+    <img class="tour-image-layer" id="tourImageB" alt="" aria-hidden="true" />
+    <div class="tour-overlay" aria-hidden="true"></div>
+    <header class="tour-top" id="tourTop">
+      <a class="tour-brand" id="tourBrand" href="/#spacer-360" aria-label="Wróć do strony Domy na Polnej">
+        <span class="tour-brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.25 12 4l9 7.25M6 9.5V20h12V9.5M9 20v-6h6v6"/></svg></span>
+        <span><span class="tour-brand__eyebrow" id="tourBrandEyebrow">Grabik</span><span class="tour-brand__title">Spacer 360</span></span>
+      </a>
+      <div class="tour-tools">
+        <a class="tour-tool" id="switchTour" href="/tour/spacer-360-zewnatrz.html" aria-label="Zmień obszar spaceru"></a>
+        <button class="tour-tool" id="toggleHelp" type="button" aria-label="Pomoc i pomieszczenia" title="Pomoc i pomieszczenia" aria-expanded="false" aria-controls="helpPanel"></button>
+        <button class="tour-tool" id="toggleFullscreen" type="button" aria-label="Włącz pełny ekran" title="Włącz pełny ekran"></button>
+        <button class="tour-tool" id="closeTour" type="button" aria-label="Zamknij spacer" title="Zamknij spacer (Esc)"></button>
+      </div>
+    </header>
+    <div class="tour-title" id="sceneTitle" aria-live="polite" aria-atomic="true" tabindex="-1">
+      <span class="tour-title__index" id="sceneIndex">-- / --</span><span class="tour-title__dot" aria-hidden="true"></span><span class="tour-title__text" id="sceneText">Ładowanie spaceru…</span>
+    </div>
+    <div class="tour-hotspots" id="tourHotspots" role="group" aria-label="Przejścia do sąsiednich widoków"></div>
+    <div class="tour-source" id="tourSource" hidden></div>
+    <div class="tour-status" id="tourStatus" role="status"></div>
+    <aside class="tour-help" id="helpPanel" aria-label="Pomoc i wybór pomieszczenia" hidden>
+      <button class="tour-help__close" type="button" id="closeHelp" aria-label="Zamknij pomoc">×</button>
+      <span class="tour-help__eyebrow">Jak korzystać</span>
+      <h2 id="helpHeading">Spacer 360</h2>
+      <p>Klikaj opisane pinezki, aby przechodzić do sąsiednich miejsc. Strzałka powrotu oznacza przejście za kamerą, a okrągła strzałka — zmianę kierunku patrzenia.</p>
+      <p>Dolna karuzela pokazuje trzy kadry. Strzałki obok niej i klawisze <strong>← / →</strong> przeglądają trasę po kolei. <strong>F</strong> przełącza pełny ekran, <strong>Esc</strong> zamyka pomoc lub spacer.</p>
+      <section id="roomSection" hidden><span class="tour-help__eyebrow">Przejdź do pomieszczenia</span><div class="tour-rooms" id="roomMenu"></div></section>
+      <div class="tour-help__note"><p>To spacer po przygotowanych kadrach, nie panorama sferyczna. Oznaczenie „Szkic Blender” wskazuje widok oczekujący na render. Wizualizacje przedstawiają przykładową aranżację; strych jest pokazany technicznie.</p><a id="openSeparate" target="_blank" rel="noopener noreferrer">Otwórz ten widok w nowej karcie ↗</a></div>
+    </aside>
+    <div class="tour-bottom" id="tourBottom">
+      <button class="tour-nav" id="prevScene" type="button" aria-label="Poprzedni kadr" disabled></button>
+      <div class="tour-thumbs" id="tourThumbs" role="group" aria-label="Trzy sąsiednie kadry"></div>
+      <button class="tour-nav" id="nextScene" type="button" aria-label="Następny kadr" disabled></button>
+    </div>
+    <div class="tour-error" id="tourError" role="alert" hidden><p id="tourErrorText"></p><button type="button" id="retryScene">Spróbuj ponownie</button></div>
+    <noscript><div class="tour-error">Do uruchomienia spaceru potrzebna jest obsługa JavaScript. <a href="/#galeria">Wróć do galerii</a>.</div></noscript>
+  </main>
+  <script type="module" src="/tour/spacer-360-wewnatrz.js?v=96d18e73bde42cb5"></script>
+</body>
+</html>

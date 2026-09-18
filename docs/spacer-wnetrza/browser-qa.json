@@ -1,0 +1,56 @@
+{
+  "environment": "Chromium / Playwright; original HTML/CSS/JS, local asset interception; no top-level navigation",
+  "checks": 3532,
+  "scenes": 38,
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 360,
+      "height": 640
+    },
+    {
+      "width": 320,
+      "height": 568
+    },
+    {
+      "width": 844,
+      "height": 390
+    },
+    {
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "states": 304,
+  "internalClicks": 88,
+  "failures": [],
+  "pageErrors": [],
+  "cases": [
+    "Missing render: Blender fallback, label and separate 4:3 -> 16:9 coordinates",
+    "Both images missing -> error -> retry recovers",
+    "Keyboard arrows and bounds",
+    "Three thumbnails and thumbnail click",
+    "Help, room menu, Escape",
+    "Initial hash and hashchange",
+    "Rapid scene requests",
+    "Missing configuration handled",
+    "Every internal hotspot clicked",
+    "All pin centers clickable and labels inside viewport at eight viewport sizes"
+  ],
+  "passed": true
+}

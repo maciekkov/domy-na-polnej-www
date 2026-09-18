@@ -1,0 +1,538 @@
+{
+  "passed": 133,
+  "scope": "Generated offer HTML + initial contact DOM fixture, Chromium CSS/images. Not bundled React E2E; fonts use fallback.",
+  "checks": [
+    {
+      "name": "a/360: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/360: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/360: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "a/390: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/390: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/390: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "a/768: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/768: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/768: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "a/1024: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/1024: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/1024: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "a/1280: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/1280: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/1280: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "a/1440: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/1440: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/1440: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "a/1920: no overflow",
+      "passed": true
+    },
+    {
+      "name": "a/1920: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "a/1920: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/360: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/360: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/360: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/390: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/390: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/390: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/768: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/768: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/768: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/1024: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/1024: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/1024: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/1280: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/1280: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/1280: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/1440: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/1440: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/1440: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "b/1920: no overflow",
+      "passed": true
+    },
+    {
+      "name": "b/1920: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "b/1920: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/360: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/360: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/360: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/390: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/390: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/390: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/768: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/768: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/768: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/1024: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/1024: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/1024: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/1280: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/1280: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/1280: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/1440: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/1440: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/1440: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "c/1920: no overflow",
+      "passed": true
+    },
+    {
+      "name": "c/1920: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "c/1920: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/360: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/360: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/360: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/390: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/390: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/390: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/768: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/768: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/768: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/1024: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/1024: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/1024: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/1280: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/1280: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/1280: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/1440: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/1440: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/1440: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "d/1920: no overflow",
+      "passed": true
+    },
+    {
+      "name": "d/1920: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "d/1920: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/360: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/360: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/360: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/390: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/390: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/390: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/768: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/768: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/768: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/1024: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/1024: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/1024: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/1280: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/1280: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/1280: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/1440: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/1440: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/1440: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "e/1920: no overflow",
+      "passed": true
+    },
+    {
+      "name": "e/1920: unique h1 and canonical",
+      "passed": true
+    },
+    {
+      "name": "e/1920: CTA at least48px",
+      "passed": true
+    },
+    {
+      "name": "contact/360: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/360: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/360: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/360: focus visible",
+      "passed": true
+    },
+    {
+      "name": "contact/390: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/390: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/390: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/390: focus visible",
+      "passed": true
+    },
+    {
+      "name": "contact/768: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/768: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/768: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/768: focus visible",
+      "passed": true
+    },
+    {
+      "name": "contact/1024: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/1024: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/1024: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/1024: focus visible",
+      "passed": true
+    },
+    {
+      "name": "contact/1280: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/1280: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/1280: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/1280: focus visible",
+      "passed": true
+    },
+    {
+      "name": "contact/1440: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/1440: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/1440: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/1440: focus visible",
+      "passed": true
+    },
+    {
+      "name": "contact/1920: no overflow",
+      "passed": true
+    },
+    {
+      "name": "contact/1920: readable inputs",
+      "passed": true
+    },
+    {
+      "name": "contact/1920: checkbox24",
+      "passed": true
+    },
+    {
+      "name": "contact/1920: focus visible",
+      "passed": true
+    }
+  ]
+}

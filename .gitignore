@@ -37,3 +37,11 @@ build/
 api/config.php
 api/data/*.ndjson
 !api/data/.gitkeep
+
+# Local content history and generated QA artifacts (never deploy).
+backups/
+qa/cleanup-six/
+*.tmp
+
+# Generated HTML offer entrypoints (npm run seo:refresh)
+/dom-*/index.html

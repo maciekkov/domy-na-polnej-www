@@ -1,3 +1,4 @@
+import { parseSiteData } from '../data/runtime/siteSchema.mjs'
 import { fallbackSiteData } from '../data/runtime/fallback'
 import type { SiteData } from '../data/runtime/types'
 
@@ -94,7 +95,11 @@ export const seedAdminState = (): AdminState => {
 export function readAdminState(): AdminState {
   try {
     const value = localStorage.getItem(ADMIN_STATE_KEY)
-    return value ? JSON.parse(value) as AdminState : seedAdminState()
+    if (!value) return seedAdminState()
+    const parsed = JSON.parse(value) as AdminState
+    parseSiteData(parsed.draft); parseSiteData(parsed.published)
+    for (const field of ['leads','revisions','audit','priceHistory'] as const) if (!Array.isArray(parsed[field])) return seedAdminState()
+    return parsed
   } catch {
     return seedAdminState()
   }

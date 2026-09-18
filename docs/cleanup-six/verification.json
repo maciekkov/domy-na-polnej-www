@@ -1,0 +1,67 @@
+{
+  "scope": "Audit points 1–6; no business-data or tour-navigation redesign",
+  "sourcePackage": "domy-na-polnej-www-INSTALL-spacer360-UX-refactor.zip",
+  "sourceChecks": {
+    "passed": true,
+    "assertions": 143
+  },
+  "logicTests": {
+    "passed": true,
+    "tests": 38
+  },
+  "tourGraph": {
+    "passed": true,
+    "assertions": 1152,
+    "interiorScenes": 30,
+    "exteriorScenes": 14
+  },
+  "typescriptSyntax": {
+    "passed": true,
+    "modules": 48,
+    "compilerVersion": "5.8.3",
+    "fullTypecheck": false
+  },
+  "javascriptSyntax": {
+    "passed": true,
+    "modules": 10
+  },
+  "phpLint": {
+    "passed": true,
+    "files": 3
+  },
+  "apacheHttp": {
+    "passed": true,
+    "assertions": 24,
+    "scope": "Apache .htaccess/cache/static routing, not the compiled frontend"
+  },
+  "tourDomSmoke": {
+    "scope": "Chromium DOM component smoke; local resources, no real top-level/cross-tour navigation",
+    "sceneStates": 88,
+    "internalClicks": 108,
+    "checks": 285,
+    "pageErrors": [],
+    "passed": true
+  },
+  "npmInstall": {
+    "status": "blocked",
+    "reason": "EAI_AGAIN registry.npmjs.org"
+  },
+  "productionBuild": {
+    "status": "not verified",
+    "reason": "Dependencies could not be installed; tsc failed on missing type packages"
+  },
+  "fullBrowserE2E": {
+    "status": "not verified",
+    "reason": "Missing dependencies/build; direct Chromium URL navigation is also blocked by environment policy"
+  },
+  "metrics": {
+    "oldPublicBytes": 85156695,
+    "newPublicBytes": 27518980,
+    "publicReductionPercent": 67.68,
+    "oldAssetsBytes": 77604299,
+    "newAssetsBytes": 19985770,
+    "removedFiles": 58,
+    "removedBytes": 58456032
+  },
+  "stagingOrLiveDeployment": "not performed"
+}

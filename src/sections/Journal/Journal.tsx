@@ -63,7 +63,7 @@ export function Journal({ entries }: { entries: JournalEntry[] }) {
         </div>
         <div className="journal-placeholder">
           <figure className="journal-placeholder__visual">
-            <img src={`${import.meta.env.BASE_URL}assets/images/neighborhood/plots-aerial.webp`} alt="Teren inwestycji Domy na Polnej z lotu ptaka" width="1600" height="960" loading="lazy" decoding="async" />
+            <img src={`${import.meta.env.BASE_URL}assets/images/neighborhood/plots-aerial.webp?v=1e1c177287ce686d`} alt="Teren inwestycji Domy na Polnej z lotu ptaka" width="1600" height="960" loading="lazy" decoding="async" />
             <figcaption><Bell aria-hidden="true" /><span><strong>Pierwsze aktualności po rozpoczęciu budowy</strong><small>Tu pokażemy prawdziwy postęp prac — bez zdjęć zastępczych.</small></span></figcaption>
           </figure>
           <div className="journal-placeholder__content">

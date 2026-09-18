@@ -1,0 +1,258 @@
+{
+  "revision": 1,
+  "publishedAt": "13.09.2026, 22:00",
+  "houses": [
+    {
+      "id": "A",
+      "name": "Dom A",
+      "parcel": "589/20",
+      "status": "Dostępny",
+      "price": 779000,
+      "area": 110.82,
+      "plot": 810,
+      "rooms": 5,
+      "parking": 2,
+      "image": "/assets/images/hero-front-photoreal.webp",
+      "pdf": "/pdf/karta-dom-a.pdf",
+      "mapPolygon": "54,258 367,225 425,641 114,673",
+      "mapLabel": {
+        "x": 14.2,
+        "y": 28.3
+      },
+      "priceHistory": [],
+      "mandatoryPayments": []
+    },
+    {
+      "id": "B",
+      "name": "Dom B",
+      "parcel": "589/19",
+      "status": "Dostępny",
+      "price": 789000,
+      "area": 110.82,
+      "plot": 809,
+      "rooms": 5,
+      "parking": 2,
+      "image": "/assets/images/hero-front-photoreal.webp",
+      "pdf": "/pdf/karta-dom-b.pdf",
+      "mapPolygon": "362,223 674,200 725,607 428,638",
+      "mapLabel": {
+        "x": 31.4,
+        "y": 26.8
+      },
+      "priceHistory": [],
+      "mandatoryPayments": []
+    },
+    {
+      "id": "C",
+      "name": "Dom C",
+      "parcel": "589/18",
+      "status": "Rezerwacja",
+      "price": 799000,
+      "area": 110.82,
+      "plot": 807,
+      "rooms": 5,
+      "parking": 2,
+      "image": "/assets/images/hero-front-photoreal.webp",
+      "pdf": "/pdf/karta-dom-c.pdf",
+      "mapPolygon": "669,205 956,175 1014,576 724,609",
+      "mapLabel": {
+        "x": 48.6,
+        "y": 25.2
+      },
+      "priceHistory": [],
+      "mandatoryPayments": []
+    },
+    {
+      "id": "D",
+      "name": "Dom D",
+      "parcel": "589/17",
+      "status": "Dostępny",
+      "price": 809000,
+      "area": 110.82,
+      "plot": 806,
+      "rooms": 5,
+      "parking": 2,
+      "image": "/assets/images/hero-front-photoreal.webp",
+      "pdf": "/pdf/karta-dom-d.pdf",
+      "mapPolygon": "958,178 1253,154 1295,551 1013,575",
+      "mapLabel": {
+        "x": 65.2,
+        "y": 24.1
+      },
+      "priceHistory": [],
+      "mandatoryPayments": []
+    },
+    {
+      "id": "E",
+      "name": "Dom E",
+      "parcel": "589/16",
+      "status": "Dostępny",
+      "price": 819000,
+      "area": 110.82,
+      "plot": 1006,
+      "rooms": 5,
+      "parking": 2,
+      "image": "/assets/images/hero-front-photoreal.webp",
+      "pdf": "/pdf/karta-dom-e.pdf",
+      "mapPolygon": "1252,154 1605,124 1526,528 1298,549",
+      "mapLabel": {
+        "x": 84.6,
+        "y": 22.6
+      },
+      "priceHistory": [],
+      "mandatoryPayments": []
+    }
+  ],
+  "contact": {
+    "phoneDisplay": "+48 455 563 962",
+    "phoneHref": "tel:+48455563962",
+    "email": "biuro@domynapolnej.pl",
+    "emailHref": "mailto:biuro@domynapolnej.pl",
+    "addressLine1": "Grabik, ul. Polna",
+    "addressLine2": "68-200 Żary, woj. lubuskie",
+    "mapHref": "https://www.google.com/maps/search/?api=1&query=Grabik%20ul.%20Polna%20%C5%BBary",
+    "instagramHref": "https://www.instagram.com/domynapolnej/",
+    "contactHours": "Biuro sprzedaży · Pon. – Pt. 9:00 – 17:00"
+  },
+  "standardPdf": "/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf",
+  "schedule": [
+    {
+      "id": "I",
+      "title": "Przygotowanie inwestycji",
+      "description": "Dokumentacja, finansowanie, kontraktacja oraz przygotowanie terenu i infrastruktury do rozpoczęcia robót.",
+      "status": "W trakcie",
+      "term": "2026 – I kw. 2027",
+      "state": "current"
+    },
+    {
+      "id": "II",
+      "title": "Start budowy",
+      "description": "Rozpoczęcie robót budowlanych i prac stanu zero.",
+      "status": "Planowane",
+      "term": "marzec 2027",
+      "state": "planned"
+    },
+    {
+      "id": "III",
+      "title": "Stan surowy",
+      "description": "Fundamenty, konstrukcja, ściany, dach i zamknięcie brył budynków.",
+      "status": "Planowane",
+      "term": "2027",
+      "state": "planned"
+    },
+    {
+      "id": "IV",
+      "title": "Instalacje i wykończenie",
+      "description": "Instalacje, tynki, posadzki, elewacje oraz prace związane z zagospodarowaniem działek.",
+      "status": "Planowane",
+      "term": "2027 – I kw. 2028",
+      "state": "planned"
+    },
+    {
+      "id": "V",
+      "title": "Odbiory i przekazanie",
+      "description": "Kontrole, dokumentacja powykonawcza, odbiory domów i przygotowanie do przeniesienia własności.",
+      "status": "Planowane",
+      "term": "I kw. 2028",
+      "state": "planned"
+    }
+  ],
+  "journal": [],
+  "documents": [
+    {
+      "id": "house-a",
+      "type": "house_card",
+      "houseId": "A",
+      "title": "Karta domu A",
+      "publicUrl": "/pdf/karta-dom-a.pdf",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "13.09.2026",
+      "sizeLabel": "PDF"
+    },
+    {
+      "id": "house-b",
+      "type": "house_card",
+      "houseId": "B",
+      "title": "Karta domu B",
+      "publicUrl": "/pdf/karta-dom-b.pdf",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "13.09.2026",
+      "sizeLabel": "PDF"
+    },
+    {
+      "id": "house-c",
+      "type": "house_card",
+      "houseId": "C",
+      "title": "Karta domu C",
+      "publicUrl": "/pdf/karta-dom-c.pdf",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "13.09.2026",
+      "sizeLabel": "PDF"
+    },
+    {
+      "id": "house-d",
+      "type": "house_card",
+      "houseId": "D",
+      "title": "Karta domu D",
+      "publicUrl": "/pdf/karta-dom-d.pdf",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "13.09.2026",
+      "sizeLabel": "PDF"
+    },
+    {
+      "id": "house-e",
+      "type": "house_card",
+      "houseId": "E",
+      "title": "Karta domu E",
+      "publicUrl": "/pdf/karta-dom-e.pdf",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "13.09.2026",
+      "sizeLabel": "PDF"
+    },
+    {
+      "id": "standard",
+      "type": "standard_pdf",
+      "title": "Standard techniczny",
+      "publicUrl": "/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "03.08.2026",
+      "sizeLabel": "6,0 MB"
+    },
+    {
+      "id": "prospectus",
+      "type": "prospectus",
+      "title": "Prospekt informacyjny",
+      "publicUrl": "",
+      "version": "—",
+      "active": false,
+      "updatedAt": "—",
+      "sizeLabel": "Brak pliku"
+    },
+    {
+      "id": "privacy",
+      "type": "privacy_policy",
+      "title": "Polityka prywatności",
+      "publicUrl": "/polityka-prywatnosci/",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "16.09.2026",
+      "sizeLabel": "WWW"
+    },
+    {
+      "id": "cookies",
+      "type": "cookies_policy",
+      "title": "Polityka cookies",
+      "publicUrl": "/polityka-cookies/",
+      "version": "1.0",
+      "active": true,
+      "updatedAt": "16.09.2026",
+      "sizeLabel": "WWW"
+    }
+  ]
+}

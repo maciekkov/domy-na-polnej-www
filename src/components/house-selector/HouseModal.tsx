@@ -67,7 +67,7 @@ export function HouseModal({ house, onClose, phoneHref }: HouseModalProps) {
             <li><CarFront aria-hidden="true" /><span>{house.parking} miejsca postojowe</span></li>
           </ul>
           <div className="house-modal__floorplan">
-            <img src={`${import.meta.env.BASE_URL}assets/images/floorplan.webp`} alt="Rzut funkcjonalny domu" width="1024" height="768" loading="eager" />
+            <img src={`${import.meta.env.BASE_URL}assets/images/floorplan.webp?v=7b25c009149bd165`} alt="Rzut funkcjonalny domu" width="1024" height="768" loading="eager" />
             <span>Ten sam przemyślany układ w każdym domu</span>
           </div>
           <a className="button button--olive" href={phoneHref} onClick={() => track('phone_click', house.id)}>Zapytaj o {house.name.toLowerCase()} <ArrowRight size={17} aria-hidden="true" /></a>

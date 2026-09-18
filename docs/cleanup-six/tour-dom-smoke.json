@@ -1,0 +1,8 @@
+{
+  "scope": "Chromium DOM component smoke; local resources, no real top-level/cross-tour navigation",
+  "sceneStates": 88,
+  "internalClicks": 108,
+  "checks": 285,
+  "pageErrors": [],
+  "passed": true
+}

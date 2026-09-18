@@ -1,0 +1,262 @@
+/* navigation — maintained component styles. */
+.button--header {
+  min-height: 48px;
+  padding-inline: 25px;
+  color: #fff;
+  background: rgba(93, 103, 61, .92);
+}
+
+.button--header:hover {
+  background: var(--olive-deep);
+  transform: translateY(-1px);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .mobile-nav {
+    position: fixed;
+    inset: 66px 0 auto;
+    display: grid;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    color: var(--graphite);
+    background: rgba(244,241,234,.98);
+    box-shadow: 0 20px 40px rgba(37,42,44,.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 320ms var(--ease), opacity 200ms var(--ease), visibility 200ms;
+  }
+
+  .mobile-nav.is-open {
+    max-height: calc(100svh - 66px);
+    padding: 16px 24px 26px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav > a:not(.button) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 54px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+
+  .mobile-nav .button {
+    margin-top: 18px;
+  }
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: 78px;
+  color: var(--off-white);
+  border-bottom: 1px solid rgba(244, 241, 234, .12);
+  transition: height 260ms var(--ease), color 260ms var(--ease), background 260ms var(--ease), border-color 260ms var(--ease), box-shadow 260ms var(--ease);
+}
+
+.site-header--scrolled {
+  height: 66px;
+  color: var(--graphite);
+  background: rgba(244, 241, 234, .92);
+  border-color: rgba(37, 42, 44, .1);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(37, 42, 44, .05);
+}
+
+.site-header__inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto minmax(300px, 1fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.site-header__logo {
+  width: max-content;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo__mark {
+  transition: width 260ms var(--ease), height 260ms var(--ease);
+}
+
+.brand-logo__wordmark {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.brand-logo--compact .brand-logo__mark {
+  width: 39px;
+  height: 36px;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 31px;
+}
+
+.site-header__nav a {
+  position: relative;
+  padding: 28px 0;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 20px;
+  height: 1px;
+  background: currentColor;
+  transition: right 220ms var(--ease);
+}
+
+.site-header__nav a:hover::after ,
+.site-header__nav a.is-active::after {
+  right: 0;
+}
+
+.site-header__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 22px;
+}
+
+.site-header__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header__menu-button {
+  display: none;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  background: rgba(255,255,255,.1);
+  cursor: pointer;
+}
+
+@media (max-width: 1180px) {
+  .site-header__inner {
+    grid-template-columns: minmax(205px, .8fr) auto minmax(245px, .8fr);
+    gap: 18px;
+  }
+
+  .site-header__nav {
+    gap: 20px;
+  }
+
+  .site-header__nav a {
+    font-size: 13px;
+  }
+
+  .site-header__phone span {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .site-header__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .site-header__nav ,
+.site-header__actions {
+    display: none;
+  }
+
+  .site-header__menu-button {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header ,
+.site-header--scrolled {
+    height: 66px;
+  }
+
+  .brand-logo__mark {
+    width: 38px;
+    height: 35px;
+  }
+
+  .brand-logo__wordmark {
+    font-size: 12px;
+    letter-spacing: .105em;
+  }
+}
+
+@media (max-width: 370px) {
+  .brand-logo__wordmark {
+    font-size: 11px;
+  }
+}
+
+.site-header:not(.site-header--scrolled) {
+  border-bottom-color: transparent;
+}
+
+.brand-logo {
+  gap: 12px;
+}
+
+.brand-logo__mark {
+  width: 49px;
+  height: 43px;
+}
+
+.brand-logo__wordmark {
+  display: grid;
+  gap: 1px;
+  font-size: 13px;
+  line-height: 1.05;
+  letter-spacing: .19em;
+}
+
+.brand-logo__wordmark > span {
+  display: block;
+}
+
+.brand-logo__wordmark > span:last-child {
+  color: inherit;
+}
+
+.brand-logo--compact .brand-logo__wordmark {
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .brand-logo__wordmark {
+    font-size: 10px;
+  }
+}

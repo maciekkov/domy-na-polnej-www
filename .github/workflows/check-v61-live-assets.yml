@@ -1,4 +1,4 @@
-name: Check V6.1 live assets
+name: Manual live asset smoke (after deployment)
 
 on:
   workflow_dispatch:
@@ -14,10 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check exact V6.1 asset URLs
+      - name: Check current critical asset URLs
         shell: bash
         run: |
-          set +e
+          set -e
+          failed=0
           base="https://domynapolnej.pl/assets/images"
           assets=(
             "hero-all-houses.webp"
@@ -28,7 +29,7 @@ jobs:
             "layout/plan-2d-precise.webp"
             "team/mateusz-kempinski-site-manager-v108.webp"
             "team/mr-atelier-portfolio-panel.webp"
-            "dnp-masterplan.svg"
+            "dnp-masterplan.webp"
           )
           for rel in "${assets[@]}"; do
             tmp="/tmp/$(echo "$rel" | tr '/' '_')"
@@ -40,5 +41,7 @@ jobs:
               echo "ASSET|$rel|HTTP=$code|BYTES=$bytes|GIT_SHA=$gitsha|SHA1=$sha1"
             else
               echo "ASSET|$rel|HTTP=$code"
+              failed=1
             fi
           done
+          exit "$failed"

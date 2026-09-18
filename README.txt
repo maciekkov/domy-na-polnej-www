@@ -1,24 +1,9 @@
-DOMY NA POLNEJ — V6
+DOMY NA POLNEJ — POPRAWKI 1–12
 
-LOKALNIE:
-1. npm install
-2. npm run dev
+1. Wymagane Node.js >=22.12 i dostep do npm.
+2. Uruchom BUDUJ-WDROZENIE.cmd; przerwie przy bledzie.
+3. Po udanym buildzie uruchom npm run preview.
+4. Przed hostingiem: testy E2E opisane w AUDYT_POPRAWEK_7-12.md.
 
-PODGLĄD PRODUKCYJNY:
-- Windows: START_PREVIEW.bat
-- macOS/Linux: ./START_PREVIEW.sh
-
-BUILD:
-- npm run build
-- wynik: dist/
-
-TESTY:
-- npm test
-- npm run test:all
-
-WAŻNE:
-- api/config.php z hasłem SMTP NIE znajduje się w paczce — utwórz go na serwerze z api/config.example.php.
-- panel /administrator jest DEMO i działa wyłącznie lokalnie.
-- finalny prospekt informacyjny nadal wymaga podpięcia.
-
-Szczegóły: README.md, DEPLOYMENT.md, CHANGELOG_V6_PRODUCTION.md.
+Paczka zawiera zrodla. W srodowisku przygotowania nie potwierdzono pelnego builda z powodu niedostepnosci npm.
+API wymaga PHP >=8.1 i prywatnego config.php SMTP na hostingu.

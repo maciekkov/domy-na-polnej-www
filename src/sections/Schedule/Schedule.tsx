@@ -1,7 +1,5 @@
 import { ArrowRight, Check, HardHat } from 'lucide-react'
 import type { ScheduleStage } from '../../data/schedule'
-import './ScheduleRefinement.css'
-
 export function Schedule({ stages }: { stages: ScheduleStage[] }) {
   return (
     <section id="harmonogram" className="schedule-section" aria-labelledby="schedule-title">
@@ -14,7 +12,7 @@ export function Schedule({ stages }: { stages: ScheduleStage[] }) {
           </div>
 
           <figure className="schedule-section__visual schedule-section__visual--agreement">
-            <img src="/assets/images/schedule/umowa_deweloperska.webp" alt="Umowa deweloperska, plan domu i klucze na stole" width="1672" height="941" loading="lazy" decoding="async" />
+            <img src="/assets/images/schedule/umowa_deweloperska.webp?v=6bcf0eaef255fc83" alt="Umowa deweloperska, plan domu i klucze na stole" width="1672" height="941" loading="lazy" decoding="async" />
           </figure>
         </div>
 

@@ -1,0 +1,9 @@
+{
+  "businessDataUnchanged": true,
+  "interiorTourUnchanged": true,
+  "exteriorTourUnchanged": true,
+  "imageCountsPreserved": {
+    "interior": 30,
+    "exterior": 14
+  }
+}

@@ -1,17 +1,30 @@
 {
   "name": "domy-na-polnej-stage-01-12",
   "private": true,
-  "version": "0.8.0",
+  "version": "0.9.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build && node scripts/prepare-dist.mjs",
     "preview": "node preview-server.mjs",
     "typecheck": "tsc -b --pretty false",
-    "test": "node tests/source-check.mjs",
+    "test": "node tests/source-check.mjs && node --test tests/logic-six.test.mjs tests/audit-7-12.test.mjs tests/analytics-runtime.test.mjs && node tests/tour-check.mjs",
     "test:visual": "node tests/visual-qa.mjs",
     "test:admin": "node tests/admin-qa.mjs",
-    "test:all": "npm run test && npm run build && npm run test:visual && npm run test:admin"
+    "test:all": "npm run test && npm run build && npm run test:dist && npm run test:visual && npm run test:admin",
+    "test:tour": "node tests/tour-check.mjs",
+    "preview:tour": "node preview-tour.mjs",
+    "dev:admin": "node scripts/dev-admin.mjs",
+    "assets:check": "node scripts/asset-inventory.mjs",
+    "assets:version": "node scripts/version-assets.mjs",
+    "predev": "node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
+    "prebuild": "node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
+    "content:publish": "node scripts/publish-site-data.mjs",
+    "test:dist": "node tests/dist-check.mjs",
+    "test:syntax": "node tests/syntax-check.mjs",
+    "predev:admin": "node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
+    "seo:refresh": "node scripts/generate-seo.mjs",
+    "test:api": "python3 tests/api-security-qa.py"
   },
   "dependencies": {
     "@fontsource/lato": "5.2.6",
@@ -29,5 +42,8 @@
     "@vitejs/plugin-react": "5.0.2",
     "typescript": "5.9.2",
     "vite": "7.1.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

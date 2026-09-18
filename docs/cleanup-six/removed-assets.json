@@ -1,0 +1,348 @@
+[
+  {
+    "file": "public/assets/images/hero-desktop.webp",
+    "bytes": 393034,
+    "sha256": "0ef9deda97452e6f0e538706f941d0c76c1b1b22b7fccab05566e2cb676b9ee0",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/house-front.webp",
+    "bytes": 393034,
+    "sha256": "0ef9deda97452e6f0e538706f941d0c76c1b1b22b7fccab05566e2cb676b9ee0",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/location-aerial.webp",
+    "bytes": 299310,
+    "sha256": "1e1c177287ce686dcf663b9a28ddc4e04bc39b42e84b0679a1f5e5506b3bd387",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/hero-mobile.webp",
+    "bytes": 393034,
+    "sha256": "0ef9deda97452e6f0e538706f941d0c76c1b1b22b7fccab05566e2cb676b9ee0",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/dnp-masterplan.svg",
+    "bytes": 4585421,
+    "sha256": "622a81d3b7bacbed7274245048260f852b180fb25f668a03d28801c0cc8d586e",
+    "reason": "Nieodwoływany zasób historyczny; masterplan zastąpiony WebP z zachowaniem geometrii."
+  },
+  {
+    "file": "public/assets/images/why-home.webp",
+    "bytes": 404006,
+    "sha256": "0405e92ab4f889e2826929625761eb0c8566269c3d4302577912880742d7c9cb",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/location-map.png",
+    "bytes": 2663630,
+    "sha256": "b32051e572657dc073b650c29894a4eb560f51cbeed30685cecb55e37c4f65dd",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/hero_front_nowe.webp",
+    "bytes": 393034,
+    "sha256": "0ef9deda97452e6f0e538706f941d0c76c1b1b22b7fccab05566e2cb676b9ee0",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/layout/plan-2d-precise.svg",
+    "bytes": 1157694,
+    "sha256": "f4fa9f0ebdca3b91040a814362efbb8c34c4334ab2c006a001950d8dcd3acfbe",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/team/mateusz-kempinski-site-manager-v108.png",
+    "bytes": 2077731,
+    "sha256": "fbce02769d2848bcf92008aedec7f09828eef4c988e84abb7bd82455bd71ef64",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/team/mr-atelier-portfolio-panel.png",
+    "bytes": 2498673,
+    "sha256": "b361b4b14a1ca49a69ed80d3b186a94f453ef261c79a6c4a7831514d983f475a",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/tour/entrance.webp",
+    "bytes": 366796,
+    "sha256": "acd682197c58e19eb78a66ef67ccfd563b07498def182a4e88f20444d981b0cd",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/tour/living.webp",
+    "bytes": 286642,
+    "sha256": "2431ce5c12b87d2b913e2f59dc48f8a0b767d2cbfdc9ff58452e91dd7f803fe3",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/tour/kitchen.webp",
+    "bytes": 164772,
+    "sha256": "496365133598ac6a1030e508b892606cd1457bff799b1bd4b68d03db8651514f",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/tour/terrace.webp",
+    "bytes": 472200,
+    "sha256": "64e162e4053cdf8b49e672d63831fd116fc195ea1068f975c7455772ccb4beea",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/forest.webp",
+    "bytes": 292724,
+    "sha256": "66a5cc20b925ff3b32f68a7e273cf90230bf8cf4eed6e935161c067ab2505bc0",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/panorama.webp",
+    "bytes": 500546,
+    "sha256": "ad003b1f735091b0c48202713df7b5b3ebcfd6696d5d1edf8398dc737733c154",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/garden-mobile.webp",
+    "bytes": 229054,
+    "sha256": "20a4c9c5d4b12a43d5b69d6c3afe8988fad08d64cc6a9b26fa74cb71ec14b954",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/garden-house.webp",
+    "bytes": 472200,
+    "sha256": "64e162e4053cdf8b49e672d63831fd116fc195ea1068f975c7455772ccb4beea",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/rear.webp",
+    "bytes": 358764,
+    "sha256": "5d0ca86ebb25955fab5e5e4ff875c54713f46044525907fe1851516e2c1fddf8",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/front.webp",
+    "bytes": 366796,
+    "sha256": "acd682197c58e19eb78a66ef67ccfd563b07498def182a4e88f20444d981b0cd",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/front-angle.webp",
+    "bytes": 349576,
+    "sha256": "70d63a6e6754ad9b703a3e1d16ddf5f644d1109f850f70480a77ec22c06e831a",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/gallery/aerial.webp",
+    "bytes": 299310,
+    "sha256": "1e1c177287ce686dcf663b9a28ddc4e04bc39b42e84b0679a1f5e5506b3bd387",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/14_dom_i_dzialka_z_gory.png",
+    "bytes": 3123735,
+    "sha256": "af2e692810f1bc51a9cb48c223550a6e30d6d2961a10e2c49e95029f68632215",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/08_elewacja_ogrodowa.png",
+    "bytes": 2597211,
+    "sha256": "c90c70762238908bc1099a756eb382d5c1bac2b26d48fe0564f1a96958e5ef59",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/06_przejscie_pod_wiata.png",
+    "bytes": 2587810,
+    "sha256": "845f7b6fe238cfebb85276a0e1889887ab56fe566f7d9352c131efd6addc2e44",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/03_wejscie_glowne.png",
+    "bytes": 2448758,
+    "sha256": "443f611ee8e9916ada364c26ff400ccb78161f570afdba3d14358ce83ee3bed5",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/11_przejscie_wzdluz_domu.png",
+    "bytes": 2724299,
+    "sha256": "7a02168c57162ccc093eb0b4d9761a8dd279d1c7b7e30d602034a2367a7cd187",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/09_taras_przy_salonie.png",
+    "bytes": 2586721,
+    "sha256": "aba3851e3e3ba18a1bc1253853f9b67ae397920167d400296949c356e64cb47f",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/05_podjazd_i_wiata.png",
+    "bytes": 2518360,
+    "sha256": "16812839b9b9f4071ffdbeecc6c533aad70108dfa8008dfca08bae9f19f5539d",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/04_podcien_wejsciowy.png",
+    "bytes": 2314466,
+    "sha256": "d29588ca1138338cef706bfe986f1e6510c35965bcc5e461309430a3879c3b7a",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/01_widok_posesji_od_frontu.png",
+    "bytes": 2723682,
+    "sha256": "14f9d72a763e23c57441d074b0d928cea0b5afa032a28b2926e41be0f60baab5",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/12_ogrod_boczny.png",
+    "bytes": 3088744,
+    "sha256": "d77f5a35e3753a3ed1bc8eea61771168b61af1f82eb92349c4625be0a2c4bb7b",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/13_powrot_w_strone_frontu.png",
+    "bytes": 2584498,
+    "sha256": "29025aea802483bfec509c6d183986a478289dcddd485cc85d990452e9d8c692",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/02_front_domu_i_podjazd.png",
+    "bytes": 3042909,
+    "sha256": "e6160a50f31b25098a71a059401652dcc78869ee1dec0ffa0092cc0000cc8494",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/10_dom_od_strony_ogrodu.png",
+    "bytes": 2701372,
+    "sha256": "f126a2120595969a835b16572edb4555976da7c35a67843aa679a5f87630858e",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/exterior/originals/07_naroznik_ogrodowy.png",
+    "bytes": 2852065,
+    "sha256": "c2aa4cd0f19664fe48e02095cf87cfcf7284c49660ad9b8d27881246a91e2a77",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/thumbs/int16-strych-wiazary.webp",
+    "bytes": 6502,
+    "sha256": "4504fc9069031e1afcb434a737d67be931cede18ab6b85afedf69ac3537c1570",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/thumbs/int02-salon-w-strone-kuchni.webp",
+    "bytes": 11714,
+    "sha256": "1e4ef8983d3134266d3b55237317ef769da9cbe0996335feb078608acbafa0aa",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/webp/int02-salon-w-strone-kuchni.webp",
+    "bytes": 153792,
+    "sha256": "a96048a7aaf7643b9b58d495532a726e4a370392df711ecdd0a10de78011863e",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int16-strych-wiazary.webp",
+    "bytes": 58352,
+    "sha256": "cb76b3aab27ee8854b7fbb74830eec0d4fbd6d4be7dff94bf97281e7646ea9ae",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int07-korytarz-do-pokojow.webp",
+    "bytes": 21250,
+    "sha256": "ba3234f34e6825e141a25498f67bcada8866ced11989374846d132324b7276b6",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int23-pokoj-dzieciecy-kontrkadr.webp",
+    "bytes": 34954,
+    "sha256": "e1f322f43ce8f2e4532319756c8a036677408687fc6c42136a6f2b95febf9b39",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int04-kuchnia-blat.webp",
+    "bytes": 34332,
+    "sha256": "2a99e31be2ccf0d7578a965b4221979b83e210d3c2fa98c77082244b2113ae43",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int19-jadalnia-widok-na-salon.webp",
+    "bytes": 47644,
+    "sha256": "40db9a5f5c26f502455e6cd6764cf22c85c28441fddbc70dff711a66e894bcd2",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int29-przejscie-loft-zasloniety.webp",
+    "bytes": 12944,
+    "sha256": "307467bd2eb302168c49cb5bd5592726a087935b56959a1ae3139f853852bc4b",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int02-salon-w-strone-kuchni.webp",
+    "bytes": 52634,
+    "sha256": "88a1cf805f9f9d206f09d1a69a5b2f105c7fcb4ad7bb47ba3189ebae252520b4",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int27-lazienka-ogolna-prysznic.webp",
+    "bytes": 26798,
+    "sha256": "b873e4defede70763259c31632b820728422e9c9219c0b0b14fcde8130c8242c",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int05b-widok-na-salon.webp",
+    "bytes": 140340,
+    "sha256": "a1883c5a8a24459aa6c51dbd625f8d574e4a68ec3ccf0d8455cf69847b11b7d0",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int24-pokoj-mlodziezowy-kontrkadr.webp",
+    "bytes": 31992,
+    "sha256": "1adbb529426494898df4f87eabe7774ac3f4d36b459864a17eac00474b8b7dfb",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/spacer-360/interior/blender/int13-lazienka-ogolna-wejscie.webp",
+    "bytes": 28584,
+    "sha256": "24bd4e4da9a7c9d751723b8a43a71bb2431125c46322b4ff935f94cda98c0a2b",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/ui/purchase/step-05.png",
+    "bytes": 89930,
+    "sha256": "f21d92c47c3f65fed0308a4e68f6fecaaa2070203c793db294b2a4b8d4c3f66b",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/ui/purchase/step-02.png",
+    "bytes": 92714,
+    "sha256": "7c7c4813645fa9c4c986929a55285a0b194390b9bebe1f8461476669687b19a4",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/ui/purchase/step-03.png",
+    "bytes": 96238,
+    "sha256": "166a3f5ccac1c27d1da9d143e7b2e31296e305a4d7ee3f5ad6de9f2cd03b8219",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/ui/purchase/step-01.png",
+    "bytes": 95605,
+    "sha256": "0066dd82bcbebcc232df7900c0e10dbc1df9fd374c49bfa4e77c35af22ccb365",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/assets/images/ui/purchase/step-04.png",
+    "bytes": 80273,
+    "sha256": "5f79d63c001742ceabfe4b641a134412c249c584094043ef4f4bc6f8da8cc228",
+    "reason": "Brak odwołania w kodzie, danych produkcyjnych i konfiguracjach obu spacerów; zweryfikowano także ikony dynamiczne."
+  },
+  {
+    "file": "public/tour/dnp-spacer-12-kadrow.html",
+    "bytes": 629,
+    "reason": "Nieużywany, stary odtwarzacz/konfigurator. Aktualny edytor w playerze zachowany."
+  },
+  {
+    "file": "public/tour/konfigurator-spaceru-360.html",
+    "bytes": 26200,
+    "reason": "Nieużywany, stary odtwarzacz/konfigurator. Aktualny edytor w playerze zachowany."
+  }
+]

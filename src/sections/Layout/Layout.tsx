@@ -2,8 +2,6 @@ import { Armchair, ChevronLeft, ChevronRight, Compass, DoorOpen, Maximize2, SunM
 import { useEffect, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { layoutRooms, PLAN_HEIGHT, PLAN_VIEWBOX, PLAN_WIDTH, type PlanMode, type ZoneId, zoneLabels, zoneOrder } from '../../data/layoutRooms'
-import './LayoutRefinement.css'
-
 const modes: Array<{ id: PlanMode; label: string }> = [
   { id: 'layout', label: 'Układ' },
   { id: 'zones', label: 'Strefy' },
@@ -122,7 +120,7 @@ export function Layout() {
 
             <div id="layout-plan-panel" role="tabpanel" aria-labelledby={`layout-tab-${mode}`} className={`interactive-plan interactive-plan--${mode}`}>
               <img
-                src={mode === 'furniture' ? '/assets/images/layout/plan-3d.webp' : '/assets/images/layout/plan-2d-precise.webp'}
+                src={mode === 'furniture' ? '/assets/images/layout/plan-3d.webp?v=449065e32367b32d' : '/assets/images/layout/plan-2d-precise.webp?v=3c79d8033e9a6bfe'}
                 alt={mode === 'furniture' ? 'Trójwymiarowy, umeblowany układ Domu na Polnej' : 'Precyzyjny rzut 2D Domu na Polnej'}
                 width={mode === 'furniture' ? 1024 : PLAN_WIDTH}
                 height={mode === 'furniture' ? 768 : PLAN_HEIGHT}

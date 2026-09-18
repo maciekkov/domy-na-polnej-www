@@ -1,31 +1,29 @@
 import { ArrowUpRight, ChevronRight, Image as ImageIcon, Move3d, Scan } from 'lucide-react'
 import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
-import type { HouseId } from '../../data/houses'
+import type { HouseSelection } from '../../data/houses'
 import { galleryCategories, galleryImages, type GalleryCategory } from '../../data/gallery'
 import { GalleryLightbox } from './GalleryLightbox'
 import { PanoramaModal } from './PanoramaModal'
 import { TourChoiceModal } from './TourChoiceModal'
 import { TourFrameModal } from './TourFrameModal'
 import { track } from '../../lib/analytics'
-import './GalleryRefinement.css'
+import { tours, type TourMode } from '../../data/tours'
+type GalleryProps = { selectedHouse: HouseSelection }
 
-type GalleryProps = { selectedHouse: HouseId }
-
-const EXTERIOR_TOUR_PATH = '/tour/spacer-360-zewnatrz.html'
 
 export function Gallery({ selectedHouse }: GalleryProps) {
   const [category, setCategory] = useState<GalleryCategory>('outside')
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const [tourPickerOpen, setTourPickerOpen] = useState(false)
-  const [tourOpen, setTourOpen] = useState(false)
+  const [tourMode, setTourMode] = useState<TourMode | null>(null)
   const [panoramaOpen, setPanoramaOpen] = useState(false)
   const images = galleryImages[category]
 
-  const openExteriorTour = () => {
+  const openTour = (mode: TourMode) => {
     setTourPickerOpen(false)
-    setTourOpen(true)
-    track('tour_start', selectedHouse)
+    setTourMode(mode)
+    track('tour_start', selectedHouse === 'unknown' ? undefined : selectedHouse, { tourMode: mode })
   }
 
   const onGalleryTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
@@ -75,26 +73,26 @@ export function Gallery({ selectedHouse }: GalleryProps) {
 
         <div id="spacer-360" className="immersive-heading" style={{ scrollMarginTop: '88px' }}>
           <div><span>Dwa sposoby oglądania</span><h3>Wejdź w Spacer 360 albo obejrzyj panoramę okolicy.</h3></div>
-          <p>Spacer prowadzi obecnie wokół domu i działki. Zobacz podjazd, wejście, wiatę, ogród i taras, a osobno uruchom prawdziwą panoramę 360° z drona.</p>
+          <p>Zacznij od otwartego wejścia i poznaj wnętrze domu albo wybierz trasę wokół działki. Osobno możesz uruchomić prawdziwą panoramę 360° z drona.</p>
         </div>
 
         <div className="immersive-grid">
           <article className="immersive-card immersive-card--tour">
-            <img src="/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp" alt="Elewacja ogrodowa domu i ogród w Spacerze 360" loading="lazy" decoding="async" />
+            <img src="/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b" alt="Elewacja ogrodowa domu i ogród w Spacerze 360" loading="lazy" decoding="async" />
             <div className="immersive-card__shade" aria-hidden="true" />
-            <div className="immersive-card__badge">14 kadrów · na zewnątrz</div>
+            <div className="immersive-card__badge">{tours.exterior.count} na zewnątrz · {tours.interior.count} we wnętrzu</div>
             <div className="immersive-card__content">
               <Move3d aria-hidden="true" />
               <div className="eyebrow eyebrow--light">Dom i działka</div>
               <h3>Spacer 360°</h3>
-              <p>Przejdź wokół domu krok po kroku. Odkryj wejście, podcień, wiatę, elewację ogrodową, taras i cały ogród.</p>
-              <button className="button button--olive" type="button" onClick={() => setTourPickerOpen(true)}>Wybierz spacer <ChevronRight size={17} /></button>
+              <p>Wejdź do domu i poznaj salon, kuchnię, pokoje, łazienki oraz domowe zaplecze. Przez taras przejdź do spaceru po ogrodzie.</p>
+              <button id="choose-tour" className="button button--olive" type="button" onClick={() => setTourPickerOpen(true)}>Wybierz spacer <ChevronRight size={17} /></button>
               <small>Interaktywny spacer · Dom {selectedHouse}</small>
             </div>
           </article>
 
           <article className="immersive-card immersive-card--panorama">
-            <img src="/assets/images/neighborhood/panorama-360-grabik.webp" alt="Panorama okolicy Grabika wykonana z drona" loading="lazy" decoding="async" />
+            <img src="/assets/images/neighborhood/panorama-360-grabik.webp?v=c7a1986872c74640" alt="Panorama okolicy Grabika wykonana z drona" loading="lazy" decoding="async" />
             <div className="immersive-card__shade" aria-hidden="true" />
             <div className="immersive-card__orbit" aria-hidden="true"><span>360°</span></div>
             <div className="immersive-card__content">
@@ -110,8 +108,8 @@ export function Gallery({ selectedHouse }: GalleryProps) {
       </div>
 
       {lightboxIndex !== null && <GalleryLightbox images={images} index={lightboxIndex} onIndex={setLightboxIndex} onClose={() => setLightboxIndex(null)} />}
-      {tourPickerOpen && <TourChoiceModal onClose={() => setTourPickerOpen(false)} onChooseExterior={openExteriorTour} />}
-      {tourOpen && <TourFrameModal onClose={() => setTourOpen(false)} onEngaged={() => track('tour_engaged', selectedHouse)} src={EXTERIOR_TOUR_PATH} title="Spacer 360 po Domach na Polnej — zewnętrzny spacer wokół domu" />}
+      {tourPickerOpen && <TourChoiceModal onClose={() => setTourPickerOpen(false)} onChooseExterior={() => openTour('exterior')} onChooseInterior={() => openTour('interior')} />}
+      {tourMode && <TourFrameModal houseCode={selectedHouse} onClose={() => setTourMode(null)} onEngaged={() => track('tour_engaged', selectedHouse === 'unknown' ? undefined : selectedHouse, { tourMode })} src={tours[tourMode].src} title={tours[tourMode].title} />}
       {panoramaOpen && <PanoramaModal onClose={() => setPanoramaOpen(false)} />}
     </section>
   )

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Header } from '../components/navigation/Header'
-import { isHouseId, type HouseId } from '../data/houses'
+import { isHouseId, type HouseId, type HouseSelection } from '../data/houses'
 import { useSiteData } from '../data/runtime/SiteDataProvider'
 import { Hero } from '../sections/Hero/Hero'
 import { Homes } from '../sections/Homes/Homes'
@@ -16,12 +16,13 @@ import { Team } from '../sections/Team/Team'
 import { FaqContact } from '../sections/FaqContact/FaqContact'
 import { Footer } from '../sections/Footer/Footer'
 import { ConsentBanner } from '../components/common/ConsentBanner'
-import { track, trackPageView } from '../lib/analytics'
+import { applyMeta } from '../lib/offers.mjs'
+import { track, trackPageView, trackSection } from '../lib/analytics'
 
 type SectionId = 'hero' | 'homes' | 'why-home' | 'location' | 'layout' | 'gallery' | 'standard' | 'security' | 'schedule' | 'journal' | 'team' | 'faq'
 
 export function App() {
-  const { data } = useSiteData()
+  const { data, error: dataError } = useSiteData()
   const { houses } = data
   const initial = new URLSearchParams(window.location.search).get('dom')
   const [selectedId, setSelectedId] = useState<HouseId | null>(isHouseId(initial) ? initial : null)
@@ -37,6 +38,15 @@ export function App() {
     track('house_select', id)
   }, [houses])
 
+  const changeFormHouse = useCallback((value: HouseSelection) => {
+    if (value !== 'unknown') { selectHouse(value); return }
+    setSelectedId(null)
+    const params = new URLSearchParams(window.location.search)
+    params.delete('dom')
+    const search = params.toString()
+    window.history.replaceState({}, '', `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`)
+  }, [selectHouse])
+
   const askAboutHouse = useCallback((id: HouseId) => {
     selectHouse(id)
     window.setTimeout(() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' }), 0)
@@ -44,6 +54,13 @@ export function App() {
   }, [selectHouse])
 
   useEffect(() => { trackPageView() }, [])
+  useEffect(() => { trackSection(activeSection, selectedId ?? undefined) }, [activeSection, selectedId])
+  useEffect(() => {
+    const onConsent = () => { trackPageView(selectedId ?? undefined); trackSection(activeSection, selectedId ?? undefined) }
+    window.addEventListener('dnp-consent-changed', onConsent)
+    return () => window.removeEventListener('dnp-consent-changed', onConsent)
+  }, [activeSection, selectedId])
+  useEffect(() => { applyMeta(document, data) }, [data])
 
   useEffect(() => {
     const sections: Array<[SectionId, string]> = [
@@ -82,17 +99,18 @@ export function App() {
       <Header activeSection={activeSection} contact={data.contact} />
       <main id="main">
         <Hero />
+        {dataError && <p className="site-data-warning" role="status">{dataError}</p>}
         <Homes houses={houses} selectedId={selectedId} onSelect={selectHouse} onAsk={askAboutHouse} />
         <WhyHome />
         <Location />
         <Layout />
-        <Gallery selectedHouse={selectedId ?? 'A'} />
+        <Gallery selectedHouse={selectedId ?? 'unknown'} />
         <Standard pdfUrl={data.standardPdf} />
         <SecurityProcess />
         <Schedule stages={data.schedule} />
         <Journal entries={data.journal} />
         <Team />
-        <FaqContact selectedHouse={selectedId ?? 'A'} contact={data.contact} />
+        <FaqContact selectedHouse={selectedId ?? 'unknown'} onHouseChange={changeFormHouse} contact={data.contact} />
       </main>
       <Footer contact={data.contact} />
       <ConsentBanner />

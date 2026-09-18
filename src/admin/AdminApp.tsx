@@ -4,6 +4,8 @@ import {
   Menu, MessageSquare, Pencil, Plus, RotateCcw, Save, Search, Settings, ShieldCheck, Upload, Users, X,
 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
+import '../styles/admin.css'
+import { parseSiteData, resolveSiteDocuments } from '../data/runtime/siteSchema.mjs'
 import type { FormEvent, ReactNode } from 'react'
 import { BrandLogo } from '../components/common/BrandLogo'
 import { formatPrice, type House, type HouseStatus } from '../data/houses'
@@ -14,6 +16,7 @@ import {
   ADMIN_SESSION_KEY, auditEntry, formatDate, persistAdminState, readAdminState,
   seedAdminState, type AdminState, type Lead, type LeadStatus,
 } from './demoStore'
+import { createDemoAnalyticsEvents, demoJourney, demoJourneyDurationSec, demoJourneyRows, demoVisitor } from './demoAnalytics'
 
 type AdminPage = 'dashboard' | 'houses' | 'construction' | 'documents' | 'leads' | 'analytics' | 'settings'
 
@@ -80,22 +83,44 @@ export function AdminApp() {
   }
 
   const publish = () => {
-    setState((current) => {
-      if (!current.dirty) return current
-      const revisionId = Math.max(...current.revisions.map((item) => item.id), 0) + 1
-      const published: SiteData = { ...clone(current.draft), revision: revisionId, publishedAt: new Date().toLocaleString('pl-PL') }
+    if (!state.dirty) return
+    try {
+      const revisionId = Math.max(state.draft.revision, ...state.revisions.map(item => item.id)) + 1
+      const published = parseSiteData({ ...clone(state.draft), revision: revisionId, publishedAt: new Date().toISOString() })
       localStorage.setItem(PUBLISHED_DATA_KEY, JSON.stringify(published))
+      setState({
+        ...state, draft: clone(published), published, dirty: false,
+        revisions: [{ id: revisionId, createdAt: now(), summary: 'Zapis podglądu DEMO', snapshot: clone(published), isCurrent: true }, ...state.revisions.map(item => ({ ...item, isCurrent: false }))],
+        audit: [auditEntry('demo_publish', `Rewizja ${revisionId}`, 'Zapisano wyłącznie w tej przeglądarce.'), ...state.audit],
+      })
       window.dispatchEvent(new Event(SITE_DATA_EVENT))
-      return {
-        ...current, draft: clone(published), published, dirty: false,
-        revisions: [
-          { id: revisionId, createdAt: now(), summary: 'Publikacja zmian z panelu demonstracyjnego', snapshot: clone(published), isCurrent: true },
-          ...current.revisions.map((item) => ({ ...item, isCurrent: false })),
-        ],
-        audit: [auditEntry('publish', `Rewizja ${revisionId}`, 'Opublikowano atomowo aktualny snapshot danych.'), ...current.audit],
-      }
-    })
-    setNotice('Zmiany opublikowane. Publiczna strona odczyta nowy snapshot na tym urządzeniu.')
+      setNotice('Zapisano podgląd DEMO tylko w tej przeglądarce. Produkcja nie została zmieniona.')
+    } catch (error) {
+      setNotice(`Nie zapisano: ${error instanceof Error ? error.message : 'nieprawidłowe dane'}`)
+    }
+  }
+
+  const importSiteData = async (file: File | undefined) => {
+    if (!file) return
+    try {
+      if (file.size > 2_000_000) throw new Error('Plik danych jest za duży (maks. 2 MB).')
+      const data = parseSiteData(JSON.parse(await file.text()))
+      setState(current => ({ ...current, draft: clone(data), dirty: true, audit: [auditEntry('public_import', `Rewizja ${data.revision}`, 'Import publicznego JSON-a do lokalnego podglądu.'), ...current.audit] }))
+      setNotice('Wczytano dane do edytora. Produkcja nie została zmieniona.')
+    } catch (error) { setNotice(`Import przerwany: ${error instanceof Error ? error.message : 'błąd danych'}`) }
+  }
+
+  const exportSiteData = () => {
+    try {
+      const data = parseSiteData({ ...state.draft, revision: Math.max(state.draft.revision, state.published.revision) + 1, publishedAt: new Date().toISOString() })
+      const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2) + '\n'], { type: 'application/json' }))
+      const link = document.createElement('a')
+      link.href = url; link.download = 'site-data.json'; link.click()
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000)
+      setNotice('Wyeksportowano publiczne dane. Przed wdrożeniem zweryfikuj plik poleceniem content:publish --check. Bez zapytań klientów i historii demo.')
+    } catch (error) {
+      setNotice(`Eksport przerwany: ${error instanceof Error ? error.message : 'nieprawidłowe dane'}`)
+    }
   }
 
   if (!authenticated) return <AdminLogin onSuccess={() => setAuthenticated(true)} />
@@ -122,11 +147,13 @@ export function AdminApp() {
           <button className="admin-menu-button" type="button" onClick={() => setMobileMenu(true)} aria-label="Otwórz menu"><Menu /></button>
           <div><span>Domy na Polnej</span><h1>{pageNames[page]}</h1></div>
           <div className="admin-topbar__actions">
-            {state.dirty && <span className="admin-draft-indicator">Nieopublikowane zmiany</span>}
-            <button className="admin-button admin-button--primary" type="button" onClick={publish} disabled={!state.dirty}><Upload /> Publikuj zmiany</button>
+            {state.dirty && <span className="admin-draft-indicator">Zmiany lokalne</span>}
+            <label className="admin-button">Import danych JSON<input type="file" accept="application/json,.json" hidden onChange={(event) => { void importSiteData(event.target.files?.[0]); event.target.value = '' }} /></label>
+            <button className="admin-button" type="button" onClick={exportSiteData}><Download /> Eksport danych produkcyjnych</button>
+            <button className="admin-button admin-button--primary" type="button" onClick={publish} disabled={!state.dirty}><Upload /> Zapisz podgląd demo</button>
           </div>
         </header>
-        <div className="admin-safety-banner"><AlertTriangle /><div><strong>Tryb DEMO</strong><span>Dane cenowe nie są wysyłane do żadnego zewnętrznego systemu. Wysyłka produkcyjna jest twardo zablokowana.</span></div></div>
+        <div className="admin-safety-banner"><AlertTriangle /><div><strong>Tryb DEMO</strong><span>To edytor lokalny. Zapis podglądu działa tylko w tej przeglądarce. Produkcję aktualizuje plik /data/site-data.json — przycisk eksportu nie wysyła go na serwer.</span></div></div>
 
         <div className="admin-content">
           {page === 'dashboard' && <Dashboard state={state} setPage={changePage} />}
@@ -139,7 +166,7 @@ export function AdminApp() {
         </div>
       </main>
 
-      {editingHouse && <HouseEditor house={state.draft.houses.find((item) => item.id === editingHouse)!} history={state.priceHistory.filter((item) => item.houseId === editingHouse)} onClose={() => setEditingHouse(null)} onStatus={(status) => updateDraft((draft) => { draft.houses.find((item) => item.id === editingHouse)!.status = status }, 'status_change', `Dom ${editingHouse}`)} onSave={(house) => updateDraft((draft) => { const index = draft.houses.findIndex((item) => item.id === house.id); draft.houses[index] = house }, 'house_update', house.name)} onPrice={(price, reason) => setPriceCandidate({ house: state.draft.houses.find((item) => item.id === editingHouse)!, price, reason })} />}
+      {editingHouse && <HouseEditor house={resolveSiteDocuments(state.draft).houses.find((item) => item.id === editingHouse)!} history={state.priceHistory.filter((item) => item.houseId === editingHouse)} onClose={() => setEditingHouse(null)} onStatus={(status) => updateDraft((draft) => { draft.houses.find((item) => item.id === editingHouse)!.status = status }, 'status_change', `Dom ${editingHouse}`)} onSave={(house) => updateDraft((draft) => { const index = draft.houses.findIndex((item) => item.id === house.id); draft.houses[index] = house }, 'house_update', house.name)} onPrice={(price, reason) => setPriceCandidate({ house: state.draft.houses.find((item) => item.id === editingHouse)!, price, reason })} />}
       {priceCandidate && <PriceConfirmation candidate={priceCandidate} onCancel={() => setPriceCandidate(null)} onConfirm={() => {
         setState((current) => {
           const draft = clone(current.draft)
@@ -149,7 +176,7 @@ export function AdminApp() {
           return { ...current, draft, dirty: true, priceHistory: [{ id: crypto.randomUUID(), houseId: house.id, oldPrice, newPrice: priceCandidate.price, changedAt: now(), changedBy: 'admin (demo)', reason: priceCandidate.reason, govSyncStatus: 'demo' }, ...current.priceHistory], audit: [auditEntry('price_change', house.name, `${formatPrice(oldPrice)} → ${formatPrice(priceCandidate.price)}`), ...current.audit] }
         })
         setPriceCandidate(null)
-        setNotice('Cena zapisana w trwałej historii draftu. Opublikuj zmiany, aby pokazać ją na stronie.')
+        setNotice('Cena zapisana lokalnie. Zapisz podgląd DEMO lub wyeksportuj publiczny JSON do wdrożenia.')
       }} />}
       {leadDetail && <LeadDrawer lead={state.leads.find((item) => item.id === leadDetail)!} onClose={() => setLeadDetail(null)} onSave={(lead) => setState((current) => ({ ...current, leads: current.leads.map((item) => item.id === lead.id ? lead : item), audit: [auditEntry('lead_update', lead.name, `Status: ${lead.status}`), ...current.audit] }))} />}
       <div className={`admin-notice ${notice ? 'is-visible' : ''}`} role="status">{notice}</div>
@@ -199,7 +226,7 @@ function Dashboard({ state, setPage }: { state: AdminState; setPage: (page: Admi
 }
 
 function HousesPage({ state, onEdit }: { state: AdminState; onEdit: (id: House['id']) => void }) {
-  return <section className="admin-panel"><div className="admin-panel__heading"><div><span>Oferta A–E</span><h2>Domy i ceny</h2><p>Zmiany zapisujesz w wersji roboczej, a na stronę trafiają dopiero po publikacji.</p></div></div><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Dom</th><th>Status</th><th>Aktualna cena</th><th>Działka</th><th>PDF</th><th>Akcje</th></tr></thead><tbody>{state.draft.houses.map((house) => <tr key={house.id}><td><strong>{house.name}</strong><small>dz. {house.parcel}</small></td><td><StatusPill status={house.status} /></td><td><strong>{formatPrice(house.price)}</strong>{state.published.houses.find((item) => item.id === house.id)?.price !== house.price && <small className="admin-changed">zmiana w draft</small>}</td><td>{house.plot} m²</td><td><a href={house.pdf} target="_blank" rel="noreferrer">Podgląd <ExternalLink /></a></td><td><button className="admin-icon-button" type="button" onClick={() => onEdit(house.id)} aria-label={`Edytuj ${house.name}`}><Pencil /></button></td></tr>)}</tbody></table></div></section>
+  return <section className="admin-panel"><div className="admin-panel__heading"><div><span>Oferta A–E</span><h2>Domy i ceny</h2><p>Zmiany są lokalne. Na stronę produkcyjną trafią po eksporcie i przesłaniu poprawnego pliku site-data.json.</p></div></div><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Dom</th><th>Status</th><th>Aktualna cena</th><th>Działka</th><th>PDF</th><th>Akcje</th></tr></thead><tbody>{resolveSiteDocuments(state.draft).houses.map((house) => <tr key={house.id}><td><strong>{house.name}</strong><small>dz. {house.parcel}</small></td><td><StatusPill status={house.status} /></td><td><strong>{formatPrice(house.price)}</strong>{state.published.houses.find((item) => item.id === house.id)?.price !== house.price && <small className="admin-changed">zmiana w draft</small>}</td><td>{house.plot} m²</td><td>{house.pdf ? <a href={house.pdf} target="_blank" rel="noreferrer">Podgląd <ExternalLink /></a> : <span>Brak aktywnej karty</span>}</td><td><button className="admin-icon-button" type="button" onClick={() => onEdit(house.id)} aria-label={`Edytuj ${house.name}`}><Pencil /></button></td></tr>)}</tbody></table></div></section>
 }
 
 function HouseEditor({ house, history, onClose, onStatus, onSave, onPrice }: { house: House; history: AdminState['priceHistory']; onClose: () => void; onStatus: (status: HouseStatus) => void; onSave: (house: House) => void; onPrice: (price: number, reason: string) => void }) {
@@ -207,30 +234,31 @@ function HouseEditor({ house, history, onClose, onStatus, onSave, onPrice }: { h
   const [form, setForm] = useState(() => clone(house))
   const [newPrice, setNewPrice] = useState(house.price)
   const [reason, setReason] = useState('')
+  useEffect(() => { setForm(current => ({ ...current, price: house.price })); setNewPrice(house.price) }, [house.price])
   return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="house-editor-title"><button className="admin-modal__backdrop" type="button" onClick={onClose} aria-label="Zamknij" /><section className="admin-drawer"><header><div><span>Edycja oferty</span><h2 id="house-editor-title">{house.name}</h2></div><button type="button" onClick={onClose} aria-label="Zamknij"><X /></button></header><div className="admin-drawer__body">
     <div className="admin-form-section"><h3>Oferta</h3><div className="admin-form-grid"><label>Status<select value={form.status} onChange={(event) => { const status = event.target.value as HouseStatus; setForm({ ...form, status }); onStatus(status) }}><option>Dostępny</option><option>Rezerwacja</option><option>Sprzedany</option></select></label><label>Powierzchnia domu<input type="number" value={form.area} onChange={(event) => setForm({ ...form, area: Number(event.target.value) })} /></label><label>Powierzchnia działki<input type="number" value={form.plot} onChange={(event) => setForm({ ...form, plot: Number(event.target.value) })} /></label><label>Pokoje<input type="number" value={form.rooms} onChange={(event) => setForm({ ...form, rooms: Number(event.target.value) })} /></label><label>Miejsca postojowe<input type="number" value={form.parking} onChange={(event) => setForm({ ...form, parking: Number(event.target.value) })} /></label><label>Numer działki<input value={form.parcel} onChange={(event) => setForm({ ...form, parcel: event.target.value })} /></label></div><button className="admin-button" type="button" onClick={() => onSave(form)}><Save /> Zapisz parametry w draft</button></div>
-    <div className="admin-form-section admin-price-box"><h3>Zmiana ceny</h3><p>Zmiana ceny zawsze tworzy wpis w nieusuwalnej historii.</p><label>Obecna cena<input value={formatPrice(house.price)} disabled /></label><label>Nowa cena<input type="number" value={newPrice} onChange={(event) => setNewPrice(Number(event.target.value))} /></label><label>Powód zmiany <small>(opcjonalnie)</small><input value={reason} onChange={(event) => setReason(event.target.value)} /></label><button className="admin-button admin-button--primary" type="button" disabled={newPrice === house.price || newPrice < 1} onClick={() => onPrice(newPrice, reason)}>Zapisz zmianę ceny</button></div>
-    <div className="admin-form-section"><h3>Materiały i integracje</h3><label>Karta PDF<input value={form.pdf} onChange={(event) => setForm({ ...form, pdf: event.target.value })} /></label><label>Zdjęcie główne<input value={form.image} onChange={(event) => setForm({ ...form, image: event.target.value })} /></label><p className="admin-help">Kontekst URL i masterplanu pozostaje przypisany do kodu {house.id}. Geometria mapy nie jest edytowana w panelu.</p></div>
+    <div className="admin-form-section admin-price-box"><h3>Zmiana ceny</h3><p>Zmiana ceny tworzy wpis w lokalnej historii DEMO. Nie jest to prawna ani niezmienna ewidencja cen.</p><label>Obecna cena<input value={formatPrice(house.price)} disabled /></label><label>Nowa cena<input type="number" value={newPrice} onChange={(event) => setNewPrice(Number(event.target.value))} /></label><label>Powód zmiany <small>(opcjonalnie)</small><input value={reason} onChange={(event) => setReason(event.target.value)} /></label><button className="admin-button admin-button--primary" type="button" disabled={newPrice === house.price || newPrice < 1} onClick={() => onPrice(newPrice, reason)}>Zapisz zmianę ceny</button></div>
+    <div className="admin-form-section"><h3>Materiały i integracje</h3><label>Karta PDF<input value={house.pdf} readOnly /></label><p className="admin-help">Aktywną kartę PDF i jej wersję ustawiasz w zakładce Dokumenty.</p><label>Zdjęcie główne<input value={form.image} onChange={(event) => setForm({ ...form, image: event.target.value })} /></label><p className="admin-help">Kontekst URL i masterplanu pozostaje przypisany do kodu {house.id}. Geometria mapy nie jest edytowana w panelu.</p></div>
     <div className="admin-form-section"><h3>Historia cen</h3><div className="admin-history">{history.map((item) => <div key={item.id}><time>{formatDate(item.changedAt)}</time><strong>{formatPrice(item.newPrice)}</strong><span>{item.reason || 'Bez opisu'} · {item.govSyncStatus === 'demo' ? 'DEMO' : 'import'}</span></div>)}</div></div>
   </div></section></div>
 }
 
 function PriceConfirmation({ candidate, onCancel, onConfirm }: { candidate: { house: House; price: number; reason: string }; onCancel: () => void; onConfirm: () => void }) {
   useAdminModal(onCancel)
-  return <div className="admin-modal admin-modal--center" role="alertdialog" aria-modal="true" aria-labelledby="price-title"><button className="admin-modal__backdrop" type="button" onClick={onCancel} aria-label="Anuluj" /><section className="admin-confirm"><AlertTriangle /><h2 id="price-title">Zmiana ceny {candidate.house.name}</h2><div className="admin-price-diff"><span>{formatPrice(candidate.house.price)}</span><ChevronRight /><strong>{formatPrice(candidate.price)}</strong></div><p>Zmiana zostanie dopisana do trwałej historii cen. Poprzedniego wpisu nie będzie można usunąć.</p><div><button className="admin-button" type="button" onClick={onCancel}>Anuluj</button><button className="admin-button admin-button--primary" type="button" onClick={onConfirm}>Potwierdź zmianę</button></div></section></div>
+  return <div className="admin-modal admin-modal--center" role="alertdialog" aria-modal="true" aria-labelledby="price-title"><button className="admin-modal__backdrop" type="button" onClick={onCancel} aria-label="Anuluj" /><section className="admin-confirm"><AlertTriangle /><h2 id="price-title">Zmiana ceny {candidate.house.name}</h2><div className="admin-price-diff"><span>{formatPrice(candidate.house.price)}</span><ChevronRight /><strong>{formatPrice(candidate.price)}</strong></div><p>Zmiana zostanie dopisana do lokalnej historii DEMO. Nie zastępuje ewidencji produkcyjnej ani prawnej historii cen.</p><div><button className="admin-button" type="button" onClick={onCancel}>Anuluj</button><button className="admin-button admin-button--primary" type="button" onClick={onConfirm}>Potwierdź zmianę</button></div></section></div>
 }
 
 function ConstructionPage({ state, updateDraft }: { state: AdminState; updateDraft: (updater: (draft: SiteData) => void, action?: string, entity?: string) => void }) {
   const [tab, setTab] = useState<'schedule' | 'journal'>('schedule')
   return <><div className="admin-tabs"><button className={tab === 'schedule' ? 'is-active' : ''} type="button" onClick={() => setTab('schedule')}><CalendarDays /> Harmonogram</button><button className={tab === 'journal' ? 'is-active' : ''} type="button" onClick={() => setTab('journal')}><BookOpen /> Dziennik budowy</button></div>
     {tab === 'schedule' ? <section className="admin-panel"><div className="admin-panel__heading"><div><span>Etapy I–V</span><h2>Harmonogram</h2><p>Liczba etapów jest zamrożona. Możesz aktualizować status, opis i planowany okres.</p></div></div><div className="admin-schedule-editor">{state.draft.schedule.map((stage, index) => <article key={stage.id}><b>{stage.id}</b><div><strong>{stage.title}</strong><label>Status<select value={stage.state} onChange={(event) => updateDraft((draft) => { const target = draft.schedule[index]; target.state = event.target.value as typeof target.state; target.status = target.state === 'completed' ? 'Zakończone' : target.state === 'current' ? 'W trakcie' : 'Planowane' }, 'schedule_update', `Etap ${stage.id}`)}><option value="completed">Zakończony</option><option value="current">Aktualny</option><option value="planned">Planowany</option></select></label><label>Termin<input value={stage.term} onChange={(event) => updateDraft((draft) => { draft.schedule[index].term = event.target.value }, 'schedule_update', `Etap ${stage.id}`)} /></label><label>Opis<input value={stage.description} onChange={(event) => updateDraft((draft) => { draft.schedule[index].description = event.target.value }, 'schedule_update', `Etap ${stage.id}`)} /></label></div></article>)}</div></section>
-    : <section className="admin-panel"><div className="admin-panel__heading"><div><span>Aktualizacje inwestycji</span><h2>Dziennik budowy</h2><p>Wpisy pozostają w wersji roboczej do momentu publikacji całego snapshotu.</p></div><button className="admin-button admin-button--primary" type="button" onClick={() => updateDraft((draft) => { draft.journal.unshift({ id: `nowy-wpis-${Date.now()}`, date: new Date().toLocaleDateString('pl-PL'), title: 'Nowy wpis roboczy', description: 'Uzupełnij rzetelny opis wykonanych prac.', photoCount: 0, cover: '/assets/images/neighborhood/plots-front.webp', coverAlt: 'Materiał roboczy — wymaga podmiany na zdjęcie budowy', photos: [] }) }, 'journal_create', 'Nowy wpis')}><Plus /> Dodaj wpis</button></div><div className="admin-journal-editor">{state.draft.journal.map((entry, index) => <article key={entry.id}><img src={entry.cover} alt="" /><div><label>Data<input value={entry.date} onChange={(event) => updateDraft((draft) => { draft.journal[index].date = event.target.value }, 'journal_update', entry.title)} /></label><label>Tytuł<input value={entry.title} onChange={(event) => updateDraft((draft) => { draft.journal[index].title = event.target.value }, 'journal_update', entry.title)} /></label><label>Opis<textarea rows={3} value={entry.description} onChange={(event) => updateDraft((draft) => { draft.journal[index].description = event.target.value }, 'journal_update', entry.title)} /></label><small>{entry.photoCount} zdjęć · slug: {entry.id}</small></div></article>)}</div></section>}
+    : <section className="admin-panel"><div className="admin-panel__heading"><div><span>Aktualizacje inwestycji</span><h2>Dziennik budowy</h2><p>Wpisy są lokalne do czasu eksportu danych i ich osobnego wdrożenia na serwer.</p></div><button className="admin-button admin-button--primary" type="button" onClick={() => updateDraft((draft) => { draft.journal.unshift({ id: `nowy-wpis-${Date.now()}`, date: new Date().toLocaleDateString('pl-PL'), title: 'Nowy wpis roboczy', description: 'Uzupełnij rzetelny opis wykonanych prac.', photoCount: 0, cover: '/assets/images/neighborhood/plots-front.webp?v=0039f4e4dda29388', coverAlt: 'Materiał roboczy — wymaga podmiany na zdjęcie budowy', photos: [] }) }, 'journal_create', 'Nowy wpis')}><Plus /> Dodaj wpis</button></div><div className="admin-journal-editor">{state.draft.journal.map((entry, index) => <article key={entry.id}><img src={entry.cover} alt="" /><div><label>Data<input value={entry.date} onChange={(event) => updateDraft((draft) => { draft.journal[index].date = event.target.value }, 'journal_update', entry.title)} /></label><label>Tytuł<input value={entry.title} onChange={(event) => updateDraft((draft) => { draft.journal[index].title = event.target.value }, 'journal_update', entry.title)} /></label><label>Opis<textarea rows={3} value={entry.description} onChange={(event) => updateDraft((draft) => { draft.journal[index].description = event.target.value }, 'journal_update', entry.title)} /></label><small>{entry.photoCount} zdjęć · slug: {entry.id}</small></div></article>)}</div></section>}
   </>
 }
 
 function DocumentsPage({ state, updateDraft }: { state: AdminState; updateDraft: (updater: (draft: SiteData) => void, action?: string, entity?: string) => void }) {
   const updateDocument = (index: number, changes: Partial<SiteDocument>) => updateDraft((draft) => { draft.documents[index] = { ...draft.documents[index], ...changes, updatedAt: new Date().toLocaleDateString('pl-PL') }; const doc = draft.documents[index]; if (doc.type === 'standard_pdf' && doc.publicUrl) draft.standardPdf = doc.publicUrl; if (doc.type === 'house_card' && doc.houseId && doc.publicUrl) draft.houses.find((item) => item.id === doc.houseId)!.pdf = doc.publicUrl }, 'document_update', state.draft.documents[index].title)
-  return <section className="admin-panel"><div className="admin-panel__heading"><div><span>Pliki publiczne</span><h2>Dokumenty</h2><p>Panel pilnuje aktywności i publicznych adresów. W trybie lokalnym wybór pliku rejestruje metadane, a docelowy upload wykona backend Hostinger.</p></div></div><div className="admin-documents">{state.draft.documents.map((doc, index) => <article key={doc.id}><span className="admin-document-icon"><FileText /></span><div><strong>{doc.title}</strong><small>Wersja {doc.version} · {doc.updatedAt} · {doc.sizeLabel}</small><label>Publiczny URL<input value={doc.publicUrl} onChange={(event) => updateDocument(index, { publicUrl: event.target.value })} placeholder="/documents/plik.pdf" /></label></div><div className="admin-document-actions"><StatusPill status={doc.active ? 'Aktywny' : 'Brak pliku'} />{doc.publicUrl && <a href={doc.publicUrl} target="_blank" rel="noreferrer" aria-label={`Podgląd ${doc.title}`}><ExternalLink /></a>}<label className="admin-icon-button" title="Zarejestruj nowy plik"><Upload /><input type="file" accept="application/pdf" onChange={(event) => { const file = event.target.files?.[0]; if (file) updateDocument(index, { active: true, version: String(Number.parseFloat(doc.version || '0') + .1), sizeLabel: `${(file.size / 1048576).toFixed(1)} MB` }) }} /></label><button className="admin-icon-button" type="button" onClick={() => updateDocument(index, { active: !doc.active })} aria-label={doc.active ? `Dezaktywuj ${doc.title}` : `Aktywuj ${doc.title}`}><ShieldCheck /></button></div></article>)}</div></section>
+  return <section className="admin-panel"><div className="admin-panel__heading"><div><span>Pliki publiczne</span><h2>Dokumenty</h2><p>Panel pilnuje aktywności i publicznych adresów. W trybie lokalnym wybór pliku rejestruje metadane, nie wysyła pliku na serwer. Pliki i eksport site-data.json wdrażasz oddzielnie zgodnie z instrukcją.</p></div></div><div className="admin-documents">{state.draft.documents.map((doc, index) => <article key={doc.id}><span className="admin-document-icon"><FileText /></span><div><strong>{doc.title}</strong><small>Wersja {doc.version} · {doc.updatedAt} · {doc.sizeLabel}</small><label>Publiczny URL<input value={doc.publicUrl} onChange={(event) => updateDocument(index, { publicUrl: event.target.value })} placeholder="/documents/" /></label></div><div className="admin-document-actions"><StatusPill status={doc.active ? 'Aktywny' : 'Brak pliku'} />{doc.publicUrl && <a href={doc.publicUrl} target="_blank" rel="noreferrer" aria-label={`Podgląd ${doc.title}`}><ExternalLink /></a>}<label className="admin-icon-button" title="Zarejestruj nowy plik"><Upload /><input type="file" accept="application/pdf" onChange={(event) => { const file = event.target.files?.[0]; if (file) updateDocument(index, { active: true, version: String(Number.parseFloat(doc.version || '0') + .1), sizeLabel: `${(file.size / 1048576).toFixed(1)} MB` }) }} /></label><button className="admin-icon-button" type="button" onClick={() => updateDocument(index, { active: !doc.active })} aria-label={doc.active ? `Dezaktywuj ${doc.title}` : `Aktywuj ${doc.title}`}><ShieldCheck /></button></div></article>)}</div></section>
 }
 
 function LeadsPage({ state, setState, onOpen }: { state: AdminState; setState: React.Dispatch<React.SetStateAction<AdminState>>; onOpen: (id: string) => void }) {
@@ -245,13 +273,140 @@ function LeadDrawer({ lead, onClose, onSave }: { lead: Lead; onClose: () => void
   return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="lead-title"><button className="admin-modal__backdrop" type="button" onClick={onClose} aria-label="Zamknij" /><section className="admin-drawer"><header><div><span>Zapytanie · Dom {lead.houseCode}</span><h2 id="lead-title">{lead.name}</h2></div><button type="button" onClick={onClose}><X /></button></header><div className="admin-drawer__body"><div className="admin-lead-contact"><a href={`tel:${lead.phone}`}>{lead.phone}</a>{lead.email && <a href={`mailto:${lead.email}`}>{lead.email}</a>}<small>{formatDate(lead.createdAt)} · {lead.source} · {lead.campaign}</small></div><div className="admin-form-section"><h3>Wiadomość</h3><p>{lead.message}</p></div><div className="admin-form-section"><label>Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value as LeadStatus })}>{leadStatusOptions()}</select></label><label>Notatka<textarea rows={6} value={form.note} onChange={(event) => setForm({ ...form, note: event.target.value })} /></label><button className="admin-button admin-button--primary" type="button" onClick={() => { onSave(form); onClose() }}><Save /> Zapisz</button></div></div></section></div>
 }
 
+
+const clockLabel = (seconds: number) => {
+  const mins = Math.floor(seconds / 60)
+  const secs = Math.round(seconds % 60)
+  return mins ? `${mins}:${String(secs).padStart(2, '0')}` : `0:${String(secs).padStart(2, '0')}`
+}
+
+function DemoVisitorJourney() {
+  const total = demoJourneyDurationSec
+  const chartWidth = 1180
+  const labelWidth = 188
+  const rightPad = 34
+  const topPad = 52
+  const rowHeight = 42
+  const bottomPad = 54
+  const plotWidth = chartWidth - labelWidth - rightPad
+  const chartHeight = topPad + demoJourneyRows.length * rowHeight + bottomPad
+  const rowIndex = new Map(demoJourneyRows.map((row, index) => [row.id, index]))
+  let cursor = 0
+  const segments = demoJourney.map((step, index) => {
+    const start = cursor
+    cursor += step.durationSec
+    const row = rowIndex.get(step.sectionId) ?? 0
+    return { ...step, index, start, end: cursor, row }
+  })
+  const x = (seconds: number) => labelWidth + (seconds / total) * plotWidth
+  const y = (row: number) => topPad + row * rowHeight + rowHeight / 2
+  const ticks: number[] = []
+  for (let second = 0; second <= total; second += 120) ticks.push(second)
+  if (ticks.at(-1) !== total) ticks.push(total)
+  const backwardMoves = segments.slice(0, -1).filter((segment, index) => (segments[index + 1]?.row ?? segment.row) < segment.row).length
+
+  return <section className="admin-panel admin-journey-demo">
+    <div className="admin-panel__heading">
+      <div><span>Symulacja · 1 użytkownik</span><h2>Ścieżka wizyty po stronie</h2><p>Oś Y pokazuje sekcje strony, a oś X — czas od wejścia. Poziomy pasek to czas spędzony w danym miejscu; pionowe i ukośne łączniki pokazują przewijanie w dół oraz powroty.</p></div>
+      <span className="admin-demo-pill">DEMO</span>
+    </div>
+    <div className="admin-journey-summary">
+      <div><span>Użytkownik</span><strong>{demoVisitor.id}</strong><small>pseudonimowy visitorId</small></div>
+      <div><span>Aktywny czas</span><strong>{durationLabel(total * 1000)}</strong><small>1 wizyta</small></div>
+      <div><span>Spacery</span><strong>7 min</strong><small>3:00 zewnętrzny · 4:00 wnętrze</small></div>
+      <div><span>Urządzenie</span><strong>Desktop</strong><small>Google / organic · {demoVisitor.viewport}</small></div>
+      <div><span>Powroty w górę</span><strong>{backwardMoves}</strong><small>ponowne sprawdzanie treści</small></div>
+    </div>
+    <div className="admin-journey-legend"><span><i className="is-section" /> sekcja strony</span><span><i className="is-tour" /> wirtualny spacer</span><span><i className="is-path" /> kierunek poruszania</span></div>
+    <div className="admin-journey-scroll" role="img" aria-label="Demonstracyjna oś czasu jednego użytkownika poruszającego się po sekcjach strony i spacerach 360">
+      <svg className="admin-journey-chart" viewBox={`0 0 ${chartWidth} ${chartHeight}`}>
+        <defs>
+          <marker id="journey-arrow" markerWidth="7" markerHeight="7" refX="5.4" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7Z" /></marker>
+        </defs>
+        <text className="admin-journey-axis-title" x={labelWidth} y="22">czas od wejścia</text>
+        {ticks.map((tick) => <g key={tick}>
+          <line className="admin-journey-tick" x1={x(tick)} y1={topPad - 12} x2={x(tick)} y2={chartHeight - bottomPad + 6} />
+          <text className="admin-journey-tick-label" x={x(tick)} y={topPad - 20} textAnchor={tick === 0 ? 'start' : tick === total ? 'end' : 'middle'}>{clockLabel(tick)}</text>
+        </g>)}
+        {demoJourneyRows.map((row, index) => <g key={row.id}>
+          <line className="admin-journey-row-line" x1={labelWidth} x2={chartWidth - rightPad} y1={y(index)} y2={y(index)} />
+          <text className="admin-journey-row-label" x={labelWidth - 14} y={y(index) + 4} textAnchor="end">{row.label}</text>
+        </g>)}
+        {segments.slice(0, -1).map((segment, index) => {
+          const next = segments[index + 1]
+          return <line key={`move-${index}`} className={`admin-journey-move ${next.row < segment.row ? 'is-return' : ''}`} x1={x(segment.end)} y1={y(segment.row)} x2={x(next.start)} y2={y(next.row)} markerEnd="url(#journey-arrow)" />
+        })}
+        {segments.map((segment) => {
+          const width = Math.max(4, x(segment.end) - x(segment.start))
+          const barY = y(segment.row) - 10
+          return <g key={`segment-${segment.index}`}>
+            <rect className={`admin-journey-segment ${segment.kind === 'tour' ? 'is-tour' : 'is-section'}`} x={x(segment.start)} y={barY} width={width} height="20" rx="7">
+              <title>{`${segment.label}: ${clockLabel(segment.durationSec)}${segment.note ? ` · ${segment.note}` : ''}`}</title>
+            </rect>
+            {width > 42 && <text className="admin-journey-duration" x={x(segment.start) + width / 2} y={barY + 14} textAnchor="middle">{clockLabel(segment.durationSec)}</text>}
+          </g>
+        })}
+        <text className="admin-journey-foot" x={labelWidth} y={chartHeight - 15}>Start  →  czytanie  →  porównania  →  spacer zewnętrzny  →  powrót  →  treść  →  spacer wnętrza  →  kontakt</text>
+      </svg>
+    </div>
+    <details className="admin-journey-details"><summary>Pokaż przebieg krok po kroku</summary><ol>{demoJourney.map((step, index) => <li key={`${step.sectionId}-${index}`}><strong>{step.label}</strong><span>{clockLabel(step.durationSec)}</span><small>{step.note ?? 'Czytanie / oglądanie sekcji'}</small></li>)}</ol></details>
+  </section>
+}
+
+type ServerAnalyticsSummary = {
+  uniqueVisitors: number; uniqueVisits: number; returningVisitors: number; engagedDurationMs: number
+  devices: Record<string, number>; sections: Array<{id:string;views:number;durationMs:number}>
+  tours: Array<{mode:string;views:number;durationMs:number}>; visitors: Array<{id:string;firstSeen:string;lastSeen:string;visits:number;durationMs:number;device:string;lastPath:string}>
+}
+const ADMIN_CONTROL_KEY = 'dnp-admin-control-key'
+const durationLabel = (ms: number) => ms >= 3600000 ? `${(ms/3600000).toFixed(1)} h` : ms >= 60000 ? `${Math.round(ms/60000)} min` : `${Math.round(ms/1000)} s`
+
 function AnalyticsPage({ state }: { state: AdminState }) {
   const [range, setRange] = useState('30')
-  const events = readAnalytics().filter((event) => Date.now() - new Date(event.createdAt).getTime() < Number(range) * 86400000)
-  const counts = (name: AnalyticsEvent['eventName']) => events.filter((item) => item.eventName === name).length
-  const rows = state.draft.houses.map((house) => ({ id: house.id, selections: events.filter((item) => item.houseCode === house.id && item.eventName === 'house_select').length, pdf: events.filter((item) => item.houseCode === house.id && item.eventName === 'house_pdf_download').length, leads: state.leads.filter((item) => item.houseCode === house.id).length }))
+  const [key, setKey] = useState(() => sessionStorage.getItem(ADMIN_CONTROL_KEY) ?? '')
+  const [summary, setSummary] = useState<ServerAnalyticsSummary | null>(null)
+  const [serverStatus, setServerStatus] = useState('')
+  const localRecorded = readAnalytics().filter((event) => Date.now() - new Date(event.createdAt).getTime() < Number(range) * 86400000)
+  const usingDemo = localRecorded.length === 0
+  const local = usingDemo ? createDemoAnalyticsEvents() : localRecorded
+  const counts = (name: AnalyticsEvent['eventName']) => local.filter((item) => item.eventName === name).length
+  const loadServer = async () => {
+    if (key.trim().length < 24) { setServerStatus('Wpisz prywatny klucz administratora z konfiguracji serwera.'); return }
+    sessionStorage.setItem(ADMIN_CONTROL_KEY, key.trim()); setServerStatus('Pobieranie…')
+    try {
+      const response = await fetch('/api/analytics-summary.php', { method:'POST', headers:{'Content-Type':'application/json','X-DNP-Admin-Key':key.trim()}, body:JSON.stringify({rangeDays:Number(range)}) })
+      const json = await response.json() as {ok?:boolean;message?:string} & ServerAnalyticsSummary
+      if (!response.ok || !json.ok) throw new Error(json.message || `HTTP ${response.status}`)
+      setSummary(json); setServerStatus(`Dane serwera · ${range} dni`)
+    } catch (error) { setSummary(null); setServerStatus(`Nie pobrano: ${error instanceof Error ? error.message : 'błąd'}`) }
+  }
+  const rows = state.draft.houses.map((house) => ({ id: house.id, selections: local.filter((item) => item.houseCode === house.id && item.eventName === 'house_select').length, pdf: local.filter((item) => item.houseCode === house.id && item.eventName === 'house_pdf_download').length, leads: state.leads.filter((item) => item.houseCode === house.id).length }))
   const max = Math.max(...rows.map((item) => item.selections + item.pdf + item.leads), 1)
-  return <><div className="admin-page-tools"><div className="admin-tabs"><button className={range === '7' ? 'is-active' : ''} onClick={() => setRange('7')} type="button">7 dni</button><button className={range === '30' ? 'is-active' : ''} onClick={() => setRange('30')} type="button">30 dni</button><button className={range === '90' ? 'is-active' : ''} onClick={() => setRange('90')} type="button">90 dni</button></div><span>First-party · bez GA4 · bez PII</span></div><div className="admin-metrics admin-metrics--analytics"><Metric icon={Gauge} label="Zmierzone sesje" value={String(new Set(events.map((item) => item.sessionId || item.id)).size)} note="Po zgodzie" /><Metric icon={MessageSquare} label="Leady" value={String(state.leads.length)} note="Formularze demo" /><Metric icon={Download} label="Pobrania PDF" value={String(counts('house_pdf_download'))} note="Karty domów" /><Metric icon={Home} label="Starty spaceru" value={String(counts('tour_start'))} note={`${counts('tour_engaged')} zaangażowanych`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Lejek</span><h2>Ścieżka do kontaktu</h2></div></div><div className="admin-funnel"><div><strong>{events.length}</strong><span>Eventy</span></div><ChevronRight /><div><strong>{counts('house_select')}</strong><span>Wybrano dom</span></div><ChevronRight /><div><strong>{counts('house_pdf_download') + counts('house_card_open') + counts('tour_engaged')}</strong><span>Wysoka intencja</span></div><ChevronRight /><div><strong>{counts('contact_submit')}</strong><span>Kontakt</span></div></div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>A–E</span><h2>Zainteresowanie domami</h2></div></div><div className="admin-house-bars">{rows.map((row) => <div key={row.id}><b>{row.id}</b><span><i style={{ width: `${((row.selections + row.pdf + row.leads) / max) * 100}%` }} /></span><small>{row.selections} wyborów · {row.pdf} PDF · {row.leads} leadów</small></div>)}</div></section></div><section className="admin-panel"><div className="admin-panel__heading"><div><span>Prywatność</span><h2>Zakres pomiaru</h2></div></div><p className="admin-help">Analityka uruchamia się wyłącznie po zgodzie. Nie zapisuje imienia, telefonu, e-maila, wiadomości, ruchu myszy ani nagrań sesji. Odmowa nie wpływa na działanie strony.</p></section></>
+  return <>
+    <div className="admin-page-tools"><div className="admin-tabs">{['7','30','90','180'].map(value => <button key={value} className={range===value?'is-active':''} onClick={()=>setRange(value)} type="button">{value} dni</button>)}</div><span>First-party · pseudonimowo · bez danych formularza</span></div>
+    <section className="admin-panel"><div className="admin-panel__heading"><div><span>Serwer produkcyjny</span><h2>Analityka odwiedzin i powrotów</h2><p>Klucz pozostaje w sessionStorage tej karty i nie jest zapisywany w publicznych danych strony.</p></div></div><div className="admin-form-grid"><label className="admin-form-wide">Klucz administratora<input type="password" autoComplete="off" value={key} onChange={e=>setKey(e.target.value)} /></label></div><div className="admin-button-row"><button className="admin-button admin-button--primary" type="button" onClick={loadServer}><Gauge /> Pobierz dane serwera</button><span>{serverStatus}</span></div></section>
+    {summary ? <><div className="admin-metrics admin-metrics--analytics"><Metric icon={Users} label="Użytkownicy" value={String(summary.uniqueVisitors)} note={`${summary.returningVisitors} powracających`} /><Metric icon={Gauge} label="Wizyty" value={String(summary.uniqueVisits)} note={`${range} dni`} /><Metric icon={CalendarDays} label="Czas zaangażowania" value={durationLabel(summary.engagedDurationMs)} note="Sekcje + spacer" /><Metric icon={Home} label="Urządzenia" value={`${summary.devices.mobile??0} mobile`} note={`${summary.devices.desktop??0} desktop · ${summary.devices.tablet??0} tablet`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Czas</span><h2>Najdłużej oglądane sekcje</h2></div></div><div className="admin-house-bars">{summary.sections.slice(0,10).map(row=><div key={row.id}><b>{row.id}</b><small>{row.views} wejść · {durationLabel(row.durationMs)}</small></div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Powroty</span><h2>Ostatni pseudonimowi użytkownicy</h2></div></div><div className="admin-revisions">{summary.visitors.slice(0,12).map(v=><div key={v.id}><span><strong>{v.id}</strong><small>{v.visits} wizyt · {durationLabel(v.durationMs)} · {v.device} · {v.lastPath}</small></span></div>)}</div></section></div></> : <><div className="admin-metrics admin-metrics--analytics"><Metric icon={Gauge} label={usingDemo ? "Sesje (demo)" : "Lokalne sesje"} value={String(new Set(local.map(item=>item.sessionId||item.id)).size)} note={usingDemo ? "Symulowany użytkownik" : "Podgląd/dev po zgodzie"} /><Metric icon={MessageSquare} label="Leady demo" value={String(state.leads.length)} note="Lokalne dane" /><Metric icon={Download} label="Pobrania PDF" value={String(counts('house_pdf_download'))} note="Podgląd/dev" /><Metric icon={Home} label="Starty spaceru" value={String(counts('tour_start'))} note={`${counts('tour_engaged')} zaangażowanych`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Podgląd lokalny</span><h2>Zainteresowanie domami</h2></div></div><div className="admin-house-bars">{rows.map(row=><div key={row.id}><b>{row.id}</b><span><i style={{width:`${((row.selections+row.pdf+row.leads)/max)*100}%`}} /></span><small>{row.selections} wyborów · {row.pdf} PDF · {row.leads} leadów</small></div>)}</div></section></div></>}
+    <DemoVisitorJourney />
+    <section className="admin-panel"><div className="admin-panel__heading"><div><span>Prywatność</span><h2>Zakres pomiaru</h2></div></div><p className="admin-help">Po zgodzie analitycznej losowy identyfikator first-party może rozpoznawać powroty maksymalnie przez 180 dni. Mierzymy sekcje, czas, sceny spaceru, typ urządzenia i kampanię. Nie zapisujemy w analityce imienia, telefonu, e-maila, wiadomości, pełnego User-Agent, ruchu myszy ani nagrań sesji. Opcja „Tylko niezbędne” wyłącza ten pomiar.</p></section>
+  </>
+}
+
+type GovStatus = { state:{enabled:boolean;lastAttempt?:string|null;lastSuccess?:string|null;lastError?:string|null}; transport:{ready:boolean;mode:string;endpointConfigured:boolean;schemaId?:string;note:string}; payload?:unknown }
+function GovSyncPanel() {
+  const [key,setKey]=useState(()=>sessionStorage.getItem(ADMIN_CONTROL_KEY)??'')
+  const [info,setInfo]=useState<GovStatus|null>(null); const [message,setMessage]=useState('')
+  const call = async (action:'status'|'preview'|'enable'|'disable'|'publish') => {
+    if(key.trim().length<24){setMessage('Wpisz prywatny klucz administratora.');return}
+    sessionStorage.setItem(ADMIN_CONTROL_KEY,key.trim());setMessage('Łączenie…')
+    try{
+      const response=await fetch('/api/gov-sync.php',{method:'POST',headers:{'Content-Type':'application/json','X-DNP-Admin-Key':key.trim()},body:JSON.stringify({action})})
+      const json=await response.json() as {ok?:boolean;message?:string;state?:GovStatus['state'];transport?:GovStatus['transport'];payload?:unknown}
+      if(!response.ok||!json.ok)throw new Error(json.message||`HTTP ${response.status}`)
+      if(json.state&&json.transport)setInfo({state:json.state,transport:json.transport,payload:json.payload}); setMessage(json.message||'Gotowe.')
+    }catch(error){setMessage(error instanceof Error?error.message:'Błąd Gov Sync')}
+  }
+  const enable = () => { if(window.confirm('Od tej chwili, po poprawnej konfiguracji oficjalnego transportu, dane mogą być wysyłane ręcznie i przez zadanie cron. Możesz wyłączyć synchronizację w każdej chwili. Włączyć?')) void call('enable') }
+  return <section className="admin-panel admin-gov-panel"><div className="admin-panel__heading"><div><span>Raportowanie cen</span><h2>Gov Sync</h2><p>Adapter korzysta wyłącznie z opublikowanych danych oferty. Nie udaje wysyłki: bez oficjalnego endpointu i credentiali serwer odmówi włączenia.</p></div><StatusPill status={info?.state.enabled?'Włączony':'Wyłączony'} /></div><div className="admin-form-grid"><label className="admin-form-wide">Klucz administratora<input type="password" autoComplete="off" value={key} onChange={e=>setKey(e.target.value)} /></label></div><div className="admin-button-row"><button className="admin-button" type="button" onClick={()=>void call('status')}>Sprawdź status</button><button className="admin-button" type="button" onClick={()=>void call('preview')}>Podgląd danych</button>{info?.state.enabled?<button className="admin-button admin-button--danger" type="button" onClick={()=>void call('disable')}>Wyłącz</button>:<button className="admin-button admin-button--primary" type="button" onClick={enable}>Włącz publikację</button>}<button className="admin-button admin-button--primary" type="button" disabled={!info?.state.enabled} onClick={()=>void call('publish')}>Publikuj teraz</button></div><div className="admin-gov-status"><div><span>Transport</span><strong>{info?.transport.ready?'Gotowy':'Nie skonfigurowany'}</strong></div><div><span>Ostatni sukces</span><strong>{info?.state.lastSuccess?formatDate(info.state.lastSuccess):'—'}</strong></div><div><span>Ostatni błąd</span><strong>{info?.state.lastError||'—'}</strong></div></div>{message&&<p>{message}</p>}{info?.payload&&<details><summary>Minimalny payload do raportowania</summary><pre>{JSON.stringify(info.payload,null,2)}</pre></details>}</section>
 }
 
 function SettingsPage({ state, setState, updateDraft, onNotice }: { state: AdminState; setState: React.Dispatch<React.SetStateAction<AdminState>>; updateDraft: (updater: (draft: SiteData) => void, action?: string, entity?: string) => void; onNotice: (text: string) => void }) {
@@ -264,7 +419,7 @@ function SettingsPage({ state, setState, updateDraft, onNotice }: { state: Admin
     setState((current) => ({ ...current, lastBackupAt: now(), audit: [auditEntry('backup', 'System', 'Wyeksportowano lokalną kopię demonstracyjną.'), ...current.audit] }))
   }
   const reset = () => { const fresh = seedAdminState(); persistAdminState(fresh); localStorage.removeItem(PUBLISHED_DATA_KEY); setState(fresh); window.dispatchEvent(new Event(SITE_DATA_EVENT)); onNotice('Przywrócono początkowy stan demonstracyjny.') }
-  return <div className="admin-settings-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Dane globalne</span><h2>Kontakt</h2><p>Jedna zmiana aktualizuje header, sekcję kontaktu i footer po publikacji.</p></div></div><div className="admin-form-grid"><label>Telefon<input value={contact.phoneDisplay} onChange={(event) => setContact('phoneDisplay', event.target.value)} /></label><label>E-mail<input value={contact.email} onChange={(event) => setContact('email', event.target.value)} /></label><label>Adres — linia 1<input value={contact.addressLine1} onChange={(event) => setContact('addressLine1', event.target.value)} /></label><label>Adres — linia 2<input value={contact.addressLine2} onChange={(event) => setContact('addressLine2', event.target.value)} /></label><label>Godziny kontaktu<input value={contact.contactHours} onChange={(event) => setContact('contactHours', event.target.value)} /></label><label>Instagram<input value={contact.instagramHref} onChange={(event) => setContact('instagramHref', event.target.value)} /></label><label className="admin-form-wide">Link do mapy<input value={contact.mapHref} onChange={(event) => setContact('mapHref', event.target.value)} /></label></div></section><section className="admin-panel admin-gov-panel"><div className="admin-panel__heading"><div><span>Integracja cenowa</span><h2>Gov Sync</h2></div><StatusPill status="DEMO" /></div><div className="admin-gov-status"><div><span>Integracja zewnętrzna</span><strong>Wyłączona</strong></div><div><span>Payload preview</span><strong>Dostępny</strong></div><div><span>Wysyłka produkcyjna</span><strong>Zablokowana</strong></div></div><p>Adapter może przygotować i zwalidować podgląd danych. Kod demonstracyjny nie posiada endpointu ani credentiali i nie wykonuje zewnętrznego żądania.</p><details><summary>Podgląd payloadu demo</summary><pre>{JSON.stringify({ mode: 'demo', revision: state.draft.revision, houses: state.draft.houses.map(({ id, price, status }) => ({ id, price, status })), would_send: false }, null, 2)}</pre></details></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Wersjonowanie</span><h2>Historia publikacji</h2></div></div><div className="admin-revisions">{state.revisions.map((revision) => <div key={revision.id}><span><strong>Rewizja {revision.id}</strong><small>{formatDate(revision.createdAt)} · {revision.summary}</small></span>{revision.isCurrent ? <StatusPill status="Aktualna" /> : <button className="admin-button" type="button" onClick={() => setState((current) => ({ ...current, draft: clone(revision.snapshot), dirty: true, audit: [auditEntry('rollback_prepare', `Rewizja ${revision.id}`, 'Przygotowano starszy snapshot jako nowy draft.'), ...current.audit] }))}><RotateCcw /> Przywróć jako draft</button>}</div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Tylko do odczytu</span><h2>Dziennik operacji</h2></div></div><div className="admin-audit-list">{state.audit.slice(0, 20).map((entry) => <div key={entry.id}><time>{formatDate(entry.createdAt)}</time><strong>{entry.action}</strong><span>{entry.entity} · {entry.description}</span></div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Bezpieczeństwo danych</span><h2>Kopia i reset demo</h2></div></div><p>Ostatni eksport: {formatDate(state.lastBackupAt)}. Wersja demonstracyjna zapisuje dane wyłącznie w tej przeglądarce.</p><div className="admin-button-row"><button className="admin-button admin-button--primary" type="button" onClick={backup}><Download /> Eksportuj kopię JSON</button><button className="admin-button admin-button--danger" type="button" onClick={() => window.confirm('Usunąć wszystkie lokalne zmiany demonstracyjne?') && reset()}><RotateCcw /> Resetuj demo</button></div></section></div>
+  return <div className="admin-settings-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Dane globalne</span><h2>Kontakt</h2><p>Zapis lokalnego podglądu aktualizuje nagłówek, kontakt i stopkę w DEMO. Produkcja wymaga eksportu i wdrożenia JSON-a.</p></div></div><div className="admin-form-grid"><label>Telefon<input value={contact.phoneDisplay} onChange={(event) => setContact('phoneDisplay', event.target.value)} /></label><label>E-mail<input value={contact.email} onChange={(event) => setContact('email', event.target.value)} /></label><label>Adres — linia 1<input value={contact.addressLine1} onChange={(event) => setContact('addressLine1', event.target.value)} /></label><label>Adres — linia 2<input value={contact.addressLine2} onChange={(event) => setContact('addressLine2', event.target.value)} /></label><label>Godziny kontaktu<input value={contact.contactHours} onChange={(event) => setContact('contactHours', event.target.value)} /></label><label>Instagram<input value={contact.instagramHref} onChange={(event) => setContact('instagramHref', event.target.value)} /></label><label className="admin-form-wide">Link do mapy<input value={contact.mapHref} onChange={(event) => setContact('mapHref', event.target.value)} /></label></div></section><GovSyncPanel /><section className="admin-panel"><div className="admin-panel__heading"><div><span>Wersjonowanie</span><h2>Historia publikacji</h2></div></div><div className="admin-revisions">{state.revisions.map((revision) => <div key={revision.id}><span><strong>Rewizja {revision.id}</strong><small>{formatDate(revision.createdAt)} · {revision.summary}</small></span>{revision.isCurrent ? <StatusPill status="Aktualna" /> : <button className="admin-button" type="button" onClick={() => setState((current) => ({ ...current, draft: clone(revision.snapshot), dirty: true, audit: [auditEntry('rollback_prepare', `Rewizja ${revision.id}`, 'Przygotowano starszy snapshot jako nowy draft.'), ...current.audit] }))}><RotateCcw /> Przywróć jako draft</button>}</div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Tylko do odczytu</span><h2>Dziennik operacji</h2></div></div><div className="admin-audit-list">{state.audit.slice(0, 20).map((entry) => <div key={entry.id}><time>{formatDate(entry.createdAt)}</time><strong>{entry.action}</strong><span>{entry.entity} · {entry.description}</span></div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Bezpieczeństwo danych</span><h2>Kopia i reset demo</h2></div></div><p>Ostatni eksport: {formatDate(state.lastBackupAt)}. Wersja demonstracyjna zapisuje dane wyłącznie w tej przeglądarce.</p><div className="admin-button-row"><button className="admin-button admin-button--primary" type="button" onClick={backup}><Download /> Eksportuj kopię JSON</button><button className="admin-button admin-button--danger" type="button" onClick={() => window.confirm('Usunąć wszystkie lokalne zmiany demonstracyjne?') && reset()}><RotateCcw /> Resetuj demo</button></div></section></div>
 }
 
 function readAnalytics(): AnalyticsEvent[] {

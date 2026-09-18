@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "scope": "Apache HTTP/cache/static routing only, not a React build",
+  "checks": [
+    {
+      "check": "/: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/: no-store",
+      "passed": true
+    },
+    {
+      "check": "/data/site-data.json: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/data/site-data.json: no-store",
+      "passed": true
+    },
+    {
+      "check": "/assets/data/spacer-360-wewnetrzny.json: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/assets/data/spacer-360-wewnetrzny.json: no-store",
+      "passed": true
+    },
+    {
+      "check": "/tour/spacer-360-wewnatrz.html: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/tour/spacer-360-wewnatrz.html: no-store",
+      "passed": true
+    },
+    {
+      "check": "/assets/images/dnp-masterplan.webp: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/assets/images/dnp-masterplan.webp: mutable revalidation",
+      "passed": true
+    },
+    {
+      "check": "/tour/spacer-360-player.js: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/tour/spacer-360-player.js: mutable revalidation",
+      "passed": true
+    },
+    {
+      "check": "/favicon.svg: HTTP 200",
+      "passed": true
+    },
+    {
+      "check": "/favicon.svg: mutable revalidation",
+      "passed": true
+    },
+    {
+      "check": "Hashed build asset: one-year immutable",
+      "passed": true
+    },
+    {
+      "check": "Asset returns ETag",
+      "passed": true
+    },
+    {
+      "check": "Unchanged asset: conditional request is 304",
+      "passed": true
+    },
+    {
+      "check": "Same filename changed: HTTP 200 and a new ETag",
+      "passed": true
+    },
+    {
+      "check": "/administrator: real 404, no SPA fallback",
+      "passed": true
+    },
+    {
+      "check": "/does-not-exist: real 404, no SPA fallback",
+      "passed": true
+    },
+    {
+      "check": "/assets/images/location-map.png: real 404, no SPA fallback",
+      "passed": true
+    },
+    {
+      "check": "/.secret-test: private resource denied",
+      "passed": true
+    },
+    {
+      "check": "/api/config.example.php: private resource denied",
+      "passed": true
+    },
+    {
+      "check": "/api/data/: private resource denied",
+      "passed": true
+    }
+  ]
+}

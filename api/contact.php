@@ -1,48 +1,35 @@
 <?php
 declare(strict_types=1);
-header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-store');
-
-function respond(int $status, array $payload): never {
-    http_response_code($status);
-    echo json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    exit;
+require_once __DIR__.'/lib/security.php';
+try {
+    $config = dnpConfig();
+    [$data,$privateDir,$identity] = dnpGuard('contact',32768,$config);
+} catch (Throwable $error) {
+    error_log('[DNP contact] storage or configuration failure');
+    dnpRespond(503,['ok'=>false,'message'=>'Formularz jest chwilowo niedostępny. Skontaktuj się telefonicznie.'],60);
 }
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') respond(405, ['ok' => false, 'message' => 'Dozwolona jest wyłącznie metoda POST.']);
-
-$configPath = __DIR__ . '/config.php';
-if (!is_file($configPath)) respond(503, ['ok' => false, 'message' => 'Formularz oczekuje na konfigurację serwera pocztowego.']);
-$config = require $configPath;
-if (!is_array($config)) respond(500, ['ok' => false, 'message' => 'Nieprawidłowa konfiguracja formularza.']);
-
-$raw = file_get_contents('php://input');
-$data = json_decode($raw ?: '', true);
-if (!is_array($data)) respond(400, ['ok' => false, 'message' => 'Nieprawidłowe dane formularza.']);
-
-if (!empty($data['website'])) respond(200, ['ok' => true]); // honeypot
-
-session_start();
-$now = time();
-$last = (int)($_SESSION['dnp_contact_last'] ?? 0);
-if ($last && $now - $last < 45) respond(429, ['ok' => false, 'message' => 'Odczekaj chwilę przed ponownym wysłaniem formularza.']);
-
-$slice = static fn(string $value, int $max): string => function_exists('mb_substr') ? mb_substr($value, 0, $max) : substr($value, 0, $max);
-$length = static fn(string $value): int => function_exists('mb_strlen') ? mb_strlen($value) : strlen($value);
-$clean = static fn($value, int $max = 500): string => trim($slice(strip_tags((string)$value), $max));
-$name = $clean($data['name'] ?? '', 100);
-$phone = $clean($data['phone'] ?? '', 50);
-$email = $clean($data['email'] ?? '', 160);
-$message = $clean($data['message'] ?? '', 3000);
-$house = $clean($data['house'] ?? 'unknown', 20);
-$consentContact = filter_var($data['consentContact'] ?? false, FILTER_VALIDATE_BOOL);
-$consentPrivacy = filter_var($data['consentPrivacy'] ?? false, FILTER_VALIDATE_BOOL);
-
-if ($length($name) < 2 || $length((string)preg_replace('/\D+/', '', $phone)) < 7 || !$consentContact || !$consentPrivacy) {
-    respond(422, ['ok' => false, 'message' => 'Uzupełnij wymagane pola i zgody.']);
+if (!empty($data['website'])) dnpRespond(200,['ok'=>true]); // honeypot, after ingress limiting
+foreach (['name','phone','email','message','house'] as $field) {
+    if (isset($data[$field]) && !is_string($data[$field])) dnpRespond(422,['ok'=>false,'message'=>'Nieprawidłowy typ pola.']);
 }
-if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) respond(422, ['ok' => false, 'message' => 'Podaj poprawny adres e-mail.']);
-if (!in_array($house, ['A','B','C','D','E','unknown'], true)) $house = 'unknown';
+$length = static fn(string $s): int => preg_match_all('/./us',$s) ?: 0;
+$name=trim($data['name']??'');$phone=trim($data['phone']??'');$email=trim($data['email']??'');$message=trim($data['message']??'');
+$house=$data['house']??'unknown';
+$digits=preg_replace('/\D/','',$phone);
+if($length($name)<2||$length($name)>100||$length($phone)>50||strlen($digits)<7||strlen($digits)>15||!preg_match('/^[+\d\s().-]+$/',$phone)||($data['consentContact']??false)!==true||($data['consentPrivacy']??false)!==true) {
+    dnpRespond(422,['ok'=>false,'message'=>'Uzupełnij imię, poprawny telefon i wymagane zgody.']);
+}
+if($email!==''&&($length($email)>160||!filter_var($email,FILTER_VALIDATE_EMAIL)||preg_match('/[\r\n]/',$email)))dnpRespond(422,['ok'=>false,'message'=>'Podaj poprawny adres e-mail.']);
+if($length($message)>3000)dnpRespond(422,['ok'=>false,'message'=>'Wiadomość może mieć do 3000 znaków.']);
+if(!in_array($house,['A','B','C','D','E','unknown'],true))$house='unknown';
+// Limit valid delivery attempts, including failures; a new cookie does not reset this limit.
+try {
+    $retry=dnpLimit($privateDir,'contact-send',$identity,[[1,45],[5,3600],[100,86400,true]]);
+    if($retry)dnpRespond(429,['ok'=>false,'message'=>'Odczekaj przed kolejną wiadomością.'], $retry);
+} catch(Throwable $error) { dnpRespond(503,['ok'=>false,'message'=>'Formularz chwilowo niedostępny.'],60); }
+if(empty($config['smtp']))dnpRespond(503,['ok'=>false,'message'=>'Formularz oczekuje na konfigurację serwera pocztowego.']);
+foreach(['recipient','from_email'] as $key) if(!filter_var($config[$key]??'',FILTER_VALIDATE_EMAIL)||preg_match('/[\r\n]/',(string)($config[$key]??'')))dnpRespond(503,['ok'=>false,'message'=>'Formularz oczekuje na konfigurację poczty.']);
+if(preg_match('/[\r\n]/',(string)($config['from_name']??'')))dnpRespond(503,['ok'=>false,'message'=>'Formularz oczekuje na konfigurację poczty.']);
 
 function smtpRead($socket): string {
     $response = '';
@@ -64,6 +51,7 @@ function sendSmtp(array $cfg, string $to, string $fromEmail, string $fromName, s
     $timeout = 12;
     $socket = fsockopen($host, $port, $errno, $errstr, $timeout);
     if (!$socket) throw new RuntimeException("SMTP connect: $errstr ($errno)");
+    try {
     stream_set_timeout($socket, $timeout);
     $banner = smtpRead($socket);
     if ((int)substr($banner, 0, 3) !== 220) throw new RuntimeException('SMTP banner: ' . trim($banner));
@@ -88,13 +76,15 @@ function sendSmtp(array $cfg, string $to, string $fromEmail, string $fromName, s
         'Content-Transfer-Encoding: 8bit',
     ];
     if ($replyTo !== '') $headers[] = 'Reply-To: ' . $replyTo;
+    $body = preg_replace('/\r?\n/', "\r\n", $body);
     $safeBody = preg_replace('/(?m)^\./', '..', $body);
     fwrite($socket, implode("\r\n", $headers) . "\r\n\r\n" . $safeBody . "\r\n.\r\n");
     $response = smtpRead($socket);
     if ((int)substr($response, 0, 3) !== 250) throw new RuntimeException('SMTP DATA: ' . trim($response));
     smtpCommand($socket, 'QUIT', [221]);
-    fclose($socket);
+    } finally { fclose($socket); }
 }
+
 
 $houseLabel = $house === 'unknown' ? 'jeszcze nie wybrano' : 'Dom ' . $house;
 $body = "Nowe zapytanie ze strony Domy na Polnej\n\n" .
@@ -110,9 +100,8 @@ try {
         $body,
         $email
     );
-    $_SESSION['dnp_contact_last'] = $now;
-    respond(200, ['ok' => true]);
+    dnpRespond(200, ['ok' => true]);
 } catch (Throwable $error) {
-    error_log('[DNP contact] ' . $error->getMessage());
-    respond(502, ['ok' => false, 'message' => 'Nie udało się teraz wysłać wiadomości. Zadzwoń do nas lub spróbuj ponownie później.']);
+    error_log('[DNP contact] SMTP delivery failed');
+    dnpRespond(502, ['ok' => false, 'message' => 'Nie udało się teraz wysłać wiadomości. Zadzwoń do nas lub spróbuj ponownie później.']);
 }

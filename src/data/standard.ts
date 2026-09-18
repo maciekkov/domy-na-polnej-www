@@ -50,4 +50,5 @@ export const standardGroups = [
   },
 ] as const
 
-export const standardPdf = '/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf'
+import snapshot from '../../public/data/site-data.json'
+export const standardPdf = snapshot.standardPdf

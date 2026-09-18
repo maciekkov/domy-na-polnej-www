@@ -1,0 +1,1063 @@
+{
+  "summary": {
+    "scenes": 24,
+    "renders": 16,
+    "blender": 8,
+    "inputSketches": 29,
+    "inputRenderFiles": 20,
+    "uniqueRenders": 18
+  },
+  "mainTourOrder": [
+    "int01-wejscie-do-domu",
+    "int17-wiatrolap-i-kuchnia",
+    "int14-pralnia-wejscie",
+    "int28-pralnia-widok-na-wiatrolap",
+    "int05-kuchnia-barek",
+    "int06-kuchnia-wejscie-do-spizarni",
+    "int20-spizarnia",
+    "int02-salon-w-strone-kuchni",
+    "int03-jadalnia-i-taras",
+    "int11-sypialnia-rodzicow",
+    "int25-lazienka-prywatna-wanna",
+    "int26-lazienka-prywatna-umywalka",
+    "int12-lazienka-prywatna-powrot",
+    "int18-salon-wysoki-sufit",
+    "int07-korytarz-do-pokojow",
+    "int10-pokoj-mlodziezowy",
+    "int09-pokoj-dzieciecy",
+    "int21-korytarz-do-salonu",
+    "int13-lazienka-ogolna-wejscie",
+    "int27-lazienka-ogolna-prysznic",
+    "int22-gabinet-biurko",
+    "int08-gabinet-szafa-i-wylaz",
+    "int15-strych-widok-techniczny",
+    "int16-strych-wiazary"
+  ],
+  "sketches": [
+    {
+      "camera": "INT_01",
+      "sceneId": "int01-wejscie-do-domu",
+      "name": "Wejście do domu",
+      "room": "entry",
+      "status": "main",
+      "tourOrder": 1,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S01",
+        "file": "INT_01_PRZEDSIONEK_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "40ca1e6720da76ed055ff4f507e32a6f6b31853f0318659800c4e7914dd8bf99"
+      },
+      "render": {
+        "key": "R17",
+        "file": "ChatGPT Image 17 wrz 2026, 20_31_44.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "38f18097466b3f260919edbca80ecfc93fb519b1acadfeef9e4bdb38d3429693"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int01-wejscie-do-domu.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int01-wejscie-do-domu.webp"
+    },
+    {
+      "camera": "INT_02",
+      "sceneId": "int02-salon-w-strone-kuchni",
+      "name": "Salon · widok na kuchnię",
+      "room": "living",
+      "status": "main",
+      "tourOrder": 8,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S02",
+        "file": "INT_02_SALON_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "293bfbcea6ef1883f6b4049c67533db8f693102c106d72f621e0026b3d81a155"
+      },
+      "render": {
+        "key": "R04",
+        "file": "ChatGPT Image 17 wrz 2026, 19_16_50.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "45e936e913f12af141a0f29c7bb43613a75832881b5d13799b6568ab15a1567d"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int02-salon-w-strone-kuchni.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int02-salon-w-strone-kuchni.webp"
+    },
+    {
+      "camera": "INT_03",
+      "sceneId": "int03-jadalnia-i-taras",
+      "name": "Jadalnia · przy tarasie",
+      "room": "living",
+      "status": "main",
+      "tourOrder": 9,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S03",
+        "file": "INT_03_JADALNIA_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "a5087619006f5d133fe9ce0a6150a3b26bd62472e350fe31d229563630df0405"
+      },
+      "render": {
+        "key": "R11",
+        "file": "ChatGPT Image 17 wrz 2026, 20_08_52.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "10f88dcece39410d9bd5edbd7fdbfc33a70715558617d509851f92b3b4d372f2"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int03-jadalnia-i-taras.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int03-jadalnia-i-taras.webp"
+    },
+    {
+      "camera": "INT_04",
+      "sceneId": "int04-kuchnia-blat",
+      "name": "Kuchnia · zbliżenie blatu",
+      "room": "kitchen",
+      "status": "supplemental",
+      "tourOrder": null,
+      "reason": "Detal blatu jest dodatkowym, ciaśniejszym ujęciem kuchni. Pełniejszy INT_05 wystarcza do nawigacji.",
+      "sketch": {
+        "key": "S04",
+        "file": "INT_04_KUCHNIA_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "430089762bbec759360cbc54b4da57d174556be79741c6ad10221748bf458953"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int04-kuchnia-blat.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_05",
+      "sceneId": "int05-kuchnia-barek",
+      "name": "Kuchnia · barek",
+      "room": "kitchen",
+      "status": "main",
+      "tourOrder": 5,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S05",
+        "file": "INT_05_KUCHNIA_BAREK_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d6d160125f5e1ef0e44fd6e3fc4df4054f0717ae89223bac56b54620b9b5a3b8"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int05-kuchnia-barek.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_06",
+      "sceneId": "int06-kuchnia-wejscie-do-spizarni",
+      "name": "Kuchnia · wejście do spiżarni",
+      "room": "kitchen",
+      "status": "main",
+      "tourOrder": 6,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S06",
+        "file": "INT_06_SPIZARNIA_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "059b0e4fea3eb8836f2bb210e9b943e7579c6afa95ea158371fadffe26bd1f71"
+      },
+      "render": {
+        "key": "R18",
+        "file": "ChatGPT Image 17 wrz 2026, 20_32_56.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "04c6013e96d1a1d1a81b74f1e2cd0c9867152c6ec1dc25c06c624926f2b3b3d8"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int06-kuchnia-wejscie-do-spizarni.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int06-kuchnia-wejscie-do-spizarni.webp"
+    },
+    {
+      "camera": "INT_07",
+      "sceneId": "int07-korytarz-do-pokojow",
+      "name": "Korytarz · do pokoi",
+      "room": "hall",
+      "status": "main",
+      "tourOrder": 15,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S07",
+        "file": "INT_07_KORYTARZ_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "32e7273d91f34217088eb1fec47cdefc9b998f18443c3210248be972bfbb513a"
+      },
+      "render": {
+        "key": "R05",
+        "file": "ChatGPT Image 17 wrz 2026, 19_17_05.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "45192a4fe701aa16729cd48117529267e3269e63773d72728cf196255e9e4319"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int07-korytarz-do-pokojow.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int07-korytarz-do-pokojow.webp"
+    },
+    {
+      "camera": "INT_08",
+      "sceneId": "int08-gabinet-szafa-i-wylaz",
+      "name": "Gabinet · szafa i wyłaz",
+      "room": "office",
+      "status": "main",
+      "tourOrder": 22,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S08",
+        "file": "INT_08_GABINET_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "aef35c005de78cc765dafeec09676001ba19796c503e22a65ea9f2302de51cb5"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int08-gabinet-szafa-i-wylaz.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_09",
+      "sceneId": "int09-pokoj-dzieciecy",
+      "name": "Pokój dziecięcy",
+      "room": "child",
+      "status": "main",
+      "tourOrder": 17,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S09",
+        "file": "INT_09_POKOJ8_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "7ac61f23f59f266ee2395b698301566453bb9d5a66417ede828af64b8dab12dc"
+      },
+      "render": {
+        "key": "R10",
+        "file": "ChatGPT Image 17 wrz 2026, 20_02_46.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "1e63bedfb710f055b467d0a53cb6433a73b570e0224a4299e8c12dc2691e6872"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int09-pokoj-dzieciecy.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int09-pokoj-dzieciecy.webp"
+    },
+    {
+      "camera": "INT_10",
+      "sceneId": "int10-pokoj-mlodziezowy",
+      "name": "Pokój młodzieżowy",
+      "room": "teen",
+      "status": "main",
+      "tourOrder": 16,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S10",
+        "file": "INT_10_POKOJ9_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "31babdd01c9f4ff45086b052b3b584845308dea1936fe1da6929866ba6504f4c"
+      },
+      "render": {
+        "key": "R15",
+        "file": "ChatGPT Image 17 wrz 2026, 20_24_17.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8ababd477f18bed3cb3f1a1c3ca365ffd8320c5585ad763d071f051cbf8f1989"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int10-pokoj-mlodziezowy.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int10-pokoj-mlodziezowy.webp"
+    },
+    {
+      "camera": "INT_11",
+      "sceneId": "int11-sypialnia-rodzicow",
+      "name": "Sypialnia rodziców",
+      "room": "bedroom",
+      "status": "main",
+      "tourOrder": 10,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S11",
+        "file": "INT_11_SYPIALNIA_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "cd6a50f5ec9cb064159a303c78c86cf126f87354ec8310c06869c274177fdc98"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int11-sypialnia-rodzicow.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_12",
+      "sceneId": "int12-lazienka-prywatna-powrot",
+      "name": "Łazienka prywatna · do sypialni",
+      "room": "master-bath",
+      "status": "main",
+      "tourOrder": 13,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S12",
+        "file": "INT_12_LAZIENKA_MASTER_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "267c40740a529e0a776d74fc16845c182815e9bcee3d92a699c499b54b5b7dce"
+      },
+      "render": {
+        "key": "R02",
+        "file": "ChatGPT Image 17 wrz 2026, 18_42_20.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "7a71c50d8ce9dd61446ed50f0253946b24ff7724246f0db7bcf22e4fc7313941"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int12-lazienka-prywatna-powrot.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int12-lazienka-prywatna-powrot.webp"
+    },
+    {
+      "camera": "INT_13",
+      "sceneId": "int13-lazienka-ogolna-wejscie",
+      "name": "Łazienka ogólna · wejście",
+      "room": "bath",
+      "status": "main",
+      "tourOrder": 19,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S13",
+        "file": "INT_13_LAZIENKA_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3ce835b304c1769d94f326d52da8faf8b1d012543fb401585eaac2d6d5933997"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int13-lazienka-ogolna-wejscie.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_14",
+      "sceneId": "int14-pralnia-wejscie",
+      "name": "Pralnia · wejście",
+      "room": "utility",
+      "status": "main",
+      "tourOrder": 3,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S14",
+        "file": "INT_14_PRALNIA_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d33a87ebc263a4a00a449150880366ea3097d58a9d3ce94f0f5bb6ccbda2cc73"
+      },
+      "render": {
+        "key": "R09",
+        "file": "ChatGPT Image 17 wrz 2026, 19_51_02.png",
+        "size": [
+          1448,
+          1086
+        ],
+        "sha256": "cfe099349b7f692ca190441540c303b00420b6e0b236555a56cee28129da5561"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int14-pralnia-wejscie.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int14-pralnia-wejscie.webp"
+    },
+    {
+      "camera": "INT_15",
+      "sceneId": "int15-strych-widok-techniczny",
+      "name": "Strych · widok techniczny",
+      "room": "attic",
+      "status": "main",
+      "tourOrder": 23,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S15",
+        "file": "INT_15_STRYCH_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "57283369a51dda01cf5568c315b28420d3c2a25be3f91969ce3f90a6d8cb7001"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int15-strych-widok-techniczny.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_16",
+      "sceneId": "int16-strych-wiazary",
+      "name": "Strych · konstrukcja wiązarów",
+      "room": "attic",
+      "status": "main",
+      "tourOrder": 24,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S16",
+        "file": "INT_16_WIAZARY_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "4c4c9dc4d2b3044be12153255d36982140098f3d5381a39eefe2f19c3c3b36b1"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int16-strych-wiazary.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_17",
+      "sceneId": "int17-wiatrolap-i-kuchnia",
+      "name": "Wiatrołap i kuchnia",
+      "room": "entry",
+      "status": "main",
+      "tourOrder": 2,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S17",
+        "file": "INT_17_WEJSCIE_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "ac2781c14481f3eee6282086c43f154c909163c9a6a9ef4571e6717daec4167e"
+      },
+      "render": {
+        "key": "R06",
+        "file": "ChatGPT Image 17 wrz 2026, 19_29_15.png",
+        "size": [
+          1448,
+          1086
+        ],
+        "sha256": "1cbe45d9f56de2605495345af99097b334cd202d1d87e0eac96076961583eab6"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int17-wiatrolap-i-kuchnia.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int17-wiatrolap-i-kuchnia.webp"
+    },
+    {
+      "camera": "INT_18",
+      "sceneId": "int18-salon-wysoki-sufit",
+      "name": "Salon · wysoki sufit",
+      "room": "living",
+      "status": "main",
+      "tourOrder": 14,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S18",
+        "file": "INT_18_SALON_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "03ba7a4876487a10330e3abfa66aba2c8a38ba0baddec461e0d42198f43dfdbe"
+      },
+      "render": {
+        "key": "R16",
+        "file": "ChatGPT Image 17 wrz 2026, 20_24_55.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "07597f8ba197bc9f725f99ef814e8f57137a6ae82a26e3e01d79d2c0daa57db9"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int18-salon-wysoki-sufit.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int18-salon-wysoki-sufit.webp"
+    },
+    {
+      "camera": "INT_19",
+      "sceneId": "int19-jadalnia-widok-na-salon",
+      "name": "Jadalnia · drugi widok na salon",
+      "room": "living",
+      "status": "supplemental",
+      "tourOrder": null,
+      "reason": "Bardzo podobny widok do INT_18; do głównej trasy wybrano wyrenderowany INT_18.",
+      "sketch": {
+        "key": "S19",
+        "file": "INT_19_JADALNIA_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "84bad2f104cc91681ba98bd3ddd696a1b37fbc933acd012244ce57fd9b4629cd"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int19-jadalnia-widok-na-salon.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_20",
+      "sceneId": "int20-spizarnia",
+      "name": "Spiżarnia",
+      "room": "pantry",
+      "status": "main",
+      "tourOrder": 7,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S20",
+        "file": "INT_20_SPIZARNIA_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "6c5e479ed66559bb1bd5b3e1a0e64215154410d72166515c6015472dbddd05dd"
+      },
+      "render": {
+        "key": "R19",
+        "file": "ChatGPT Image 17 wrz 2026, 20_36_24.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "683fcc9a259ff51298cb22933dfc1ffe100b8dece6c9cbd9203ea87199321076"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int20-spizarnia.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int20-spizarnia.webp"
+    },
+    {
+      "camera": "INT_21",
+      "sceneId": "int21-korytarz-do-salonu",
+      "name": "Korytarz · do salonu",
+      "room": "hall",
+      "status": "main",
+      "tourOrder": 18,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S21",
+        "file": "INT_21_KORYTARZ_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "18da8f4d330d3a53b3deca906a1d3e774c86f12d21af88d2fb0fe1286ae83bae"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int21-korytarz-do-salonu.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_22",
+      "sceneId": "int22-gabinet-biurko",
+      "name": "Gabinet · stanowisko pracy",
+      "room": "office",
+      "status": "main",
+      "tourOrder": 21,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S22",
+        "file": "INT_22_GABINET_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d37734c9a7712e41a47c75af3a5854c11742c51b79ff76c91b3d3f658736fae2"
+      },
+      "render": {
+        "key": "R20",
+        "file": "ChatGPT Image 17 wrz 2026, 20_59_35.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "8fb8e017c9a9167dd5d62d5c4a1b0ab2a2b51a0931fe395a5ee3c4565d0542f5"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int22-gabinet-biurko.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int22-gabinet-biurko.webp"
+    },
+    {
+      "camera": "INT_23",
+      "sceneId": "int23-pokoj-dzieciecy-kontrkadr",
+      "name": "Pokój dziecięcy · kontrkadr",
+      "room": "child",
+      "status": "supplemental",
+      "tourOrder": null,
+      "reason": "Geometria odpowiada kontrkadrowi pokoju dziecięcego (INT_09), ale render ma wystrój młodzieżowy. Nie połączono sprzecznych aranżacji.",
+      "sketch": {
+        "key": "S23",
+        "file": "INT_23_POKOJ8_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "67b095cf9610258fadef7f717d12dc5d6581d61a94f3b9934d2c8146b3255626"
+      },
+      "render": {
+        "key": "R12",
+        "file": "ChatGPT Image 17 wrz 2026, 20_18_31.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "42ae0735809e2bc323e8c983a948f528c5125001ad4cf6d3abed1582abee7d6d"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int23-pokoj-dzieciecy-kontrkadr.webp",
+      "renderPath": "docs/spacer-wnetrza/warianty/int23-pokoj-dzieciecy-kontrkadr-wariant-renderu.webp"
+    },
+    {
+      "camera": "INT_24",
+      "sceneId": "int24-pokoj-mlodziezowy-kontrkadr",
+      "name": "Pokój młodzieżowy · kontrkadr",
+      "room": "teen",
+      "status": "supplemental",
+      "tourOrder": null,
+      "reason": "Geometria odpowiada kontrkadrowi pokoju młodzieżowego (INT_10), ale render ma wystrój dziecięcy. Nie połączono sprzecznych aranżacji.",
+      "sketch": {
+        "key": "S24",
+        "file": "INT_24_POKOJ9_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "50368d37088734e078633fd16143f332129c8393f381c3976b22b82757b02009"
+      },
+      "render": {
+        "key": "R14",
+        "file": "ChatGPT Image 17 wrz 2026, 20_19_09.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "38104ab6cc791272d9a94a2dc3fcf367277c5cea4ccf6051b1ee3b35605cf84f"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int24-pokoj-mlodziezowy-kontrkadr.webp",
+      "renderPath": "docs/spacer-wnetrza/warianty/int24-pokoj-mlodziezowy-kontrkadr-wariant-renderu.webp"
+    },
+    {
+      "camera": "INT_25",
+      "sceneId": "int25-lazienka-prywatna-wanna",
+      "name": "Łazienka prywatna · wanna",
+      "room": "master-bath",
+      "status": "main",
+      "tourOrder": 11,
+      "reason": "Użyty w głównej trasie. Nazwa źródłowa SYPIALNIA_B jest błędna: na obrazie znajduje się łazienka prywatna z wanną.",
+      "sketch": {
+        "key": "S25",
+        "file": "INT_25_SYPIALNIA_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "fb1bf8fcdb25e03bd1347a506bbc1f68550eadc52fd1d13cb0a7e3b8f897da4e"
+      },
+      "render": {
+        "key": "R01",
+        "file": "ChatGPT Image 17 wrz 2026, 18_34_56.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "28e89835f3e74c6059d1dc44f242286d605d89623f2132c63a876d9cdbef88fe"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int25-lazienka-prywatna-wanna.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int25-lazienka-prywatna-wanna.webp"
+    },
+    {
+      "camera": "INT_26",
+      "sceneId": "int26-lazienka-prywatna-umywalka",
+      "name": "Łazienka prywatna · umywalka",
+      "room": "master-bath",
+      "status": "main",
+      "tourOrder": 12,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S26",
+        "file": "INT_26_LAZIENKA_MASTER_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "c6dde2214d51fcaa280ca6199d57f8b5f0834cbde26c053418423cf3a4f77966"
+      },
+      "render": {
+        "key": "R03",
+        "file": "ChatGPT Image 17 wrz 2026, 18_42_26.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "824722008e325c7ad0161ce09563a983f5c5b1192e8e3b5161ae0f09a8c330de"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int26-lazienka-prywatna-umywalka.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int26-lazienka-prywatna-umywalka.webp"
+    },
+    {
+      "camera": "INT_27",
+      "sceneId": "int27-lazienka-ogolna-prysznic",
+      "name": "Łazienka ogólna · prysznic",
+      "room": "bath",
+      "status": "main",
+      "tourOrder": 20,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S27",
+        "file": "INT_27_LAZIENKA_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "306f78395fdb3f3de08e57e366fe3a5bf670aaad007658ebe298270c956b2be0"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int27-lazienka-ogolna-prysznic.webp",
+      "renderPath": null
+    },
+    {
+      "camera": "INT_28",
+      "sceneId": "int28-pralnia-widok-na-wiatrolap",
+      "name": "Pralnia · widok na wiatrołap",
+      "room": "utility",
+      "status": "main",
+      "tourOrder": 4,
+      "reason": "Użyty w głównej trasie.",
+      "sketch": {
+        "key": "S28",
+        "file": "INT_28_PRALNIA_B_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "ae1530e2019408bf087801221c8af9cbc83afce631d94e3f6568dbc79a0e82f6"
+      },
+      "render": {
+        "key": "R07",
+        "file": "ChatGPT Image 17 wrz 2026, 19_43_14.png",
+        "size": [
+          1672,
+          941
+        ],
+        "sha256": "69012363d4655b5a0f3932604ec38be57c4c2b33267e31d678eaf5a93c35d65e"
+      },
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int28-pralnia-widok-na-wiatrolap.webp",
+      "renderPath": "public/assets/images/spacer-360/interior/webp/int28-pralnia-widok-na-wiatrolap.webp"
+    },
+    {
+      "camera": "INT_29",
+      "sceneId": "int29-przejscie-loft-zasloniety",
+      "name": "Przejście na strych · kadr zasłonięty",
+      "room": "attic",
+      "status": "rejected",
+      "tourOrder": null,
+      "reason": "Kamera jest zasłonięta zabudową; brak czytelnego przejścia. Dostęp do widoków technicznych prowadzony przez wyłaz w INT_08, bez wymyślania schodów.",
+      "sketch": {
+        "key": "S29",
+        "file": "INT_29_PRZEJSCIE_LOFT_DZIEN.png",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "deff1a2bfad22b209042e79668036e380a74f82fa9aa666ec676cd4f4373e85a"
+      },
+      "render": null,
+      "sketchPath": "public/assets/images/spacer-360/interior/blender/int29-przejscie-loft-zasloniety.webp",
+      "renderPath": null
+    }
+  ],
+  "renders": [
+    {
+      "key": "R01",
+      "file": "ChatGPT Image 17 wrz 2026, 18_34_56.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "28e89835f3e74c6059d1dc44f242286d605d89623f2132c63a876d9cdbef88fe",
+      "camera": "INT_25",
+      "sceneId": "int25-lazienka-prywatna-wanna",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R02",
+      "file": "ChatGPT Image 17 wrz 2026, 18_42_20.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "7a71c50d8ce9dd61446ed50f0253946b24ff7724246f0db7bcf22e4fc7313941",
+      "camera": "INT_12",
+      "sceneId": "int12-lazienka-prywatna-powrot",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R03",
+      "file": "ChatGPT Image 17 wrz 2026, 18_42_26.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "824722008e325c7ad0161ce09563a983f5c5b1192e8e3b5161ae0f09a8c330de",
+      "camera": "INT_26",
+      "sceneId": "int26-lazienka-prywatna-umywalka",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R04",
+      "file": "ChatGPT Image 17 wrz 2026, 19_16_50.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "45e936e913f12af141a0f29c7bb43613a75832881b5d13799b6568ab15a1567d",
+      "camera": "INT_02",
+      "sceneId": "int02-salon-w-strone-kuchni",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R05",
+      "file": "ChatGPT Image 17 wrz 2026, 19_17_05.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "45192a4fe701aa16729cd48117529267e3269e63773d72728cf196255e9e4319",
+      "camera": "INT_07",
+      "sceneId": "int07-korytarz-do-pokojow",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R06",
+      "file": "ChatGPT Image 17 wrz 2026, 19_29_15.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "1cbe45d9f56de2605495345af99097b334cd202d1d87e0eac96076961583eab6",
+      "camera": "INT_17",
+      "sceneId": "int17-wiatrolap-i-kuchnia",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R07",
+      "file": "ChatGPT Image 17 wrz 2026, 19_43_14.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "69012363d4655b5a0f3932604ec38be57c4c2b33267e31d678eaf5a93c35d65e",
+      "camera": "INT_28",
+      "sceneId": "int28-pralnia-widok-na-wiatrolap",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R08",
+      "file": "ChatGPT Image 17 wrz 2026, 19_43_22.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "1cbe45d9f56de2605495345af99097b334cd202d1d87e0eac96076961583eab6",
+      "camera": "INT_17",
+      "sceneId": "int17-wiatrolap-i-kuchnia",
+      "status": "duplicate",
+      "duplicateOf": "ChatGPT Image 17 wrz 2026, 19_29_15.png"
+    },
+    {
+      "key": "R09",
+      "file": "ChatGPT Image 17 wrz 2026, 19_51_02.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "cfe099349b7f692ca190441540c303b00420b6e0b236555a56cee28129da5561",
+      "camera": "INT_14",
+      "sceneId": "int14-pralnia-wejscie",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R10",
+      "file": "ChatGPT Image 17 wrz 2026, 20_02_46.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "1e63bedfb710f055b467d0a53cb6433a73b570e0224a4299e8c12dc2691e6872",
+      "camera": "INT_09",
+      "sceneId": "int09-pokoj-dzieciecy",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R11",
+      "file": "ChatGPT Image 17 wrz 2026, 20_08_52.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "10f88dcece39410d9bd5edbd7fdbfc33a70715558617d509851f92b3b4d372f2",
+      "camera": "INT_03",
+      "sceneId": "int03-jadalnia-i-taras",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R12",
+      "file": "ChatGPT Image 17 wrz 2026, 20_18_31.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "42ae0735809e2bc323e8c983a948f528c5125001ad4cf6d3abed1582abee7d6d",
+      "camera": "INT_23",
+      "sceneId": "int23-pokoj-dzieciecy-kontrkadr",
+      "status": "review-variant",
+      "duplicateOf": null
+    },
+    {
+      "key": "R13",
+      "file": "ChatGPT Image 17 wrz 2026, 20_18_46.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "1e63bedfb710f055b467d0a53cb6433a73b570e0224a4299e8c12dc2691e6872",
+      "camera": "INT_09",
+      "sceneId": "int09-pokoj-dzieciecy",
+      "status": "duplicate",
+      "duplicateOf": "ChatGPT Image 17 wrz 2026, 20_02_46.png"
+    },
+    {
+      "key": "R14",
+      "file": "ChatGPT Image 17 wrz 2026, 20_19_09.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "38104ab6cc791272d9a94a2dc3fcf367277c5cea4ccf6051b1ee3b35605cf84f",
+      "camera": "INT_24",
+      "sceneId": "int24-pokoj-mlodziezowy-kontrkadr",
+      "status": "review-variant",
+      "duplicateOf": null
+    },
+    {
+      "key": "R15",
+      "file": "ChatGPT Image 17 wrz 2026, 20_24_17.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "8ababd477f18bed3cb3f1a1c3ca365ffd8320c5585ad763d071f051cbf8f1989",
+      "camera": "INT_10",
+      "sceneId": "int10-pokoj-mlodziezowy",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R16",
+      "file": "ChatGPT Image 17 wrz 2026, 20_24_55.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "07597f8ba197bc9f725f99ef814e8f57137a6ae82a26e3e01d79d2c0daa57db9",
+      "camera": "INT_18",
+      "sceneId": "int18-salon-wysoki-sufit",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R17",
+      "file": "ChatGPT Image 17 wrz 2026, 20_31_44.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "38f18097466b3f260919edbca80ecfc93fb519b1acadfeef9e4bdb38d3429693",
+      "camera": "INT_01",
+      "sceneId": "int01-wejscie-do-domu",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R18",
+      "file": "ChatGPT Image 17 wrz 2026, 20_32_56.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "04c6013e96d1a1d1a81b74f1e2cd0c9867152c6ec1dc25c06c624926f2b3b3d8",
+      "camera": "INT_06",
+      "sceneId": "int06-kuchnia-wejscie-do-spizarni",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R19",
+      "file": "ChatGPT Image 17 wrz 2026, 20_36_24.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "683fcc9a259ff51298cb22933dfc1ffe100b8dece6c9cbd9203ea87199321076",
+      "camera": "INT_20",
+      "sceneId": "int20-spizarnia",
+      "status": "main",
+      "duplicateOf": null
+    },
+    {
+      "key": "R20",
+      "file": "ChatGPT Image 17 wrz 2026, 20_59_35.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "8fb8e017c9a9167dd5d62d5c4a1b0ab2a2b51a0931fe395a5ee3c4565d0542f5",
+      "camera": "INT_22",
+      "sceneId": "int22-gabinet-biurko",
+      "status": "main",
+      "duplicateOf": null
+    }
+  ],
+  "missingMainRenders": [
+    "INT_05_KUCHNIA_BAREK_DZIEN.png",
+    "INT_11_SYPIALNIA_DZIEN.png",
+    "INT_21_KORYTARZ_B_DZIEN.png",
+    "INT_13_LAZIENKA_DZIEN.png",
+    "INT_27_LAZIENKA_B_DZIEN.png",
+    "INT_08_GABINET_DZIEN.png",
+    "INT_15_STRYCH_DZIEN.png",
+    "INT_16_WIAZARY_DZIEN.png"
+  ]
+}

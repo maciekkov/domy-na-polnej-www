@@ -1,8 +1,6 @@
 import { CreditCard, FileText, Handshake, House, KeyRound, Landmark, ScrollText, ShieldCheck } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { purchaseSteps, safetyPillars } from '../../data/purchaseProcess'
-import './SecurityProcess.css'
-
 const pillarIcons = [ShieldCheck, ScrollText, Handshake]
 const processIcons = [House, FileText, Handshake, CreditCard, KeyRound]
 

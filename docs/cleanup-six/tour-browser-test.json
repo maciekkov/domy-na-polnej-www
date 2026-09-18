@@ -1,0 +1,8 @@
+{
+  "status": "blocked",
+  "reason": "Chromium Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at loopback HTTP URL",
+  "sceneStates": 0,
+  "hotspotClicks": 0,
+  "checks": 0,
+  "notPassed": true
+}

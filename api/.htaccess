@@ -5,4 +5,8 @@ Options -Indexes
 </FilesMatch>
 
 RewriteEngine On
-RewriteRule ^data/ - [F,L]
+RewriteRule ^(?:data|lib)/ - [F,L]
+
+<Files "event-names.json">
+  Require all denied
+</Files>

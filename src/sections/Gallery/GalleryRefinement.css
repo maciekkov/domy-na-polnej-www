@@ -25,3 +25,11 @@
     grid-row: auto;
   }
 }
+
+/* Interior tour is live. Keep the existing exterior choice-card styling. */
+.tour-choice-option__note { color: rgba(255,255,255,.6); font-size: 12px; line-height: 1.45; }
+.tour-choice-option--interior { border-color: rgba(231,195,111,.28); }
+@media (max-height: 680px) {
+  .tour-choice-modal { overflow-y: auto; align-items: flex-start; }
+  .tour-choice-modal__card { margin-block: 20px; }
+}

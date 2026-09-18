@@ -1,0 +1,16 @@
+{
+  "oldCssFiles": 12,
+  "newCssFiles": 24,
+  "oldCssBytes": 205148,
+  "newCssBytes": 180506,
+  "oldGlobalLines": 2457,
+  "newGlobalLines": 273,
+  "oldImportant": 202,
+  "newImportant": 7,
+  "productionImportant": 4,
+  "explanation": "4 remaining production !important declarations implement prefers-reduced-motion. 3 others remain only in the development-only admin stylesheet.",
+  "shadowedDeclarationsRemoved": 450,
+  "deadSelectorsRemoved": 72,
+  "deadKeyframesRemoved": 5,
+  "cssComparison": "Same recorded DOM, initial state and active masterplan paths, 7 viewports; only expected total main height changes due to the larger contact section; icons/font fallbacks in fixtures. Not bundled application E2E."
+}

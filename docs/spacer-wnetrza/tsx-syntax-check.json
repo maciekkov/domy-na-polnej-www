@@ -1,0 +1,11 @@
+{
+  "syntaxOnly": true,
+  "typescript": "5.8.3",
+  "files": [
+    "src/sections/Gallery/Gallery.tsx",
+    "src/sections/Gallery/TourChoiceModal.tsx",
+    "src/sections/Gallery/TourFrameModal.tsx",
+    "src/data/tours.ts"
+  ],
+  "errors": []
+}

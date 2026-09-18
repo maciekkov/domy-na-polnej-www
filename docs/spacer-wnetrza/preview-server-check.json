@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 3298
+  },
+  {
+    "path": "/tour/spacer-360-wewnatrz.html",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 4715
+  },
+  {
+    "path": "/tour/spacer-360-zewnatrz.html",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 4715
+  },
+  {
+    "path": "/tour/spacer-360-player.js",
+    "status": 200,
+    "contentType": "text/javascript; charset=utf-8",
+    "bytes": 20135
+  },
+  {
+    "path": "/assets/data/spacer-360-wewnetrzny.json",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "bytes": 43964
+  },
+  {
+    "path": "/assets/images/spacer-360/interior/webp/int01-wejscie-do-domu.webp",
+    "status": 200,
+    "contentType": "image/webp",
+    "bytes": 233564
+  }
+]

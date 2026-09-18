@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 const benefits = [
-  { icon: 'assets/images/ui/why-home/garden.png', title: 'Własny ogród', text: 'Duże działki 806–1006 m²' },
-  { icon: 'assets/images/ui/why-home/architecture.png', title: 'Nowoczesna architektura', text: 'Prosta forma, ponadczasowy styl' },
-  { icon: 'assets/images/ui/why-home/nature.png', title: 'Spokojna okolica', text: 'Blisko natury, z dala od zgiełku' },
-  { icon: 'assets/images/ui/why-home/value.png', title: 'Wartość na lata', text: 'Dom pomyślany na kolejne etapy życia' },
+  { icon: 'assets/images/ui/why-home/garden.png?v=5bc240f2929e0bc5', title: 'Własny ogród', text: 'Duże działki 806–1006 m²' },
+  { icon: 'assets/images/ui/why-home/architecture.png?v=2a1a28acc5f65157', title: 'Nowoczesna architektura', text: 'Prosta forma, ponadczasowy styl' },
+  { icon: 'assets/images/ui/why-home/nature.png?v=b06f93bac258b697', title: 'Spokojna okolica', text: 'Blisko natury, z dala od zgiełku' },
+  { icon: 'assets/images/ui/why-home/value.png?v=94a0f04c1336b7e4', title: 'Wartość na lata', text: 'Dom pomyślany na kolejne etapy życia' },
 ]
 
 export function WhyHome() {
@@ -49,7 +49,7 @@ export function WhyHome() {
         </div>
 
         <figure className="why-home__visual">
-          <img src={asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp')} alt="Dom na Polnej od strony ogrodu z widokiem na tylną elewację" width="1672" height="941" loading="lazy" decoding="async" />
+          <img src={asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b')} alt="Dom na Polnej od strony ogrodu z widokiem na tylną elewację" width="1672" height="941" loading="lazy" decoding="async" />
         </figure>
       </div>
     </section>
