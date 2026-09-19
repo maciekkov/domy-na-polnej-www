@@ -56,8 +56,8 @@
   line-height: 1.55;
 }
 
-.consent-banner__copy .consent-banner__detail {
-  margin-top: 8px;
+.consent-banner__detail {
+  margin-top: 8px !important;
   padding-top: 8px;
   border-top: 1px solid rgba(31, 66, 54, 0.1);
 }

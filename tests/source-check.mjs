@@ -19,7 +19,7 @@ export const required = [
   'api/contact.php','api/analytics.php','api/analytics-summary.php','api/gov-sync.php','api/gov-sync-cron.php','api/lib/gov-sync.php','api/config.example.php','api/.htaccess',
   'public/.htaccess','public/robots.txt','public/sitemap.xml','scripts/prepare-dist.mjs',
   'scripts/version-assets.mjs','scripts/publish-site-data.mjs','scripts/build-cache.htaccess',
-  'public/assets/images/dnp-masterplan.webp','public/assets/images/ui/masterplan-compass.png',
+  'public/assets/images/dnp-masterplan.webp','public/assets/images/ui/masterplan-north.svg',
   'public/assets/images/layout/plan-2d-precise.webp','public/assets/images/layout/plan-3d.webp',
   'public/assets/images/neighborhood/panorama-360-grabik.webp',
   'public/tour/spacer-360-player.js','public/tour/spacer-360-player.css',
@@ -39,7 +39,7 @@ check(app.includes("params.delete('dom')") && app.includes('isHouseId(initial)')
 check(!/import\s+\{\s*recordDemoLead\s*\}\s+from/.test(form), 'Brak statycznego importu CRM demo')
 check(form.includes('import.meta.env.DEV && demoAdminAllowed()') && form.includes('result.preview === true'), 'Demo i podgląd nie udają wysłania wiadomości')
 check(!/import\s+\{\s*AdminApp\s*\}\s+from/.test(main) && main.includes('import.meta.env.DEV\n  ? lazy('), 'Admin nie może wejść do builda produkcyjnego')
-check(read('src/data/runtime/demoMode.ts').includes('import.meta.env.DEV') && read('src/data/runtime/demoMode.ts').includes('localhost'), 'Demo działa wyłącznie w Vite DEV na loopback')
+check(read('src/data/runtime/demoMode.ts').includes("VITE_ENABLE_DEMO_ADMIN === 'true'"), 'Demo wymaga jawnego włączenia')
 check(!main.includes("import './styles/admin.css'"), 'CSS administratora ładowany tylko z modułem demo')
 const provider=read('src/data/runtime/SiteDataProvider.tsx')
 check(provider.includes('fetch(SITE_DATA_URL') && provider.includes('parseSiteData(await response.json())'), 'Produkcja pobiera i waliduje JSON')

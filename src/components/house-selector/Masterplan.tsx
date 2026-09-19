@@ -75,7 +75,7 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
 
       <img
         className="masterplan__compass"
-        src={asset('assets/images/ui/masterplan-compass.png?v=a3ef53cfd0a90b2f')}
+        src={asset('assets/images/ui/masterplan-north.svg?v=20260918b')}
         alt=""
         aria-hidden="true"
         draggable="false"

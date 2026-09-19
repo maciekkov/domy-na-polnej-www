@@ -16,7 +16,6 @@ import {
   ADMIN_SESSION_KEY, auditEntry, formatDate, persistAdminState, readAdminState,
   seedAdminState, type AdminState, type Lead, type LeadStatus,
 } from './demoStore'
-import { createDemoAnalyticsEvents, demoJourney, demoJourneyDurationSec, demoJourneyRows, demoVisitor } from './demoAnalytics'
 
 type AdminPage = 'dashboard' | 'houses' | 'construction' | 'documents' | 'leads' | 'analytics' | 'settings'
 
@@ -273,86 +272,6 @@ function LeadDrawer({ lead, onClose, onSave }: { lead: Lead; onClose: () => void
   return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="lead-title"><button className="admin-modal__backdrop" type="button" onClick={onClose} aria-label="Zamknij" /><section className="admin-drawer"><header><div><span>Zapytanie · Dom {lead.houseCode}</span><h2 id="lead-title">{lead.name}</h2></div><button type="button" onClick={onClose}><X /></button></header><div className="admin-drawer__body"><div className="admin-lead-contact"><a href={`tel:${lead.phone}`}>{lead.phone}</a>{lead.email && <a href={`mailto:${lead.email}`}>{lead.email}</a>}<small>{formatDate(lead.createdAt)} · {lead.source} · {lead.campaign}</small></div><div className="admin-form-section"><h3>Wiadomość</h3><p>{lead.message}</p></div><div className="admin-form-section"><label>Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value as LeadStatus })}>{leadStatusOptions()}</select></label><label>Notatka<textarea rows={6} value={form.note} onChange={(event) => setForm({ ...form, note: event.target.value })} /></label><button className="admin-button admin-button--primary" type="button" onClick={() => { onSave(form); onClose() }}><Save /> Zapisz</button></div></div></section></div>
 }
 
-
-const clockLabel = (seconds: number) => {
-  const mins = Math.floor(seconds / 60)
-  const secs = Math.round(seconds % 60)
-  return mins ? `${mins}:${String(secs).padStart(2, '0')}` : `0:${String(secs).padStart(2, '0')}`
-}
-
-function DemoVisitorJourney() {
-  const total = demoJourneyDurationSec
-  const chartWidth = 1180
-  const labelWidth = 188
-  const rightPad = 34
-  const topPad = 52
-  const rowHeight = 42
-  const bottomPad = 54
-  const plotWidth = chartWidth - labelWidth - rightPad
-  const chartHeight = topPad + demoJourneyRows.length * rowHeight + bottomPad
-  const rowIndex = new Map(demoJourneyRows.map((row, index) => [row.id, index]))
-  let cursor = 0
-  const segments = demoJourney.map((step, index) => {
-    const start = cursor
-    cursor += step.durationSec
-    const row = rowIndex.get(step.sectionId) ?? 0
-    return { ...step, index, start, end: cursor, row }
-  })
-  const x = (seconds: number) => labelWidth + (seconds / total) * plotWidth
-  const y = (row: number) => topPad + row * rowHeight + rowHeight / 2
-  const ticks: number[] = []
-  for (let second = 0; second <= total; second += 120) ticks.push(second)
-  if (ticks.at(-1) !== total) ticks.push(total)
-  const backwardMoves = segments.slice(0, -1).filter((segment, index) => (segments[index + 1]?.row ?? segment.row) < segment.row).length
-
-  return <section className="admin-panel admin-journey-demo">
-    <div className="admin-panel__heading">
-      <div><span>Symulacja · 1 użytkownik</span><h2>Ścieżka wizyty po stronie</h2><p>Oś Y pokazuje sekcje strony, a oś X — czas od wejścia. Poziomy pasek to czas spędzony w danym miejscu; pionowe i ukośne łączniki pokazują przewijanie w dół oraz powroty.</p></div>
-      <span className="admin-demo-pill">DEMO</span>
-    </div>
-    <div className="admin-journey-summary">
-      <div><span>Użytkownik</span><strong>{demoVisitor.id}</strong><small>pseudonimowy visitorId</small></div>
-      <div><span>Aktywny czas</span><strong>{durationLabel(total * 1000)}</strong><small>1 wizyta</small></div>
-      <div><span>Spacery</span><strong>7 min</strong><small>3:00 zewnętrzny · 4:00 wnętrze</small></div>
-      <div><span>Urządzenie</span><strong>Desktop</strong><small>Google / organic · {demoVisitor.viewport}</small></div>
-      <div><span>Powroty w górę</span><strong>{backwardMoves}</strong><small>ponowne sprawdzanie treści</small></div>
-    </div>
-    <div className="admin-journey-legend"><span><i className="is-section" /> sekcja strony</span><span><i className="is-tour" /> wirtualny spacer</span><span><i className="is-path" /> kierunek poruszania</span></div>
-    <div className="admin-journey-scroll" role="img" aria-label="Demonstracyjna oś czasu jednego użytkownika poruszającego się po sekcjach strony i spacerach 360">
-      <svg className="admin-journey-chart" viewBox={`0 0 ${chartWidth} ${chartHeight}`}>
-        <defs>
-          <marker id="journey-arrow" markerWidth="7" markerHeight="7" refX="5.4" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7Z" /></marker>
-        </defs>
-        <text className="admin-journey-axis-title" x={labelWidth} y="22">czas od wejścia</text>
-        {ticks.map((tick) => <g key={tick}>
-          <line className="admin-journey-tick" x1={x(tick)} y1={topPad - 12} x2={x(tick)} y2={chartHeight - bottomPad + 6} />
-          <text className="admin-journey-tick-label" x={x(tick)} y={topPad - 20} textAnchor={tick === 0 ? 'start' : tick === total ? 'end' : 'middle'}>{clockLabel(tick)}</text>
-        </g>)}
-        {demoJourneyRows.map((row, index) => <g key={row.id}>
-          <line className="admin-journey-row-line" x1={labelWidth} x2={chartWidth - rightPad} y1={y(index)} y2={y(index)} />
-          <text className="admin-journey-row-label" x={labelWidth - 14} y={y(index) + 4} textAnchor="end">{row.label}</text>
-        </g>)}
-        {segments.slice(0, -1).map((segment, index) => {
-          const next = segments[index + 1]
-          return <line key={`move-${index}`} className={`admin-journey-move ${next.row < segment.row ? 'is-return' : ''}`} x1={x(segment.end)} y1={y(segment.row)} x2={x(next.start)} y2={y(next.row)} markerEnd="url(#journey-arrow)" />
-        })}
-        {segments.map((segment) => {
-          const width = Math.max(4, x(segment.end) - x(segment.start))
-          const barY = y(segment.row) - 10
-          return <g key={`segment-${segment.index}`}>
-            <rect className={`admin-journey-segment ${segment.kind === 'tour' ? 'is-tour' : 'is-section'}`} x={x(segment.start)} y={barY} width={width} height="20" rx="7">
-              <title>{`${segment.label}: ${clockLabel(segment.durationSec)}${segment.note ? ` · ${segment.note}` : ''}`}</title>
-            </rect>
-            {width > 42 && <text className="admin-journey-duration" x={x(segment.start) + width / 2} y={barY + 14} textAnchor="middle">{clockLabel(segment.durationSec)}</text>}
-          </g>
-        })}
-        <text className="admin-journey-foot" x={labelWidth} y={chartHeight - 15}>Start  →  czytanie  →  porównania  →  spacer zewnętrzny  →  powrót  →  treść  →  spacer wnętrza  →  kontakt</text>
-      </svg>
-    </div>
-    <details className="admin-journey-details"><summary>Pokaż przebieg krok po kroku</summary><ol>{demoJourney.map((step, index) => <li key={`${step.sectionId}-${index}`}><strong>{step.label}</strong><span>{clockLabel(step.durationSec)}</span><small>{step.note ?? 'Czytanie / oglądanie sekcji'}</small></li>)}</ol></details>
-  </section>
-}
-
 type ServerAnalyticsSummary = {
   uniqueVisitors: number; uniqueVisits: number; returningVisitors: number; engagedDurationMs: number
   devices: Record<string, number>; sections: Array<{id:string;views:number;durationMs:number}>
@@ -366,9 +285,7 @@ function AnalyticsPage({ state }: { state: AdminState }) {
   const [key, setKey] = useState(() => sessionStorage.getItem(ADMIN_CONTROL_KEY) ?? '')
   const [summary, setSummary] = useState<ServerAnalyticsSummary | null>(null)
   const [serverStatus, setServerStatus] = useState('')
-  const localRecorded = readAnalytics().filter((event) => Date.now() - new Date(event.createdAt).getTime() < Number(range) * 86400000)
-  const usingDemo = localRecorded.length === 0
-  const local = usingDemo ? createDemoAnalyticsEvents() : localRecorded
+  const local = readAnalytics().filter((event) => Date.now() - new Date(event.createdAt).getTime() < Number(range) * 86400000)
   const counts = (name: AnalyticsEvent['eventName']) => local.filter((item) => item.eventName === name).length
   const loadServer = async () => {
     if (key.trim().length < 24) { setServerStatus('Wpisz prywatny klucz administratora z konfiguracji serwera.'); return }
@@ -385,8 +302,7 @@ function AnalyticsPage({ state }: { state: AdminState }) {
   return <>
     <div className="admin-page-tools"><div className="admin-tabs">{['7','30','90','180'].map(value => <button key={value} className={range===value?'is-active':''} onClick={()=>setRange(value)} type="button">{value} dni</button>)}</div><span>First-party · pseudonimowo · bez danych formularza</span></div>
     <section className="admin-panel"><div className="admin-panel__heading"><div><span>Serwer produkcyjny</span><h2>Analityka odwiedzin i powrotów</h2><p>Klucz pozostaje w sessionStorage tej karty i nie jest zapisywany w publicznych danych strony.</p></div></div><div className="admin-form-grid"><label className="admin-form-wide">Klucz administratora<input type="password" autoComplete="off" value={key} onChange={e=>setKey(e.target.value)} /></label></div><div className="admin-button-row"><button className="admin-button admin-button--primary" type="button" onClick={loadServer}><Gauge /> Pobierz dane serwera</button><span>{serverStatus}</span></div></section>
-    {summary ? <><div className="admin-metrics admin-metrics--analytics"><Metric icon={Users} label="Użytkownicy" value={String(summary.uniqueVisitors)} note={`${summary.returningVisitors} powracających`} /><Metric icon={Gauge} label="Wizyty" value={String(summary.uniqueVisits)} note={`${range} dni`} /><Metric icon={CalendarDays} label="Czas zaangażowania" value={durationLabel(summary.engagedDurationMs)} note="Sekcje + spacer" /><Metric icon={Home} label="Urządzenia" value={`${summary.devices.mobile??0} mobile`} note={`${summary.devices.desktop??0} desktop · ${summary.devices.tablet??0} tablet`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Czas</span><h2>Najdłużej oglądane sekcje</h2></div></div><div className="admin-house-bars">{summary.sections.slice(0,10).map(row=><div key={row.id}><b>{row.id}</b><small>{row.views} wejść · {durationLabel(row.durationMs)}</small></div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Powroty</span><h2>Ostatni pseudonimowi użytkownicy</h2></div></div><div className="admin-revisions">{summary.visitors.slice(0,12).map(v=><div key={v.id}><span><strong>{v.id}</strong><small>{v.visits} wizyt · {durationLabel(v.durationMs)} · {v.device} · {v.lastPath}</small></span></div>)}</div></section></div></> : <><div className="admin-metrics admin-metrics--analytics"><Metric icon={Gauge} label={usingDemo ? "Sesje (demo)" : "Lokalne sesje"} value={String(new Set(local.map(item=>item.sessionId||item.id)).size)} note={usingDemo ? "Symulowany użytkownik" : "Podgląd/dev po zgodzie"} /><Metric icon={MessageSquare} label="Leady demo" value={String(state.leads.length)} note="Lokalne dane" /><Metric icon={Download} label="Pobrania PDF" value={String(counts('house_pdf_download'))} note="Podgląd/dev" /><Metric icon={Home} label="Starty spaceru" value={String(counts('tour_start'))} note={`${counts('tour_engaged')} zaangażowanych`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Podgląd lokalny</span><h2>Zainteresowanie domami</h2></div></div><div className="admin-house-bars">{rows.map(row=><div key={row.id}><b>{row.id}</b><span><i style={{width:`${((row.selections+row.pdf+row.leads)/max)*100}%`}} /></span><small>{row.selections} wyborów · {row.pdf} PDF · {row.leads} leadów</small></div>)}</div></section></div></>}
-    <DemoVisitorJourney />
+    {summary ? <><div className="admin-metrics admin-metrics--analytics"><Metric icon={Users} label="Użytkownicy" value={String(summary.uniqueVisitors)} note={`${summary.returningVisitors} powracających`} /><Metric icon={Gauge} label="Wizyty" value={String(summary.uniqueVisits)} note={`${range} dni`} /><Metric icon={CalendarDays} label="Czas zaangażowania" value={durationLabel(summary.engagedDurationMs)} note="Sekcje + spacer" /><Metric icon={Home} label="Urządzenia" value={`${summary.devices.mobile??0} mobile`} note={`${summary.devices.desktop??0} desktop · ${summary.devices.tablet??0} tablet`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Czas</span><h2>Najdłużej oglądane sekcje</h2></div></div><div className="admin-house-bars">{summary.sections.slice(0,10).map(row=><div key={row.id}><b>{row.id}</b><small>{row.views} wejść · {durationLabel(row.durationMs)}</small></div>)}</div></section><section className="admin-panel"><div className="admin-panel__heading"><div><span>Powroty</span><h2>Ostatni pseudonimowi użytkownicy</h2></div></div><div className="admin-revisions">{summary.visitors.slice(0,12).map(v=><div key={v.id}><span><strong>{v.id}</strong><small>{v.visits} wizyt · {durationLabel(v.durationMs)} · {v.device} · {v.lastPath}</small></span></div>)}</div></section></div></> : <><div className="admin-metrics admin-metrics--analytics"><Metric icon={Gauge} label="Lokalne sesje" value={String(new Set(local.map(item=>item.sessionId||item.id)).size)} note="Podgląd/dev po zgodzie" /><Metric icon={MessageSquare} label="Leady demo" value={String(state.leads.length)} note="Lokalne dane" /><Metric icon={Download} label="Pobrania PDF" value={String(counts('house_pdf_download'))} note="Podgląd/dev" /><Metric icon={Home} label="Starty spaceru" value={String(counts('tour_start'))} note={`${counts('tour_engaged')} zaangażowanych`} /></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel__heading"><div><span>Podgląd lokalny</span><h2>Zainteresowanie domami</h2></div></div><div className="admin-house-bars">{rows.map(row=><div key={row.id}><b>{row.id}</b><span><i style={{width:`${((row.selections+row.pdf+row.leads)/max)*100}%`}} /></span><small>{row.selections} wyborów · {row.pdf} PDF · {row.leads} leadów</small></div>)}</div></section></div></>}
     <section className="admin-panel"><div className="admin-panel__heading"><div><span>Prywatność</span><h2>Zakres pomiaru</h2></div></div><p className="admin-help">Po zgodzie analitycznej losowy identyfikator first-party może rozpoznawać powroty maksymalnie przez 180 dni. Mierzymy sekcje, czas, sceny spaceru, typ urządzenia i kampanię. Nie zapisujemy w analityce imienia, telefonu, e-maila, wiadomości, pełnego User-Agent, ruchu myszy ani nagrań sesji. Opcja „Tylko niezbędne” wyłącza ten pomiar.</p></section>
   </>
 }

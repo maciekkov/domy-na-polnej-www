@@ -775,10 +775,11 @@
 
 @media (max-width: 700px) {
   .masterplan > img.masterplan__compass {
-    right: 7px;
-    bottom: 7px;
-    width: 88px;
-    max-width: 20%;
+    right: 10px;
+    bottom: 10px;
+    width: 56px;
+    min-width: 0;
+    max-width: 18%;
     transform: none;
   }
 }
@@ -792,11 +793,13 @@
 }
 
 .masterplan__compass {
-  right: 20px;
-  bottom: 20px;
+  right: 18px;
+  bottom: 18px;
   left: auto;
   top: auto;
-  width: min(19.8%, 165px);
+  width: min(10.5%, 78px);
+  min-width: 58px;
+  max-width: 78px;
   height: auto;
   padding: 0;
   background: none;
@@ -806,6 +809,7 @@
   backdrop-filter: none;
   display: block;
   z-index: 7;
+  opacity: .96;
 }
 
 .plot-label small {

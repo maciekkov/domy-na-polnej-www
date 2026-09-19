@@ -1,8 +1,8 @@
 {
-  "release": "96d18e73bde42cb5",
+  "release": "75809f0baad039c8",
   "assets": {
     "/assets/images/botanical-corner.svg": "c58b540488b17455",
-    "/assets/images/dnp-masterplan.svg": "622a81d3b7bacbed",
+    "/assets/images/dnp-masterplan.svg": "357da8c9d52a4803",
     "/assets/images/dnp-masterplan.webp": "513c9a85fe20f11f",
     "/assets/images/floorplan.webp": "7b25c009149bd165",
     "/assets/images/gallery/aerial.webp": "1e1c177287ce686d",
@@ -189,6 +189,7 @@
     "/assets/images/tour/living.webp": "2431ce5c12b87d2b",
     "/assets/images/tour/terrace.webp": "64e162e4053cdf8b",
     "/assets/images/ui/masterplan-compass.png": "a3ef53cfd0a90b2f",
+    "/assets/images/ui/masterplan-north.svg": "778f50a6f2e6b463",
     "/assets/images/ui/purchase/step-01.png": "0066dd82bcbebcc2",
     "/assets/images/ui/purchase/step-02.png": "7c7c4813645fa9c4",
     "/assets/images/ui/purchase/step-03.png": "166a3f5ccac1c27d",
