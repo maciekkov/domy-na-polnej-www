@@ -1316,3 +1316,15 @@
   font-size: 12px;
   line-height: 1.35;
 }
+
+
+/* Pre-launch price state: keep the table informative without publishing amounts. */
+.pricing-pending {
+  color: rgba(37,42,44,.58);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .015em;
+}
+.house-card__price--pending strong {
+  letter-spacing: -.02em;
+}

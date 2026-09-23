@@ -10,9 +10,8 @@ export function availablePrice(houses) {
   const available = houses.filter(h => h.status === 'Dostępny' && Number.isFinite(h.price) && h.price > 0)
   return available.length ? Math.min(...available.map(h => h.price)) : null
 }
-export function offerLead(houses) {
-  const price = availablePrice(houses)
-  return price === null ? 'Zapytaj o dostępność' : `od ${money(price)}`
+export function offerLead(_houses) {
+  return 'Sprzedaż i cennik już wkrótce'
 }
 export const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
 export const safeJson = value => JSON.stringify(value).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029')
@@ -21,8 +20,8 @@ export function pageMeta(data, id = null) {
   if (id && !h) throw new Error('Nieznany dom')
   const title = h ? `${h.name} — ${areaText(h.area)}, działka ${h.plot} m² | Domy na Polnej` : 'Domy na Polnej — Grabik koło Żar'
   const description = h
-    ? `${h.name} w Grabiku koło Żar. Dom wolnostojący ${areaText(h.area)}, ${h.rooms} pokoi, działka ${h.plot} m² (${h.parcel}). ${h.status}. Cena brutto: ${money(h.price)} (${moneyPerSqm(h)} powierzchni użytkowej).`
-    : `Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. ${availablePrice(data.houses) === null ? 'Aktualną dostępność potwierdź w biurze sprzedaży.' : `Dostępne domy ${offerLead(data.houses)}.`}`
+    ? `${h.name} w Grabiku koło Żar. Dom wolnostojący ${areaText(h.area)}, ${h.rooms} pokoi, działka ${h.plot} m² (${h.parcel}). ${h.status}. Sprzedaż i cennik już wkrótce.`
+    : 'Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. Sprzedaż i cennik już wkrótce.'
   return { title, description, canonical: SITE_ORIGIN + (h ? housePath(h.id) : '/'), image: SITE_ORIGIN + (h?.image ?? data.houses[0].image) }
 }
 export function structuredData(data, id = null) {
@@ -36,12 +35,10 @@ export function structuredData(data, id = null) {
       floorSize:{'@type':'QuantitativeValue',value:h.area,unitCode:'MTK'},
       address:{'@type':'PostalAddress',addressLocality:'Grabik',addressRegion:'lubuskie',addressCountry:'PL'},
       additionalProperty:[{'@type':'PropertyValue',name:'Powierzchnia działki',value:h.plot,unitCode:'MTK'},{'@type':'PropertyValue',name:'Miejsca postojowe',value:h.parking}]}
-    const offer = {'@type':'Offer','@id':m.canonical+'#oferta',url:m.canonical,price:h.price,priceCurrency:'PLN',availability:'https://schema.org/'+({'Dostępny':'InStock','Rezerwacja':'OutOfStock','Sprzedany':'SoldOut'}[h.status]),seller:{'@id':org['@id']},itemOffered:{'@id':home['@id']}}
-    home.offers = {'@id':offer['@id']}
-    graph.push(home,offer,{'@type':'RealEstateListing','@id':m.canonical+'#strona',name:m.title,url:m.canonical,description:m.description,inLanguage:'pl-PL',mainEntity:{'@id':home['@id']},offers:{'@id':offer['@id']},isPartOf:{'@id':website['@id']}})
+    graph.push(home,{'@type':'RealEstateListing','@id':m.canonical+'#strona',name:m.title,url:m.canonical,description:m.description,inLanguage:'pl-PL',mainEntity:{'@id':home['@id']},isPartOf:{'@id':website['@id']}})
     graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Domy na Polnej',item:SITE_ORIGIN+'/'},{'@type':'ListItem',position:2,name:h.name,item:m.canonical}]})
   } else {
-    graph.push({'@type':'ItemList',name:'Domy na Polnej — domy A–E',url:SITE_ORIGIN+'/#domy',itemListElement:data.houses.map((h,i)=>({'@type':'ListItem',position:i+1,name:h.name,item:{'@type':'Product',name:h.name,sku:h.id,url:SITE_ORIGIN+'/?dom='+h.id+'#domy',offers:{'@type':'Offer',price:h.price,priceCurrency:'PLN',availability:'https://schema.org/'+({'Dostępny':'InStock','Rezerwacja':'OutOfStock','Sprzedany':'SoldOut'}[h.status])}}}))})
+    graph.push({'@type':'ItemList',name:'Domy na Polnej — domy A–E',url:SITE_ORIGIN+'/#domy',itemListElement:data.houses.map((h,i)=>({'@type':'ListItem',position:i+1,name:h.name,item:{'@type':'Product',name:h.name,sku:h.id,url:SITE_ORIGIN+'/?dom='+h.id+'#domy'}}))})
   }
   return {'@context':'https://schema.org','@graph':graph}
 }

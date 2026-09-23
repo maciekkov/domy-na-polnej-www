@@ -3,7 +3,7 @@ import { HouseModal } from '../../components/house-selector/HouseModal'
 import { HouseCard, StatusBadge } from '../../components/house-selector/HouseCard'
 import { Masterplan } from '../../components/house-selector/Masterplan'
 import type { House, HouseId } from '../../data/houses'
-import { formatArea, formatPrice, formatPricePerSqm } from '../../data/houses'
+import { formatArea } from '../../data/houses'
 
 type HomesProps = {
   houses: House[]
@@ -60,7 +60,7 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
 
         <div className="homes-table-wrap" id="lista-domow">
           <table className="homes-table">
-            <caption className="sr-only">Lista domów, statusy, powierzchnie, działki, ceny brutto i ceny brutto za metr kwadratowy powierzchni użytkowej</caption>
+            <caption className="sr-only">Lista domów, statusy, powierzchnie, działki i stan przygotowania cennika</caption>
             <thead>
               <tr><th>Dom</th><th>Nr działki</th><th>Status</th><th>Pow. użytkowa</th><th>Działka</th><th>Pokoje</th><th>Cena brutto</th><th>Brutto / m²</th></tr>
             </thead>
@@ -78,7 +78,7 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
                   <th scope="row"><button aria-pressed={selectedId === house.id} type="button" onClick={(event) => { event.stopPropagation(); choose(house.id) }}>{house.name}</button></th>
                   <td>{house.parcel}</td>
                   <td><StatusBadge status={house.status} /></td>
-                  <td>{formatArea(house.area)}</td><td>{house.plot} m²</td><td>{house.rooms}</td><td>{formatPrice(house.price)}</td><td>{formatPricePerSqm(house)}</td>
+                  <td>{formatArea(house.area)}</td><td>{house.plot} m²</td><td>{house.rooms}</td><td><span className="pricing-pending">W przygotowaniu</span></td><td><span className="pricing-pending">W przygotowaniu</span></td>
                 </tr>
               ))}
             </tbody>
@@ -94,13 +94,13 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
               onClick={() => choose(house.id)}
             >
               <span className="homes-mobile-list__top"><strong>{house.name}</strong><StatusBadge status={house.status} /></span>
-              <span className="homes-mobile-list__meta"><span>{formatArea(house.area)} · działka {house.plot} m²</span><b>{formatPrice(house.price)}</b></span><span className="homes-mobile-list__unit-price">{formatPricePerSqm(house)} brutto</span>
+              <span className="homes-mobile-list__meta"><span>{formatArea(house.area)} · działka {house.plot} m²</span><b>Wkrótce</b></span><span className="homes-mobile-list__unit-price">Cennik w przygotowaniu</span>
               <span className="homes-mobile-list__link">Wybierz ten dom</span>
             </button>
           ))}
         </div>
-        <p className="homes__transaction-note">Ceny brutto i statusy dotyczą poszczególnych domów. Zakres sprzedaży, udział w drodze i warunki płatności sprawdź w karcie domu oraz dokumentach przed zawarciem umowy.</p>
-        <p className="sr-only" role="status">{selectedHouse ? `Wybrano ${selectedHouse.name}. Cena ${formatPrice(selectedHouse.price)}, działka ${selectedHouse.plot} metrów kwadratowych.` : 'Nie wybrano domu.'}</p>
+        <p className="homes__transaction-note">Cennik sprzedaży jest w przygotowaniu. Statusy dotyczą poszczególnych domów. Zakres sprzedaży, udział w drodze i warunki płatności sprawdź w karcie domu oraz dokumentach przed zawarciem umowy.</p>
+        <p className="sr-only" role="status">{selectedHouse ? `Wybrano ${selectedHouse.name}. Cennik w przygotowaniu, działka ${selectedHouse.plot} metrów kwadratowych.` : 'Nie wybrano domu.'}</p>
       </div>
       {sheetOpen && selectedHouse && <HouseModal house={selectedHouse} onClose={()=>setSheetOpen(false)} onAsk={()=>{setSheetOpen(false);onAsk(selectedHouse.id)}} />}
     </section>

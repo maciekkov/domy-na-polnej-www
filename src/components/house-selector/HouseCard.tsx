@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { track, trackOnce } from '../../lib/analytics'
 import { ArrowRight, BedDouble, CarFront, Download, Home, LandPlot } from '../common/Icons'
 import type { House } from '../../data/houses'
-import { formatArea, formatPrice, formatPricePerSqm } from '../../data/houses'
+import { formatArea } from '../../data/houses'
 
 type HouseCardProps = {
   house: House | null
@@ -35,7 +35,7 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
           <span className="house-card__parcel">{house ? `DZIAŁKA ${visibleHouse.parcel}` : 'WYBÓR DOMU'}</span>
           <h3 id={`${idPrefix}house-card-${visibleHouse.id}`}>{house ? visibleHouse.name : 'Który ogród będzie Twój?'}</h3>
         </div>
-        {house ? <StatusBadge status={visibleHouse.status} /> : <span className="house-card__placeholder-pill">Plan i ceny poniżej</span>}
+        {house ? <StatusBadge status={visibleHouse.status} /> : <span className="house-card__placeholder-pill">Plan i szczegóły poniżej</span>}
       </div>
 
       <div className="house-card__image">
@@ -50,16 +50,11 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
             <li><BedDouble aria-hidden="true" /><span><strong>{visibleHouse.rooms}</strong> pokoi</span></li>
             <li><CarFront aria-hidden="true" /><span><strong>{visibleHouse.parking}</strong> miejsca postojowe</span></li>
           </ul>
-          <div className="house-card__price">
+          <div className="house-card__price house-card__price--pending">
             <span>Cena brutto</span>
-            <strong>{formatPrice(visibleHouse.price)}</strong>
-            <small>{formatPricePerSqm(visibleHouse)} brutto za 1 m² powierzchni użytkowej</small>
+            <strong>Już wkrótce</strong>
+            <small>Cennik sprzedaży jest w przygotowaniu.</small>
           </div>
-          <details className="house-card__price-history">
-            <summary>Historia ceny</summary>
-            {visibleHouse.priceHistory.length ? <ul>{visibleHouse.priceHistory.map((entry, index) => <li key={`${entry.validFrom}-${index}`}><span>{entry.validFrom.slice(0, 10)} – {entry.validTo.slice(0, 10)}</span><strong>{formatPrice(entry.price)}</strong></li>)}</ul> : <p>Brak wcześniejszych zmian ceny zapisanych w publicznej historii.</p>}
-          </details>
-          {visibleHouse.mandatoryPayments.length ? <div className="house-card__mandatory"><span>Obowiązkowe dodatkowe świadczenia</span><ul>{visibleHouse.mandatoryPayments.map((payment) => <li key={payment.name}>{payment.name}: <strong>{formatPrice(payment.amount)}</strong></li>)}</ul></div> : null}
           <button className="button button--olive house-card__cta" type="button" onClick={onAsk}>
             Zapytaj o dom {visibleHouse.id} <ArrowRight size={17} aria-hidden="true" />
           </button>
@@ -67,7 +62,7 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
             <Download size={18} aria-hidden="true" /> Pobierz kartę PDF
           </a>)}
         </>
-      ) : <div className="house-card__empty-copy"><p>Wybierz literę A–E na planie. Zobaczysz cenę, powierzchnię działki i kartę konkretnego domu.</p><a href="#lista-domow">Porównaj wszystkie domy <ArrowRight size={16} /></a></div>}
+      ) : <div className="house-card__empty-copy"><p>Wybierz literę A–E na planie. Zobaczysz powierzchnię działki, status i kartę konkretnego domu.</p><a href="#lista-domow">Porównaj wszystkie domy <ArrowRight size={16} /></a></div>}
     </article>
   )
 }

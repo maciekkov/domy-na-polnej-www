@@ -21,17 +21,16 @@ def main():
    assert not any('/fonts/' in x or '.woff' in x for x in h.requests)
   check('Necessary consent closes banner; no tracking, full panorama, scene graph or fonts on first screen',no_optional)
   def hero():
-   pg.get_by_role('button',name='Następny widok inwestycji').click();expect(pg.locator('.hero__image-caption')).to_contain_text('02 / 04');pg.wait_for_timeout(300)
+   expect(pg.locator('.hero__controls')).to_have_count(0);expect(pg.locator('.hero__image-caption')).to_have_count(0);expect(pg.locator('.hero img')).to_have_count(1)
+   src=pg.locator('.hero img').get_attribute('src');assert 'hero-0-' in src
    assert pg.locator('.hero img').evaluate('(e)=>e.complete && e.naturalWidth>0')
-   pg.wait_for_timeout(1100);expect(pg.locator('.hero__image-caption')).to_contain_text('02 / 04')
-   pg.get_by_role('button',name='Poprzedni widok inwestycji').click()
-  check('Hero manual next/previous, responsive asset and no autonomous change',hero)
+  check('Hero uses one estate image with no wallpaper controls',hero)
   def choose():
    h.section('domy');pg.locator('.homes-table button',has_text='Dom B').click();expect(pg.locator('.house-card h3')).to_have_text('Dom B')
-   expect(pg.locator('.house-card__price strong')).to_contain_text('789 000')
+   expect(pg.locator('.house-card__price strong')).to_contain_text('Już wkrótce')
    assert 'dom=B' in pg.evaluate('globalThis.__testedURL')
    expect(pg.locator('.plot-label[aria-pressed="true"]')).to_have_count(1)
-   pg.locator('.house-card__price-history summary').click();expect(pg.locator('.house-card__price-history')).to_contain_text('Brak wcześniejszych')
+   expect(pg.locator('.house-card__price-history')).to_have_count(0)
    pg.get_by_role('button',name='Zapytaj o dom B',exact=True).click();expect(pg.locator('.contact-form select')).to_have_value('B');expect(pg.locator('#contact-name')).to_be_focused()
   check('House B synchronizes plan/table/card/URL/form and focuses contact',choose)
   def form():
@@ -82,11 +81,11 @@ def main():
   h.page.close()
   h=m.Harness(b,390,844);h.load();h.dismiss();pg=h.page;pg.set_default_timeout(5000)
   def mobile():
-   h.section('domy');pg.locator('.homes-mobile-list button').filter(has_text='Dom E').click();expect(pg.locator('.house-sheet')).to_be_visible();expect(pg.locator('.house-sheet')).to_contain_text('819 000');expect(pg.locator('.house-sheet')).to_contain_text('1006 m²')
+   h.section('domy');pg.locator('.homes-mobile-list button').filter(has_text='Dom E').click();expect(pg.locator('.house-sheet')).to_be_visible();expect(pg.locator('.house-sheet')).to_contain_text('Już wkrótce');expect(pg.locator('.house-sheet')).to_contain_text('1006 m²')
    pg.wait_for_timeout(300);h.image('390-house-sheet.png');assert pg.evaluate('document.documentElement.scrollWidth<=innerWidth');assert pg.locator('.house-sheet').evaluate('(e)=>e.parentElement===document.body && e.getBoundingClientRect().height===innerHeight');assert pg.evaluate("!!document.elementFromPoint(15,innerHeight-5)?.closest('.house-sheet')")
    pg.get_by_role('button',name='Zapytaj o dom E',exact=True).click();expect(pg.locator('.house-sheet')).to_have_count(0);expect(pg.locator('.contact-form select')).to_have_value('E');expect(pg.locator('#contact-name')).to_be_focused()
    expect(pg.locator('.mobile-contact-bar')).not_to_be_visible()
-  check('Mobile E bottom sheet, factual price/plot, CTA closes and selects E',mobile)
+  check('Mobile E bottom sheet, pending pricing/plot, CTA closes and selects E',mobile)
   def menu():
    pg.evaluate("()=>scrollTo(0,0)");pg.wait_for_timeout(600);btn=pg.locator('header button[aria-expanded]');btn.click();expect(btn).to_have_attribute('aria-expanded','true');pg.keyboard.press('Escape');expect(btn).to_have_attribute('aria-expanded','false');expect(btn).to_be_focused()
   check('Mobile navigation toggles and Escape restores focus',menu)
@@ -96,7 +95,7 @@ def main():
   def reduced():
    assert pg.evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches")
    assert pg.evaluate("getComputedStyle(document.documentElement).scrollBehavior")=='auto'
-   pg.get_by_role('link',name='Wybierz dom i sprawdź cenę').click();expect(pg.locator('#homes-title')).to_be_focused()
+   pg.get_by_role('link',name='Wybierz dom i zobacz szczegóły').click();expect(pg.locator('#homes-title')).to_be_focused()
   check('Reduced-motion preference and accessible anchor focus',reduced);pg.close()
   b.close()
  (m.OUT/'interaction-results.json').write_text(json.dumps(RESULT,ensure_ascii=False,indent=2));print(sum(x['passed'] for x in RESULT),'/',len(RESULT),'passed')

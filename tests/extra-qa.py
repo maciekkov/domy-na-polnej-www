@@ -39,8 +39,8 @@ def main():
    check('React route '+path,legal)
   def nojs():
    context=b.new_context(java_script_enabled=False);pg=context.new_page();pg.set_content((m.ROOT/'dist/index.html').read_text());assert pg.locator('#domy article').count()==5
-   expect(pg.locator('#domy')).to_contain_text('779 000');assert pg.locator('#domy a[href*="karta-dom-"]').count()==5;assert pg.locator('#domy a[href^="tel:"]').count()==1;context.close()
-  check('No JavaScript: five prices/PDFs/contact available',nojs)
+   expect(pg.locator('#domy')).to_contain_text('Już wkrótce');assert '779 000' not in pg.locator('#domy').inner_text();assert pg.locator('#domy a[href*="karta-dom-"]').count()==5;assert pg.locator('#domy a[href^="tel:"]').count()==1;context.close()
+  check('No JavaScript: five homes/PDFs/contact available with pricing pending',nojs)
   for stem in ['wewnatrz','zewnatrz']:
    def tour(stem=stem):
     h=RouteHarness(b,'/tour/spacer-360-'+stem+'.html');h.open();pg=h.page

@@ -9,7 +9,7 @@ try {
     const page=await noJs.newPage(),response=await page.goto(`${server.url}/dom-${id}/`)
     if(response.status()!==200)throw Error('Offer HTTP status')
     await expect(page.locator('h1')).toContainText('Dom '+id.toUpperCase())
-    await expect(page.locator('.offer-price strong')).toBeVisible()
+    await expect(page.locator('.offer-price strong')).toHaveText('Już wkrótce')
     await expect(page.locator('a.offer-pdf').first()).toHaveAttribute('href',/\.pdf/)
     await page.close()
   }
@@ -39,12 +39,12 @@ try {
   updated.revision++;updated.houses[0].status='Sprzedany';updated.houses[0].price=700001
   await page.route('**/data/site-data.json',route=>route.fulfill({json:updated}))
   await page.reload({waitUntil:'networkidle'})
-  await expect(page.locator('.offer-price')).toContainText('700 001 zł')
+  await expect(page.locator('.offer-price')).toContainText('Już wkrótce')
   await expect(page.locator('.offer-status')).toHaveText('Sprzedany')
   await expect(page.locator('.offer-summary .offer-button')).toHaveAttribute('href','/#kontakt')
   for(const width of [360,768,1440]){await page.setViewportSize({width,height:900});await noOverflow(page)}
   await page.unroute('**/data/site-data.json')
   await page.goto(server.url+'/dom-z/');await expect(page.locator('h1')).toContainText(/404|znalez/i)
   if(errors.length)throw Error(errors.join('\n'))
-  console.log('PASS actual offer/form React E2E: static HTML, live price/status, consent events, PDF, field errors, responsive layout')
+  console.log('PASS actual offer/form React E2E: static HTML, unpublished pricing, live status, consent events, PDF, field errors, responsive layout')
 } finally { await chrome.close();server.child.kill('SIGTERM') }
