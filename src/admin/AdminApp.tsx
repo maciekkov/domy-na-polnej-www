@@ -2,7 +2,7 @@ import {
   AlertTriangle, BarChart3, BookOpen, Building2, CalendarDays, ChevronRight, ClipboardList,
   Download, ExternalLink, FileText, Gauge, HardHat, Home, KeyRound, LayoutDashboard, LogOut,
   Menu, MessageSquare, Pencil, Plus, RotateCcw, Save, Search, Settings, ShieldCheck, Upload, Users, X,
-} from 'lucide-react'
+} from '../components/common/Icons'
 import { useEffect, useMemo, useState } from 'react'
 import '../styles/admin.css'
 import { parseSiteData, resolveSiteDocuments } from '../data/runtime/siteSchema.mjs'

@@ -13,7 +13,7 @@ body {
   min-width: 320px;
   color: var(--graphite);
   background: var(--off-white);
-  font-family: "Lato", Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -48,7 +48,7 @@ p {
 h1 ,
 h2 ,
 h3 {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: -0.035em;
 }
 
@@ -100,7 +100,7 @@ h3 {
   border: 1px solid transparent;
   border-radius: 999px;
   cursor: pointer;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -154,7 +154,7 @@ h3 {
 .eyebrow {
   margin-bottom: 14px;
   color: var(--olive);
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .15em;
@@ -175,7 +175,7 @@ h3 {
   gap: 14px;
   margin-bottom: 8px;
   color: var(--wood);
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .13em;

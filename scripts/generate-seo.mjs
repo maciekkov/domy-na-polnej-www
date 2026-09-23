@@ -3,7 +3,7 @@ import {randomUUID} from 'node:crypto'
 import {resolve,join,dirname} from 'node:path'
 import {fileURLToPath} from 'node:url'
 import {parseSiteData,resolveSiteDocuments} from '../src/data/runtime/siteSchema.mjs'
-import {pageMeta,structuredData,safeJson,escapeHtml as e,SITE_ORIGIN} from '../src/lib/offers.mjs'
+import {pageMeta,structuredData,safeJson,escapeHtml as e,SITE_ORIGIN,money,areaText,moneyPerSqm} from '../src/lib/offers.mjs'
 const root=resolve(import.meta.dirname,'..')
 export function headFor(html,data,id=null){
  const m=pageMeta(data,id)
@@ -18,8 +18,13 @@ export function headFor(html,data,id=null){
  return html
 }
 export function homeSnapshot(data){
- return `<section class="hero-fallback" aria-label="Domy na Polnej"><div class="hero-fallback__shade"></div><div class="hero-fallback__inner"><p class="hero-fallback__eyebrow">Domy na Polnej <span>·</span> Grabik</p><h1>5 wolnostojących<br/>domów blisko Żar</h1><p class="hero-fallback__lead">111 m² wygodnej przestrzeni, własne działki 806–1006 m² i tylko pięć domów w spokojnym otoczeniu.</p><div class="hero-fallback__facts"><span><strong>111 m²</strong> powierzchni</span><span><strong>5</strong> pokoi</span><span><strong>806–1006 m²</strong> działki</span><span><strong>5</strong> domów</span></div><div class="hero-fallback__buttons"><a href="/#domy">Zobacz domy i ceny</a><a href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a></div></div></section>`
+ const h=data.houses[0], available=data.houses.filter(x=>x.status==='Dostępny'), plots=data.houses.map(x=>x.plot)
+ const lowest=available.length?money(Math.min(...available.map(x=>x.price))):null
+ const price=lowest?`od ${lowest}`:'Sprawdź ofertę'
+ return `<section class="hero" id="start" aria-labelledby="hero-title"><div class="hero__media-stack"><picture class="hero__media is-loaded"><source media="(max-width:640px)" srcset="/assets/images/responsive/hero-mobile.webp"><img src="/assets/images/responsive/hero-0-1672.webp" srcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="Wizualizacja inwestycji Domy na Polnej" fetchpriority="high"></picture></div><div class="hero__shade" aria-hidden="true"></div><div class="hero__content shell"><div class="hero__copy"><p class="eyebrow eyebrow--light">${data.houses.length} domów wolnostojących <span>·</span> Grabik koło Żar</p><h1 id="hero-title">Dom z ogrodem.<br><em>Blisko Żar.</em></h1><p class="hero__lead">Parterowy dom, ${h.rooms} pokoi i własna działka.<br class="hero__desktop-break"> Przestrzeń do życia — w domu i poza nim.</p><div class="hero__buttons"><a class="button button--light" href="#domy">Wybierz dom i sprawdź cenę →</a><a class="hero__tour-link" href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a></div></div><div class="hero__bottom"><dl class="hero__facts"><div><dt>${e(areaText(h.area))}</dt><dd>powierzchni użytkowej</dd></div><div><dt>${Math.min(...plots)}–${Math.max(...plots)} m²</dt><dd>powierzchni działki</dd></div><div><dt>${e(price)}</dt><dd>cena brutto dostępnego domu</dd></div></dl><span class="hero__image-caption">Wizualizacja 01 / 04</span></div></div></section>
+ <section id="domy" class="nojs-offers shell"><h2>Domy i ceny</h2><p>Pełny plan i spacery wymagają JavaScript. Ceny, dokumenty i kontakt są dostępne poniżej.</p><div class="nojs-offers__grid">${data.houses.map(x=>`<article><h3>${e(x.name)}</h3><p>${e(x.status)} · działka ${e(x.parcel)}</p><p>${e(areaText(x.area))} domu · ${x.plot} m² działki</p><strong>${e(money(x.price))}</strong><p>${e(moneyPerSqm(x))} brutto</p>${x.pdf?`<a href="${e(x.pdf)}">Karta domu PDF</a>`:''}</article>`).join('')}</div><p>${data.standardPdf?`<a href="${e(data.standardPdf)}">Standard techniczny PDF</a> · `:''}<a href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a> · <a href="${e(data.contact.emailHref)}">${e(data.contact.email)}</a></p><p><a href="/polityka-prywatnosci/">Polityka prywatności</a> · <a href="/polityka-cookies/">Polityka cookies</a></p></section>`
 }
+
 function replaceSnapshot(html,markup){
  // Markers survive Vite, and prevent replacing unrelated React markup.
  const fragment=`<div id="root"><!--dnp-home-start-->${markup}<!--dnp-home-end--></div>`
@@ -29,8 +34,17 @@ export function prepareSourcePages(projectRoot=root, suppliedData=null){
  const data=suppliedData ??resolveSiteDocuments(parseSiteData(JSON.parse(readFileSync(join(projectRoot,'public/data/site-data.json'),'utf8'))))
  const index=join(projectRoot,'index.html')
  if(!existsSync(index))return []
- const source=readFileSync(index,'utf8')
- const home=replaceSnapshot(headFor(source,data),homeSnapshot(data))
+ let source=readFileSync(index,'utf8')
+ const critical=['src/styles/tokens.css','src/styles/globals.css','src/styles/sections/hero.css'].map(p=>readFileSync(join(projectRoot,p),'utf8')).join('\n') + '\n.nojs-offers{padding-block:64px}.nojs-offers__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}.nojs-offers article{padding:24px;border:1px solid #c9cdbf;border-radius:6px;background:#fdfcf8}.nojs-offers a{display:inline-flex;min-height:44px;align-items:center}.nojs-offers article strong{font-size:22px}\n@media(max-width:760px){:root{--shell:calc(100% - 40px)}}'
+ source=source.replace(/<style id="dnp-critical-css">[\s\S]*?<\/style>/,`<style id="dnp-critical-css">${critical}</style>`)
+ source=source.replace(/<link rel="preload" as="image"[^>]*>/g,'')
+ source=source.replace('</head>',`<link rel="preload" as="image" href="/assets/images/responsive/hero-mobile.webp" media="(max-width:640px)" fetchpriority="high" />\n<link rel="preload" as="image" href="/assets/images/responsive/hero-0-1672.webp" imagesrcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" imagesizes="100vw" media="(min-width:641px)" fetchpriority="high" />\n</head>`)
+
+ const versionsPath=join(projectRoot,'public/assets/data/asset-versions.json')
+ const versions=existsSync(versionsPath)?JSON.parse(readFileSync(versionsPath,'utf8')).assets:{}
+ const mobileDigest=versions['/assets/images/responsive/hero-mobile.webp']
+ let home=replaceSnapshot(headFor(source,data),homeSnapshot(data))
+ if(mobileDigest) home=home.replace(/hero-mobile\.webp(?:\?v=[a-f0-9]+)?/g,`hero-mobile.webp?v=${mobileDigest}`)
  return [{path:index,content:home},{path:join(projectRoot,'public/sitemap.xml'),content:sitemapContent(data)}]
 }
 export function generateSourcePages(projectRoot=root){commitFileUpdates(prepareSourcePages(projectRoot))}

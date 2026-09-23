@@ -1,0 +1,248 @@
+[
+  {
+    "file": "src/sections/Gallery/GalleryRefinement.css",
+    "archivedTo": "reference-assets/src/sections/Gallery/GalleryRefinement.css",
+    "bytes": 1235,
+    "sha256": "cfac875d927e12db4caae9a037227bdf43153418e9b60767e8ab5724203cd6d7"
+  },
+  {
+    "file": "src/sections/Standard/StandardRefinement.css",
+    "archivedTo": "reference-assets/src/sections/Standard/StandardRefinement.css",
+    "bytes": 1794,
+    "sha256": "77e2d8a5d7bead21d95d1f02b4a0a7907b58283a1733e52f557e31a723c3a30d"
+  },
+  {
+    "file": "src/sections/Layout/LayoutRefinement.css",
+    "archivedTo": "reference-assets/src/sections/Layout/LayoutRefinement.css",
+    "bytes": 1604,
+    "sha256": "ca153ef231193090a68ac4edbc2ec50b452fff52f5494c657682baa175b1c3ec"
+  },
+  {
+    "file": "src/sections/Hero/HeroRefinement.css",
+    "archivedTo": "reference-assets/src/sections/Hero/HeroRefinement.css",
+    "bytes": 1245,
+    "sha256": "b7f0d835e000cc5191c27e37c9db322376b9a635301433a4a3c79eae1cfae0ed"
+  },
+  {
+    "file": "src/sections/Schedule/ScheduleRefinement.css",
+    "archivedTo": "reference-assets/src/sections/Schedule/ScheduleRefinement.css",
+    "bytes": 396,
+    "sha256": "84cd783ae86bc280e4a4250f83b1eb7c0dae2704b32ac5ef585e84e0ec3265f5"
+  },
+  {
+    "file": "src/components/house-selector/MasterplanRefinement.css",
+    "archivedTo": "reference-assets/src/components/house-selector/MasterplanRefinement.css",
+    "bytes": 1440,
+    "sha256": "55d89990876ebd9c4b30029ccc9ec205600686fc72c880ab757b2bf0067401d4"
+  },
+  {
+    "file": "public/assets/images/decor/journal-branch.png",
+    "archivedTo": "reference-assets/public/assets/images/decor/journal-branch.png",
+    "bytes": 435538,
+    "sha256": "f1c942b174691d6ec877d5968d1af09a69421de51e22bd2c88100672678cd0bb"
+  },
+  {
+    "file": "public/assets/images/decor/leaf-shadow.png",
+    "archivedTo": "reference-assets/public/assets/images/decor/leaf-shadow.png",
+    "bytes": 782106,
+    "sha256": "4bfb2c8a9c379e37e7c51189e1e4ae53c4612a3327ac2a9fee9e174bc24254c4"
+  },
+  {
+    "file": "public/assets/images/decor/leafy-foreground.png",
+    "archivedTo": "reference-assets/public/assets/images/decor/leafy-foreground.png",
+    "bytes": 618227,
+    "sha256": "71d8f21402a24f3dae6567ac396572787e543aaf95ceca3c7b0b0e5a8c99e912"
+  },
+  {
+    "file": "public/assets/images/floorplan.webp",
+    "archivedTo": "reference-assets/public/assets/images/floorplan.webp",
+    "bytes": 155916,
+    "sha256": "7b25c009149bd16517b6aba0775afbe946876d6d3af789c76f1e2643de367603"
+  },
+  {
+    "file": "public/assets/images/gallery/bathroom.webp",
+    "archivedTo": "reference-assets/public/assets/images/gallery/bathroom.webp",
+    "bytes": 136898,
+    "sha256": "124da6a5c756fdddbb7e9e874d9b36f2998e5666cc728c7f9a1b099d75cac0ef"
+  },
+  {
+    "file": "public/assets/images/gallery/bedroom.webp",
+    "archivedTo": "reference-assets/public/assets/images/gallery/bedroom.webp",
+    "bytes": 238830,
+    "sha256": "4778bbed8d1f334427fed5c6f4b3b8b08f519d49bc8174c69edcab30b9dd828b"
+  },
+  {
+    "file": "public/assets/images/gallery/kitchen.webp",
+    "archivedTo": "reference-assets/public/assets/images/gallery/kitchen.webp",
+    "bytes": 164772,
+    "sha256": "496365133598ac6a1030e508b892606cd1457bff799b1bd4b68d03db8651514f"
+  },
+  {
+    "file": "public/assets/images/gallery/living-wide.webp",
+    "archivedTo": "reference-assets/public/assets/images/gallery/living-wide.webp",
+    "bytes": 225328,
+    "sha256": "802fe663ee6e1c3a6c867b24f0ae86be47d9958308175a8cb78da02598fc7b1f"
+  },
+  {
+    "file": "public/assets/images/gallery/living.webp",
+    "archivedTo": "reference-assets/public/assets/images/gallery/living.webp",
+    "bytes": 286642,
+    "sha256": "2431ce5c12b87d2b913e2f59dc48f8a0b767d2cbfdc9ff58452e91dd7f803fe3"
+  },
+  {
+    "file": "public/assets/images/hero-all-houses.webp",
+    "archivedTo": "reference-assets/public/assets/images/hero-all-houses.webp",
+    "bytes": 459528,
+    "sha256": "0ce61987a164f08ce6f063ceeebb09fe2f2407012f11c4ea604b7a43e8b4dac9"
+  },
+  {
+    "file": "public/assets/images/layout/plan.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/plan.webp",
+    "bytes": 155916,
+    "sha256": "7b25c009149bd16517b6aba0775afbe946876d6d3af789c76f1e2643de367603"
+  },
+  {
+    "file": "public/assets/images/layout/room-bath-main.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-bath-main.webp",
+    "bytes": 136898,
+    "sha256": "124da6a5c756fdddbb7e9e874d9b36f2998e5666cc728c7f9a1b099d75cac0ef"
+  },
+  {
+    "file": "public/assets/images/layout/room-bath.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-bath.webp",
+    "bytes": 81744,
+    "sha256": "22a73c06f4e0ad2600b7f467dfa465499ce8d992adffb3540565aee2b8aed42b"
+  },
+  {
+    "file": "public/assets/images/layout/room-bedroom.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-bedroom.webp",
+    "bytes": 238830,
+    "sha256": "4778bbed8d1f334427fed5c6f4b3b8b08f519d49bc8174c69edcab30b9dd828b"
+  },
+  {
+    "file": "public/assets/images/layout/room-child-two.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-child-two.webp",
+    "bytes": 202816,
+    "sha256": "c05d2ddf2082fa0a52302f5c4e8d72c46494940a6485451451a5a22cf0ad2cbf"
+  },
+  {
+    "file": "public/assets/images/layout/room-child.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-child.webp",
+    "bytes": 215764,
+    "sha256": "75ac93f24fb124be9a9dd0b091e9a18ca22af92e1a00a38eb02655b64b70a9a7"
+  },
+  {
+    "file": "public/assets/images/layout/room-entry.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-entry.webp",
+    "bytes": 366796,
+    "sha256": "acd682197c58e19eb78a66ef67ccfd563b07498def182a4e88f20444d981b0cd"
+  },
+  {
+    "file": "public/assets/images/layout/room-kitchen.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-kitchen.webp",
+    "bytes": 164772,
+    "sha256": "496365133598ac6a1030e508b892606cd1457bff799b1bd4b68d03db8651514f"
+  },
+  {
+    "file": "public/assets/images/layout/room-living.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-living.webp",
+    "bytes": 225328,
+    "sha256": "802fe663ee6e1c3a6c867b24f0ae86be47d9958308175a8cb78da02598fc7b1f"
+  },
+  {
+    "file": "public/assets/images/layout/room-office.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-office.webp",
+    "bytes": 149186,
+    "sha256": "5844dccff80f757034b277ec0861b4ef8f97c526bdf854eefba5d03965e4c954"
+  },
+  {
+    "file": "public/assets/images/layout/room-utility.webp",
+    "archivedTo": "reference-assets/public/assets/images/layout/room-utility.webp",
+    "bytes": 139718,
+    "sha256": "68f3e5d513298f6ba0cf6f3d367113147b859808620a576dbc8bbde63d7e3422"
+  },
+  {
+    "file": "public/assets/images/standard/icons/blinds.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/blinds.webp",
+    "bytes": 3490,
+    "sha256": "5c15e3b5433ca95950b70a383c2997e305e6382d4d8feb53586686a4a403935a"
+  },
+  {
+    "file": "public/assets/images/standard/icons/fence.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/fence.webp",
+    "bytes": 4428,
+    "sha256": "884b8d74ac69f57a0dd1beaf345ccf08fa5a4aaeba368ad49446aac4d6bc1e02"
+  },
+  {
+    "file": "public/assets/images/standard/icons/floor-heating.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/floor-heating.webp",
+    "bytes": 3256,
+    "sha256": "877e3b536d21f806dd46e8279cf2028990e74abb8e7222f7c32594453724fd17"
+  },
+  {
+    "file": "public/assets/images/standard/icons/glazing.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/glazing.webp",
+    "bytes": 3130,
+    "sha256": "43c12e61f41f2f19dffdeb9fcb0c64d39b08ef72ec18226d3619514e27c8eeb0"
+  },
+  {
+    "file": "public/assets/images/standard/icons/heat-pump.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/heat-pump.webp",
+    "bytes": 4936,
+    "sha256": "0d246325b83caa8cee6057540c3795e9369a68eddc8239c4a61232c283c3b1cd"
+  },
+  {
+    "file": "public/assets/images/standard/icons/pv.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/pv.webp",
+    "bytes": 4082,
+    "sha256": "e73bf2d3bb4b45d1283f743405d2e186482a933630753fb65c4668aeb6b44459"
+  },
+  {
+    "file": "public/assets/images/standard/icons/ventilation.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/ventilation.webp",
+    "bytes": 3674,
+    "sha256": "4bd4c63b0864f1ab3441ef8993d645e824757b6c4f4fb58aadc9ed34b2775387"
+  },
+  {
+    "file": "public/assets/images/standard/icons/windows.webp",
+    "archivedTo": "reference-assets/public/assets/images/standard/icons/windows.webp",
+    "bytes": 3778,
+    "sha256": "757b907c1483ebdefcd1c5813d3f1e03f6f95ea119fc3fc11e4123519c987fea"
+  },
+  {
+    "file": "public/assets/images/ui/masterplan-compass.png",
+    "archivedTo": "reference-assets/public/assets/images/ui/masterplan-compass.png",
+    "bytes": 1836459,
+    "sha256": "a3ef53cfd0a90b2fce9bb1a710ae12992c9288e29a10cddc83af8f7f6c17cce8"
+  },
+  {
+    "file": "public/assets/images/ui/masterplan-north.svg",
+    "archivedTo": "reference-assets/public/assets/images/ui/masterplan-north.svg",
+    "bytes": 699,
+    "sha256": "803838c704bc5a56327bf91f3b972f7d588fe4a96dc243005f89f1b8db2b7502"
+  },
+  {
+    "file": "public/assets/images/ui/why-home/architecture.png",
+    "archivedTo": "reference-assets/public/assets/images/ui/why-home/architecture.png",
+    "bytes": 197665,
+    "sha256": "2a1a28acc5f65157a4aab42bf1901b1a14f4d1f89ca4e2d6e0babea6721ccca8"
+  },
+  {
+    "file": "public/assets/images/ui/why-home/garden.png",
+    "archivedTo": "reference-assets/public/assets/images/ui/why-home/garden.png",
+    "bytes": 207343,
+    "sha256": "5bc240f2929e0bc537a81f8d471f14b9772c1ccb246c8b4cf9243910170f5ae5"
+  },
+  {
+    "file": "public/assets/images/ui/why-home/nature.png",
+    "archivedTo": "reference-assets/public/assets/images/ui/why-home/nature.png",
+    "bytes": 200879,
+    "sha256": "b06f93bac258b697f8a860066219973edc4b72f64bc0947e5a22e52d6fe0963c"
+  },
+  {
+    "file": "public/assets/images/ui/why-home/value.png",
+    "archivedTo": "reference-assets/public/assets/images/ui/why-home/value.png",
+    "bytes": 207101,
+    "sha256": "94a0f04c1336b7e4c611cdb69e26620cba2610e9b2dd8642d21a4c130787cb2b"
+  }
+]

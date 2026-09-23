@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { track, trackOnce } from '../../lib/analytics'
-import { ArrowRight, BedDouble, CarFront, Download, Home, LandPlot } from 'lucide-react'
+import { ArrowRight, BedDouble, CarFront, Download, Home, LandPlot } from '../common/Icons'
 import type { House } from '../../data/houses'
 import { formatArea, formatPrice, formatPricePerSqm } from '../../data/houses'
 
@@ -8,13 +8,14 @@ type HouseCardProps = {
   house: House | null
   fallbackHouse: House
   onAsk: () => void
+  idPrefix?: string
 }
 
 export function StatusBadge({ status }: Pick<House, 'status'>) {
   return <span className={`status-badge status-badge--${status === 'Rezerwacja' ? 'reserved' : status === 'Sprzedany' ? 'sold' : 'available'}`}>{status}</span>
 }
 
-export function HouseCard({ house, fallbackHouse, onAsk }: HouseCardProps) {
+export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseCardProps) {
   const visibleHouse = house ?? fallbackHouse
   const cardRef = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -28,17 +29,17 @@ export function HouseCard({ house, fallbackHouse, onAsk }: HouseCardProps) {
   }, [house?.id])
 
   return (
-    <article ref={cardRef} className={`house-card ${house ? '' : 'house-card--placeholder'}`.trim()} aria-labelledby={`house-card-${visibleHouse.id}`}>
+    <article ref={cardRef} className={`house-card ${house ? '' : 'house-card--placeholder'}`.trim()} aria-labelledby={`${idPrefix}house-card-${visibleHouse.id}`}>
       <div className="house-card__heading">
         <div>
           <span className="house-card__parcel">{house ? `DZIAŁKA ${visibleHouse.parcel}` : 'WYBÓR DOMU'}</span>
-          <h3 id={`house-card-${visibleHouse.id}`}>{house ? visibleHouse.name : 'Kliknij działkę, aby sprawdzić szczegóły'}</h3>
+          <h3 id={`${idPrefix}house-card-${visibleHouse.id}`}>{house ? visibleHouse.name : 'Który ogród będzie Twój?'}</h3>
         </div>
-        {house ? <StatusBadge status={visibleHouse.status} /> : <span className="house-card__placeholder-pill">Wybierz z mapy lub tabeli</span>}
+        {house ? <StatusBadge status={visibleHouse.status} /> : <span className="house-card__placeholder-pill">Plan i ceny poniżej</span>}
       </div>
 
       <div className="house-card__image">
-        <img src={visibleHouse.image} alt={house ? `Frontowa elewacja — ${visibleHouse.name}` : 'Przykładowy widok domu'} width="1672" height="941" loading="lazy" />
+        <img src={visibleHouse.image} alt={house ? `Frontowa elewacja — ${visibleHouse.name}` : 'Przykładowy widok domu'} width="1672" height="941" loading="lazy" /><span className="house-card__image-label">Wizualizacja</span>
       </div>
 
       {house ? (
@@ -60,13 +61,13 @@ export function HouseCard({ house, fallbackHouse, onAsk }: HouseCardProps) {
           </details>
           {visibleHouse.mandatoryPayments.length ? <div className="house-card__mandatory"><span>Obowiązkowe dodatkowe świadczenia</span><ul>{visibleHouse.mandatoryPayments.map((payment) => <li key={payment.name}>{payment.name}: <strong>{formatPrice(payment.amount)}</strong></li>)}</ul></div> : null}
           <button className="button button--olive house-card__cta" type="button" onClick={onAsk}>
-            Zapytaj o {visibleHouse.name.toLowerCase()} <ArrowRight size={17} aria-hidden="true" />
+            Zapytaj o dom {visibleHouse.id} <ArrowRight size={17} aria-hidden="true" />
           </button>
           {visibleHouse.pdf && (<a className="house-card__pdf" onClick={() => track('house_pdf_download', visibleHouse.id)} href={visibleHouse.pdf} target="_blank" rel="noreferrer">
             <Download size={18} aria-hidden="true" /> Pobierz kartę PDF
           </a>)}
         </>
-      ) : null}
+      ) : <div className="house-card__empty-copy"><p>Wybierz literę A–E na planie. Zobaczysz cenę, powierzchnię działki i kartę konkretnego domu.</p><a href="#lista-domow">Porównaj wszystkie domy <ArrowRight size={16} /></a></div>}
     </article>
   )
 }

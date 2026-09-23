@@ -1,0 +1,30 @@
+[
+  {
+    "name": "React route /polityka-prywatnosci/",
+    "passed": true
+  },
+  {
+    "name": "React route /polityka-cookies/",
+    "passed": true
+  },
+  {
+    "name": "React route /404.html",
+    "passed": true
+  },
+  {
+    "name": "No JavaScript: five prices/PDFs/contact available",
+    "passed": true
+  },
+  {
+    "name": "Standalone player wewnatrz: disclaimer, next frame, hotspots, real images",
+    "passed": true
+  },
+  {
+    "name": "Standalone player zewnatrz: disclaimer, next frame, hotspots, real images",
+    "passed": true
+  },
+  {
+    "name": "HTTP routing, PDFs, JSON, true 404 and hidden PHP source",
+    "passed": true
+  }
+]

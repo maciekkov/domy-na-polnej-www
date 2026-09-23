@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, MapPin, School, ShoppingCart, Trees } from 'lucide-react'
+import { ArrowRight, Building2, MapPin, School, ShoppingCart, Trees } from '../../components/common/Icons'
 import { track } from '../../lib/analytics'
 
 const highlights = [
@@ -45,6 +45,7 @@ export function Location() {
           </a>
         </div>
       </div>
+    <p className="location__travel-note shell">Czasy dojazdu są orientacyjne i zależą od trasy oraz warunków ruchu.</p>
     </section>
   )
 }

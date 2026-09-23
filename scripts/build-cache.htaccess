@@ -1,4 +1,4 @@
-# This directory contains only Vite content-hashed chunks and fonts.
+# This directory contains only content-hashed production JS/CSS chunks.
 # A new build creates new URLs. Do not put mutable/manual files in this directory.
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|woff2|woff)$">

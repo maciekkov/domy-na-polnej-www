@@ -1,5 +1,7 @@
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { createPortal } from 'react-dom'
+import { ChevronLeft, ChevronRight, X } from '../../components/common/Icons'
 import { useEffect, useRef } from 'react'
+import { useDialog } from '../../hooks/useDialog'
 import type { GalleryImage } from '../../data/gallery'
 
 type GalleryLightboxProps = {
@@ -15,43 +17,28 @@ export function GalleryLightbox({ images, index, onIndex, onClose }: GalleryLigh
   const previous = () => onIndex((index - 1 + images.length) % images.length)
   const next = () => onIndex((index + 1) % images.length)
 
+  useDialog(dialogRef, onClose)
   useEffect(() => {
-    const previousFocus = document.activeElement as HTMLElement | null
-    document.body.classList.add('modal-open')
     const preload = new Image()
     preload.src = images[(index + 1) % images.length].src
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-      if (event.key === 'ArrowLeft') previous()
-      if (event.key === 'ArrowRight') next()
-      if (event.key === 'Tab' && dialogRef.current) {
-        const controls = [...dialogRef.current.querySelectorAll<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])')].filter((element) => !element.hasAttribute('disabled'))
-        if (!controls.length) return
-        const first = controls[0]
-        const last = controls[controls.length - 1]
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
-        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() }
-      }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); previous() }
+      if (event.key === 'ArrowRight') { event.preventDefault(); next() }
     }
-    document.addEventListener('keydown', onKeyDown)
-    return () => {
-      document.body.classList.remove('modal-open')
-      document.removeEventListener('keydown', onKeyDown)
-      previousFocus?.focus()
-    }
-  }, [index, images, onClose])
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [index, images])
 
-  return (
+  return createPortal(
     <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={`Galeria: ${image.title}`} ref={dialogRef}>
-      <button className="gallery-lightbox__backdrop" type="button" onClick={onClose} aria-label="Zamknij galerię" />
+      <button className="gallery-lightbox__backdrop" tabIndex={-1} aria-hidden="true" type="button" onClick={onClose} aria-label="Zamknij galerię" />
       <div className="gallery-lightbox__frame">
         <img src={image.src} alt={image.alt} />
-        <div className="gallery-lightbox__caption"><span>{String(index + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}</span><strong>{image.title}</strong></div>
+        <div className="gallery-lightbox__caption" aria-live="polite"><span>{String(index + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}</span><strong>{image.title}</strong></div>
       </div>
-      <button className="gallery-lightbox__close" type="button" onClick={onClose} aria-label="Zamknij" autoFocus><X /></button>
+      <button data-dialog-close className="gallery-lightbox__close" type="button" onClick={onClose} aria-label="Zamknij"><X /></button>
       <button className="gallery-lightbox__arrow gallery-lightbox__arrow--previous" type="button" onClick={previous} aria-label="Poprzednie zdjęcie"><ChevronLeft /></button>
       <button className="gallery-lightbox__arrow gallery-lightbox__arrow--next" type="button" onClick={next} aria-label="Następne zdjęcie"><ChevronRight /></button>
     </div>
-  )
+  , document.body)
 }

@@ -1,0 +1,29 @@
+{
+  "measurement": "Built artifact byte counts; gzip computed offline, NOT a network/CWV measurement",
+  "files": [
+    {
+      "file": "dist/assets/build/react-467b459eca46.js",
+      "bytes": 185873,
+      "gzipBytesCalculated": 58445
+    },
+    {
+      "file": "dist/assets/build/site-751e676764f0.js",
+      "bytes": 247456,
+      "gzipBytesCalculated": 59649
+    },
+    {
+      "file": "dist/assets/build/site-a55399ac9edd.css",
+      "bytes": 179161,
+      "gzipBytesCalculated": 31084
+    }
+  ],
+  "publicTotalBytes": 27130001,
+  "distTotalBytes": 27840681,
+  "firstScreenExcluded": [
+    "full panorama texture",
+    "complete tour scene graphs",
+    "optional analytics before consent",
+    "web fonts"
+  ],
+  "CoreWebVitalsMeasured": false
+}

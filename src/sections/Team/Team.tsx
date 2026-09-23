@@ -1,4 +1,4 @@
-import { ArrowRight, Gem, Handshake, Leaf } from 'lucide-react'
+import { ArrowRight, Gem, Handshake, Leaf } from '../../components/common/Icons'
 import { teamMembers } from '../../data/team'
 
 export function Team() {
@@ -8,18 +8,8 @@ export function Team() {
         <div className="team-section__intro">
           <div className="section-kicker"><b>11 / 12</b><span />Inwestor / zespół</div>
           <h2 id="team-title">Za projektem stoją<br />konkretni ludzie</h2>
-          <p>
-            Domy na Polnej to lokalna inicjatywa, za którą stoją ludzie z doświadczeniem w zarządzaniu inwestycją,
-            prowadzeniu budowy i projektowaniu. Łączy nas wspólna idea — tworzyć domy, w których po prostu dobrze się mieszka.
-            Stawiamy na jakość wykonania, uczciwe zasady i otwartą komunikację. Jesteśmy na miejscu, znamy region i osobiście
-            pilnujemy przebiegu inwestycji.
-          </p>
-
-          <div className="team-values" aria-label="Najważniejsze wartości zespołu">
-            <div><Handshake aria-hidden="true" /><strong>Lokalny zespół</strong><span>Znamy region<br />i jego potrzeby</span></div>
-            <div><Gem aria-hidden="true" /><strong>Doświadczenie</strong><span>Sprawdzeni<br />specjaliści</span></div>
-            <div><Leaf aria-hidden="true" /><strong>Uczciwe zasady</strong><span>Transparentna<br />współpraca</span></div>
-          </div>
+          <p>Przygotowanie inwestycji, organizacja budowy i projekt architektoniczny mają swoich opiekunów. Poniżej poznasz osoby oraz pracownię zaangażowane w Domy na Polnej.</p>
+          <p className="team-section__note">Masz pytanie o dom, standard lub kolejne etapy? Skontaktuj się bezpośrednio z biurem inwestycji.</p>
 
           <a className="button button--olive team-section__cta" href="#kontakt">Porozmawiaj z nami <ArrowRight size={17} aria-hidden="true" /></a>
         </div>

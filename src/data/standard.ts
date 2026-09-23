@@ -15,7 +15,7 @@ export const standardGroups = [
   {
     id: 'construction',
     title: 'Konstrukcja',
-    lead: 'Solidna, energooszczędna bryła — dom parterowy o powierzchni 110,82 m².',
+    lead: 'Dom parterowy o powierzchni użytkowej 110,82 m².',
     detail: 'Ściany nośne 24 cm, ocieplenie ścian 20 cm i stropu 30–35 cm oraz prefabrykowana konstrukcja dachu z drewna C24. Wysokość pomieszczeń wynosi 2,70 m, a salon otrzymuje podwyższoną przestrzeń katedralną.',
   },
   {
@@ -27,7 +27,7 @@ export const standardGroups = [
   {
     id: 'installations',
     title: 'Instalacje',
-    lead: 'Komplet instalacji potrzebnych do wygodnego użytkowania domu.',
+    lead: 'Instalacje elektryczne, sanitarne i wentylacja mechaniczna.',
     detail: 'Instalacja elektryczna, wodno-kanalizacyjna, wentylacja mechaniczna z odzyskiem ciepła oraz przygotowanie PV Ready. Na ogród wyprowadzona zostaje woda i energia elektryczna.',
   },
   {
@@ -39,7 +39,7 @@ export const standardGroups = [
   {
     id: 'exterior',
     title: 'Wykończenie zewnętrzne',
-    lead: 'Spójna, nowoczesna elewacja z dopracowanymi detalami.',
+    lead: 'Jasna elewacja, czarny dach i akcenty w strefie wejścia.',
     detail: 'Płaska czarna dachówka, czarne stalowe rynny i parapety, jasna elewacja oraz drewniane lamele w strefie wejściowej. Bryła i podstawowa kolorystyka odpowiadają koncepcji prezentowanej na wizualizacjach.',
   },
   {

@@ -1,4 +1,4 @@
-import { ArrowRight, Bell, Images, Instagram } from 'lucide-react'
+import { ArrowRight, Bell, Images, Instagram } from '../../components/common/Icons'
 import { useCallback, useEffect, useState } from 'react'
 import type { JournalEntry } from '../../data/journal'
 import { GalleryLightbox } from '../Gallery/GalleryLightbox'
@@ -53,24 +53,42 @@ export function Journal({ entries }: { entries: JournalEntry[] }) {
   }, [])
 
   const featured = entries[0]
-  const archive = entries.slice(1, 4)
+  const archive = entries.slice(1)
 
   if (!featured) return (
     <section id="dziennik" className="journal-section journal-section--placeholder" aria-labelledby="journal-title">
       <div className="shell">
-        <div className="journal-section__header">
-          <div><div className="section-kicker"><b>10 / 12</b><span />Dziennik budowy</div><h2 id="journal-title">Zobacz, jak powstają Domy na Polnej</h2></div>
+        <div className="journal-section__header journal-section__header--launch">
+          <div>
+            <div className="section-kicker"><b>10 / 12</b><span />Dziennik budowy</div>
+            <h2 id="journal-title">Zobacz, jak powstają Domy na Polnej</h2>
+          </div>
+          <p>Bez zdjęć zastępczych. Pierwszy wpis pojawi się po rozpoczęciu robót.</p>
         </div>
-        <div className="journal-placeholder">
-          <figure className="journal-placeholder__visual">
-            <img src={`${import.meta.env.BASE_URL}assets/images/neighborhood/plots-aerial.webp?v=1e1c177287ce686d`} alt="Teren inwestycji Domy na Polnej z lotu ptaka" width="1600" height="960" loading="lazy" decoding="async" />
-            <figcaption><Bell aria-hidden="true" /><span><strong>Pierwsze aktualności po rozpoczęciu budowy</strong><small>Tu pokażemy prawdziwy postęp prac — bez zdjęć zastępczych.</small></span></figcaption>
+
+        <div className="journal-launch">
+          <figure className="journal-launch__media">
+            <img src={`${import.meta.env.BASE_URL}assets/images/neighborhood/plots-aerial.webp?v=1e1c177287ce686d`} alt="Rzeczywisty teren inwestycji Domy na Polnej z lotu ptaka" width="1600" height="960" loading="lazy" decoding="async" />
+            <div className="journal-launch__status" aria-label="Status dziennika budowy"><span aria-hidden="true" /><small>TERAZ</small><strong>Przygotowanie inwestycji</strong></div>
+            <figcaption>Rzeczywisty teren inwestycji · Grabik koło Żar</figcaption>
           </figure>
-          <div className="journal-placeholder__content">
-            <p className="journal-placeholder__eyebrow">BĄDŹ NA BIEŻĄCO</p>
-            <h3>Budowa jeszcze przed nami.<br />Zostań z nami od pierwszego dnia.</h3>
-            <p>Gdy ruszą prace, pojawią się tu regularne zdjęcia i krótkie raporty z placu budowy. Aktualności będziemy publikować również na Instagramie.</p>
+
+          <aside className="journal-launch__panel">
+            <div className="journal-launch__index"><span>01</span><i aria-hidden="true" /></div>
+            <p className="journal-launch__eyebrow">DZIENNIK STARTU</p>
+            <h3>Jeden adres. Kolejne etapy. Prawdziwe zdjęcia.</h3>
+            <p>Po rozpoczęciu prac będziemy publikować zdjęcia z placu budowy i krótkie raporty z postępu. Dzięki temu będzie można śledzić realizację od pierwszych robót do odbiorów.</p>
+            <div className="journal-launch__signals" aria-label="Co będzie publikowane">
+              <span><Bell aria-hidden="true" /> zdjęcia z placu</span>
+              <span><Images aria-hidden="true" /> krótkie raporty</span>
+            </div>
             <a className="button button--olive" href="https://www.instagram.com/domynapolnej/" target="_blank" rel="noreferrer"><Instagram size={17} aria-hidden="true" /> Obserwuj nas na Instagramie</a>
+          </aside>
+
+          <div className="journal-launch__track" aria-label="Jak będzie rozwijany dziennik budowy">
+            <div><b>01</b><span>TERAZ</span><strong>Teren inwestycji</strong></div>
+            <div><b>02</b><span>PO STARCIE ROBÓT</span><strong>Pierwsze zdjęcia</strong></div>
+            <div><b>03</b><span>DALEJ</span><strong>Regularne aktualizacje</strong></div>
           </div>
         </div>
       </div>

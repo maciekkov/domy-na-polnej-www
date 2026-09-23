@@ -58,15 +58,6 @@
 .contact-details strong { font-size: 16px; line-height: 1.35; }
 .contact-details small, .contact-details u { color: #dedfd7; font-size: 13px; line-height: 1.4; }
 
-.contact-section__botanical {
-  width: 112px;
-  height: 112px;
-  margin: 18px 0 0 auto;
-  opacity: .42;
-  pointer-events: none;
-}
-.contact-section__botanical img { width: 100%; height: 100%; object-fit: contain; }
-
 .contact-form {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
@@ -100,7 +91,7 @@
   border-radius: 7px;
   background: #faf8f3;
   color: #252a2c;
-  font: 16px/1.3 "Lato",Arial,sans-serif;
+  font: 16px/1.3 var(--font-body);
 }
 .contact-form textarea { min-height: 84px; max-height: 150px; resize: vertical; }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: #62675f; opacity: 1; }
@@ -133,7 +124,6 @@
 @media (max-width: 1000px) {
   .contact-section__grid { grid-template-columns: .86fr 1.14fr; gap: 26px; }
   .contact-form { padding: 19px 20px 20px; }
-  .contact-section__botanical { display: none; }
 }
 
 @media (max-width: 760px) {

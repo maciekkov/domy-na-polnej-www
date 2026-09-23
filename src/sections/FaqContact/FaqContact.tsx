@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowRight, Mail, MapPin, Phone } from '../../components/common/Icons'
 import { useEffect, useState, useRef } from 'react'
 import type { FormEvent } from 'react'
 import { faqItems } from '../../data/faq'
@@ -153,14 +153,13 @@ export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
         <div className="shell contact-section__grid">
           <div className="contact-section__intro">
             <h2 id="contact-title">Porozmawiajmy<br />o Twoim domu</h2>
-            <p>Masz pytania, chcesz umówić się na prezentację działki lub poznać szczegóły oferty? Skontaktuj się z nami — jesteśmy do Twojej dyspozycji.</p>
+            <p>Zapytaj o wybrany dom, zakres standardu lub prezentację działki. Wybór z planu inwestycji przeniesiemy do formularza.</p>
 
             <address className="contact-details">
               <a href={contact.phoneHref} onClick={() => track('phone_click')}><Phone aria-hidden="true" /><span><strong>{contact.phoneDisplay}</strong><small>{contact.contactHours}</small></span></a>
-              <a href={contact.emailHref} onClick={() => track('email_click')}><Mail aria-hidden="true" /><span><strong>{contact.email}</strong><small>Odpowiadamy zwykle w ciągu 24h</small></span></a>
+              <a href={contact.emailHref} onClick={() => track('email_click')}><Mail aria-hidden="true" /><span><strong>{contact.email}</strong><small>Zapytaj o ofertę i szczegóły domu</small></span></a>
               <a href={contact.mapHref} target="_blank" rel="noreferrer" onClick={() => track('directions_click')}><MapPin aria-hidden="true" /><span><strong>{contact.addressLine1}</strong><small>{contact.addressLine2}</small><u>Zobacz na mapie →</u></span></a>
             </address>
-            <div className="contact-section__botanical" aria-hidden="true"><img src={`${import.meta.env.BASE_URL}assets/images/botanical-corner.svg?v=c58b540488b17455`} alt="" /></div>
           </div>
 
           <form ref={formRef} className="contact-form" aria-labelledby="contact-form-title" aria-busy={formState === 'sending'} onSubmit={submit} noValidate onFocus={() => { if (!started && track('contact_start', fields.house)) setStarted(true) }}>

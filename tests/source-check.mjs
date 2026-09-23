@@ -19,7 +19,7 @@ export const required = [
   'api/contact.php','api/analytics.php','api/analytics-summary.php','api/gov-sync.php','api/gov-sync-cron.php','api/lib/gov-sync.php','api/config.example.php','api/.htaccess',
   'public/.htaccess','public/robots.txt','public/sitemap.xml','scripts/prepare-dist.mjs',
   'scripts/version-assets.mjs','scripts/publish-site-data.mjs','scripts/build-cache.htaccess',
-  'public/assets/images/dnp-masterplan.webp','public/assets/images/ui/masterplan-north.svg',
+  'public/assets/images/dnp-masterplan.webp','src/components/house-selector/NorthIndicator.tsx',
   'public/assets/images/layout/plan-2d-precise.webp','public/assets/images/layout/plan-3d.webp',
   'public/assets/images/neighborhood/panorama-360-grabik.webp',
   'public/tour/spacer-360-player.js','public/tour/spacer-360-player.css',

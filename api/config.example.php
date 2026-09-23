@@ -20,8 +20,8 @@ return [
     'admin' => [
         'control_key' => 'UZUPELNIJ_LOSOWY_KLUCZ_MIN_32_ZNAKI',
     ],
-    // Adapter Gov Sync. Do czasu opublikowania oficjalnego endpointu/struktury pozostaw mode=disabled.
-    // Po otrzymaniu oficjalnych danych wpisz endpoint/credentiale; wtedy przycisk "Włącz publikację" zacznie działać.
+    // Adapter Gov Sync nie jest skonfigurowany w tej paczce. Pozostaw mode=disabled do weryfikacji integracji.
+    // Wpisz zweryfikowany endpoint, schemat i dane dostępowe wyłącznie na serwerze; następnie przetestuj transmisję.
     'gov_sync' => [
         'mode' => 'disabled', // 'http' po oficjalnej konfiguracji
         'endpoint' => '',

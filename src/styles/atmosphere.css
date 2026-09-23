@@ -1,0 +1,17 @@
+/* V5 — restrained botanical system: a few accents, never behind transaction controls. */
+.homes,.why-home,.journal-section{position:relative;isolation:isolate;overflow:clip}
+.homes::after{content:"";position:absolute;z-index:-1;right:-170px;top:-90px;width:420px;aspect-ratio:4/3;background:url('/assets/images/decor/linden-corner.png?v=4e04f38fe0ea2c54') top right/contain no-repeat;opacity:.4;pointer-events:none}
+.why-home::before,.why-home::after,.standard-section::before,.standard-section::after,.journal-section::before,.journal-section::after{content:none}
+.contact-section::before{opacity:.13}
+.homes__heading{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:end;gap:36px;margin-bottom:32px}
+.homes__heading .section-heading{margin:0}
+.homes__signature{margin:0;padding-left:24px;border-left:1px solid var(--line);font:italic 25px/1.3 var(--font-editorial);color:var(--olive-deep)}
+.homes__signature>span{display:block;font:500 10px/1.5 var(--font-body);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;color:var(--text-muted)}
+.homes__showcase{grid-template-columns:minmax(0,1.9fr) minmax(320px,1fr);gap:24px;align-items:start}
+.homes__map-column{min-width:0}
+.homes__map-caption{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--text-muted);font-size:12px}
+.homes__map-caption p{margin:0}
+.homes__north-caption{white-space:nowrap}
+.masterplan>.masterplan-north{position:absolute;z-index:5;inset:auto 14px 14px auto;width:72px;height:72px;pointer-events:none;filter:drop-shadow(0 2px 4px #263b2240)}
+@media(max-width:1000px){.homes__showcase{grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr)}.homes__heading{grid-template-columns:minmax(0,1fr) 220px}}
+@media(max-width:760px){.homes::after{content:none}.homes__heading{display:block}.homes__signature{display:none}.homes__showcase{display:block}.homes__showcase>.house-card{display:none}.homes__map-caption{font-size:11px}.masterplan>.masterplan-north{width:48px;height:48px;inset:auto 8px 8px auto}}

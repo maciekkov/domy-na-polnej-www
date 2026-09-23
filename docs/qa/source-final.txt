@@ -1,0 +1,1 @@
+PASS source-check: 147 warunków; 25.87 MiB public; brak brakujących i nieodwoływanych zasobów.

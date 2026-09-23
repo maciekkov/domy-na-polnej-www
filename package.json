@@ -1,7 +1,7 @@
 {
-  "name": "domy-na-polnej-stage-01-12",
+  "name": "domy-na-polnej-www",
   "private": true,
-  "version": "0.9.0",
+  "version": "5.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -17,28 +17,25 @@
     "dev:admin": "node scripts/dev-admin.mjs",
     "assets:check": "node scripts/asset-inventory.mjs",
     "assets:version": "node scripts/version-assets.mjs",
-    "predev": "node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
-    "prebuild": "node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
+    "predev": "node scripts/generate-tour-summary.mjs && node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
+    "prebuild": "node scripts/generate-tour-summary.mjs && node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
     "content:publish": "node scripts/publish-site-data.mjs",
     "test:dist": "node tests/dist-check.mjs",
     "test:syntax": "node tests/syntax-check.mjs",
-    "predev:admin": "node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
+    "predev:admin": "node scripts/generate-tour-summary.mjs && node scripts/version-assets.mjs && node scripts/generate-seo.mjs",
     "seo:refresh": "node scripts/generate-seo.mjs",
-    "test:api": "python3 tests/api-security-qa.py"
+    "test:api": "python3 tests/api-security-qa.py",
+    "build:portable": "node scripts/build-portable.cjs",
+    "start": "node preview-server.mjs"
   },
   "dependencies": {
-    "@fontsource/lato": "5.2.6",
-    "@fontsource/montserrat": "5.2.6",
-    "lucide-react": "0.544.0",
     "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "three": "^0.185.0"
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
-    "@types/three": "^0.185.0",
     "@vitejs/plugin-react": "5.0.2",
     "typescript": "5.9.2",
     "vite": "7.1.5"

@@ -442,7 +442,7 @@
 
 .room-panel__benefits strong {
   color: var(--graphite);
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.25;
 }

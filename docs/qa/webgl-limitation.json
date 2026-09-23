@@ -1,0 +1,6 @@
+{
+  "WebGLContextAvailable": false,
+  "GPUProjectionTested": false,
+  "fallbackAndCloseTested": true,
+  "note": "Renderer cannot be certified in this Chromium environment; original photo fallback is available."
+}

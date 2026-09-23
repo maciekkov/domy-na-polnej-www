@@ -3,18 +3,18 @@ import assert from 'node:assert/strict'
 import vm from 'node:vm'
 import { readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
-const require=createRequire(import.meta.url),ts=require('typescript')
+const require=createRequire(import.meta.url),ts=require('../vendor/typescript.cjs')
 const source=readFileSync(new URL('../src/lib/analytics.ts',import.meta.url),'utf8')
 const compiled=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText
 const catalog=JSON.parse(readFileSync(new URL('../api/event-names.json',import.meta.url),'utf8'))
-function fixture({local=false,storageThrows=false,setThrows=false,beacon=true,legacy=null}={}) {
+function fixture({local=false,storageThrows=false,setThrows=false,cookieThrows=false,beacon=true,legacy=null}={}) {
   const calls=[],listeners={},docListeners={},store=new Map(),sessions=new Map(),cookies=new Map()
   if(legacy)store.set('dnp-analytics-consent-v1',legacy)
   const storage=map=>({getItem(k){if(storageThrows)throw Error('disabled');return map.get(k)??null},setItem(k,v){if(storageThrows||setThrows)throw Error('quota');map.set(k,String(v))},removeItem(k){if(storageThrows)throw Error('disabled');map.delete(k)}})
   let counter=0,perf=1000
   const location={hostname:local?'localhost':'domynapolnej.pl',pathname:'/',search:'',protocol:'https:'}
   const window={location,innerWidth:1280,screen:{width:1280},addEventListener(name,fn){(listeners[name]??=[]).push(fn)},dispatchEvent(event){for(const fn of listeners[event.type]??[])fn(event)}}
-  const document={referrer:'',visibilityState:'visible',addEventListener(name,fn){(docListeners[name]??=[]).push(fn)},get cookie(){return [...cookies].map(([k,v])=>`${k}=${encodeURIComponent(v)}`).join('; ')},set cookie(value){const first=value.split(';')[0],at=first.indexOf('='),name=decodeURIComponent(first.slice(0,at)),val=decodeURIComponent(first.slice(at+1));const max=/Max-Age=(\d+)/i.exec(value);if(max&&Number(max[1])===0)cookies.delete(name);else cookies.set(name,val)}}
+  const document={referrer:'',visibilityState:'visible',addEventListener(name,fn){(docListeners[name]??=[]).push(fn)},get cookie(){if(cookieThrows)throw Error("Cookie blocked");return [...cookies].map(([k,v])=>`${k}=${encodeURIComponent(v)}`).join('; ')},set cookie(value){if(cookieThrows)throw Error("Cookie blocked");const first=value.split(';')[0],at=first.indexOf('='),name=decodeURIComponent(first.slice(0,at)),val=decodeURIComponent(first.slice(at+1));const max=/Max-Age=(\d+)/i.exec(value);if(max&&Number(max[1])===0)cookies.delete(name);else cookies.set(name,val)}}
   const context={exports:{},require:name=>name.includes('event-names')?catalog:require(name),localStorage:storage(store),sessionStorage:storage(sessions),window,document,navigator:{maxTouchPoints:0,sendBeacon:(url,payload)=>{if(beacon)calls.push({url,payload,type:'beacon'});return beacon}},screen:{width:1280},fetch:(url,options)=>{calls.push({url,options,type:'fetch'});return Promise.reject(Error('offline'))},URLSearchParams,URL,Event,Blob,Uint8Array,crypto:{randomUUID:()=>`qa-event-${++counter}`},Date,Map,Set,performance:{now:()=>perf}}
   vm.runInNewContext(compiled,context)
   return {api:context.exports,window,document,calls,store,sessions,cookies,advance(ms){perf+=ms}}
@@ -28,3 +28,5 @@ test('trackOnce prevents duplicate impression',()=>{const f=fixture();f.api.setC
 test('revocation deletes analytical identifiers and local diagnostics',()=>{const f=fixture({local:true});f.api.setConsent('all');f.api.track('house_select','A');assert.ok(f.store.has('dnp-analytics-events-v3'));f.api.setConsent('necessary');assert.equal(f.cookies.has('dnp_vid'),false);assert.equal(f.cookies.has('dnp_visit'),false);assert.equal(f.store.has('dnp-analytics-events-v3'),false);assert.equal(f.sessions.has('dnp-analytics-session-v2'),false)})
 test('explicit necessary choice wins when localStorage write fails',()=>{const f=fixture({setThrows:true,legacy:'accepted'});f.api.setConsent('necessary');assert.equal(f.api.analyticsAllowed(),false);assert.equal(f.api.track('page_view'),false)})
 test('local development keeps consented diagnostics local',()=>{const f=fixture({local:true});f.api.setConsent('all');f.api.track('house_select','C');assert.equal(f.calls.length,0);assert.equal(JSON.parse(f.store.get('dnp-analytics-events-v3'))[0].houseCode,'C')})
+
+test("denial remains effective with blocked cookies and storage",()=>{const f=fixture({cookieThrows:true,storageThrows:true});assert.doesNotThrow(()=>f.api.setConsent("necessary"));assert.equal(f.api.analyticsAllowed(),false);assert.equal(f.api.track("page_view"),false);assert.equal(f.calls.length,0)})

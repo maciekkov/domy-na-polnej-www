@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Necessary consent closes banner; no tracking, full panorama, scene graph or fonts on first screen",
+    "passed": true
+  },
+  {
+    "name": "Hero manual next/previous, responsive asset and no autonomous change",
+    "passed": true
+  },
+  {
+    "name": "House B synchronizes plan/table/card/URL/form and focuses contact",
+    "passed": true
+  },
+  {
+    "name": "Form invalid/valid states; local preview never pretends to send mail",
+    "passed": true
+  },
+  {
+    "name": "Gallery arrows, focus trap, Escape, return focus, inert cleanup",
+    "passed": true
+  },
+  {
+    "name": "Gallery keyboard tabs and floor-plan mode switch",
+    "passed": true
+  },
+  {
+    "name": "FAQ explicit expanded/collapsed states",
+    "passed": true
+  },
+  {
+    "name": "Panorama supported-renderer path or explicit unavailable-WebGL fallback; close",
+    "passed": true
+  },
+  {
+    "name": "Tour choice focus trap; real React iframe mount and cancel loading",
+    "passed": true
+  },
+  {
+    "name": "No runtime JS errors on desktop interactions",
+    "passed": true
+  },
+  {
+    "name": "Mobile E bottom sheet, factual price/plot, CTA closes and selects E",
+    "passed": true
+  },
+  {
+    "name": "Mobile navigation toggles and Escape restores focus",
+    "passed": true
+  },
+  {
+    "name": "No mobile runtime errors",
+    "passed": true
+  },
+  {
+    "name": "Reduced-motion preference and accessible anchor focus",
+    "passed": true
+  }
+]

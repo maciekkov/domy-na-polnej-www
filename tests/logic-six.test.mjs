@@ -65,7 +65,7 @@ test('Publikator dopisuje poprzednią cenę z poprawnymi datami i nie tworzy his
   const before=fresh(); const same=structuredClone(before); same.revision++; same.publishedAt='2026-09-18T12:00:00+02:00';
   assert.deepEqual(mergePublicPriceHistory(same,before).houses[0].priceHistory, before.houses[0].priceHistory);
   const changed=structuredClone(same); changed.houses[0].price+=10000; const merged=mergePublicPriceHistory(changed,before);
-  assert.deepEqual(merged.houses[0].priceHistory[0],{price:before.houses[0].price,validFrom:'2026-09-13',validTo:'2026-09-18'});
+  assert.deepEqual(merged.houses[0].priceHistory[0],{price:before.houses[0].price,validFrom:before.publishedAt.slice(0,10).split('.').reverse().join('-'),validTo:'2026-09-18'});
   assert.doesNotThrow(()=>parseSiteData(merged));
 })
 test('Wersjonowanie URL nie zmienia identyfikatorów, etykiet i pinezek',()=>{

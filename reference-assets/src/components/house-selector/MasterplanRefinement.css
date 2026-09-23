@@ -1,0 +1,34 @@
+/* Hide the permanent parcel outline while preserving hover/selected highlighting. */
+.masterplan .masterplan__polygons path {
+  fill: transparent !important;
+  stroke: transparent !important;
+  stroke-width: 0 !important;
+  filter: none !important;
+}
+
+.masterplan .masterplan__polygons path.masterplan-plot--available:hover,
+.masterplan .masterplan__polygons path.masterplan-plot--available:focus,
+.masterplan .masterplan__polygons path.masterplan-plot--available.is-active {
+  fill: rgba(63,151,73,.31) !important;
+  stroke: #91dc91 !important;
+  stroke-width: 1 !important;
+  filter: drop-shadow(0 0 6px rgba(85,184,94,.58)) !important;
+}
+
+.masterplan .masterplan__polygons path.masterplan-plot--reserved:hover,
+.masterplan .masterplan__polygons path.masterplan-plot--reserved:focus,
+.masterplan .masterplan__polygons path.masterplan-plot--reserved.is-active {
+  fill: rgba(235,178,31,.31) !important;
+  stroke: #ffdc62 !important;
+  stroke-width: 1 !important;
+  filter: drop-shadow(0 0 6px rgba(255,207,67,.58)) !important;
+}
+
+.masterplan .masterplan__polygons path.masterplan-plot--sold:hover,
+.masterplan .masterplan__polygons path.masterplan-plot--sold:focus,
+.masterplan .masterplan__polygons path.masterplan-plot--sold.is-active {
+  fill: rgba(194,59,50,.32) !important;
+  stroke: #ff8175 !important;
+  stroke-width: 1 !important;
+  filter: drop-shadow(0 0 6px rgba(244,92,79,.56)) !important;
+}

@@ -69,7 +69,7 @@ function readCookie(name: string): string | null {
 }
 function setCookie(name: string, value: string, maxAge: number) {
   const secure = window.location.protocol === 'https:' ? '; Secure' : ''
-  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; Max-Age=${Math.max(0, Math.floor(maxAge))}; Path=/; SameSite=Lax${secure}`
+  try { document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; Max-Age=${Math.max(0, Math.floor(maxAge))}; Path=/; SameSite=Lax${secure}` } catch { /* Cookie storage is optional; never block consent controls. */ }
 }
 function clearCookie(name: string) { setCookie(name, '', 0) }
 

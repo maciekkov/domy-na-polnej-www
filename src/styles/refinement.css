@@ -1,0 +1,488 @@
+/* V5.1 refinement layer
+   Targeted corrections after visual QA: viewport fit, masterplan alignment,
+   density, bespoke glyphs, gallery controls, process flow and journal launch. */
+
+:root{
+  --space-section:clamp(56px,4.8vw,78px);
+}
+
+/* --- HERO: keep the complete sales message inside a normal desktop viewport. --- */
+/* Ensure the image and overlay stay inside the hero stacking context.
+   The original negative z-index could place the media below the hero background. */
+.hero__media-stack,.hero__media{z-index:0}
+.hero__shade{z-index:1}
+.hero__content{position:relative;z-index:2}
+
+@media (min-width:641px){
+  .hero{
+    height:min(100svh,920px);
+    min-height:650px;
+    max-height:920px;
+  }
+  .hero__content{
+    padding-block:clamp(98px,12vh,128px) clamp(20px,2.8vh,30px);
+    gap:clamp(24px,4.2vh,44px);
+  }
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{font-size:clamp(46px,5vw,74px);margin-bottom:18px}
+  .hero__lead{margin-bottom:22px;font-size:17px;line-height:1.55}
+  .hero__bottom{padding-top:20px}
+  .hero__facts{gap:clamp(28px,3vw,48px)}
+  .hero__facts dt{font-size:clamp(20px,1.6vw,26px)}
+  .hero__discover{display:none}
+}
+@media (min-width:641px) and (max-height:780px){
+  .hero{min-height:620px}
+  .hero__content{padding-top:92px;padding-bottom:18px;gap:20px}
+  .hero .eyebrow{margin-bottom:10px}
+  .hero h1{font-size:clamp(42px,4.5vw,62px);margin-bottom:12px}
+  .hero__lead{font-size:15.5px;line-height:1.45;margin-bottom:16px}
+  .hero__buttons .button{min-height:46px}
+  .hero__tour-link{min-height:42px}
+  .hero__bottom{padding-top:15px}
+  .hero__facts dd{margin-top:3px}
+  .hero__controls button{min-width:42px;min-height:42px}
+}
+
+/* --- HOMES / MASTERPLAN: remove accidental x-shift and close the vertical step. --- */
+.homes__showcase{
+  grid-template-columns:minmax(0,1.88fr) minmax(300px,.74fr);
+  gap:20px;
+  align-items:start;
+}
+.masterplan .plot-label[aria-pressed=true]{
+  filter:drop-shadow(0 0 4px rgba(255,255,255,.9));
+  transform:translate(-50%,-14px);
+}
+.plot-label.is-active>span{
+  transform:translateY(2px) scale(1.035);
+}
+.house-card{
+  padding:18px;
+}
+.house-card__heading{margin-bottom:9px}
+.house-card__heading h3{font-size:25px}
+.house-card__image{
+  aspect-ratio:16/6.75;
+  margin-bottom:10px;
+}
+.house-card__image img{
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  object-fit:cover;
+}
+.house-card__facts{
+  gap:7px 10px;
+  margin-block:10px 8px;
+}
+.house-card__facts li{font-size:11.5px;line-height:1.3}
+.house-card__facts svg{width:17px;height:17px}
+.house-card__price{
+  margin-block:7px 4px;
+  padding:10px 0 9px;
+}
+.house-card__price strong{font-size:28px}
+.house-card__price small{font-size:11px;line-height:1.35}
+.house-card__price-history{margin:0 0 7px;padding-top:6px}
+.house-card__price-history summary{min-height:31px;font-size:12px}
+.house-card__cta{min-height:46px}
+.house-card__pdf{min-height:36px;margin-top:2px;font-size:12px}
+.homes-table-wrap{margin-top:14px;padding:14px 16px 15px}
+.homes-table th,.homes-table td{height:50px}
+.homes-table thead th{font-size:11.5px;font-weight:750;color:#34463d}
+.homes-table tbody td{font-weight:520;color:#2b3933}
+.homes-table tbody th,.homes-table tbody th button{font-weight:700}
+.homes-table td:nth-child(7),.homes-table td:nth-child(8){font-weight:680;color:#18261f}
+.homes__transaction-note{margin-top:14px}
+.homes__map-caption{margin-top:9px}
+@media(max-width:1180px) and (min-width:961px){
+  .homes__showcase{grid-template-columns:minmax(0,1.7fr) minmax(292px,.72fr);gap:16px}
+  .house-card{padding:16px}
+  .house-card__heading h3{font-size:23px}
+  .house-card__facts{gap:6px 8px}
+  .house-card__facts li{font-size:11px}
+  .house-card__image{aspect-ratio:16/6.3}
+  .house-card__price strong{font-size:25px}
+}
+@media(max-width:760px){
+  .masterplan .plot-label[aria-pressed=true]{transform:translate(-50%,-12px)}
+  .plot-label.is-active>span{transform:translateY(2px) scale(1.025)}
+}
+
+/* --- ARCHITECTURE: landscape image + bespoke architectural pictograms. --- */
+.why-home__grid{
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(36px,4vw,58px);
+  align-items:center;
+}
+.why-home__visual{
+  aspect-ratio:16/10;
+  min-height:0;
+  height:auto;
+}
+.why-home__visual img{object-position:52% 55%}
+.benefit__glyph{
+  width:43px;
+  height:43px;
+  color:var(--olive-deep);
+  stroke:currentColor;
+  stroke-width:1.35;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+}
+.benefit__head{margin-bottom:10px}
+.benefit{padding-top:15px}
+.benefit h3{font-weight:650}
+.why-home>.shell{position:relative;z-index:1}
+.why-home::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-96px;
+  bottom:-145px;
+  width:330px;
+  aspect-ratio:360/520;
+  background:url('/assets/images/decor/botanical-sprig-left.svg?v=b5566d6896b654a3') center/contain no-repeat;
+  opacity:.48;
+  pointer-events:none;
+  transform:rotate(-8deg);
+}
+@media(max-width:960px){
+  .why-home__grid{grid-template-columns:1fr;gap:30px}
+  .why-home__visual{aspect-ratio:16/9}
+}
+@media(max-width:760px){.why-home::after{display:none}.why-home__visual{aspect-ratio:4/3}}
+
+/* --- GALLERY: stable segmented navigation and denser immersive cards. --- */
+.gallery-section__top{margin-bottom:24px}
+.gallery-tabs{
+  width:min(480px,100%);
+  min-width:0;
+  padding:4px;
+  gap:4px;
+  overflow:visible;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:14px;
+  background:rgba(11,25,18,.38);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.gallery-tabs button{
+  position:relative;
+  min-height:44px;
+  padding:0 18px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:520;
+  color:rgba(255,255,255,.72);
+  transition:background var(--duration-fast),color var(--duration-fast),box-shadow var(--duration-fast),transform var(--duration-fast);
+}
+.gallery-tabs button:hover{color:#fff;background:rgba(255,255,255,.055)}
+.gallery-tabs button.is-active{
+  color:#fff;
+  background:#6a784a;
+  box-shadow:0 7px 18px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.10);
+  transform:none;
+}
+.gallery-tabs button.is-active::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-7px;
+  width:20px;
+  height:2px;
+  border-radius:999px;
+  background:#e2d6b9;
+  transform:translateX(-50%);
+}
+.immersive-heading{margin:34px 0 16px;padding-top:24px;gap:30px}
+.immersive-heading p{font-size:15px;max-width:500px}
+.immersive-grid{gap:18px;max-width:1320px;margin-inline:auto}
+.immersive-card{min-height:375px;border-radius:10px}
+.immersive-card__content{left:28px;right:28px;bottom:24px}
+.immersive-card__content>svg{width:36px;height:36px;margin-bottom:8px}
+.immersive-card__content h3{font-size:31px;margin-bottom:7px}
+.immersive-card__content p{font-size:14.5px;line-height:1.48;margin-bottom:15px;max-width:430px}
+.immersive-card__content small{margin-top:9px}
+.immersive-card__badge{top:15px;right:15px;padding:7px 11px}
+.immersive-card__orbit{width:56px;height:56px;right:18px;top:17px;font-size:12px}
+@media(max-width:960px){.immersive-card{min-height:390px}}
+@media(max-width:640px){
+  .gallery-tabs{width:100%;gap:2px;padding:3px}
+  .gallery-tabs button{min-height:40px;padding-inline:5px;font-size:11px}
+  .gallery-tabs button.is-active::after{bottom:-6px}
+  .immersive-card{min-height:405px}
+}
+
+/* --- STANDARD / organic detail: variety without decorative noise. --- */
+.standard-section{position:relative;isolation:isolate;overflow:clip}
+.standard-section>.shell{position:relative;z-index:1}
+.standard-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-86px;
+  top:72px;
+  width:285px;
+  aspect-ratio:420/620;
+  background:url('/assets/images/decor/botanical-reed-right.svg?v=a699f0ac8a76deb9') center/contain no-repeat;
+  opacity:.42;
+  pointer-events:none;
+  transform:rotate(7deg);
+}
+@media(max-width:760px){.standard-section::before{display:none}}
+
+/* --- PURCHASE PROCESS: bespoke glyphs and a clean flow line instead of boxed chevrons. --- */
+.security-ref__timeline{gap:20px}
+.security-ref__step-head{width:74px;margin-bottom:13px}
+.security-ref__medallion{
+  width:72px;
+  height:72px;
+  border-color:rgba(226,213,181,.46);
+  background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.04),transparent 58%);
+}
+.security-ref__process-glyph{
+  width:30px;
+  height:30px;
+  stroke:currentColor;
+  stroke-width:1.35;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.security-ref__step-head b{margin-top:8px;font-size:14px;letter-spacing:.12em}
+.security-ref__connector{
+  top:36px;
+  left:82px;
+  width:calc(100% + 20px - 82px + 1px);
+  background:linear-gradient(90deg,rgba(226,213,181,.18),rgba(226,213,181,.50),rgba(226,213,181,.18));
+}
+.security-ref__connector i{
+  left:52%;
+  top:50%;
+  width:9px;
+  height:9px;
+  background:transparent;
+  border-top:1.5px solid rgba(239,225,190,.78);
+  border-right:1.5px solid rgba(239,225,190,.78);
+  font-size:0;
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+.security-ref__step h4{font-size:16px;line-height:1.25}
+.security-ref__step>p{font-size:12.5px;line-height:1.6}
+@media(max-width:1080px){.security-ref__connector{display:none}}
+@media(max-width:760px){
+  .security-ref__step-head{width:62px}
+  .security-ref__medallion{width:60px;height:60px}
+  .security-ref__process-glyph{width:25px;height:25px}
+}
+
+/* --- SCHEDULE: all state pills share the same baseline and height. --- */
+@media(min-width:961px){
+  .schedule-stage{
+    display:grid;
+    grid-template-rows:48px 22px 42px 72px 28px 20px;
+    justify-items:center;
+    align-items:start;
+  }
+  .schedule-stage__marker{grid-row:1;margin:0}
+  .schedule-stage__roman{grid-row:2;margin:3px 0 0}
+  .schedule-stage h3{grid-row:3;min-height:0;margin:0;align-self:center}
+  .schedule-stage p{grid-row:4;height:72px;min-height:0;margin:0;align-self:start;display:flex;align-items:flex-start;justify-content:center}
+  .schedule-stage__status{grid-row:5;height:28px;min-height:28px;margin:0;align-self:center}
+  .schedule-stage time{grid-row:6;margin-top:4px;align-self:start}
+  .schedule-section__footer{margin-top:18px}
+}
+
+/* --- JOURNAL: image-led launch state instead of a generic split card. --- */
+.journal-section{position:relative;isolation:isolate;overflow:clip}
+.journal-section>.shell{position:relative;z-index:1}
+.journal-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:-70px;
+  top:96px;
+  width:410px;
+  height:155px;
+  background:url('/assets/images/decor/botanical-line-branch.svg?v=6dc3ddc1132c2701') center/contain no-repeat;
+  opacity:.44;
+  pointer-events:none;
+  transform:rotate(-5deg);
+}
+.journal-section__header--launch{align-items:end;margin-bottom:18px}
+.journal-section__header--launch>p{
+  width:min(360px,32vw);
+  margin:0 0 4px;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.6;
+  text-align:right;
+}
+.journal-launch{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(330px,390px);
+  grid-template-rows:minmax(430px,31vw) 84px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#183126;
+  box-shadow:0 20px 55px rgba(23,44,33,.08);
+}
+.journal-launch__media{
+  position:relative;
+  grid-column:1/-1;
+  grid-row:1;
+  margin:0;
+  overflow:hidden;
+  background:#233c31;
+}
+.journal-launch__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(12,28,20,.04) 0%,rgba(12,28,20,.06) 48%,rgba(12,28,20,.65) 78%,rgba(12,28,20,.82) 100%),linear-gradient(0deg,rgba(12,28,20,.30),transparent 38%);
+  pointer-events:none;
+}
+.journal-launch__media>img{width:100%;height:100%;object-fit:cover;object-position:center 47%;filter:saturate(.92) contrast(1.02)}
+.journal-launch__media figcaption{
+  position:absolute;
+  z-index:2;
+  left:24px;
+  bottom:20px;
+  color:rgba(255,255,255,.78);
+  font-size:11px;
+  letter-spacing:.02em;
+}
+.journal-launch__status{
+  position:absolute;
+  z-index:3;
+  left:22px;
+  top:20px;
+  display:grid;
+  grid-template-columns:9px auto;
+  column-gap:9px;
+  align-items:center;
+  padding:10px 13px;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:8px;
+  background:rgba(18,43,32,.68);
+  backdrop-filter:blur(9px);
+}
+.journal-launch__status>span{grid-row:1/3;width:8px;height:8px;border-radius:50%;background:#a9bf79;box-shadow:0 0 0 5px rgba(169,191,121,.13)}
+.journal-launch__status small{font-size:8px;font-weight:700;letter-spacing:.14em;color:#d8e3d2}
+.journal-launch__status strong{font-size:11px;font-weight:600}
+.journal-launch__panel{
+  position:relative;
+  z-index:4;
+  grid-column:2;
+  grid-row:1;
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin:22px;
+  padding:28px 28px 26px;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:9px;
+  background:rgba(21,48,36,.82);
+  box-shadow:0 20px 48px rgba(0,0,0,.20);
+  backdrop-filter:blur(12px);
+}
+.journal-launch__index{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.journal-launch__index span{font-family:var(--font-editorial);font-size:28px;color:#e6dcc3}
+.journal-launch__index i{display:block;flex:1;height:1px;background:rgba(230,220,195,.32)}
+.journal-launch__eyebrow{margin:0 0 10px;color:#c8d6c3;font-size:9px;font-weight:700;letter-spacing:.16em}
+.journal-launch__panel h3{margin:0 0 13px;color:#fff;font-size:clamp(25px,2.2vw,34px);font-weight:450;line-height:1.12;letter-spacing:-.03em}
+.journal-launch__panel>p:not(.journal-launch__eyebrow){margin:0 0 18px;color:#d1ddd0;font-size:13px;line-height:1.65}
+.journal-launch__signals{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.journal-launch__signals span{display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:#e7eee4;font-size:10px}
+.journal-launch__signals svg{width:14px;height:14px}
+.journal-launch__panel .button{width:100%;margin-top:auto}
+.journal-launch__track{
+  position:relative;
+  z-index:5;
+  grid-column:1/-1;
+  grid-row:2;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:var(--paper);
+  border-top:1px solid var(--line);
+}
+.journal-launch__track>div{position:relative;display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;align-content:center;column-gap:11px;padding:0 24px}
+.journal-launch__track>div+div{border-left:1px solid var(--line)}
+.journal-launch__track b{grid-row:1/3;align-self:center;font-family:var(--font-editorial);font-size:24px;font-weight:400;color:#68745a}
+.journal-launch__track span{font-size:8px;font-weight:700;letter-spacing:.12em;color:#81907f}
+.journal-launch__track strong{font-size:12px;font-weight:650;color:#26372f}
+@media(max-width:960px){
+  .journal-section__header--launch>p{width:300px}
+  .journal-launch{grid-template-columns:1fr minmax(300px,350px);grid-template-rows:420px 84px}
+  .journal-launch__panel{margin:16px;padding:24px 22px}
+}
+@media(max-width:760px){
+  .journal-section::after{display:none}
+  .journal-section__header--launch{display:block}
+  .journal-section__header--launch>p{width:auto;margin-top:12px;text-align:left}
+  .journal-launch{display:block;border-radius:8px;background:var(--paper)}
+  .journal-launch__media{height:300px}
+  .journal-launch__media::after{background:linear-gradient(0deg,rgba(12,28,20,.56),transparent 55%)}
+  .journal-launch__panel{margin:0;padding:25px 20px;border:0;border-radius:0;background:#1d382d;box-shadow:none}
+  .journal-launch__index{margin-bottom:20px}
+  .journal-launch__track{grid-template-columns:1fr;display:grid}
+  .journal-launch__track>div{min-height:65px;padding:10px 20px}
+  .journal-launch__track>div+div{border-left:0;border-top:1px solid var(--line)}
+  .journal-launch__media figcaption{left:16px;bottom:14px}
+  .journal-launch__status{left:14px;top:14px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .gallery-tabs button,.plot-label.is-active>span{transition:none!important}
+}
+
+/* --- V5.1 final density pass after rendered QA. --- */
+@media (min-width:961px){
+  .house-card{padding:16px}
+  .house-card__image{aspect-ratio:16/5.1;margin-bottom:8px}
+  .house-card__facts{margin-block:8px 6px;gap:6px 10px}
+  .house-card__price{padding:8px 0 6px;margin-block:5px 3px}
+  .house-card__price-history{margin-bottom:4px;padding-top:4px}
+  .house-card__cta{min-height:44px}
+  .house-card__pdf{min-height:32px;margin-top:0}
+}
+
+@media (max-width:640px){
+  .hero__content{padding:260px 0 16px;gap:22px}
+  .hero .eyebrow{margin-bottom:12px}
+  .hero h1{font-size:44px;margin-bottom:14px}
+  .hero__lead{font-size:15.5px;line-height:1.45;margin-bottom:19px}
+  .hero__buttons{gap:8px}
+  .hero__buttons .button{min-height:48px}
+  .hero__tour-link{min-height:36px}
+  .hero__bottom{gap:14px;padding-top:16px}
+  .hero__facts{gap:12px 10px}
+  .hero__facts dt{font-size:20px}
+  .hero__controls button{min-width:42px;min-height:42px}
+}
+@media (max-width:360px){
+  .hero__content{padding-top:230px;gap:18px}
+  .hero h1{font-size:40px}
+  .hero__lead{font-size:15px}
+}
+@media (max-width:640px) and (max-height:740px){
+  .hero{height:100svh;min-height:100svh}
+  .hero__content{padding:172px 0 10px;gap:14px}
+  .hero .eyebrow{font-size:9px;margin-bottom:8px}
+  .hero h1{font-size:36px;line-height:1;margin-bottom:9px}
+  .hero__lead{font-size:14px;line-height:1.35;margin-bottom:12px}
+  .hero__buttons{gap:5px}
+  .hero__buttons .button{min-height:44px;font-size:12px}
+  .hero__tour-link{min-height:31px;font-size:12px}
+  .hero__bottom{gap:10px;padding-top:11px}
+  .hero__facts{gap:9px 8px}
+  .hero__facts dt{font-size:18px}
+  .hero__facts dd{font-size:10px}
+  .hero__controls button{min-width:38px;min-height:38px}
+}

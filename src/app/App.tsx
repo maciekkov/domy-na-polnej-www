@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { MobileContactBar } from '../components/common/MobileContactBar'
 import { Header } from '../components/navigation/Header'
 import { isHouseId, type HouseId, type HouseSelection } from '../data/houses'
 import { useSiteData } from '../data/runtime/SiteDataProvider'
@@ -49,9 +50,33 @@ export function App() {
 
   const askAboutHouse = useCallback((id: HouseId) => {
     selectHouse(id)
-    window.setTimeout(() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' }), 0)
+    window.setTimeout(() => {
+      const form = document.getElementById('kontakt')
+      form?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+      form?.querySelector<HTMLInputElement>('input[name="name"]')?.focus({preventScroll:true})
+    }, 40)
     track('house_contact_click', id)
   }, [selectHouse])
+
+  useEffect(() => {
+    // Native hash semantics, with a focus destination and reduced-motion support.
+    const followAnchor = (event: MouseEvent) => {
+      if(event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
+      const anchor = (event.target as Element)?.closest<HTMLAnchorElement>('a[href^="#"]')
+      const hash = anchor?.getAttribute('href')
+      if(!hash || hash.length < 2) return
+      const destination = document.getElementById(decodeURIComponent(hash.slice(1)))
+      if(!destination) return
+      event.preventDefault()
+      window.history.replaceState({}, '', `${window.location.pathname}${window.location.search}${hash}`)
+      const heading = destination.querySelector<HTMLElement>('h1,h2,h3') ?? destination
+      if(!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex','-1')
+      heading.focus({preventScroll:true})
+      destination.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'})
+    }
+    document.addEventListener('click',followAnchor)
+    return()=>document.removeEventListener('click',followAnchor)
+  }, [])
 
   useEffect(() => { trackPageView() }, [])
   useEffect(() => { trackSection(activeSection, selectedId ?? undefined) }, [activeSection, selectedId])
@@ -113,6 +138,7 @@ export function App() {
         <FaqContact selectedHouse={selectedId ?? 'unknown'} onHouseChange={changeFormHouse} contact={data.contact} />
       </main>
       <Footer contact={data.contact} />
+      <MobileContactBar contact={data.contact} />
       <ConsentBanner />
     </>
   )

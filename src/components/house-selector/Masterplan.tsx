@@ -1,4 +1,5 @@
 import type { KeyboardEvent } from 'react'
+import { NorthIndicator } from './NorthIndicator'
 import type { House, HouseId } from '../../data/houses'
 import { formatPrice } from '../../data/houses'
 type MasterplanProps = {
@@ -35,14 +36,14 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
 
   return (
     <div className="masterplan" aria-label="Interaktywny plan domów A–E" onMouseLeave={() => onHover(null)}>
-      <img src={asset('assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f')} alt="Widok z góry na pięć działek i domów przy ulicy Polnej" width="1672" height="941" loading="lazy" decoding="async" />
+      <img src={asset('assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f')} srcSet="/assets/images/responsive/masterplan-640.webp?v=9a74a7c03aa7e1b6 640w, /assets/images/responsive/masterplan-1024.webp?v=740749013a0af93e 1024w, /assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f 1672w" sizes="(max-width: 960px) calc(100vw - 40px), (max-width: 1200px) 60vw, 820px" alt="Widok z góry na pięć działek i domów przy ulicy Polnej" width="1672" height="941" loading="lazy" decoding="async" />
       <svg className="masterplan__polygons" viewBox="0 0 442.38331 248.97291" preserveAspectRatio="none" aria-label="Wybierz dom na planie">
         {houses.map((house) => (
           <path
             key={house.id}
             d={masterplanPaths[house.id]}
             className={`${visualActiveId === house.id ? 'is-active' : ''} masterplan-plot--${statusClass(house.status)}`}
-            role="button"
+            role="button" aria-pressed={selectedId === house.id}
             tabIndex={0}
             aria-label={`${house.name}, ${house.status}, numer działki ${house.parcel}, ${house.plot} metrów kwadratowych działki, ${formatPrice(house.price)}`}
             onMouseEnter={() => onHover(house.id)}
@@ -58,7 +59,8 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
       {houses.map((house) => (
         <button
           key={house.id}
-          className={`plot-label plot-label--${statusClass(house.status)} ${selectedId === house.id ? 'is-active' : ''}`}
+          aria-pressed={selectedId === house.id}
+              className={`plot-label plot-label--${statusClass(house.status)} ${selectedId === house.id ? 'is-active' : ''}`}
           style={{ left: `${house.mapLabel.x}%`, top: `${house.mapLabel.y}%` }}
           type="button"
           onMouseEnter={() => onHover(house.id)}
@@ -73,13 +75,7 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
         </button>
       ))}
 
-      <img
-        className="masterplan__compass"
-        src={asset('assets/images/ui/masterplan-north.svg?v=20260918b')}
-        alt=""
-        aria-hidden="true"
-        draggable="false"
-      />
+      <NorthIndicator />
     </div>
   )
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "public/pdf/karta-dom-b.pdf",
+    "correction": "Only the wrong A in the opening sentence replaced by B.",
+    "original": "reference-assets/public/pdf/karta-dom-b.pdf",
+    "page_count": 1
+  },
+  {
+    "file": "public/pdf/karta-dom-c.pdf",
+    "correction": "Only the wrong A in the opening sentence replaced by C.",
+    "original": "reference-assets/public/pdf/karta-dom-c.pdf",
+    "page_count": 1
+  },
+  {
+    "file": "public/pdf/karta-dom-d.pdf",
+    "correction": "Only the wrong A in the opening sentence replaced by D.",
+    "original": "reference-assets/public/pdf/karta-dom-d.pdf",
+    "page_count": 1
+  },
+  {
+    "file": "public/pdf/karta-dom-e.pdf",
+    "correction": "Only the wrong A in the opening sentence replaced by E.",
+    "original": "reference-assets/public/pdf/karta-dom-e.pdf",
+    "page_count": 1
+  }
+]

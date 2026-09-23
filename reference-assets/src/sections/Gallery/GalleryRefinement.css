@@ -1,0 +1,35 @@
+/* Keep the exterior gallery balanced after removing the aerial overview image. */
+.gallery-section .editorial-gallery--four .gallery-tile--1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+.gallery-section .editorial-gallery--four .gallery-tile--2 {
+  grid-column: 3;
+  grid-row: 1;
+}
+.gallery-section .editorial-gallery--four .gallery-tile--3 {
+  grid-column: 3;
+  grid-row: 2;
+}
+.gallery-section .editorial-gallery--four .gallery-tile--4 {
+  grid-column: 1 / 4;
+  grid-row: 3;
+}
+
+@media (max-width: 640px) {
+  .gallery-section .editorial-gallery--four .gallery-tile--1,
+  .gallery-section .editorial-gallery--four .gallery-tile--2,
+  .gallery-section .editorial-gallery--four .gallery-tile--3,
+  .gallery-section .editorial-gallery--four .gallery-tile--4 {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* Interior tour is live. Keep the existing exterior choice-card styling. */
+.tour-choice-option__note { color: rgba(255,255,255,.6); font-size: 12px; line-height: 1.45; }
+.tour-choice-option--interior { border-color: rgba(231,195,111,.28); }
+@media (max-height: 680px) {
+  .tour-choice-modal { overflow-y: auto; align-items: flex-start; }
+  .tour-choice-modal__card { margin-block: 20px; }
+}

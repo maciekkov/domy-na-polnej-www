@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from '../components/common/Icons'
 import { BrandLogo } from '../components/common/BrandLogo'
 
 export function NotFound() {

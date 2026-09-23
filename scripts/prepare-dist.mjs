@@ -8,7 +8,7 @@ const dist = resolve(root, 'dist')
 const api = resolve(root, 'api')
 
 if (!existsSync(resolve(dist, 'index.html'))) {
-  throw new Error('Brak dist/index.html. Najpierw uruchom build Vite.')
+  throw new Error('Brak dist/index.html. Najpierw uruchom build projektu.')
 }
 
 mkdirSync(resolve(dist, 'assets/build'), { recursive: true })

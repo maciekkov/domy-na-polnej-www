@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { ArrowLeft, Mail, Phone } from 'lucide-react'
+import { ArrowLeft, Mail, Phone } from '../components/common/Icons'
 import { BrandLogo } from '../components/common/BrandLogo'
 import type { ContactData } from '../data/runtime/types'
 

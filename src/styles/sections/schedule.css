@@ -123,7 +123,7 @@
 
 .schedule-section__visual figcaption strong {
   margin: 0 0 10px;
-  font-family: "Montserrat",Arial,sans-serif;
+  font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.16;
@@ -219,7 +219,7 @@
 .schedule-stage__roman {
   margin-bottom: 3px;
   color: #111514;
-  font-family: "Montserrat",Arial,sans-serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.1;
@@ -307,7 +307,7 @@
 .schedule-section__promise strong ,
 .schedule-section__promise b {
   display: block;
-  font-family: "Montserrat",Arial,sans-serif;
+  font-family: var(--font-heading);
   font-size: 14px;
   line-height: 1.22;
 }

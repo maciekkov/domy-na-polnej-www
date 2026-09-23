@@ -47,7 +47,7 @@
 .site-footer h3 {
   margin: 0 0 9px;
   color: #fff;
-  font: 700 9.6px/1.2 "Lato",Arial,sans-serif;
+  font: 700 9.6px/1.2 var(--font-body);
 }
 
 .site-footer nav ,

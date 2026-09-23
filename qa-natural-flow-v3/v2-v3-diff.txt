@@ -1,0 +1,3 @@
+Files /mnt/data/dnp-flow-v2-work/src/styles/atmosphere.css and /mnt/data/dnp-flow-v3-work/src/styles/atmosphere.css differ
+Files /mnt/data/dnp-flow-v2-work/tests/aesthetic-flow-v2.mjs and /mnt/data/dnp-flow-v3-work/tests/aesthetic-flow-v2.mjs differ
+Only in /mnt/data/dnp-flow-v3-work/tests: aesthetic-flow-v3.mjs

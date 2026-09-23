@@ -59,7 +59,7 @@
 .team-section h2 {
   margin: 0 0 16px;
   color: #101312;
-  font-family: "Montserrat",Arial,sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(38px,3.25vw,48px);
   font-weight: 700;
   line-height: 1.06;
@@ -98,7 +98,7 @@
   display: block;
   margin-bottom: 4px;
   color: #171b19;
-  font: 600 13px/1.25 "Montserrat",Arial,sans-serif;
+  font: 600 13px/1.25 var(--font-heading);
 }
 
 .team-values span {
@@ -191,7 +191,7 @@
 .team-card__body h3 {
   margin: 0 0 2px;
   color: #171a19;
-  font: 700 14px/1.18 "Montserrat",Arial,sans-serif;
+  font: 700 14px/1.18 var(--font-heading);
   letter-spacing: -.025em;
 }
 

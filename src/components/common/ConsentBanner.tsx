@@ -1,4 +1,4 @@
-import { Cookie, Settings2, X } from 'lucide-react'
+import { Cookie, Settings2, X } from './Icons'
 import { useEffect, useState } from 'react'
 import { readConsent, setConsent, trackPageView } from '../../lib/analytics'
 

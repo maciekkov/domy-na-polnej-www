@@ -1,0 +1,484 @@
+TAP version 13
+# Subtest: necessary-only never enables analytics or visitor cookies
+ok 1 - necessary-only never enables analytics or visitor cookies
+  ---
+  duration_ms: 3.035557
+  type: 'test'
+  ...
+# Subtest: all consent creates 180-day pseudonymous visitor/visit identity and event
+ok 2 - all consent creates 180-day pseudonymous visitor/visit identity and event
+  ---
+  duration_ms: 2.184933
+  type: 'test'
+  ...
+# Subtest: legacy accepted migrates to all, legacy necessary stays rejected
+ok 3 - legacy accepted migrates to all, legacy necessary stays rejected
+  ---
+  duration_ms: 0.984432
+  type: 'test'
+  ...
+# Subtest: section time is measured and sent without PII
+ok 4 - section time is measured and sent without PII
+  ---
+  duration_ms: 1.247961
+  type: 'test'
+  ...
+# Subtest: tour scene duration supports mode, scene and duration
+ok 5 - tour scene duration supports mode, scene and duration
+  ---
+  duration_ms: 0.956401
+  type: 'test'
+  ...
+# Subtest: trackOnce prevents duplicate impression
+ok 6 - trackOnce prevents duplicate impression
+  ---
+  duration_ms: 0.713682
+  type: 'test'
+  ...
+# Subtest: revocation deletes analytical identifiers and local diagnostics
+ok 7 - revocation deletes analytical identifiers and local diagnostics
+  ---
+  duration_ms: 0.739912
+  type: 'test'
+  ...
+# Subtest: explicit necessary choice wins when localStorage write fails
+ok 8 - explicit necessary choice wins when localStorage write fails
+  ---
+  duration_ms: 0.688005
+  type: 'test'
+  ...
+# Subtest: local development keeps consented diagnostics local
+ok 9 - local development keeps consented diagnostics local
+  ---
+  duration_ms: 0.805839
+  type: 'test'
+  ...
+# Subtest: denial remains effective with blocked cookies and storage
+ok 10 - denial remains effective with blocked cookies and storage
+  ---
+  duration_ms: 0.964603
+  type: 'test'
+  ...
+# Subtest: Dostępne domy: cena wyłącznie z aktywnej oferty
+ok 11 - Dostępne domy: cena wyłącznie z aktywnej oferty
+  ---
+  duration_ms: 1.328619
+  type: 'test'
+  ...
+# Subtest: Sprzedany najtańszy dom nie wpływa na cenę od
+ok 12 - Sprzedany najtańszy dom nie wpływa na cenę od
+  ---
+  duration_ms: 0.363386
+  type: 'test'
+  ...
+# Subtest: Rezerwacja najtańszego domu nie wpływa na cenę od
+ok 13 - Rezerwacja najtańszego domu nie wpływa na cenę od
+  ---
+  duration_ms: 0.306082
+  type: 'test'
+  ...
+# Subtest: Wyprzedanie całej inwestycji: brak Infinity/0/poprzedniej ceny
+ok 14 - Wyprzedanie całej inwestycji: brak Infinity/0/poprzedniej ceny
+  ---
+  duration_ms: 0.409023
+  type: 'test'
+  ...
+# Subtest: Dane wejściowe polityki ceny nie są mutowane
+ok 15 - Dane wejściowe polityki ceny nie są mutowane
+  ---
+  duration_ms: 18.259439
+  type: 'test'
+  ...
+# Subtest: Nowa cena jest spójna w hero, meta i Offer
+ok 16 - Nowa cena jest spójna w hero, meta i Offer
+  ---
+  duration_ms: 0.825387
+  type: 'test'
+  ...
+# Subtest: Nieznany dom nie dostaje oferty A
+ok 17 - Nieznany dom nie dostaje oferty A
+  ---
+  duration_ms: 0.31907
+  type: 'test'
+  ...
+# Subtest: Sitemap nie publikuje osobnych stron domów
+ok 18 - Sitemap nie publikuje osobnych stron domów
+  ---
+  duration_ms: 0.243399
+  type: 'test'
+  ...
+# Subtest: Publikacja aktualizuje stronę główną i SEO bez osobnych stron domów
+ok 19 - Publikacja aktualizuje stronę główną i SEO bez osobnych stron domów
+  ---
+  duration_ms: 8.796955
+  type: 'test'
+  ...
+# Subtest: JSON-LD jest escapowany, nie wykonuje tekstu oferty
+ok 20 - JSON-LD jest escapowany, nie wykonuje tekstu oferty
+  ---
+  duration_ms: 0.788433
+  type: 'test'
+  ...
+# Subtest: Prawidłowy formularz przechodzi walidację
+ok 21 - Prawidłowy formularz przechodzi walidację
+  ---
+  duration_ms: 0.908831
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: name 
+ok 22 - Błędne pole formularza: name 
+  ---
+  duration_ms: 0.202088
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: phone 123
+ok 23 - Błędne pole formularza: phone 123
+  ---
+  duration_ms: 0.090743
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: phone telefon1234567
+ok 24 - Błędne pole formularza: phone telefon1234567
+  ---
+  duration_ms: 0.083032
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: phone 1234567890123456
+ok 25 - Błędne pole formularza: phone 1234567890123456
+  ---
+  duration_ms: 0.068591
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: email zly-adres
+ok 26 - Błędne pole formularza: email zly-adres
+  ---
+  duration_ms: 0.085285
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: email a@@b.pl
+ok 27 - Błędne pole formularza: email a@@b.pl
+  ---
+  duration_ms: 0.066779
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: consentContact false
+ok 28 - Błędne pole formularza: consentContact false
+  ---
+  duration_ms: 0.059358
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: consentPrivacy false
+ok 29 - Błędne pole formularza: consentPrivacy false
+  ---
+  duration_ms: 0.070724
+  type: 'test'
+  ...
+# Subtest: Błędne pole formularza: message aaaaaaaaaaaaaaaaaaaa
+ok 30 - Błędne pole formularza: message aaaaaaaaaaaaaaaaaaaa
+  ---
+  duration_ms: 0.106307
+  type: 'test'
+  ...
+# Subtest: E-mail i wiadomość mogą pozostać puste
+ok 31 - E-mail i wiadomość mogą pozostać puste
+  ---
+  duration_ms: 0.096453
+  type: 'test'
+  ...
+# Subtest: Błąd formularza ma powiązanie z polem i przenosi fokus
+ok 32 - Błąd formularza ma powiązanie z polem i przenosi fokus
+  ---
+  duration_ms: 0.199374
+  type: 'test'
+  ...
+# Subtest: Kontakt: kompaktowy desktop i bezpieczny mobile
+ok 33 - Kontakt: kompaktowy desktop i bezpieczny mobile
+  ---
+  duration_ms: 0.219344
+  type: 'test'
+  ...
+# Subtest: Jeden katalog eventów JS/PHP, realny hook PDF i odsłony karty
+ok 34 - Jeden katalog eventów JS/PHP, realny hook PDF i odsłony karty
+  ---
+  duration_ms: 0.679863
+  type: 'test'
+  ...
+# Subtest: Błędy fetch i storage nie przerywają działania
+ok 35 - Błędy fetch i storage nie przerywają działania
+  ---
+  duration_ms: 0.184953
+  type: 'test'
+  ...
+# Subtest: CSS komponentów nie używa !important ani plików Refinement
+ok 36 - CSS komponentów nie używa !important ani plików Refinement
+  ---
+  duration_ms: 3.036768
+  type: 'test'
+  ...
+# Subtest: Pozostała tylko aktualna kolekcja renderów
+ok 37 - Pozostała tylko aktualna kolekcja renderów
+  ---
+  duration_ms: 0.109211
+  type: 'test'
+  ...
+# Subtest: Sekrety i prywatne endpointy nie są w paczce
+ok 38 - Sekrety i prywatne endpointy nie są w paczce
+  ---
+  duration_ms: 0.166135
+  type: 'test'
+  ...
+# Subtest: Brak osobnych stron i linków Pełna oferta
+ok 39 - Brak osobnych stron i linków Pełna oferta
+  ---
+  duration_ms: 0.261386
+  type: 'test'
+  ...
+# Subtest: Kontrakt danych: oferta bazowa nie zmienia cen, statusów, dat i treści
+ok 40 - Kontrakt danych: oferta bazowa nie zmienia cen, statusów, dat i treści
+  ---
+  duration_ms: 3.713587
+  type: 'test'
+  ...
+# Subtest: Spacer wewnetrzny: wszystkie kadry, piny i współrzędne niezmienione
+ok 41 - Spacer wewnetrzny: wszystkie kadry, piny i współrzędne niezmienione
+  ---
+  duration_ms: 2.813249
+  type: 'test'
+  ...
+# Subtest: Spacer zewnetrzny: wszystkie kadry, piny i współrzędne niezmienione
+ok 42 - Spacer zewnetrzny: wszystkie kadry, piny i współrzędne niezmienione
+  ---
+  duration_ms: 1.300779
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: null
+ok 43 - Walidacja odrzuca: null
+  ---
+  duration_ms: 0.425288
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: tablica
+ok 44 - Walidacja odrzuca: tablica
+  ---
+  duration_ms: 0.396105
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: prywatny CRM
+ok 45 - Walidacja odrzuca: prywatny CRM
+  ---
+  duration_ms: 0.337518
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: sekret SMTP
+ok 46 - Walidacja odrzuca: sekret SMTP
+  ---
+  duration_ms: 0.315946
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: brak domu
+ok 47 - Walidacja odrzuca: brak domu
+  ---
+  duration_ms: 0.276758
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: powtórzony dom
+ok 48 - Walidacja odrzuca: powtórzony dom
+  ---
+  duration_ms: 0.525645
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: nieistniejący dom
+ok 49 - Walidacja odrzuca: nieistniejący dom
+  ---
+  duration_ms: 0.646273
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: cena ujemna
+ok 50 - Walidacja odrzuca: cena ujemna
+  ---
+  duration_ms: 0.349205
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: cena tekst
+ok 51 - Walidacja odrzuca: cena tekst
+  ---
+  duration_ms: 0.288696
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: cena NaN
+ok 52 - Walidacja odrzuca: cena NaN
+  ---
+  duration_ms: 0.229819
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: niewłaściwy status
+ok 53 - Walidacja odrzuca: niewłaściwy status
+  ---
+  duration_ms: 0.212554
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: etykieta poza obrazem
+ok 54 - Walidacja odrzuca: etykieta poza obrazem
+  ---
+  duration_ms: 0.216419
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: nieprawidłowy mailto
+ok 55 - Walidacja odrzuca: nieprawidłowy mailto
+  ---
+  duration_ms: 0.726591
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: złośliwy protokół
+ok 56 - Walidacja odrzuca: złośliwy protokół
+  ---
+  duration_ms: 0.245362
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: data URL
+ok 57 - Walidacja odrzuca: data URL
+  ---
+  duration_ms: 0.741794
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: zewnętrzny protokół-relative
+ok 58 - Walidacja odrzuca: zewnętrzny protokół-relative
+  ---
+  duration_ms: 0.218392
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: traversal
+ok 59 - Walidacja odrzuca: traversal
+  ---
+  duration_ms: 0.324478
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: traversal zakodowany
+ok 60 - Walidacja odrzuca: traversal zakodowany
+  ---
+  duration_ms: 0.197682
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: aktywny pusty dokument
+ok 61 - Walidacja odrzuca: aktywny pusty dokument
+  ---
+  duration_ms: 0.347042
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: dwie aktywne karty
+ok 62 - Walidacja odrzuca: dwie aktywne karty
+  ---
+  duration_ms: 0.412288
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: brak etapu
+ok 63 - Walidacja odrzuca: brak etapu
+  ---
+  duration_ms: 0.265071
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: powtórzony etap
+ok 64 - Walidacja odrzuca: powtórzony etap
+  ---
+  duration_ms: 0.261636
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: nieznany stan etapu
+ok 65 - Walidacja odrzuca: nieznany stan etapu
+  ---
+  duration_ms: 0.321294
+  type: 'test'
+  ...
+# Subtest: Walidacja odrzuca: niespójna liczba zdjęć
+ok 66 - Walidacja odrzuca: niespójna liczba zdjęć
+  ---
+  duration_ms: 0.398768
+  type: 'test'
+  ...
+# Subtest: Dezaktywowany PDF nie pojawia się w linkach, wejście nie jest mutowane
+ok 67 - Dezaktywowany PDF nie pojawia się w linkach, wejście nie jest mutowane
+  ---
+  duration_ms: 0.404197
+  type: 'test'
+  ...
+# Subtest: Nowa aktywna wersja PDF ma pierwszeństwo nad polem historycznym
+ok 68 - Nowa aktywna wersja PDF ma pierwszeństwo nad polem historycznym
+  ---
+  duration_ms: 0.212002
+  type: 'test'
+  ...
+# Subtest: Eksport produkcyjny nie zawiera prywatnych leadów, a zawiera publiczną historię cen
+ok 69 - Eksport produkcyjny nie zawiera prywatnych leadów, a zawiera publiczną historię cen
+  ---
+  duration_ms: 0.496502
+  type: 'test'
+  ...
+# Subtest: Cennik używa dokładnej powierzchni użytkowej i wyliczalnej ceny brutto za m²
+ok 70 - Cennik używa dokładnej powierzchni użytkowej i wyliczalnej ceny brutto za m²
+  ---
+  duration_ms: 0.397877
+  type: 'test'
+  ...
+# Subtest: Publikator dopisuje poprzednią cenę z poprawnymi datami i nie tworzy historii bez zmiany ceny
+ok 71 - Publikator dopisuje poprzednią cenę z poprawnymi datami i nie tworzy historii bez zmiany ceny
+  ---
+  duration_ms: 1.414276
+  type: 'test'
+  ...
+# Subtest: Wersjonowanie URL nie zmienia identyfikatorów, etykiet i pinezek
+ok 72 - Wersjonowanie URL nie zmienia identyfikatorów, etykiet i pinezek
+  ---
+  duration_ms: 47.956399
+  type: 'test'
+  ...
+# Subtest: Ten sam zasób ma tę samą wersję, zmieniona treść dostaje nowy URL
+ok 73 - Ten sam zasób ma tę samą wersję, zmieniona treść dostaje nowy URL
+  ---
+  duration_ms: 2.277194
+  type: 'test'
+  ...
+# Subtest: Generator assetów jest idempotentny
+ok 74 - Generator assetów jest idempotentny
+  ---
+  duration_ms: 237.931255
+  type: 'test'
+  ...
+# Subtest: Rewalidacja zmiennych plików; immutable ograniczone do katalogu build
+ok 75 - Rewalidacja zmiennych plików; immutable ograniczone do katalogu build
+  ---
+  duration_ms: 1.901124
+  type: 'test'
+  ...
+# Subtest: Publikator sprawdza wszystkie aktywne zasoby
+ok 76 - Publikator sprawdza wszystkie aktywne zasoby
+  ---
+  duration_ms: 0.875311
+  type: 'test'
+  ...
+# Subtest: Publikacja: nowa rewizja, atomowy zapis, kopia poza public, rollback jawny
+ok 77 - Publikacja: nowa rewizja, atomowy zapis, kopia poza public, rollback jawny
+  ---
+  duration_ms: 132.359502
+  type: 'test'
+  ...
+# Subtest: Generator rozpoznaje także ścieżki Windows
+ok 78 - Generator rozpoznaje także ścieżki Windows
+  ---
+  duration_ms: 0.148939
+  type: 'test'
+  ...
+# Subtest: Stary szkic edytora: odświeżenie URL zdjęć bez utraty ręcznych pinezek
+ok 79 - Stary szkic edytora: odświeżenie URL zdjęć bez utraty ręcznych pinezek
+  ---
+  duration_ms: 2.619493
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 79
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 550.70301

@@ -1,0 +1,24 @@
+/* Final Hero-only refinements requested 15.09.2026.
+   Intentionally scoped to .hero so no other section can inherit these changes. */
+.hero .hero__fact dt {
+  color: #fff;
+  text-shadow: none;
+}
+
+.hero .button--outline strong {
+  color: #fff;
+}
+
+@media (min-width: 961px) {
+  .hero .hero__copy {
+    transform: translate(-22px, 18px);
+  }
+}
+
+.hero__media--slide.is-active { animation: hero-media-fade .55s ease both; }
+.hero__price { display:flex; align-items:center; gap:10px; width:max-content; max-width:100%; margin:18px 0 0; padding:8px 12px; border:1px solid rgba(255,255,255,.22); border-radius:999px; color:#fff; background:rgba(22,29,24,.34); backdrop-filter:blur(8px); }
+.hero__price span { color:rgba(255,255,255,.7); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+.hero__price strong { font:600 14px/1.2 'Montserrat',Arial,sans-serif; }
+@keyframes hero-media-fade { from { opacity:.74; transform:scale(1.008); } to { opacity:1; transform:scale(1); } }
+@media (prefers-reduced-motion: reduce) { .hero__media--slide.is-active { animation:none; } }
+@media (max-width:640px) { .hero__price { margin-top:14px; } .hero__price span { font-size:9.5px; } .hero__price strong { font-size:12px; } }

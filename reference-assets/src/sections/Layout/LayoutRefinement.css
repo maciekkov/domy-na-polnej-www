@@ -1,0 +1,61 @@
+/* Local-only refinement for the layout section. */
+@media (min-width: 961px) {
+  /* Align the room card with the top of the plan image (below tabs) and let it
+     stretch to the exact same bottom edge as the left column. */
+  .layout-section .room-panel {
+    margin-top: 60px;
+    height: auto !important;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout-section .layout-section__grid--zones .room-panel {
+    margin-top: 102px;
+  }
+
+  .layout-section .room-panel__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Centre the one-row room selector in the remaining vertical space. */
+  .layout-section .room-picker {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.layout-section .room-picker > div {
+  grid-template-columns: 32px repeat(4, minmax(0, 1fr)) 32px !important;
+  grid-template-rows: 1fr !important;
+  align-items: stretch;
+}
+
+.layout-section .room-picker button.room-picker__arrow {
+  grid-row: 1 !important;
+  height: 100%;
+}
+
+.layout-section .room-picker button.room-picker__arrow:first-child {
+  grid-column: 1 !important;
+}
+
+.layout-section .room-picker button.room-picker__arrow:last-child {
+  grid-column: 6 !important;
+}
+
+@media (max-width: 700px) {
+  .layout-section .room-picker > div {
+    grid-template-columns: 30px repeat(4, minmax(0, 1fr)) 30px !important;
+    gap: 4px;
+  }
+  .layout-section .room-picker button {
+    padding-inline: 4px;
+    font-size: 8px;
+  }
+}

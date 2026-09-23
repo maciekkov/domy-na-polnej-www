@@ -1,5 +1,5 @@
-import { Menu, Phone, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { Menu, Phone, X } from '../common/Icons'
+import { useEffect, useRef, useState } from 'react'
 import { BrandLogo } from '../common/BrandLogo'
 import type { ContactData } from '../../data/runtime/types'
 import { track } from '../../lib/analytics'
@@ -13,11 +13,12 @@ const navItems = [
   { label: 'Domy i ceny', href: '#domy', available: true, section: 'homes' },
   { label: 'Lokalizacja', href: '#lokalizacja', available: true, section: 'location' },
   { label: 'Dom', href: '#dom', available: true, section: 'why-home' },
-  { label: 'Spacer 360°', href: '#galeria', available: true, section: 'gallery' },
+  { label: 'Spacer 360°', href: '#spacer-360', available: true, section: 'gallery' },
   { label: 'Standard', href: '#standard', available: true, section: 'standard' },
 ]
 
 export function Header({ activeSection, contact }: HeaderProps) {
+  const menuRef = useRef<HTMLButtonElement>(null)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -31,10 +32,17 @@ export function Header({ activeSection, contact }: HeaderProps) {
   useEffect(() => {
     if (!menuOpen) return
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false)
+      if (event.key === 'Escape') { setMenuOpen(false); menuRef.current?.focus() }
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
+  }, [menuOpen])
+
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', menuOpen)
+    const resize = () => { if(window.innerWidth > 960) setMenuOpen(false) }
+    window.addEventListener('resize',resize)
+    return () => {document.body.classList.remove('menu-open');window.removeEventListener('resize',resize)}
   }, [menuOpen])
 
   const darkHeader = scrolled || menuOpen
@@ -66,10 +74,11 @@ export function Header({ activeSection, contact }: HeaderProps) {
             <Phone size={16} aria-hidden="true" />
             <span>{contact.phoneDisplay}</span>
           </a>
-          <a className="button button--header" href={contact.phoneHref} onClick={phoneClick}>Zadzwoń</a>
+          <a className="button button--header" href="#kontakt" onClick={handleNav}>Zapytaj o dom</a>
         </div>
 
         <button
+          ref={menuRef}
           className="site-header__menu-button"
           type="button"
           aria-label={menuOpen ? 'Zamknij menu' : 'Otwórz menu'}
@@ -81,7 +90,7 @@ export function Header({ activeSection, contact }: HeaderProps) {
         </button>
       </div>
 
-      <nav id="mobile-menu" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Nawigacja mobilna">
+      <nav id="mobile-menu" inert={!menuOpen} aria-hidden={!menuOpen} className={`mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Nawigacja mobilna">
         {navItems.map((item) => (
           <a key={item.label} href={item.href} onClick={handleNav}>{item.label}<span aria-hidden="true">↗</span></a>
         ))}

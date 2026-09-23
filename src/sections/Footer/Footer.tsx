@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Leaf, Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Instagram, Leaf, Mail, MapPin, Phone } from '../../components/common/Icons'
 import { BrandLogo } from '../../components/common/BrandLogo'
 import type { ContactData } from '../../data/runtime/types'
 import { track } from '../../lib/analytics'

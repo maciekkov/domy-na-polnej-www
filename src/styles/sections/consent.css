@@ -43,7 +43,7 @@
 .consent-banner__copy strong {
   display: block;
   margin-bottom: 4px;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.1;
@@ -57,7 +57,7 @@
 }
 
 .consent-banner__detail {
-  margin-top: 8px !important;
+  margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid rgba(31, 66, 54, 0.1);
 }

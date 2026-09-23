@@ -1,0 +1,8 @@
+PASS React route /polityka-prywatnosci/
+PASS React route /polityka-cookies/
+PASS React route /404.html
+PASS No JavaScript: five prices/PDFs/contact available
+PASS Standalone player wewnatrz: disclaimer, next frame, hotspots, real images
+PASS Standalone player zewnatrz: disclaimer, next frame, hotspots, real images
+PASS HTTP routing, PDFs, JSON, true 404 and hidden PHP source
+7 / 7 passed

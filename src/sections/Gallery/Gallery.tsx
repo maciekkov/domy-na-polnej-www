@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronRight, Image as ImageIcon, Move3d, Scan } from 'lucide-react'
+import { ArrowUpRight, ChevronRight, Image as ImageIcon, Move3d, Scan } from '../../components/common/Icons'
 import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import type { HouseSelection } from '../../data/houses'
@@ -65,12 +65,13 @@ export function Gallery({ selectedHouse }: GalleryProps) {
         <div id="gallery-panel" role="tabpanel" aria-labelledby={`gallery-tab-${category}`} className={`editorial-gallery ${images.length === 4 ? 'editorial-gallery--four' : ''}`.trim()}>
           {images.map((image, index) => (
             <button className={`gallery-tile gallery-tile--${index + 1}`} key={image.src} type="button" onClick={() => { setLightboxIndex(index); track('gallery_open', selectedHouse) }} aria-label={`Otwórz zdjęcie: ${image.title}`}>
-              <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              <img src={image.src} alt={image.alt} loading="lazy" width="1672" height="941" decoding="async" />
               <span><ImageIcon /> Zobacz zdjęcie <ArrowUpRight /></span>
             </button>
           ))}
         </div>
 
+        <p className="gallery__disclaimer">Wizualizacje pokazują przykładową aranżację. Wykończenie wnętrz, wyposażenie i zieleń nie określają zakresu ceny. Zdjęcia okolicy przedstawiają rzeczywisty teren.</p>
         <div id="spacer-360" className="immersive-heading" style={{ scrollMarginTop: '88px' }}>
           <div><span>Dwa sposoby oglądania</span><h3>Wejdź w Spacer 360 albo obejrzyj panoramę okolicy.</h3></div>
           <p>Zacznij od otwartego wejścia i poznaj wnętrze domu albo wybierz trasę wokół działki. Osobno możesz uruchomić prawdziwą panoramę 360° z drona.</p>
@@ -87,12 +88,12 @@ export function Gallery({ selectedHouse }: GalleryProps) {
               <h3>Spacer 360°</h3>
               <p>Wejdź do domu i poznaj salon, kuchnię, pokoje, łazienki oraz domowe zaplecze. Przez taras przejdź do spaceru po ogrodzie.</p>
               <button id="choose-tour" className="button button--olive" type="button" onClick={() => setTourPickerOpen(true)}>Wybierz spacer <ChevronRight size={17} /></button>
-              <small>Interaktywny spacer · Dom {selectedHouse}</small>
+              <small>Interaktywny spacer · {selectedHouse === 'unknown' ? 'przykładowy układ domu' : `Dom ${selectedHouse}`}</small>
             </div>
           </article>
 
           <article className="immersive-card immersive-card--panorama">
-            <img src="/assets/images/neighborhood/panorama-360-grabik.webp?v=c7a1986872c74640" alt="Panorama okolicy Grabika wykonana z drona" loading="lazy" decoding="async" />
+            <img src="/assets/images/responsive/panorama-preview.webp?v=8807f8911f0a6449" alt="Panorama okolicy Grabika wykonana z drona" loading="lazy" decoding="async" />
             <div className="immersive-card__shade" aria-hidden="true" />
             <div className="immersive-card__orbit" aria-hidden="true"><span>360°</span></div>
             <div className="immersive-card__content">

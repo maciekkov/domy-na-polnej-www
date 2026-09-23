@@ -1,4 +1,4 @@
-import { ArrowRight, Check, HardHat } from 'lucide-react'
+import { ArrowRight, Check, HardHat } from '../../components/common/Icons'
 import type { ScheduleStage } from '../../data/schedule'
 export function Schedule({ stages }: { stages: ScheduleStage[] }) {
   return (

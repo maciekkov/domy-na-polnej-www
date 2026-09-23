@@ -1,5 +1,8 @@
-import { Crosshair, Minus, Plus, RotateCcw, X } from 'lucide-react'
+import { createPortal } from 'react-dom'
+import { Crosshair, Minus, Plus, RotateCcw, X } from '../../components/common/Icons'
 import { useEffect, useRef, useState } from 'react'
+import { useDialog } from '../../hooks/useDialog'
+import { createPanorama } from '../../lib/panoramaRenderer'
 
 type PanoramaModalProps = { onClose: () => void }
 
@@ -19,103 +22,17 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
   const [dragging, setDragging] = useState(false)
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'error'>('loading')
 
+  useDialog(dialogRef, onClose)
   useEffect(() => {
-    const previousFocus = document.activeElement as HTMLElement | null
-    document.body.classList.add('modal-open')
-    closeRef.current?.focus()
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-      if (event.key === 'Tab' && dialogRef.current) {
-        const controls = [...dialogRef.current.querySelectorAll<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])')]
-        const first = controls[0]
-        const last = controls.at(-1)
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
-        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
-      }
-    }
-    document.addEventListener('keydown', handleKey)
-    return () => {
-      document.body.classList.remove('modal-open')
-      document.removeEventListener('keydown', handleKey)
-      previousFocus?.focus()
-    }
-  }, [onClose])
-
-  useEffect(() => {
-    const container = canvasRef.current
-    if (!container) return
-    let disposed = false
-    let frame = 0
-    let cleanup = () => undefined
-
-    const start = async () => {
-      try {
-        const THREE = await import('three')
-        if (disposed) return
-        const scene = new THREE.Scene()
-        const camera = new THREE.PerspectiveCamera(fovRef.current, 1, 1, 1100)
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' })
-        const geometry = new THREE.SphereGeometry(500, 72, 48)
-        const material = new THREE.MeshBasicMaterial()
-        const mesh = new THREE.Mesh(geometry, material)
-        let texture: import('three').Texture | undefined
-        geometry.scale(-1, 1, 1)
-        scene.add(mesh)
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
-        renderer.outputColorSpace = THREE.SRGBColorSpace
-        renderer.setClearColor(0x111812)
-        container.replaceChildren(renderer.domElement)
-
-        const render = () => {
-          const phi = THREE.MathUtils.degToRad(90 - Math.max(-78, Math.min(78, latRef.current)))
-          const theta = THREE.MathUtils.degToRad(lonRef.current)
-          camera.fov = fovRef.current
-          camera.lookAt(new THREE.Vector3(500 * Math.sin(phi) * Math.cos(theta), 500 * Math.cos(phi), 500 * Math.sin(phi) * Math.sin(theta)))
-          camera.updateProjectionMatrix()
-          renderer.render(scene, camera)
-        }
-        const requestRender = () => {
-          if (frame || disposed) return
-          frame = window.requestAnimationFrame(() => { frame = 0; render() })
-        }
-        requestRenderRef.current = requestRender
-        const resize = () => {
-          if (!container.clientWidth || !container.clientHeight) return
-          camera.aspect = container.clientWidth / container.clientHeight
-          renderer.setSize(container.clientWidth, container.clientHeight, false)
-          requestRender()
-        }
-        const observer = new ResizeObserver(resize)
-        observer.observe(container)
-        resize()
-
-        new THREE.TextureLoader().load('/assets/images/neighborhood/panorama-360-grabik.webp?v=c7a1986872c74640', (loaded) => {
-          if (disposed) { loaded.dispose(); return }
-          texture = loaded
-          loaded.colorSpace = THREE.SRGBColorSpace
-          loaded.minFilter = THREE.LinearFilter
-          loaded.magFilter = THREE.LinearFilter
-          material.map = loaded
-          material.needsUpdate = true
-          setLoadState('ready')
-          requestRender()
-        }, undefined, () => !disposed && setLoadState('error'))
-
-        cleanup = () => {
-          observer.disconnect()
-          if (frame) window.cancelAnimationFrame(frame)
-          texture?.dispose()
-          material.dispose()
-          geometry.dispose()
-          renderer.dispose()
-          container.replaceChildren()
-        }
-      } catch {
-        if (!disposed) setLoadState('error')
-      }
-    }
-    void start()
-    return () => { disposed = true; requestRenderRef.current = () => undefined; cleanup() }
+    const host = canvasRef.current
+    if (!host) return
+    try {
+      const renderer = createPanorama(host,
+        () => ({lon:lonRef.current,lat:latRef.current,fov:fovRef.current}),
+        () => setLoadState('ready'), () => setLoadState('error'))
+      requestRenderRef.current = renderer.request
+      return () => { requestRenderRef.current = () => undefined; renderer.dispose() }
+    } catch { setLoadState('error') }
   }, [])
 
   const changeFov = (delta: number) => {
@@ -130,7 +47,7 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
     requestRenderRef.current()
   }
 
-  return (
+  return createPortal(
     <div ref={dialogRef} className="panorama-modal" role="dialog" aria-modal="true" aria-label="Panorama 360 okolicy inwestycji">
       <div
         className={`panorama-modal__stage ${dragging ? 'is-dragging' : ''}`}
@@ -154,12 +71,12 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
           if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId)
         }}
         onPointerCancel={() => { dragRef.current.id = -1; setDragging(false) }}
-        onWheel={(event) => { event.preventDefault(); changeFov(event.deltaY * .03) }}
+        onWheel={(event) => { changeFov(event.deltaY * .03) }}
         onKeyDown={(event) => {
           if (event.key === 'ArrowLeft') lonRef.current -= 6
           else if (event.key === 'ArrowRight') lonRef.current += 6
-          else if (event.key === 'ArrowUp') latRef.current -= 4
-          else if (event.key === 'ArrowDown') latRef.current += 4
+          else if (event.key === 'ArrowUp') latRef.current = Math.max(-78, latRef.current - 4)
+          else if (event.key === 'ArrowDown') latRef.current = Math.min(78, latRef.current + 4)
           else if (event.key === '+' || event.key === '=') changeFov(-5)
           else if (event.key === '-') changeFov(5)
           else if (event.key === 'Home') reset()
@@ -170,18 +87,20 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
       >
         <div ref={canvasRef} className="panorama-modal__canvas" />
         {loadState === 'loading' && <div className="panorama-modal__loading"><span aria-hidden="true" />Ładowanie rzeczywistej panoramy z drona…</div>}
-        {loadState === 'error' && <div className="panorama-modal__error">Nie udało się uruchomić panoramy w tej przeglądarce.</div>}
+        {loadState === 'error' && <div className="panorama-modal__error">Nie udało się uruchomić panoramy w tej przeglądarce. <a href="/assets/images/neighborhood/panorama-360-grabik.webp?v=c7a1986872c74640" target="_blank" rel="noreferrer">Otwórz fotografię panoramiczną</a></div>}
       </div>
       <div className="panorama-modal__topbar">
         <div><Crosshair aria-hidden="true" /><span><small>Rzeczywista fotografia z drona</small><strong>Grabik · panorama 360°</strong></span></div>
-        <button ref={closeRef} type="button" onClick={onClose} aria-label="Zamknij panoramę"><X aria-hidden="true" /></button>
+        <button data-dialog-close ref={closeRef} type="button" onClick={onClose} aria-label="Zamknij panoramę"><X aria-hidden="true" /></button>
       </div>
       <div className="panorama-modal__controls" aria-label="Sterowanie panoramą">
+        <button type="button" onClick={() => { lonRef.current -= 15; requestRenderRef.current() }} aria-label="Obróć w lewo">←</button>
+        <button type="button" onClick={() => { lonRef.current += 15; requestRenderRef.current() }} aria-label="Obróć w prawo">→</button>
         <button type="button" onClick={() => changeFov(-8)} aria-label="Przybliż"><Plus /></button>
         <button type="button" onClick={() => changeFov(8)} aria-label="Oddal"><Minus /></button>
         <button type="button" onClick={reset} aria-label="Przywróć widok początkowy"><RotateCcw /></button>
       </div>
       <p className="panorama-modal__hint">Przeciągnij, aby rozejrzeć się po okolicy · kółko myszy przybliża widok</p>
     </div>
-  )
+  , document.body)
 }

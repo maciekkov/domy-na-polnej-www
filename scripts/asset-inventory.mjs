@@ -25,8 +25,10 @@ export function references(projectRoot = root) {
   }
   // These URLs are intentionally computed from the finite StandardIconId union.
   for (const id of ['heat-pump','ventilation','floor-heating','blinds','windows','glazing','pv','fence']) {
-    add(`assets/images/standard/icons/${id}.webp`, join(projectRoot, 'src/sections/Standard/Standard.tsx'))
+    add(`assets/icons/${id}.svg`, join(projectRoot, 'src/sections/Standard/Standard.tsx'))
   }
+  // Responsive source URLs are generated from these finite, tested variants.
+  for (const index of [0,1,2,3]) for (const width of [640,1024,1672]) add(`assets/images/responsive/hero-${index}-${width}.webp`, join(projectRoot, 'src/sections/Hero/Hero.tsx'))
   for (const name of ['site-data.json']) add(`data/${name}`, join(projectRoot, 'src/data/runtime/SiteDataProvider.tsx'))
   return paths
 }

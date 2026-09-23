@@ -1,0 +1,78 @@
+{
+  "scope": "QA bundle made from current TSX using TypeScript CommonJS transform + React 19.1.1 runtime; actual project CSS/assets; not a Vite production build.",
+  "viewports": [
+    {
+      "width": 320,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "none",
+        ".standard-section": "none",
+        ".journal-section": "none"
+      }
+    },
+    {
+      "width": 390,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "none",
+        ".standard-section": "none",
+        ".journal-section": "none"
+      }
+    },
+    {
+      "width": 768,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "none",
+        ".standard-section": "none",
+        ".journal-section": "none"
+      }
+    },
+    {
+      "width": 900,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "none",
+        ".standard-section": "none",
+        ".journal-section": "none"
+      }
+    },
+    {
+      "width": 1024,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "block",
+        ".standard-section": "block",
+        ".journal-section": "block"
+      }
+    },
+    {
+      "width": 1180,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "block",
+        ".standard-section": "block",
+        ".journal-section": "block"
+      }
+    },
+    {
+      "width": 1440,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "block",
+        ".standard-section": "block",
+        ".journal-section": "block"
+      }
+    },
+    {
+      "width": 1865,
+      "overflow_px": 0,
+      "decorations": {
+        ".why-home": "block",
+        ".standard-section": "block",
+        ".journal-section": "block"
+      }
+    }
+  ],
+  "errors": []
+}

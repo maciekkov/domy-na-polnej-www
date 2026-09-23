@@ -1,0 +1,74 @@
+[
+  {
+    "viewport": [
+      320,
+      740
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "missing": [],
+    "overflow": [],
+    "documentWidth": 320,
+    "viewportWidth": 320
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "missing": [],
+    "overflow": [],
+    "documentWidth": 375,
+    "viewportWidth": 390
+  },
+  {
+    "viewport": [
+      768,
+      1024
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "missing": [],
+    "overflow": [],
+    "documentWidth": 753,
+    "viewportWidth": 768
+  },
+  {
+    "viewport": [
+      1024,
+      900
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "missing": [],
+    "overflow": [],
+    "documentWidth": 1009,
+    "viewportWidth": 1024
+  },
+  {
+    "viewport": [
+      1440,
+      1000
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "missing": [],
+    "overflow": [],
+    "documentWidth": 1425,
+    "viewportWidth": 1440
+  },
+  {
+    "viewport": [
+      1920,
+      1080
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "missing": [],
+    "overflow": [],
+    "documentWidth": 1905,
+    "viewportWidth": 1920
+  }
+]

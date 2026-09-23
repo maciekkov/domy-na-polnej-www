@@ -1,0 +1,9 @@
+{
+  "project": "Domy na Polnej WWW",
+  "version": "5.1.0",
+  "releaseName": "Premium refinement — feedback pass after v5",
+  "date": "2026-09-21",
+  "publishedToProduction": false,
+  "pushedToGitHub": false,
+  "baselineArchiveSHA256": "057682b62b20eaf3fc79df99b9c50c9c56a0bbd25cbc34b189f92ca2cc1d1f38"
+}

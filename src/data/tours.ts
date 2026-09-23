@@ -1,17 +1,7 @@
-import interiorTour from '../../public/assets/data/spacer-360-wewnetrzny.json'
-import exteriorTour from '../../public/assets/data/spacer-360-zewnetrzny.json'
-
+import summary from '../../public/assets/data/tour-summary.json'
 export type TourMode = 'exterior' | 'interior'
-
+// Full scene graphs are fetched by the player only when opened, not bundled into the homepage.
 export const tours = {
-  exterior: {
-    src: '/tour/spacer-360-zewnatrz.html',
-    count: exteriorTour.scenes.length,
-    title: 'Spacer 360 po Domach na Polnej — dom i działka',
-  },
-  interior: {
-    src: '/tour/spacer-360-wewnatrz.html',
-    count: interiorTour.scenes.length,
-    title: 'Spacer 360 po Domach na Polnej — wnętrze domu',
-  },
+  exterior: {...summary.exterior, src:'/tour/spacer-360-zewnatrz.html', title:'Spacer 360 po Domach na Polnej — dom i działka'},
+  interior: {...summary.interior, src:'/tour/spacer-360-wewnatrz.html', title:'Spacer 360 po Domach na Polnej — wnętrze domu'},
 } as const

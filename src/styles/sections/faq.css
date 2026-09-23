@@ -48,7 +48,7 @@
 .faq-section h2 {
   margin: 0 0 9px;
   color: #111412;
-  font-family: "Montserrat",Arial,sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(36px,3.05vw,44px);
   font-weight: 700;
   line-height: 1.05;
@@ -78,7 +78,7 @@
   margin: 0 0 10px;
   padding: 0 2px;
   color: #252a2c;
-  font: 700 13px/1.2 "Montserrat",Arial,sans-serif;
+  font: 700 13px/1.2 var(--font-heading);
   letter-spacing: -.015em;
 }
 
@@ -121,7 +121,7 @@
   border: 0;
   background: transparent;
   color: #171b19;
-  font: 700 11.4px/1.32 "Lato",Arial,sans-serif;
+  font: 700 11.4px/1.32 var(--font-body);
   text-align: left;
   cursor: pointer;
 }
@@ -136,7 +136,7 @@
   width: 18px;
   flex: 0 0 18px;
   color: #252a2c;
-  font: 600 17px/1 "Montserrat",Arial,sans-serif;
+  font: 600 17px/1 var(--font-heading);
   text-align: center;
 }
 

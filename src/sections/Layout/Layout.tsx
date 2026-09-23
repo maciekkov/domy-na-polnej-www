@@ -1,4 +1,4 @@
-import { Armchair, ChevronLeft, ChevronRight, Compass, DoorOpen, Maximize2, SunMedium } from 'lucide-react'
+import { Armchair, ChevronLeft, ChevronRight, Compass, DoorOpen, Maximize2, SunMedium } from '../../components/common/Icons'
 import { useEffect, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { layoutRooms, PLAN_HEIGHT, PLAN_VIEWBOX, PLAN_WIDTH, type PlanMode, type ZoneId, zoneLabels, zoneOrder } from '../../data/layoutRooms'
@@ -88,7 +88,7 @@ export function Layout() {
         <div className="layout-section__heading">
           <div className="section-kicker"><b>05 / 12</b><span />Układ domu</div>
           <h2 id="layout-title">Dom, który działa na co dzień.</h2>
-          <p>Przemyślany układ, maksymalna funkcjonalność i wygoda dla całej rodziny.<br className="layout-section__desktop-break" /> Każda przestrzeń ma swoje miejsce i cel.</p>
+          <p>110,82 m² na jednym poziomie. Wybierz pomieszczenie na rzucie,<br className="layout-section__desktop-break" /> poznaj jego funkcję i zobacz przykładową aranżację.</p>
         </div>
 
         <div className={`layout-section__grid layout-section__grid--${mode}`}>
@@ -113,7 +113,7 @@ export function Layout() {
             {mode === 'zones' && (
               <div className="plan-zones" aria-label="Wybierz strefę domu">
                 {zoneOrder.map((zone) => (
-                  <button key={zone} type="button" className={activeZone === zone ? 'is-active' : ''} onClick={() => chooseZone(zone)}>{zoneLabels[zone]}</button>
+                  <button key={zone} type="button" className={activeZone === zone ? 'is-active' : ''} aria-pressed={activeZone === zone} onClick={() => chooseZone(zone)}>{zoneLabels[zone]}</button>
                 ))}
               </div>
             )}
@@ -124,7 +124,7 @@ export function Layout() {
                 alt={mode === 'furniture' ? 'Trójwymiarowy, umeblowany układ Domu na Polnej' : 'Precyzyjny rzut 2D Domu na Polnej'}
                 width={mode === 'furniture' ? 1024 : PLAN_WIDTH}
                 height={mode === 'furniture' ? 768 : PLAN_HEIGHT}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
                 draggable={false}
               />
@@ -167,7 +167,7 @@ export function Layout() {
 
           <aside className="room-panel" aria-live="polite">
             <div className="room-panel__image">
-              <img key={active.image} src={active.image} alt={`Wizualizacja: ${active.title}`} width="720" height="420" loading="eager" decoding="async" />
+              <img key={active.image} src={active.image} alt={`Wizualizacja: ${active.title}`} width="720" height="420" loading="lazy" decoding="async" />
             </div>
             <div className="room-panel__body">
               <h3>{active.title}{active.area ? <span> · {active.area}</span> : null}</h3>

@@ -66,7 +66,7 @@ for (const stem of ['wewnatrz','zewnatrz']) {
 }
 check(read('src/sections/Gallery/Gallery.tsx').includes("onChooseInterior={() => openTour('interior')}"), 'Wnętrze podłączone do galerii')
 check(read('src/sections/Gallery/TourChoiceModal.tsx').includes('onClick={onChooseInterior}'), 'Przycisk wnętrza aktywny')
-check(read('src/data/tours.ts').includes('interiorTour.scenes.length'), 'Liczba kadrów pochodzi z danych')
+check(read('src/data/tours.ts').includes('tour-summary.json'), 'Liczba kadrów pochodzi z wygenerowanego podsumowania');for(const mode of ['interior','exterior'])check(load('public/assets/data/tour-summary.json')[mode].count===configs[mode].scenes.length, `${mode}: podsumowanie zgodne z pełnym grafem`)
 check(read('public/tour/spacer-360-wewnatrz.html').includes('id="tourDisclaimer"'), 'Wnętrze: komunikat wejściowy')
 check(read('public/tour/spacer-360-zewnatrz.html').includes('id="tourDisclaimer"'), 'Zewnątrz: komunikat wejściowy')
 check(read('public/tour/spacer-360-player.js').includes('frame.width / currentImage.width'), 'Pinezki liczone względem obrazu, nie ekranu')

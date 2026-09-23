@@ -1,0 +1,15 @@
+PASS Necessary consent closes banner; no tracking, full panorama, scene graph or fonts on first screen
+PASS Hero manual next/previous, responsive asset and no autonomous change
+PASS House B synchronizes plan/table/card/URL/form and focuses contact
+PASS Form invalid/valid states; local preview never pretends to send mail
+PASS Gallery arrows, focus trap, Escape, return focus, inert cleanup
+PASS Gallery keyboard tabs and floor-plan mode switch
+PASS FAQ explicit expanded/collapsed states
+PASS Panorama supported-renderer path or explicit unavailable-WebGL fallback; close
+PASS Tour choice focus trap; real React iframe mount and cancel loading
+PASS No runtime JS errors on desktop interactions
+PASS Mobile E bottom sheet, factual price/plot, CTA closes and selects E
+PASS Mobile navigation toggles and Escape restores focus
+PASS No mobile runtime errors
+PASS Reduced-motion preference and accessible anchor focus
+14 / 14 passed

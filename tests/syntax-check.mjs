@@ -5,10 +5,7 @@ import { join } from 'node:path'
 import { walk, root } from '../scripts/asset-inventory.mjs'
 const require=createRequire(import.meta.url)
 let ts
-try { ts=require('typescript') } catch {
-  const global=execFileSync(process.platform==='win32'?'npm.cmd':'npm',['root','-g'],{encoding:'utf8'}).trim()
-  ts=require(join(global,'typescript'))
-}
+ts=require('../vendor/typescript.cjs')
 let modules=0, scripts=0
 for (const file of [...walk(join(root,'src')),join(root,'vite.config.ts')]) {
   if (!/\.tsx?$/.test(file) || file.endsWith('.d.ts')) continue

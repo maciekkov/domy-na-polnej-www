@@ -1,6 +1,6 @@
 {
-  "revision": 1,
-  "publishedAt": "13.09.2026, 22:00",
+  "revision": 2,
+  "publishedAt": "18.09.2026, 23:25",
   "houses": [
     {
       "id": "A",
@@ -46,7 +46,7 @@
       "id": "C",
       "name": "Dom C",
       "parcel": "589/18",
-      "status": "Rezerwacja",
+      "status": "Dostępny",
       "price": 799000,
       "area": 110.82,
       "plot": 807,

@@ -1,0 +1,8 @@
+Tour summary: {
+  interior: { count: 30, sketchCount: 0 },
+  exterior: { count: 14, sketchCount: 0 }
+}
+Asset versions: { changed: 7, assets: 142, release: '52b2aa633885b73b' }
+SEO: strona główna + sitemap wygenerowane z site-data.json
+dist przygotowany: frontend + API + strony prawne + 404
+Portable production build: 56 modules, JS 241 KB + React 182 KB, CSS 175 KB.

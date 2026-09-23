@@ -21,51 +21,397 @@
     <meta name="twitter:description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. Dostępne domy od 779 000 zł." />
     <meta name="twitter:image" content="https://domynapolnej.pl/assets/images/hero-front-photoreal.webp?v=33b923d13b43bc92" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4b6bb65c5c886838" />
-    <link rel="preload" as="image" href="/assets/images/hero-all-houses.webp?v=0ce61987a164f08c" fetchpriority="high" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=b811e3ad88187d8f" />
+    
 
-    <style id="dnp-critical-css">
-      :root{color-scheme:light;--dnp-bg:#111915;--dnp-panel:#17211c;--dnp-text:#f4f1ea;--dnp-muted:rgba(244,241,234,.76);--dnp-olive:#5d673d;--dnp-line:rgba(244,241,234,.12)}
-      *{box-sizing:border-box}
-      html{background:var(--dnp-bg)}
-      body{margin:0;min-width:320px;background:radial-gradient(circle at top,rgba(93,103,61,.14),transparent 32%),linear-gradient(180deg,#16201b 0%,#111915 48%,#0d1512 100%);color:var(--dnp-text);font:16px/1.55 Lato,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-      a,button,input,select,textarea{font:inherit}
-      a{color:inherit}
-      #root{min-height:100vh}
-      .hero-fallback{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#111915 url('/assets/images/hero-all-houses.webp?v=0ce61987a164f08c') center/cover no-repeat}
-      .hero-fallback__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,18,16,.78) 0%,rgba(14,18,16,.62) 22%,rgba(14,18,16,.34) 38%,rgba(14,18,16,.12) 48%,rgba(14,18,16,0) 62%),linear-gradient(0deg,rgba(10,14,12,.28) 0%,rgba(10,14,12,.1) 18%,rgba(10,14,12,0) 36%),linear-gradient(180deg,rgba(10,14,12,.14) 0%,rgba(10,14,12,0) 18%)}
-      .hero-fallback__inner{position:relative;z-index:2;width:min(1320px,calc(100% - 48px));margin:0 auto;padding:136px 0 76px}
-      .hero-fallback__eyebrow{margin:0 0 14px;color:#ead8b3;font:700 14px/1.2 Montserrat,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
-      .hero-fallback__eyebrow span{padding:0 8px}
-      .hero-fallback h1{max-width:672px;margin:0 0 14px;font:600 clamp(41px,3.65vw,54px)/1.06 Montserrat,Arial,sans-serif;letter-spacing:-.04em}
-      .hero-fallback__lead{max-width:590px;margin:0 0 22px;color:rgba(244,241,234,.9);font-size:15px}
-      .hero-fallback__facts{display:flex;flex-wrap:wrap;gap:0;margin:0 0 24px}
-      .hero-fallback__facts span{display:flex;flex-direction:column;min-width:116px;padding:0 20px;border-left:1px solid rgba(244,241,234,.42);color:rgba(244,241,234,.78);font-size:13px}
-      .hero-fallback__facts span:first-child{padding-left:0;border-left:0}
-      .hero-fallback__facts strong{display:block;color:#fff;font:600 18px/1.2 Montserrat,Arial,sans-serif}
-      .hero-fallback__buttons{display:flex;flex-wrap:wrap;gap:14px}
-      .hero-fallback__buttons a{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border:1px solid rgba(244,241,234,.22);border-radius:999px;background:rgba(255,255,255,.04);backdrop-filter:blur(6px);text-decoration:none;font-weight:700}
-      .hero-fallback__buttons a[href^="tel:"]{background:linear-gradient(110deg,#4b5630,#5d673d);border-color:transparent;color:#fff}
-      .consent-banner{position:fixed;left:22px;right:22px;bottom:20px;z-index:120;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;width:min(1120px,calc(100% - 44px));margin-inline:auto;padding:18px 20px;background:rgba(250,248,243,.98);color:#1f4236;border:1px solid rgba(31,66,54,.12);border-radius:22px;box-shadow:0 18px 55px rgba(17,44,35,.2);backdrop-filter:blur(18px)}
-      .consent-banner__icon{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:#edf2eb;color:#4b5630}
-      .consent-banner__icon svg{width:20px;height:20px}
-      .consent-banner__copy strong{display:block;margin-bottom:4px;font:700 18px/1.1 Montserrat,Arial,sans-serif}
-      .consent-banner__copy p{margin:0;color:#4d6158;font-size:14px;line-height:1.55}
-      .consent-banner__detail{margin-top:8px!important;padding-top:8px;border-top:1px solid rgba(31,66,54,.1)}
-      .consent-banner__policy{display:inline-block;margin-top:10px;font-size:14px;text-decoration:underline;text-underline-offset:3px}
-      .consent-banner__actions{display:grid;grid-template-columns:auto auto;gap:8px;align-items:center}
-      .consent-banner__actions .button,.consent-banner__settings,.consent-banner__necessary{min-height:42px}
-      .consent-banner__close{position:absolute;top:8px;right:8px;width:34px;height:34px;display:grid;place-items:center;padding:0;background:transparent;border:0;border-radius:50%;color:#7c8882}
-      .consent-banner__settings{grid-column:1/-1;border:0;padding:4px 0 0;background:transparent;color:#5f6d66;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-size:13px}
-      @media (max-width:900px){.hero-fallback__inner{width:min(100%,calc(100% - 32px));padding:110px 0 66px}.hero-fallback__facts span{padding:0 14px}.consent-banner{left:14px;right:14px;bottom:14px;width:auto;grid-template-columns:1fr;gap:14px;padding:18px 18px 16px}.consent-banner__icon{display:none}.consent-banner__actions{display:flex;flex-wrap:wrap}}
-      @media (max-width:560px){.hero-fallback{min-height:700px}.hero-fallback__inner{padding:104px 0 60px}.hero-fallback h1{font-size:clamp(32px,9vw,38px)}.hero-fallback__lead{font-size:15px}.hero-fallback__facts{display:grid;grid-template-columns:1fr 1fr;margin-bottom:18px}.hero-fallback__facts span{min-width:0;padding:8px 12px;border-left:1px solid rgba(244,241,234,.3)}.hero-fallback__facts span:nth-child(odd){padding-left:0;border-left:0}.hero-fallback__facts strong{font-size:16px}.hero-fallback__buttons{display:grid;grid-template-columns:1fr}.hero-fallback__buttons a{min-height:46px;padding:0 16px}.consent-banner{border-radius:18px}.consent-banner__actions{display:grid;grid-template-columns:1fr}}
-    </style>
+    <style id="dnp-critical-css">:root {
+  --font-body: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-heading: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-editorial: Georgia, "Times New Roman", serif;
+  --graphite: #243b33;
+  --graphite-deep: #142b23;
+  --olive: #526348;
+  --olive-deep: #344e3f;
+  --off-white: #f5f3ec;
+  --paper: #fdfcf8;
+  --sand: #d8c9ae;
+  --wood: #806748;
+  --text-muted: #59675e;
+  --line: rgba(36,59,51,.16);
+  --shadow: 0 10px 32px rgba(22,43,32,.045);
+  --shadow-hover: 0 14px 42px rgba(22,43,32,.09);
+  --radius-card: 12px;
+  --radius-image: 8px;
+  --shell: min(1280px, calc(100% - 96px));
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+  --space-section: clamp(64px,7vw,108px);
+  --duration-fast: 160ms; --duration-normal: 240ms; --duration-reveal: 520ms;
+  --header-height: 82px;
+}
+
+/* globals — maintained component styles. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--off-white);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--graphite);
+  background: var(--off-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+button ,
+a {
+  font: inherit;
+}
+
+a ,
+button {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1 ,
+h2 ,
+h3 ,
+p {
+  margin-top: 0;
+}
+
+h1 ,
+h2 ,
+h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.035em;
+}
+
+.shell {
+  width: var(--shell);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  left: 18px;
+  top: 14px;
+  z-index: 1000;
+  padding: 10px 16px;
+  color: var(--off-white);
+  background: var(--graphite);
+  border-radius: 999px;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sand);
+  outline-offset: 4px;
+}
+
+.button {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+  text-decoration: none;
+  transition: color 200ms var(--ease), background 200ms var(--ease), border-color 200ms var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+
+.button:hover svg {
+  transform: translateX(4px);
+}
+
+.button svg {
+  transition: transform 200ms var(--ease);
+}
+
+.button--light {
+  color: var(--graphite);
+  background: var(--off-white);
+}
+
+.button--light:hover {
+  background: var(--sand);
+  transform: translateY(-2px);
+}
+
+.button--outline {
+  color: var(--off-white);
+  background: rgba(19, 24, 21, .14);
+  border-color: rgba(244, 241, 234, .78);
+  backdrop-filter: blur(4px);
+}
+
+.button--outline:hover {
+  background: rgba(244, 241, 234, .13);
+  border-color: var(--off-white);
+  transform: translateY(-2px);
+}
+
+.button--olive {
+  color: #fff;
+  background: linear-gradient(110deg, var(--olive-deep), var(--olive));
+}
+
+.button--olive:hover {
+  background: var(--olive-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(75, 86, 48, .25);
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  color: var(--olive);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  margin-inline: 5px;
+}
+
+.section-heading {
+  margin-bottom: 40px;
+}
+
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+  color: var(--wood);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.section-kicker > span {
+  width: 50px;
+  height: 3px;
+  background: var(--olive);
+}
+
+.section-heading h2 {
+  margin-bottom: 7px;
+  color: #111;
+  font-size: clamp(40px, 3.7vw, 53px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.section-heading > p:last-child {
+  margin-bottom: 0;
+  color: rgba(37,42,44,.78);
+  font-size: 17px;
+}
+
+.section-kicker--dark {
+  margin-bottom: 19px;
+  color: rgba(255,255,255,.72);
+}
+
+.section-kicker--dark b {
+  color: #fff;
+}
+
+.section-kicker--dark > span {
+  background: rgba(255,255,255,.7);
+}
+
+@media (max-width: 1180px) {
+  :root {
+    --shell: min(100% - 42px, 1080px);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --shell: calc(100% - 32px);
+    --radius-card: 18px;
+    --radius-image: 20px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .eyebrow {
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+
+  .section-heading {
+    margin-bottom: 27px;
+  }
+
+  .section-kicker {
+    font-size: 10px;
+  }
+
+  .section-kicker > span {
+    width: 35px;
+  }
+
+  .section-heading h2 {
+    font-size: 35px;
+  }
+
+  .section-heading > p:last-child {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .section-kicker--dark {
+    margin-bottom: 16px;
+  }
+}
+
+.site-data-warning {
+  margin: 0;
+  padding: 14px 24px;
+  text-align: center;
+  background: #fff4d6;
+  color: #473d27;
+  font-size: 14px;
+}
+
+/* Hero: one factual message, human-controlled imagery, no autoplay. */
+.hero{position:relative;isolation:isolate;min-height:760px;height:min(100svh,1120px);color:#fff;background:#1a3127;overflow:hidden}
+.hero__media-stack,.hero__media,.hero__shade{position:absolute;inset:0;z-index:-1}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:1;animation:hero-image-in var(--duration-reveal) var(--ease) both}
+.hero__shade{background:linear-gradient(90deg,rgba(8,23,17,.74) 0%,rgba(11,24,18,.38) 45%,rgba(11,24,18,.05) 80%),linear-gradient(0deg,rgba(8,23,17,.88),rgba(8,23,17,.1) 55%,rgba(8,23,17,.45))}
+.hero__content{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-block:150px 38px;gap:70px}
+.hero__copy{max-width:750px}
+.hero .eyebrow{color:#e7e8da;font-size:12px;font-weight:500;letter-spacing:.16em;margin-bottom:24px}
+.hero h1{font-weight:450;font-size:clamp(48px,5.5vw,82px);line-height:1.02;letter-spacing:-.04em;margin-bottom:26px;color:#fff;text-wrap:balance}
+.hero h1 em{font-family:var(--font-editorial);font-weight:400;letter-spacing:-.04em;color:#f0eadb}
+.hero__lead{font-size:18px;line-height:1.65;color:#f0f0e9;margin-bottom:30px;max-width:530px}
+.hero__buttons{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.hero__tour-link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:14px;min-height:48px;border-bottom:1px solid rgba(255,255,255,.4);transition:border-color var(--duration-fast)}
+.hero__tour-link:hover{border-color:#fff}
+.hero__bottom{display:flex;align-items:end;justify-content:space-between;gap:32px;padding-top:30px;border-top:1px solid rgba(255,255,255,.3)}
+.hero__facts{display:flex;gap:54px;margin:0}
+.hero__facts>div{margin:0}
+.hero__facts dt{font-size:clamp(20px,1.9vw,28px);letter-spacing:-.03em;font-weight:500;white-space:nowrap}
+.hero__facts dd{margin:6px 0 0;color:#d7dfd7;font-size:12px;line-height:1.45}
+.hero__controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.hero__controls button{display:grid;place-items:center;min-width:46px;min-height:46px;padding:0;border:1px solid #bdc8bb;color:#fff;background:rgba(13,32,22,.35);border-radius:50%;cursor:pointer;transition:background var(--duration-fast)}
+.hero__controls button:hover{background:rgba(255,255,255,.2)}
+.hero__image-caption{font-size:11px;color:#e3e8de;margin-right:16px}
+.hero__image-caption b{display:block;color:#fff;font-size:13px;font-weight:500;letter-spacing:.12em;margin-top:3px}
+.hero__discover{position:absolute;right:48px;top:51%;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:50%;text-decoration:none}
+@keyframes hero-image-in{from{opacity:.7}to{opacity:1}}
+@media(min-width:1800px){.hero__content{gap:90px;padding-bottom:48px}}
+@media(max-width:1000px){.hero{min-height:800px}.hero__facts{gap:28px}.hero__bottom{gap:20px}.hero__facts dt{font-size:22px}.hero__discover{display:none}.hero__image-caption{margin-right:4px}}
+@media(max-width:640px){
+ .hero{height:auto;min-height:max(780px,100svh)}
+ .hero__content{min-height:inherit;padding:300px 0 28px;gap:34px}
+ .hero__media img{object-position:center top}
+ .hero__shade{background:linear-gradient(0deg,rgba(8,23,17,.97) 0%,rgba(8,23,17,.79) 42%,rgba(8,23,17,.1) 78%,rgba(8,23,17,.6) 100%)}
+ .hero .eyebrow{font-size:10px;letter-spacing:.1em;max-width:320px;margin-bottom:16px}
+ .hero h1{font-size:48px;margin-bottom:18px;line-height:1.04}
+ .hero__lead{font-size:16px;line-height:1.5;margin-bottom:24px}
+ .hero__desktop-break{display:none}
+ .hero__buttons{gap:10px;align-items:start;flex-direction:column}
+ .hero__buttons .button{min-height:52px;width:100%;padding-inline:16px;font-size:13px}
+ .hero__tour-link{font-size:13px;min-height:40px}
+ .hero__bottom{display:grid;gap:20px;padding-top:22px}
+ .hero__facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 10px}
+ .hero__facts>div:last-child{grid-column:1/-1;display:flex;align-items:center;gap:12px}
+ .hero__facts>div:last-child dd{margin:0;max-width:145px}
+ .hero__facts dt{font-size:22px}.hero__facts dd{font-size:11px}
+ .hero__controls{justify-content:flex-end}.hero__image-caption{margin-right:auto;display:flex;align-items:center;gap:12px}.hero__image-caption b{margin:0}
+}
+@media(max-width:360px){.hero h1{font-size:42px}.hero__content{padding-top:270px}.hero__facts dt{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.hero__media img{animation:none}}
+
+.nojs-offers{padding-block:64px}.nojs-offers__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}.nojs-offers article{padding:24px;border:1px solid #c9cdbf;border-radius:6px;background:#fdfcf8}.nojs-offers a{display:inline-flex;min-height:44px;align-items:center}.nojs-offers article strong{font-size:22px}
+@media(max-width:760px){:root{--shell:calc(100% - 40px)}}</style>
 
     <script id="site-schema" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://domynapolnej.pl/#organization","name":"X-SMART DEVELOP sp. z o.o.","url":"https://domynapolnej.pl/","email":"biuro@domynapolnej.pl","telephone":"+48455563962"},{"@type":"WebSite","@id":"https://domynapolnej.pl/#website","url":"https://domynapolnej.pl/","name":"Domy na Polnej","inLanguage":"pl-PL","publisher":{"@id":"https://domynapolnej.pl/#organization"}},{"@type":"ItemList","name":"Domy na Polnej — domy A–E","url":"https://domynapolnej.pl/#domy","itemListElement":[{"@type":"ListItem","position":1,"name":"Dom A","item":{"@type":"Product","name":"Dom A","sku":"A","url":"https://domynapolnej.pl/?dom=A#domy","offers":{"@type":"Offer","price":779000,"priceCurrency":"PLN","availability":"https://schema.org/InStock"}}},{"@type":"ListItem","position":2,"name":"Dom B","item":{"@type":"Product","name":"Dom B","sku":"B","url":"https://domynapolnej.pl/?dom=B#domy","offers":{"@type":"Offer","price":789000,"priceCurrency":"PLN","availability":"https://schema.org/InStock"}}},{"@type":"ListItem","position":3,"name":"Dom C","item":{"@type":"Product","name":"Dom C","sku":"C","url":"https://domynapolnej.pl/?dom=C#domy","offers":{"@type":"Offer","price":799000,"priceCurrency":"PLN","availability":"https://schema.org/InStock"}}},{"@type":"ListItem","position":4,"name":"Dom D","item":{"@type":"Product","name":"Dom D","sku":"D","url":"https://domynapolnej.pl/?dom=D#domy","offers":{"@type":"Offer","price":809000,"priceCurrency":"PLN","availability":"https://schema.org/InStock"}}},{"@type":"ListItem","position":5,"name":"Dom E","item":{"@type":"Product","name":"Dom E","sku":"E","url":"https://domynapolnej.pl/?dom=E#domy","offers":{"@type":"Offer","price":819000,"priceCurrency":"PLN","availability":"https://schema.org/InStock"}}}]}]}</script>
     <title>Domy na Polnej — Grabik koło Żar</title>
-  </head>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preload" as="image" href="/assets/images/responsive/hero-mobile.webp?v=78765ade65711f2b" media="(max-width:640px)" fetchpriority="high" />
+<link rel="preload" as="image" href="/assets/images/responsive/hero-0-1672.webp" imagesrcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" imagesizes="100vw" media="(min-width:641px)" fetchpriority="high" />
+</head>
   <body>
-    <div id="root"><!--dnp-home-start--><section class="hero-fallback" aria-label="Domy na Polnej"><div class="hero-fallback__shade"></div><div class="hero-fallback__inner"><p class="hero-fallback__eyebrow">Domy na Polnej <span>·</span> Grabik</p><h1>5 wolnostojących<br/>domów blisko Żar</h1><p class="hero-fallback__lead">111 m² wygodnej przestrzeni, własne działki 806–1006 m² i tylko pięć domów w spokojnym otoczeniu.</p><div class="hero-fallback__facts"><span><strong>111 m²</strong> powierzchni</span><span><strong>5</strong> pokoi</span><span><strong>806–1006 m²</strong> działki</span><span><strong>5</strong> domów</span></div><div class="hero-fallback__buttons"><a href="/#domy">Zobacz domy i ceny</a><a href="tel:+48455563962">+48 455 563 962</a></div></div></section><!--dnp-home-end--></div>
+    <div id="root"><!--dnp-home-start--><section class="hero" id="start" aria-labelledby="hero-title"><div class="hero__media-stack"><picture class="hero__media is-loaded"><source media="(max-width:640px)" srcset="/assets/images/responsive/hero-mobile.webp?v=78765ade65711f2b"><img src="/assets/images/responsive/hero-0-1672.webp" srcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="Wizualizacja inwestycji Domy na Polnej" fetchpriority="high"></picture></div><div class="hero__shade" aria-hidden="true"></div><div class="hero__content shell"><div class="hero__copy"><p class="eyebrow eyebrow--light">5 domów wolnostojących <span>·</span> Grabik koło Żar</p><h1 id="hero-title">Dom z ogrodem.<br><em>Blisko Żar.</em></h1><p class="hero__lead">Parterowy dom, 5 pokoi i własna działka.<br class="hero__desktop-break"> Przestrzeń do życia — w domu i poza nim.</p><div class="hero__buttons"><a class="button button--light" href="#domy">Wybierz dom i sprawdź cenę →</a><a class="hero__tour-link" href="tel:+48455563962">+48 455 563 962</a></div></div><div class="hero__bottom"><dl class="hero__facts"><div><dt>110,82 m²</dt><dd>powierzchni użytkowej</dd></div><div><dt>806–1006 m²</dt><dd>powierzchni działki</dd></div><div><dt>od 779 000 zł</dt><dd>cena brutto dostępnego domu</dd></div></dl><span class="hero__image-caption">Wizualizacja 01 / 04</span></div></div></section>
+ <section id="domy" class="nojs-offers shell"><h2>Domy i ceny</h2><p>Pełny plan i spacery wymagają JavaScript. Ceny, dokumenty i kontakt są dostępne poniżej.</p><div class="nojs-offers__grid"><article><h3>Dom A</h3><p>Dostępny · działka 589/20</p><p>110,82 m² domu · 810 m² działki</p><strong>779 000 zł</strong><p>7029,42 zł/m² brutto</p><a href="/pdf/karta-dom-a.pdf?v=d496976d39fc20d8">Karta domu PDF</a></article><article><h3>Dom B</h3><p>Dostępny · działka 589/19</p><p>110,82 m² domu · 809 m² działki</p><strong>789 000 zł</strong><p>7119,65 zł/m² brutto</p><a href="/pdf/karta-dom-b.pdf?v=15acc3a2de4619c1">Karta domu PDF</a></article><article><h3>Dom C</h3><p>Dostępny · działka 589/18</p><p>110,82 m² domu · 807 m² działki</p><strong>799 000 zł</strong><p>7209,89 zł/m² brutto</p><a href="/pdf/karta-dom-c.pdf?v=943d702b409a13ac">Karta domu PDF</a></article><article><h3>Dom D</h3><p>Dostępny · działka 589/17</p><p>110,82 m² domu · 806 m² działki</p><strong>809 000 zł</strong><p>7300,13 zł/m² brutto</p><a href="/pdf/karta-dom-d.pdf?v=e0f80ce45baf994e">Karta domu PDF</a></article><article><h3>Dom E</h3><p>Dostępny · działka 589/16</p><p>110,82 m² domu · 1006 m² działki</p><strong>819 000 zł</strong><p>7390,36 zł/m² brutto</p><a href="/pdf/karta-dom-e.pdf?v=779fe208e88cedc7">Karta domu PDF</a></article></div><p><a href="/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=738a769f8cee7741">Standard techniczny PDF</a> · <a href="tel:+48455563962">+48 455 563 962</a> · <a href="mailto:biuro@domynapolnej.pl">biuro@domynapolnej.pl</a></p><p><a href="/polityka-prywatnosci/">Polityka prywatności</a> · <a href="/polityka-cookies/">Polityka cookies</a></p></section><!--dnp-home-end--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,9 +1,9 @@
-DOMY NA POLNEJ — POPRAWKI 1–12
+DOMY NA POLNEJ — V5.1 PREMIUM
 
-1. Wymagane Node.js >=22.12 i dostep do npm.
-2. Uruchom BUDUJ-WDROZENIE.cmd; przerwie przy bledzie.
-3. Po udanym buildzie uruchom npm run preview.
-4. Przed hostingiem: testy E2E opisane w AUDYT_POPRAWEK_7-12.md.
+1. Rozpakuj caly katalog.
+2. Uruchom URUCHOM-PODGLAD-WWW.cmd (Node.js >=22.12).
+3. Otworz http://127.0.0.1:4173
 
-Paczka zawiera zrodla. W srodowisku przygotowania nie potwierdzono pelnego builda z powodu niedostepnosci npm.
-API wymaga PHP >=8.1 i prywatnego config.php SMTP na hostingu.
+Formularz w podgladzie nie wysyla poczty.
+Pliki wdrozenia: dist. Instrukcje: README.md i BRAKI_I_WDROZENIE.md.
+QA poprawek: docs/qa-v5.1/QA_REPORT.md.

@@ -94,7 +94,7 @@
 }
 
 .brand-logo__wordmark {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   white-space: nowrap;
 }

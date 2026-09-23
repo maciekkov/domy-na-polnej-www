@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { HouseModal } from '../../components/house-selector/HouseModal'
 import { HouseCard, StatusBadge } from '../../components/house-selector/HouseCard'
 import { Masterplan } from '../../components/house-selector/Masterplan'
 import type { House, HouseId } from '../../data/houses'
@@ -15,28 +16,49 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
   const [hoveredId, setHoveredId] = useState<HouseId | null>(null)
   const selectedHouse = houses.find((house) => house.id === selectedId) ?? null
   const activeId = hoveredId ?? selectedId
+  const [sheetOpen, setSheetOpen] = useState(false)
+  const choose = (id:HouseId) => {
+    onSelect(id)
+    if (window.matchMedia('(max-width: 960px)').matches) setSheetOpen(true)
+  }
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 961px)')
+    const close = () => { if(media.matches) setSheetOpen(false) }
+    media.addEventListener('change',close)
+    return () => media.removeEventListener('change',close)
+  }, [])
 
   return (
     <section className="homes" id="domy" aria-labelledby="homes-title">
       <div className="shell">
-        <header className="section-heading">
-          <p className="section-kicker"><span aria-hidden="true" /> Domy na Polnej · Grabik</p>
-          <h2 id="homes-title">Wybierz swój dom</h2>
-          <p>Pięć wolnostojących domów. Ten sam przemyślany układ, różne działki i położenie.</p>
+        <header className="homes__heading">
+          <div className="section-heading">
+            <p className="section-kicker"><span aria-hidden="true" /> Domy na Polnej · Grabik</p>
+            <h2 id="homes-title">Wybierz swój dom</h2>
+            <p>Pięć wolnostojących domów. Ten sam przemyślany układ, różne działki i położenie.</p>
+          </div>
+          <p className="homes__signature"><span>Jedna architektura. Pięć działek.</span>Wybór zaczyna się<br />od miejsca.</p>
         </header>
 
+        <div className="masterplan-legend" aria-label="Legenda planu"><span><i className="available" />Dostępny</span><span><i className="reserved" />Rezerwacja</span><span><i className="sold" />Sprzedany</span><small>Kliknij literę A–E lub obszar działki</small></div>
         <div className="homes__showcase">
-          <Masterplan
-            houses={houses}
-            selectedId={selectedId}
-            hoveredId={hoveredId}
-            onHover={setHoveredId}
-            onSelect={onSelect}
-          />
+          <div className="homes__map-column">
+            <Masterplan
+              houses={houses}
+              selectedId={selectedId}
+              hoveredId={hoveredId}
+              onHover={setHoveredId}
+              onSelect={choose}
+            />
+            <div className="homes__map-caption">
+              <p>Wybierz działkę na planie lub dom z listy poniżej.</p>
+              <span className="homes__north-caption">N ↘ <span>Północ</span></span>
+            </div>
+          </div>
           <HouseCard house={selectedHouse} fallbackHouse={houses[0]} onAsk={() => selectedHouse && onAsk(selectedHouse.id)} />
         </div>
 
-        <div className="homes-table-wrap">
+        <div className="homes-table-wrap" id="lista-domow">
           <table className="homes-table">
             <caption className="sr-only">Lista domów, statusy, powierzchnie, działki, ceny brutto i ceny brutto za metr kwadratowy powierzchni użytkowej</caption>
             <thead>
@@ -51,9 +73,9 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
                   onMouseLeave={() => setHoveredId(null)}
                   onFocus={() => setHoveredId(house.id)}
                   onBlur={() => setHoveredId(null)}
-                  onClick={() => onSelect(house.id)}
+                  onClick={() => choose(house.id)}
                 >
-                  <th scope="row"><button type="button" onClick={(event) => { event.stopPropagation(); onSelect(house.id) }}>{house.name}</button></th>
+                  <th scope="row"><button aria-pressed={selectedId === house.id} type="button" onClick={(event) => { event.stopPropagation(); choose(house.id) }}>{house.name}</button></th>
                   <td>{house.parcel}</td>
                   <td><StatusBadge status={house.status} /></td>
                   <td>{formatArea(house.area)}</td><td>{house.plot} m²</td><td>{house.rooms}</td><td>{formatPrice(house.price)}</td><td>{formatPricePerSqm(house)}</td>
@@ -67,8 +89,9 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
             <button
               key={house.id}
               className={activeId === house.id ? 'is-active' : ''}
+              aria-pressed={selectedId === house.id}
               type="button"
-              onClick={() => onSelect(house.id)}
+              onClick={() => choose(house.id)}
             >
               <span className="homes-mobile-list__top"><strong>{house.name}</strong><StatusBadge status={house.status} /></span>
               <span className="homes-mobile-list__meta"><span>{formatArea(house.area)} · działka {house.plot} m²</span><b>{formatPrice(house.price)}</b></span><span className="homes-mobile-list__unit-price">{formatPricePerSqm(house)} brutto</span>
@@ -76,7 +99,10 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
             </button>
           ))}
         </div>
+        <p className="homes__transaction-note">Ceny brutto i statusy dotyczą poszczególnych domów. Zakres sprzedaży, udział w drodze i warunki płatności sprawdź w karcie domu oraz dokumentach przed zawarciem umowy.</p>
+        <p className="sr-only" role="status">{selectedHouse ? `Wybrano ${selectedHouse.name}. Cena ${formatPrice(selectedHouse.price)}, działka ${selectedHouse.plot} metrów kwadratowych.` : 'Nie wybrano domu.'}</p>
       </div>
+      {sheetOpen && selectedHouse && <HouseModal house={selectedHouse} onClose={()=>setSheetOpen(false)} onAsk={()=>{setSheetOpen(false);onAsk(selectedHouse.id)}} />}
     </section>
   )
 }

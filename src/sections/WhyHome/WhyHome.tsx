@@ -1,57 +1,64 @@
-import { useEffect, useRef, useState } from 'react'
+import { ArrowRight } from '../../components/common/Icons'
 
-const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+type BenefitKind = 'level' | 'plot' | 'garden' | 'rooms'
 
-const benefits = [
-  { icon: 'assets/images/ui/why-home/garden.png?v=5bc240f2929e0bc5', title: 'Własny ogród', text: 'Duże działki 806–1006 m²' },
-  { icon: 'assets/images/ui/why-home/architecture.png?v=2a1a28acc5f65157', title: 'Nowoczesna architektura', text: 'Prosta forma, ponadczasowy styl' },
-  { icon: 'assets/images/ui/why-home/nature.png?v=b06f93bac258b697', title: 'Spokojna okolica', text: 'Blisko natury, z dala od zgiełku' },
-  { icon: 'assets/images/ui/why-home/value.png?v=94a0f04c1336b7e4', title: 'Wartość na lata', text: 'Dom pomyślany na kolejne etapy życia' },
+type Benefit = {
+  kind: BenefitKind
+  title: string
+  text: string
+}
+
+const benefits: Benefit[] = [
+  { kind:'level', title:'Jeden poziom', text:'Parterowy układ bez schodów między pokojami.' },
+  { kind:'plot', title:'Własna działka', text:'806–1006 m² przestrzeni wokół domu.' },
+  { kind:'garden', title:'Ogród od zachodu', text:'Wyjście ze strefy dziennej w stronę ogrodu.' },
+  { kind:'rooms', title:'5 pokoi', text:'Salon, sypialnie i dodatkowy gabinet.' },
 ]
 
-export function WhyHome() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setVisible(true); observer.disconnect() }
-    }, { threshold: .2 })
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
-
+function BenefitGlyph({ kind }: { kind: BenefitKind }) {
   return (
-    <section id="dom" ref={sectionRef} className={`why-home ${visible ? 'is-visible' : ''}`} aria-labelledby="why-home-title">
-      <div className="shell why-home__grid">
-        <div className="why-home__content">
-          <div className="section-kicker"><b>03 / 12</b><span />Dlaczego ten dom</div>
-          <h2 id="why-home-title">Więcej niż dom.<br />Większa jakość życia.</h2>
-          <p className="why-home__lead">Domy na Polnej to połączenie nowoczesnej architektury, prywatności i bliskości natury. Miejsce stworzone z myślą o rodzinach, które szukają spokoju, przestrzeni i trwałej wartości.</p>
-
-          <div className="why-home__benefits">
-            {benefits.map(({ icon, title, text }) => (
-              <article className="benefit" key={title}>
-                <img className="benefit__icon" src={asset(icon)} alt="" aria-hidden="true" loading="lazy" decoding="async" />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="why-home__certainty" aria-label="Przewaga gotowego procesu">
-            <strong>Dom bez prowadzenia budowy samemu</strong>
-            <p>Znany zakres, określony standard i uporządkowany proces — zamiast samodzielnego koordynowania projektu, wykonawców, dostaw i odbiorów.</p>
-          </div>
-
-        </div>
-
-        <figure className="why-home__visual">
-          <img src={asset('assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b')} alt="Dom na Polnej od strony ogrodu z widokiem na tylną elewację" width="1672" height="941" loading="lazy" decoding="async" />
-        </figure>
-      </div>
-    </section>
+    <svg className="benefit__glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
+      {kind === 'level' && <>
+        <path d="M7 31.5h34M10 29V17.5L24 9l14 8.5V29" />
+        <path d="M15 22h18M18 29v-7m12 7v-7" />
+      </>}
+      {kind === 'plot' && <>
+        <path d="M9 12.5 33.5 8 40 31.5 15 40 8 25Z" />
+        <path d="M14 16.5 30.5 13l4.5 15-16.5 6-4.5-17.5Z" strokeDasharray="2.6 3" />
+        <path d="M8 19h4M34.5 11.5l1 4M12 34l3.5-1.2M36 29l4 1.3" />
+      </>}
+      {kind === 'garden' && <>
+        <path d="M10 36V16h13v20M23 36h15" />
+        <path d="M14 24h5M14 29h5" />
+        <circle cx="35" cy="14" r="5.5" />
+        <path d="M35 4v3M35 21v3M25 14h3M42 14h3M28 7l2 2M40 19l2 2M42 7l-2 2" />
+        <path d="M27 36c2.5-5 5.5-7.5 9-7.5S41 31 42 36" />
+      </>}
+      {kind === 'rooms' && <>
+        <path d="M9 9h30v30H9Z" />
+        <path d="M24 9v18M9 23h15M31 9v14M24 31h15M31 23v16" />
+        <path d="M15 15h3M14 29h4M28 15h2M34 27h2M27 35h2" />
+      </>}
+    </svg>
   )
+}
+
+export function WhyHome() {
+  return <section id="dom" className="why-home is-visible" aria-labelledby="why-home-title">
+    <div className="shell why-home__grid">
+      <div className="why-home__content">
+        <div className="section-kicker"><b>03 / 12</b><span />Architektura codzienności</div>
+        <h2 id="why-home-title">Na jednym poziomie.<br /><em>Z ogrodem za drzwiami.</em></h2>
+        <p className="why-home__lead">Strefa dzienna otwarta na ogród. Osobna część sypialna, dwie łazienki i gabinet. Układ, który możesz poznać jeszcze przed pierwszą wizytą.</p>
+        <div className="why-home__benefits">
+          {benefits.map(({kind,title,text},index)=><article className="benefit" key={title}>
+            <div className="benefit__head"><BenefitGlyph kind={kind} /><span>0{index+1}</span></div>
+            <h3>{title}</h3><p>{text}</p>
+          </article>)}
+        </div>
+        <a className="text-link" href="#uklad">Zobacz układ i pomieszczenia <ArrowRight size={18} /></a>
+      </div>
+      <figure className="why-home__visual"><img src="/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b" alt="Wizualizacja domu od strony zachodniego ogrodu" width="1672" height="941" loading="lazy" decoding="async" /><figcaption><span>Dom otwarty na ogród</span><small>Wizualizacja · przykładowa aranżacja</small></figcaption></figure>
+    </div>
+  </section>
 }
