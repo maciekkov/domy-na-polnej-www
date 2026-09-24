@@ -1,4 +1,4 @@
-# Domy na Polnej — 5.2.0-rc.13
+# Domy na Polnej — 5.2.0-rc.14
 
 Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji Gmail: **WDROZENIE-HOSTING.md**.
 

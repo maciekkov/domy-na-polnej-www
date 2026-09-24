@@ -1,3 +1,7 @@
+## 5.2.0-rc.14 · 24.09.2026
+
+- Ilustracje standardu powiększone o 20% (76 → 91 px); w widoku telefonu zachowane dwie ikony w rzędzie.
+
 ## 5.2.0-rc.13 · 24.09.2026
 
 - Historia wizyty w panelu: ciągła linia na osi czasu i czytelne przejścia między sekcjami.
