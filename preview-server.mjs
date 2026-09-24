@@ -1,4 +1,5 @@
 import { validateContact } from './src/lib/contactValidation.mjs'
+import { createGzip } from 'node:zlib'
 import { createReadStream, existsSync, statSync, readFileSync } from 'node:fs'
 import { createServer } from 'node:http'
 import { extname, join, resolve, relative, isAbsolute } from 'node:path'
@@ -7,7 +8,8 @@ import { fileURLToPath } from 'node:url'
 import { cacheControl } from './scripts/http-cache.mjs'
 
 const port = Number(process.env.PORT || 4173)
-const root = resolve(fileURLToPath(new URL('./dist/', import.meta.url)))
+const buildPath = fileURLToPath(new URL('./dist/', import.meta.url))
+const root = existsSync(join(buildPath,'index.html')) ? resolve(buildPath) : resolve(fileURLToPath(new URL('./hosting/public_html/', import.meta.url)))
 const types = {
   '.css':'text/css; charset=utf-8', '.html':'text/html; charset=utf-8',
   '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8',
@@ -54,6 +56,18 @@ const server = createServer((request, response) => {
     })
     return
   }
+  if (pathname === '/api/presale.php' && request.method === 'POST') {
+    let body = '', rejected = false
+    request.on('data', chunk => { body += chunk; if (body.length > 4096 && !rejected) { rejected = true; json(response,413,{ok:false}) } })
+    request.on('end', () => {
+      if (rejected) return
+      try {
+        const data = JSON.parse(body || '{}'), action = data.action || 'subscribe'
+        if (typeof data.email !== 'string' || data.email.length > 160 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()) || !['subscribe','unsubscribe'].includes(action) || (action === 'subscribe' && (data.consent !== true || data.consentVersion !== 'presale-1.0'))) { json(response,422,{ok:false,message:'Wpisz poprawny e-mail i zaznacz zgodę.'}); return }
+        json(response,200,{ok:true,preview:true})
+      } catch { json(response,400,{ok:false}) }
+    }); return
+  }
   if (pathname === '/api/analytics.php' && request.method === 'POST') {
     request.resume(); request.on('end', () => json(response,200,{ ok:true, preview:true })); return
   }
@@ -71,11 +85,15 @@ const server = createServer((request, response) => {
   response.setHeader('Content-Type',types[extname(file)] ?? 'application/octet-stream')
   response.setHeader('Cache-Control',control)
   response.setHeader('X-Content-Type-Options','nosniff')
-  const etag = '"' + createHash('sha256').update(readFileSync(file)).digest('hex') + '"'
+  const compressed = /\b(?:text\/|application\/(?:javascript|json|xml)|image\/svg)/.test(types[extname(file)] || '') && /\bgzip\b/.test(request.headers['accept-encoding'] || '')
+  response.setHeader('Vary','Accept-Encoding')
+  const etag = 'W/"' + createHash('sha256').update(readFileSync(file)).digest('hex') + '"'
   response.setHeader('ETag',etag)
   if (code === 200 && control !== 'no-store' && request.headers['if-none-match'] === etag) { response.writeHead(304); response.end(); return }
   response.statusCode = code
   if (request.method === 'HEAD') { response.end(); return }
-  createReadStream(file).on('error', () => response.destroy()).pipe(response)
+  const stream = createReadStream(file).on('error', () => response.destroy())
+  if (compressed) { response.setHeader('Content-Encoding','gzip'); stream.pipe(createGzip()).on('error',()=>response.destroy()).pipe(response) }
+  else stream.pipe(response)
 })
 server.listen(port,'127.0.0.1', () => console.log(`Podgląd produkcji: http://127.0.0.1:${port} — formularz jest symulowany i oznaczony jako podgląd.`))

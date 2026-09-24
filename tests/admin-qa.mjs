@@ -16,7 +16,7 @@ try{
     await page.locator('.admin-sidebar nav').getByRole('button',{name,exact:true}).click()
     await expect(page.locator('.admin-topbar h1')).toHaveText(name)
   }
-  const data=JSON.parse(readFileSync('public/data/site-data.json','utf8'));data.revision+=3;data.houses[0].price=888000
+  const data=JSON.parse(readFileSync('tests/fixtures/selling-baseline.json','utf8'));data.revision=100;data.houses[0].price=888000
   await page.locator('.admin-topbar input[type=file]').setInputFiles({name:'site-data.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(data))})
   await page.getByRole('button',{name:'Zapisz podgląd demo'}).click()
   const local=await page.evaluate(()=>JSON.parse(localStorage.getItem('dnp-published-site-data-v1')))

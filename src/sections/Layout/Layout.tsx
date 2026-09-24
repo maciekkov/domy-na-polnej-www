@@ -86,7 +86,7 @@ export function Layout() {
     <section id="uklad" className="layout-section" aria-labelledby="layout-title">
       <div className="shell">
         <div className="layout-section__heading">
-          <div className="section-kicker"><b>05 / 12</b><span />Układ domu</div>
+          <div className="section-kicker"><span />Układ domu</div>
           <h2 id="layout-title">Dom, który działa na co dzień.</h2>
           <p>110,82 m² na jednym poziomie. Wybierz pomieszczenie na rzucie,<br className="layout-section__desktop-break" /> poznaj jego funkcję i zobacz przykładową aranżację.</p>
         </div>

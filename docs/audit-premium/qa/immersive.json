@@ -1,0 +1,13 @@
+{
+  "tours": [
+    {
+      "mode": "interior",
+      "scene": "int00-podcien-wejsciowy"
+    },
+    {
+      "mode": "exterior",
+      "scene": "03_wejscie_glowne"
+    }
+  ],
+  "panorama": "WebGL rendered"
+}

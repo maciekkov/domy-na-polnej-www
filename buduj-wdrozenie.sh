@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 set -eu
 cd "$(dirname "$0")"
-node scripts/build-portable.cjs
+npm ci
+npm run build:hosting

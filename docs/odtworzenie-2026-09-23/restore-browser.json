@@ -1,0 +1,53 @@
+{
+  "mode": "adapted-local-origin",
+  "results": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        320,
+        700
+      ],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1024,
+        768
+      ],
+      "passed": true,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

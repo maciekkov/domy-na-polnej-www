@@ -1,0 +1,28 @@
+.presale-section{padding-block:var(--space-section);background:#e8ebdf;color:var(--graphite);scroll-margin-top:90px;border-block:1px solid var(--line)}
+.presale-section__grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,6vw,88px);align-items:center}
+.presale-section h2{font-size:clamp(34px,3.3vw,50px);line-height:1.13;letter-spacing:-.035em;font-weight:450;margin:0 0 24px}
+.presale-section h2 em{font-family:var(--font-editorial);font-weight:400}
+.presale-section__copy>p{font-size:17px;line-height:1.8;max-width:570px;margin:0 0 20px}
+.presale-section__note{display:block;color:var(--text-muted);font-size:13px;line-height:1.6}
+.presale-form{min-width:0;display:grid;gap:14px;padding:32px;border-radius:var(--radius-image);border:1px solid var(--line);background:var(--paper)}
+.presale-form h3{font-size:23px;line-height:1.25;font-weight:500;margin:0 0 8px}
+.presale-form>label{font-size:14px;font-weight:600}
+.presale-form>input{min-width:0;width:100%;min-height:52px;padding:12px 14px;background:white;border:1px solid #a2ad9b;border-radius:4px;color:var(--graphite);font:inherit;font-size:16px}
+.presale-form__trap{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.presale-form .presale-form__consent{display:flex;align-items:start;gap:12px;font-size:12px;font-weight:400;line-height:1.65}
+.presale-form__consent input{flex-shrink:0;width:20px;height:20px;margin-top:3px;accent-color:var(--olive-deep)}
+.presale-form a{text-underline-offset:3px;overflow-wrap:anywhere}
+.presale-form__privacy{font-size:12px;color:var(--text-muted);line-height:1.6;margin:0}
+.presale-form__status{font-size:14px;line-height:1.6;margin:0}.presale-form__status:empty{display:none}
+.presale-form__status--error{color:#9b302b}.presale-form__status--success{padding:12px;background:#e8eee0;border-left:3px solid var(--olive-deep)}
+.presale-form [aria-invalid=true]{outline:2px solid #9b302b;outline-offset:2px}
+.presale-form .button{white-space:normal;text-align:center;line-height:1.5}
+@media(max-width:960px){.presale-section__grid{grid-template-columns:1fr;gap:28px}.presale-form{max-width:660px}}
+@media(max-width:640px){.presale-form{padding:24px 20px}.presale-section h2{font-size:34px}.presale-section__copy>p{font-size:16px}}
+.presale-section__signup{min-width:0}
+.presale-unsubscribe{font-size:12px;line-height:1.7;margin-top:16px;color:var(--text-muted)}
+.presale-unsubscribe summary{cursor:pointer;min-height:36px}
+.presale-unsubscribe form{display:grid;gap:10px;padding:16px;border:1px solid var(--line);border-radius:4px}
+.presale-unsubscribe input{font-size:16px;min-height:44px;border:1px solid #a2ad9b;border-radius:4px;padding:10px;background:var(--paper);min-width:0;width:100%}
+.presale-unsubscribe button{justify-self:start;min-height:44px;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer}
+.presale-unsubscribe p{margin:0}

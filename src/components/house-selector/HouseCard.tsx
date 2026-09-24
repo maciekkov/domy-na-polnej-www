@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { track, trackOnce } from '../../lib/analytics'
 import { ArrowRight, BedDouble, CarFront, Download, Home, LandPlot } from '../common/Icons'
 import type { House } from '../../data/houses'
-import { formatArea } from '../../data/houses'
+import { useSiteData } from '../../data/runtime/SiteDataProvider'
+import { publishedPrice, publicStatus, isSelling } from '../../lib/sales.mjs'
+import { formatArea, formatPrice, formatPricePerSqm } from '../../data/houses'
 
 type HouseCardProps = {
   house: House | null
@@ -12,12 +14,28 @@ type HouseCardProps = {
 }
 
 export function StatusBadge({ status }: Pick<House, 'status'>) {
-  return <span className={`status-badge status-badge--${status === 'Rezerwacja' ? 'reserved' : status === 'Sprzedany' ? 'sold' : 'available'}`}>{status}</span>
+  const { data } = useSiteData()
+  return <span className={`status-badge status-badge--${status === 'Rezerwacja' ? 'reserved' : status === 'Sprzedany' ? 'sold' : 'available'}`}>{publicStatus(data,status)}</span>
 }
 
 export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseCardProps) {
+  const { data } = useSiteData()
   const visibleHouse = house ?? fallbackHouse
+  const showPrice = publishedPrice(data,visibleHouse)
   const cardRef = useRef<HTMLElement>(null)
+  const [shareState, setShareState] = useState<'idle' | 'copied' | 'manual'>('idle')
+  const shareInput = useRef<HTMLInputElement>(null)
+  const shareUrl = new URL(`/?dom=${visibleHouse.id}#domy`, window.location.origin).href
+  useEffect(() => { setShareState('idle') }, [house?.id])
+  useEffect(() => {
+    if (shareState === 'manual') { shareInput.current?.focus(); shareInput.current?.select() }
+  }, [shareState])
+  const copyHouseLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setShareState('copied')
+    } catch { setShareState('manual') }
+  }
   useEffect(() => {
     if (!house || !cardRef.current) return
     let visible = false
@@ -52,12 +70,17 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
           </ul>
           <div className="house-card__price house-card__price--pending">
             <span>Cena brutto</span>
-            <strong>Już wkrótce</strong>
-            <small>Cennik sprzedaży jest w przygotowaniu.</small>
+            <strong>{showPrice ? formatPrice(visibleHouse.price) : 'Już wkrótce'}</strong>
+            <small>{showPrice ? `${formatPricePerSqm(visibleHouse)} brutto za 1 m² powierzchni użytkowej` : 'Cennik sprzedaży jest w przygotowaniu.'}</small>
           </div>
+          {showPrice && <details className="house-card__price-history"><summary>Historia ceny</summary>{visibleHouse.priceHistory.length ? <ul>{visibleHouse.priceHistory.map((entry,index)=><li key={`${entry.validFrom}-${index}`}><span>{entry.validFrom.slice(0,10)} – {entry.validTo.slice(0,10)}</span><strong>{formatPrice(entry.price)}</strong></li>)}</ul> : <p>Brak wcześniejszych zmian ceny w publicznej historii.</p>}</details>}
+          {isSelling(data) && visibleHouse.mandatoryPayments.length > 0 && <div className="house-card__mandatory"><span>Obowiązkowe dodatkowe świadczenia</span><ul>{visibleHouse.mandatoryPayments.map(payment=><li key={payment.name}>{payment.name}: <strong>{formatPrice(payment.amount)}</strong></li>)}</ul></div>}
           <button className="button button--olive house-card__cta" type="button" onClick={onAsk}>
             Zapytaj o dom {visibleHouse.id} <ArrowRight size={17} aria-hidden="true" />
           </button>
+          <button className="house-card__details" type="button" onClick={copyHouseLink}>Kopiuj link do domu {visibleHouse.id}</button>
+          {shareState === 'copied' && <p className="house-card__share-status" role="status">Link skopiowany. Możesz go teraz wysłać.</p>}
+          {shareState === 'manual' && <label className="house-card__share-fallback">Skopiuj adres domu<input ref={shareInput} type="text" readOnly value={shareUrl} onFocus={event => event.currentTarget.select()} /></label>}
           {visibleHouse.pdf && (<a className="house-card__pdf" onClick={() => track('house_pdf_download', visibleHouse.id)} href={visibleHouse.pdf} target="_blank" rel="noreferrer">
             <Download size={18} aria-hidden="true" /> Pobierz kartę PDF
           </a>)}

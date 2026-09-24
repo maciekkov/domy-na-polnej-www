@@ -1,0 +1,12 @@
+DOMY NA POLNEJ · rc.9 · HISTORIA WIZYT
+
+SZYBKA AKTUALIZACJA DZIAŁAJĄCEJ STRONY:
+1. Rozpakuj tę paczkę.
+2. Wgraj ZAWARTOŚĆ jej katalogu public_html/ do katalogu public_html/ domeny, zastępując 7 wskazanych plików. Zachowaj strukturę podkatalogów.
+3. NIE usuwaj ani nie zastępuj private/dnp/config.php, private/dnp/DOSTEP-ANALITYKA.txt i private/dnp/data/. Historia odwiedzin pochodzi z private/dnp/data/analytics/.
+4. Wejdź na https://domynapolnej.pl/administrator-control/ i odśwież Ctrl+F5. Zaloguj się dotychczasowym loginem i hasłem.
+5. Kliknij odwiedzającego w Historii odwiedzających. Jeśli nie ma produkcyjnych zdarzeń po zgodzie na analitykę, użyj Zobacz DEMO, które nie zwiększa liczników.
+
+NIE wystarczy podmiana samego index.html/control.js. Historia wymaga api/analytics-summary.php i nowego api/analytics-journey.php.
+Ta paczka nie przywróci wcześniejszych wizyt, których system nie zapisał albo dla których nie było zgody. Gov Sync pozostaje zablokowany po stronie PHP.
+Nie aktualizowano serwera produkcyjnego automatycznie.

@@ -1,0 +1,215 @@
+{
+  "passed": 52,
+  "checks": [
+    {
+      "name": "analytics: GET returns 405 + Allow",
+      "passed": true
+    },
+    {
+      "name": "analytics: wrong content type ->415",
+      "passed": true
+    },
+    {
+      "name": "analytics: cross-origin ->403",
+      "passed": true
+    },
+    {
+      "name": "analytics: cross-site ->403",
+      "passed": true
+    },
+    {
+      "name": "analytics: large body ->413",
+      "passed": true
+    },
+    {
+      "name": "analytics: malformed JSON ->400",
+      "passed": true
+    },
+    {
+      "name": "analytics: array instead of object ->400",
+      "passed": true
+    },
+    {
+      "name": "analytics: nested field ->422",
+      "passed": true
+    },
+    {
+      "name": "contact: GET returns 405 + Allow",
+      "passed": true
+    },
+    {
+      "name": "contact: wrong content type ->415",
+      "passed": true
+    },
+    {
+      "name": "contact: cross-origin ->403",
+      "passed": true
+    },
+    {
+      "name": "contact: cross-site ->403",
+      "passed": true
+    },
+    {
+      "name": "contact: large body ->413",
+      "passed": true
+    },
+    {
+      "name": "contact: malformed JSON ->400",
+      "passed": true
+    },
+    {
+      "name": "contact: array instead of object ->400",
+      "passed": true
+    },
+    {
+      "name": "contact: nested field ->422",
+      "passed": true
+    },
+    {
+      "name": "analytics: invalid event rejected",
+      "passed": true
+    },
+    {
+      "name": "analytics: invalid session rejected",
+      "passed": true
+    },
+    {
+      "name": "analytics: accepted and no-store",
+      "passed": true
+    },
+    {
+      "name": "analytics: payload whitelist excludes PII",
+      "passed": true
+    },
+    {
+      "name": "analytics: server supplies timestamp",
+      "passed": true
+    },
+    {
+      "name": "analytics summary: protected aggregate returns pseudonymous visitor",
+      "passed": true
+    },
+    {
+      "name": "analytics summary: wrong admin key rejected",
+      "passed": true
+    },
+    {
+      "name": "gov sync: prelaunch refuses reporting unpublished prices",
+      "passed": true
+    },
+    {
+      "name": "gov sync: preview contains 5 houses and unit price",
+      "passed": true
+    },
+    {
+      "name": "gov sync: cannot enable without official transport config",
+      "passed": true
+    },
+    {
+      "name": "analytics: 60 events accepted, burst capped",
+      "passed": true
+    },
+    {
+      "name": "analytics: forged IP and new cookie do not reset limit",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid phone rejected: abc",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid email rejected: bad@@example.test",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid email rejected: x@example.test\r\nBcc: o",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid consentContact rejected: true",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid consentPrivacy rejected: False",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid message rejected: xxxxxxxxxxxxxxxxxxxxxx",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid name rejected: x",
+      "passed": true
+    },
+    {
+      "name": "contact: no SMTP attempted for invalid data",
+      "passed": true
+    },
+    {
+      "name": "contact: honeypot silently suppressed",
+      "passed": true
+    },
+    {
+      "name": "contact: actual local SMTP delivery accepted",
+      "passed": true
+    },
+    {
+      "name": "SMTP: UTF-8 body, reply-to, no implicit House A",
+      "passed": true
+    },
+    {
+      "name": "SMTP: dot stuffing applied",
+      "passed": true
+    },
+    {
+      "name": "contact: cookie-independent cooldown + Retry-After",
+      "passed": true
+    },
+    {
+      "name": "contact: missing SMTP is not fake success",
+      "passed": true
+    },
+    {
+      "name": "contact: invalid-data ingress flood capped",
+      "passed": true
+    },
+    {
+      "name": "proxy: untrusted forwarded header ignored",
+      "passed": true
+    },
+    {
+      "name": "proxy: explicitly trusted peer resolves client",
+      "passed": true
+    },
+    {
+      "name": "proxy: IPv6 privacy addresses grouped by /64",
+      "passed": true
+    },
+    {
+      "name": "token bucket: burst limit, exact refill, retry time",
+      "passed": true
+    },
+    {
+      "name": "rate state contains no raw IP",
+      "passed": true
+    },
+    {
+      "name": "concurrency: first use creates exactly one shared secret",
+      "passed": true
+    },
+    {
+      "name": "concurrency: exactly 5 of 20 simultaneous attempts accepted",
+      "passed": true
+    },
+    {
+      "name": "analytics: disk quota fails closed",
+      "passed": true
+    },
+    {
+      "name": "server: no secrets in client error bodies",
+      "passed": true
+    }
+  ],
+  "smtp": "local mock server only; no external mail sent",
+  "server": "PHP CLI HTTP on loopback, not production hosting"
+}

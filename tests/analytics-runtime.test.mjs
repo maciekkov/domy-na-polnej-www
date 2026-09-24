@@ -17,7 +17,7 @@ function fixture({local=false,storageThrows=false,setThrows=false,cookieThrows=f
   const document={referrer:'',visibilityState:'visible',addEventListener(name,fn){(docListeners[name]??=[]).push(fn)},get cookie(){if(cookieThrows)throw Error("Cookie blocked");return [...cookies].map(([k,v])=>`${k}=${encodeURIComponent(v)}`).join('; ')},set cookie(value){if(cookieThrows)throw Error("Cookie blocked");const first=value.split(';')[0],at=first.indexOf('='),name=decodeURIComponent(first.slice(0,at)),val=decodeURIComponent(first.slice(at+1));const max=/Max-Age=(\d+)/i.exec(value);if(max&&Number(max[1])===0)cookies.delete(name);else cookies.set(name,val)}}
   const context={exports:{},require:name=>name.includes('event-names')?catalog:require(name),localStorage:storage(store),sessionStorage:storage(sessions),window,document,navigator:{maxTouchPoints:0,sendBeacon:(url,payload)=>{if(beacon)calls.push({url,payload,type:'beacon'});return beacon}},screen:{width:1280},fetch:(url,options)=>{calls.push({url,options,type:'fetch'});return Promise.reject(Error('offline'))},URLSearchParams,URL,Event,Blob,Uint8Array,crypto:{randomUUID:()=>`qa-event-${++counter}`},Date,Map,Set,performance:{now:()=>perf}}
   vm.runInNewContext(compiled,context)
-  return {api:context.exports,window,document,calls,store,sessions,cookies,advance(ms){perf+=ms}}
+  return {api:context.exports,window,document,calls,store,sessions,cookies,advance(ms){perf+=ms},visibility(value){document.visibilityState=value;for(const fn of docListeners.visibilitychange??[])fn()}}
 }
 test('necessary-only never enables analytics or visitor cookies',()=>{const f=fixture();f.api.setConsent('necessary');assert.equal(f.api.track('page_view'),false);assert.equal(f.cookies.has('dnp_vid'),false);assert.equal(f.calls.length,0)})
 test('all consent creates 180-day pseudonymous visitor/visit identity and event',async()=>{const f=fixture();f.api.setConsent('all');f.api.trackPageView();assert.ok(f.cookies.get('dnp_vid'));assert.ok(f.cookies.get('dnp_visit'));assert.equal(f.api.track('gallery_open'),true);const p=JSON.parse(await f.calls.at(-1).payload.text());assert.equal(p.eventName,'gallery_open');assert.equal(p.deviceClass,'desktop');assert.ok(p.visitorId);assert.ok(p.visitId);assert.equal(p.houseCode,'unknown')})
@@ -30,3 +30,16 @@ test('explicit necessary choice wins when localStorage write fails',()=>{const f
 test('local development keeps consented diagnostics local',()=>{const f=fixture({local:true});f.api.setConsent('all');f.api.track('house_select','C');assert.equal(f.calls.length,0);assert.equal(JSON.parse(f.store.get('dnp-analytics-events-v3'))[0].houseCode,'C')})
 
 test("denial remains effective with blocked cookies and storage",()=>{const f=fixture({cookieThrows:true,storageThrows:true});assert.doesNotThrow(()=>f.api.setConsent("necessary"));assert.equal(f.api.analyticsAllowed(),false);assert.equal(f.api.track("page_view"),false);assert.equal(f.calls.length,0)})
+
+test('foreground time resumes after return and excludes the hidden interval',async()=>{
+ const f=fixture();f.api.setConsent('all');f.api.trackSection('homes','A');f.advance(1800);f.visibility('hidden');f.advance(60000);f.visibility('visible');f.advance(2200);f.api.flushSectionTime();
+ const events=await Promise.all(f.calls.map(async c=>JSON.parse(await c.payload.text())));const times=events.filter(e=>e.eventName==='section_time');
+ assert.deepEqual(times.map(e=>e.durationMs),[1800,2200]);assert.ok(times.every(e=>e.sectionId==='homes'));
+})
+test('revocation while hidden never resumes analytics',()=>{
+ const f=fixture();f.api.setConsent('all');f.api.trackSection('homes');f.advance(1000);f.visibility('hidden');f.api.setConsent('necessary');const before=f.calls.length;f.visibility('visible');f.advance(1000);f.api.flushSectionTime();assert.equal(f.calls.length,before);
+})
+test('changing selected house in the same section separates attribution',async()=>{
+ const f=fixture();f.api.setConsent('all');f.api.trackSection('homes','A');f.advance(1000);f.api.trackSection('homes','B');f.advance(2000);f.api.flushSectionTime();
+ const events=await Promise.all(f.calls.map(async c=>JSON.parse(await c.payload.text())));assert.deepEqual(events.filter(e=>e.eventName==='section_time').map(e=>e.houseCode),['A','B']);
+})

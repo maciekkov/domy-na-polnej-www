@@ -47,8 +47,11 @@ export function WhyHome() {
   return <section id="dom" className="why-home is-visible" aria-labelledby="why-home-title">
     <div className="shell why-home__grid">
       <div className="why-home__content">
-        <div className="section-kicker"><b>03 / 12</b><span />Architektura codzienności</div>
+        <div className="why-home__intro">
+        <div className="section-kicker"><span />Architektura codzienności</div>
         <h2 id="why-home-title">Na jednym poziomie.<br /><em>Z ogrodem za drzwiami.</em></h2>
+        </div>
+        <div className="why-home__body">
         <p className="why-home__lead">Strefa dzienna otwarta na ogród. Osobna część sypialna, dwie łazienki i gabinet. Układ, który możesz poznać jeszcze przed pierwszą wizytą.</p>
         <div className="why-home__benefits">
           {benefits.map(({kind,title,text},index)=><article className="benefit" key={title}>
@@ -57,8 +60,9 @@ export function WhyHome() {
           </article>)}
         </div>
         <a className="text-link" href="#uklad">Zobacz układ i pomieszczenia <ArrowRight size={18} /></a>
+        </div>
       </div>
-      <figure className="why-home__visual"><img src="/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b" alt="Wizualizacja domu od strony zachodniego ogrodu" width="1672" height="941" loading="lazy" decoding="async" /><figcaption><span>Dom otwarty na ogród</span><small>Wizualizacja · przykładowa aranżacja</small></figcaption></figure>
+      <figure className="why-home__visual"><img src="/assets/images/responsive/hero-3-1024.webp?v=214a6b124dcecc44" srcSet="/assets/images/responsive/hero-3-640.webp?v=814af869f09ff8ab 640w, /assets/images/responsive/hero-3-1024.webp?v=214a6b124dcecc44 1024w, /assets/images/responsive/hero-3-1672.webp?v=5e497d13a16b6931 1672w" sizes="(max-width: 760px) 100vw, 50vw" alt="Wizualizacja domu od strony zachodniego ogrodu" width="1672" height="941" loading="lazy" decoding="async" /><figcaption><span>Dom otwarty na ogród</span><small>Wizualizacja · przykładowa aranżacja</small></figcaption></figure>
     </div>
   </section>
 }

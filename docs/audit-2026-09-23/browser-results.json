@@ -1,0 +1,122 @@
+{
+  "mode": "adapted-local-origin",
+  "productionCompared": false,
+  "results": [
+    {
+      "name": "single estate HERO, factual caption, prelaunch menu and no prices",
+      "passed": true
+    },
+    {
+      "name": "all five homes: plan/table/card/form/URL; deselection removes choice",
+      "passed": true
+    },
+    {
+      "name": "house CTA focuses contact and preserves chosen home",
+      "passed": true
+    },
+    {
+      "name": "invalid/valid form, preview disclosure, no analytics on refusal",
+      "passed": true
+    },
+    {
+      "name": "gallery arrows, focus trap, Escape and background restoration",
+      "passed": true
+    },
+    {
+      "name": "gallery keyboard tabs and floorplan mode switch",
+      "passed": true
+    },
+    {
+      "name": "FAQ correctly describes prelaunch and actual information-only PDF cards",
+      "passed": true
+    },
+    {
+      "name": "tour chooser opens with real scene count and closes cleanly",
+      "passed": true
+    },
+    {
+      "name": "GPU panorama context observation",
+      "WebGLContextAvailable": false,
+      "passed": true,
+      "scope": "canvas/fallback existence, not visual projection certification"
+    },
+    {
+      "name": "panorama either canvas path or explicit fallback; close restores background",
+      "passed": true
+    },
+    {
+      "name": "all five unchanged product PDFs are served as PDF",
+      "passed": true
+    },
+    {
+      "name": "no desktop runtime JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "mobile menu traps Tab, locks background, restores focus and follows section",
+      "passed": true
+    },
+    {
+      "name": "mobile E sheet facts preserved, no prices, CTA transfers E",
+      "passed": true
+    },
+    {
+      "name": "no mobile runtime JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "responsive 320x700: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "responsive 360x780: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "responsive 390x600: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "responsive 390x844: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "hero text enlarged 200%: content not clipped or horizontally lost",
+      "passed": true
+    },
+    {
+      "name": "responsive 768x1024: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "responsive 1024x768: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "responsive 1440x900: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "responsive 1920x1080: no overflow, hero facts inside section, images",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript readable polityka-prywatnosci/index.html",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript readable polityka-cookies/index.html",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript readable 404.html",
+      "passed": true
+    },
+    {
+      "name": "no-JS homepage: five houses, 17 FAQ, documents/contact and no prices",
+      "passed": true
+    }
+  ],
+  "passed": 28,
+  "failed": 0
+}

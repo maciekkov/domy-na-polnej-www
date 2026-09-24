@@ -1,0 +1,8 @@
+{
+  "version": "5.2.0-rc.13",
+  "deploy": "hosting/",
+  "build": "npm run build:hosting",
+  "qa": "Build, source/dist tests, PHP WASM analytics and presale; browser visual QA as environment permits",
+  "panoramaSource": "4096x2048; higher-resolution original not available",
+  "smtpLiveTest": false
+}

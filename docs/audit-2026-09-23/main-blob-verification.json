@@ -1,0 +1,86 @@
+[
+  {
+    "path": "src/sections/Hero/Hero.tsx",
+    "expected": "7bd74e5c65dd0fe99a074d789e7f95f0f3192859",
+    "actual": "7bd74e5c65dd0fe99a074d789e7f95f0f3192859",
+    "matches": true
+  },
+  {
+    "path": "src/styles/sections/hero.css",
+    "expected": "6f8efbf09c8c5c240eb56267d193f7c56e03b52f",
+    "actual": "6f8efbf09c8c5c240eb56267d193f7c56e03b52f",
+    "matches": true
+  },
+  {
+    "path": "src/sections/Homes/Homes.tsx",
+    "expected": "39154bb2405528c0708cd3ee00ec6868cea85184",
+    "actual": "39154bb2405528c0708cd3ee00ec6868cea85184",
+    "matches": true
+  },
+  {
+    "path": "src/components/house-selector/HouseCard.tsx",
+    "expected": "8937bc0f09fed7d835549aff2e84413a0c9cd296",
+    "actual": "8937bc0f09fed7d835549aff2e84413a0c9cd296",
+    "matches": true
+  },
+  {
+    "path": "src/styles/sections/homes.css",
+    "expected": "0680c39827a71994e4cad718fb98d3c224590c5a",
+    "actual": "0680c39827a71994e4cad718fb98d3c224590c5a",
+    "matches": true
+  },
+  {
+    "path": "src/lib/offers.mjs",
+    "expected": "ad589c4851b8ba6bd61c7da36d0763caba6a92ca",
+    "actual": "ad589c4851b8ba6bd61c7da36d0763caba6a92ca",
+    "matches": true
+  },
+  {
+    "path": "src/lib/offerMarkup.mjs",
+    "expected": "b18618ede87768aec80b6eb9f839919332ea2943",
+    "actual": "b18618ede87768aec80b6eb9f839919332ea2943",
+    "matches": true
+  },
+  {
+    "path": "scripts/generate-seo.mjs",
+    "expected": "a6082704cc97b11eaa2770a4ae61fc3617d099cb",
+    "actual": "a6082704cc97b11eaa2770a4ae61fc3617d099cb",
+    "matches": true
+  },
+  {
+    "path": "index.html",
+    "expected": "5dc63fdadf4973c9e52d1eebc70ade3da590550c",
+    "actual": "5dc63fdadf4973c9e52d1eebc70ade3da590550c",
+    "matches": true
+  },
+  {
+    "path": "tests/audit-7-12.test.mjs",
+    "expected": "c6f4fa7d1bf1ec3fa3bc28330d7e2fae3c504bad",
+    "actual": "c6f4fa7d1bf1ec3fa3bc28330d7e2fae3c504bad",
+    "matches": true
+  },
+  {
+    "path": "tests/offer-browser-qa.mjs",
+    "expected": "b3a04d0f141f2e10c048189b30f753edc53103f5",
+    "actual": "b3a04d0f141f2e10c048189b30f753edc53103f5",
+    "matches": true
+  },
+  {
+    "path": "tests/visual-qa.mjs",
+    "expected": "43db52932c517f44ec374b5202e7eb4be1c6a2b2",
+    "actual": "43db52932c517f44ec374b5202e7eb4be1c6a2b2",
+    "matches": true
+  },
+  {
+    "path": "tests/extra-qa.py",
+    "expected": "d19ed27f402be22c26e9c817c1b4febfd8b71173",
+    "actual": "d19ed27f402be22c26e9c817c1b4febfd8b71173",
+    "matches": true
+  },
+  {
+    "path": "tests/interaction-qa.py",
+    "expected": "8e1473caf4a36aaaa826bd980cf3dc235c6f2494",
+    "actual": "8e1473caf4a36aaaa826bd980cf3dc235c6f2494",
+    "matches": true
+  }
+]

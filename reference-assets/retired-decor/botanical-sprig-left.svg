@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" fill="none">
+  <defs>
+    <linearGradient id="leafA" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#71825f" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#a6ae83" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="leafB" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#87956b" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#c5caa2" stop-opacity=".10"/>
+    </linearGradient>
+  </defs>
+  <path d="M58 500C94 415 136 343 184 275C218 226 251 176 284 104" stroke="#6f7b5b" stroke-opacity=".34" stroke-width="3" stroke-linecap="round"/>
+  <path d="M119 385C91 358 67 332 49 298" stroke="#778461" stroke-opacity=".25" stroke-width="2" stroke-linecap="round"/>
+  <path d="M181 279C148 251 121 224 101 190" stroke="#778461" stroke-opacity=".24" stroke-width="2" stroke-linecap="round"/>
+  <path d="M229 210C260 189 286 162 308 128" stroke="#778461" stroke-opacity=".21" stroke-width="2" stroke-linecap="round"/>
+  <path d="M279 115C254 88 239 62 233 34" stroke="#778461" stroke-opacity=".19" stroke-width="2" stroke-linecap="round"/>
+  <path d="M91 360C46 344 20 314 12 274C53 276 82 296 104 330C108 342 104 352 91 360Z" fill="url(#leafA)"/>
+  <path d="M133 335C165 300 199 287 234 296C222 333 197 357 158 368C145 365 137 354 133 335Z" fill="url(#leafB)"/>
+  <path d="M145 242C101 236 68 216 47 181C87 169 123 180 155 211C160 223 157 234 145 242Z" fill="url(#leafB)"/>
+  <path d="M205 248C231 211 263 193 301 194C295 232 274 261 237 279C222 278 211 268 205 248Z" fill="url(#leafA)"/>
+  <path d="M245 164C208 149 184 123 173 86C210 85 239 101 262 134C263 146 257 156 245 164Z" fill="url(#leafB)"/>
+  <path d="M282 119C306 84 333 67 359 68C354 103 337 128 307 143C296 142 287 134 282 119Z" fill="url(#leafA)"/>
+  <path d="M238 77C211 54 197 28 196 0C228 6 249 24 262 53C260 64 252 72 238 77Z" fill="url(#leafB)"/>
+</svg>

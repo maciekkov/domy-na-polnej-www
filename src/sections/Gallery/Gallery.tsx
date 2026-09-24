@@ -41,7 +41,7 @@ export function Gallery({ selectedHouse }: GalleryProps) {
       <div className="shell">
         <div className="gallery-section__top">
           <div>
-            <div className="section-kicker section-kicker--dark"><b>06 / 12</b><span />Galeria + spacer 360°</div>
+            <div className="section-kicker section-kicker--dark"><span />Galeria + spacer 360°</div>
             <h2 id="gallery-title">Zobacz Domy na Polnej</h2>
           </div>
           <div className="gallery-tabs" role="tablist" aria-label="Kategorie galerii">
@@ -73,13 +73,13 @@ export function Gallery({ selectedHouse }: GalleryProps) {
 
         <p className="gallery__disclaimer">Wizualizacje pokazują przykładową aranżację. Wykończenie wnętrz, wyposażenie i zieleń nie określają zakresu ceny. Zdjęcia okolicy przedstawiają rzeczywisty teren.</p>
         <div id="spacer-360" className="immersive-heading" style={{ scrollMarginTop: '88px' }}>
-          <div><span>Dwa sposoby oglądania</span><h3>Wejdź w Spacer 360 albo obejrzyj panoramę okolicy.</h3></div>
-          <p>Zacznij od otwartego wejścia i poznaj wnętrze domu albo wybierz trasę wokół działki. Osobno możesz uruchomić prawdziwą panoramę 360° z drona.</p>
+          <div><span>Dwa sposoby oglądania</span><h3>Poznaj dom. Rozejrzyj się po okolicy.</h3></div>
+          <p>Wirtualny spacer pokazuje wnętrze i ogród. Panorama z drona pozwala zobaczyć rzeczywiste otoczenie inwestycji.</p>
         </div>
 
         <div className="immersive-grid">
           <article className="immersive-card immersive-card--tour">
-            <img src="/assets/images/spacer-360/exterior/webp/08_elewacja_ogrodowa.webp?v=a20526b4ebd0cc9b" alt="Elewacja ogrodowa domu i ogród w Spacerze 360" loading="lazy" decoding="async" />
+            <img src="/assets/images/responsive/hero-3-1024.webp?v=214a6b124dcecc44" srcSet="/assets/images/responsive/hero-3-640.webp?v=814af869f09ff8ab 640w, /assets/images/responsive/hero-3-1024.webp?v=214a6b124dcecc44 1024w, /assets/images/responsive/hero-3-1672.webp?v=5e497d13a16b6931 1672w" sizes="(max-width: 760px) 100vw, 50vw" alt="Elewacja ogrodowa domu i ogród w Spacerze 360" loading="lazy" decoding="async" />
             <div className="immersive-card__shade" aria-hidden="true" />
             <div className="immersive-card__badge">{tours.exterior.count} na zewnątrz · {tours.interior.count} we wnętrzu</div>
             <div className="immersive-card__content">
@@ -88,7 +88,7 @@ export function Gallery({ selectedHouse }: GalleryProps) {
               <h3>Spacer 360°</h3>
               <p>Wejdź do domu i poznaj salon, kuchnię, pokoje, łazienki oraz domowe zaplecze. Przez taras przejdź do spaceru po ogrodzie.</p>
               <button id="choose-tour" className="button button--olive" type="button" onClick={() => setTourPickerOpen(true)}>Wybierz spacer <ChevronRight size={17} /></button>
-              <small>Interaktywny spacer · {selectedHouse === 'unknown' ? 'przykładowy układ domu' : `Dom ${selectedHouse}`}</small>
+              <small>Interaktywny spacer · przykładowy układ domu</small>
             </div>
           </article>
 
@@ -102,7 +102,7 @@ export function Gallery({ selectedHouse }: GalleryProps) {
               <h3>Panorama z drona</h3>
               <p>Obejrzyj Grabik, otwarte łąki i linię lasu w rzeczywistej fotografii sferycznej.</p>
               <button className="button button--outline" type="button" onClick={() => { setPanoramaOpen(true); track('gallery_open', selectedHouse) }}>Otwórz panoramę <ChevronRight size={17} /></button>
-              <small>Fotografia sferyczna · 4096 × 2048 px</small>
+              <small>Rzeczywisty widok otoczenia inwestycji</small>
             </div>
           </article>
         </div>

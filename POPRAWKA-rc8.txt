@@ -1,0 +1,12 @@
+POPRAWKA rc.8 — PANEL ANALITYKI
+
+Wgraj zawartość public_html/ z tej małej paczki do public_html/ domeny, nadpisując dokładnie 3 pliki:
+- administrator-control/index.html
+- administrator-control/control.js
+- api/lib/gov-sync.php
+
+Następnie odśwież panel Ctrl+F5. Zaloguj się dotychczasowym loginem i hasłem.
+Działa przycisk Zaloguj oraz Enter. Nie zmieniaj katalogu private ani zapisanych statystyk.
+Gov Sync jest zablokowany po stronie PHP, również dla crona i wymuszonej wysyłki.
+Nie zmieniono plików na działającym serwerze — należy wgrać poprawkę.
+Testy: build, przeglądarka (odpowiedzi API symulowane), rzeczywisty PHP w WASM (blokada publikacji).

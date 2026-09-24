@@ -1,0 +1,74 @@
+[
+  {
+    "name": "register",
+    "status": 200
+  },
+  {
+    "name": "duplicate",
+    "status": 200
+  },
+  {
+    "name": "consent required",
+    "status": 422
+  },
+  {
+    "name": "email invalid",
+    "status": 422
+  },
+  {
+    "name": "reject cross origin",
+    "status": 403
+  },
+  {
+    "name": "reject GET",
+    "status": 405
+  },
+  {
+    "name": "reject content type",
+    "status": 415
+  },
+  {
+    "name": "honeypot",
+    "status": 200
+  },
+  {
+    "name": "unsubscribe",
+    "status": 200
+  },
+  {
+    "name": "unsubscribe unknown",
+    "status": 200
+  },
+  {
+    "name": "selling blocks registration",
+    "status": 409
+  },
+  {
+    "name": "selling still allows unsubscribe",
+    "status": 200
+  },
+  {
+    "name": "rate allowance 0",
+    "status": 200
+  },
+  {
+    "name": "rate allowance 1",
+    "status": 200
+  },
+  {
+    "name": "rate allowance 2",
+    "status": 200
+  },
+  {
+    "name": "rate allowance 3",
+    "status": 200
+  },
+  {
+    "name": "rate allowance 4",
+    "status": 200
+  },
+  {
+    "name": "rate rejection",
+    "status": 429
+  }
+]

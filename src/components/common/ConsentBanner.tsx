@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { readConsent, setConsent, trackPageView } from '../../lib/analytics'
 
 export function ConsentBanner() {
-  const [open, setOpen] = useState(() => !readConsent())
+  const [open, setOpen] = useState(() => !readConsent() || (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)?.type === 'reload')
   const [settings, setSettings] = useState(false)
 
   useEffect(() => {
@@ -26,6 +26,7 @@ export function ConsentBanner() {
       <div className="consent-banner__copy">
         <strong>Pliki cookie</strong>
         <p>Używamy niezbędnych plików cookie do działania strony i zapamiętania ustawień. Za zgodą możemy także używać własnych plików cookie do pomiaru korzystania z serwisu.</p>
+        {readConsent() && <p className="consent-banner__detail">Zapisany wybór: {readConsent() === 'all' ? 'wszystkie pliki cookie' : 'tylko niezbędne'}. Możesz go teraz zmienić.</p>}
         {settings && <p className="consent-banner__detail"><b>Niezbędne</b> — działanie i zapamiętanie ustawień. <b>Analityczne</b> — rozpoznanie powrotów, urządzenia oraz czasu spędzonego w sekcjach i spacerach; bez danych wpisywanych do formularza i bez reklamowych trackerów.</p>}
         <a className="consent-banner__policy" href="/polityka-cookies/">Polityka cookies</a>
       </div>

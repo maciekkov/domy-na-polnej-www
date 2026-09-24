@@ -1,0 +1,272 @@
+[
+  {
+    "id": "UI-01",
+    "priority": "MUST",
+    "status": "Zrobione",
+    "problem": "Kontrast menu nad jasnym HERO",
+    "change": "Nagłówek otrzymał ograniczoną do jego wysokości ciemną podkładkę. Nie przyciemniono ponownie prawej części kadru.",
+    "evidence": "src/styles/sections/navigation.css; figures/hero-*-desktop.jpg",
+    "limitation": "Sprawdzić odcień i czytelność na realnym telefonie; nie deklarujemy pełnego pomiaru kontrastu wszystkich kombinacji."
+  },
+  {
+    "id": "UI-02",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Oznaczenie wizualizacji",
+    "change": "Wrócił mały podpis „Wizualizacja”, bez 01/04, strzałek i dodatkowych zdjęć.",
+    "evidence": "src/sections/Hero/Hero.tsx; browser-results.json",
+    "limitation": "Podpis jest informacyjny, nie nowa kontrolka."
+  },
+  {
+    "id": "UI-03",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Czytelność cennika w przygotowaniu",
+    "change": "Dyskretny komunikat w tabeli ma ciemniejszy kolor i większy tekst. Nie zmieniono szerokości ani geometrii działek.",
+    "evidence": "src/styles/sections/homes.css",
+    "limitation": "Brak kompletnego audytu WCAG kolorów wszystkich stanów."
+  },
+  {
+    "id": "UI-04",
+    "priority": "DO NOT CHANGE",
+    "status": "Zachowano",
+    "problem": "Zaakceptowana identyfikacja i produkt",
+    "change": "Jeden kadr osiedla, logo, paleta, układ sekcji, oryginalne fotografie i rzuty pozostają.",
+    "evidence": "preservation-and-size.json",
+    "limitation": "Nie projektowano nowej architektury ani ilustracji."
+  },
+  {
+    "id": "UX-01",
+    "priority": "MUST",
+    "status": "Zrobione",
+    "problem": "Jeden etap sprzedaży w całej witrynie",
+    "change": "Jawny prelaunch/selling zastępuje rozproszone stałe teksty. Menu, statusy, karta, tabela, HERO i SEO wynikają z tego samego etapu.",
+    "evidence": "src/lib/sales.mjs; src/data/runtime/siteSchema.mjs",
+    "limitation": "Etap nie jest decyzją prawną ani automatycznym rozpoczęciem sprzedaży."
+  },
+  {
+    "id": "UX-02",
+    "priority": "MUST",
+    "status": "Zrobione",
+    "problem": "FAQ zgodne z rzeczywistymi kartami PDF",
+    "change": "Karty A–E obejrzano: są informacyjne, bez widocznych kwot. Usunięto nieprawdziwe zapewnienie o istniejącym rozbiciu ceny w kartach.",
+    "evidence": "src/data/faq-content.json; src/lib/sales.mjs; figures/pdf-cards-review.jpg",
+    "limitation": "Funkcja pokoju 7 nadal wymaga zatwierdzenia: PDF „Garderoba”, serwis „Gabinet”."
+  },
+  {
+    "id": "UX-03",
+    "priority": "SHOULD",
+    "status": "Zrobione z rozróżnieniem",
+    "problem": "Pierwsza klatka i wersja bez JavaScript",
+    "change": "Spójne stan sprzedaży, zdjęcie, parametry i style HERO. Bez JS dostępne są domy, dokumenty, telefon i 17 FAQ.",
+    "evidence": "scripts/generate-seo.mjs; browser-results.json",
+    "limitation": "Drugie CTA bez JS celowo prowadzi do telefonu; interaktywny spacer potrzebuje JavaScript."
+  },
+  {
+    "id": "UX-04",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Synchronizacja historii URL",
+    "change": "Dodano reakcję na popstate oraz bezpieczne pomijanie wadliwego kodowania fragmentu adresu.",
+    "evidence": "src/app/App.tsx; audit-launch.test.mjs",
+    "limitation": "Normalna historia przeglądarki wymaga końcowego E2E poza adaptowanym originem."
+  },
+  {
+    "id": "UX-05",
+    "priority": "DO NOT CHANGE",
+    "status": "Zachowano i przetestowano",
+    "problem": "Wybór domu bez utraty kontekstu",
+    "change": "A–E, plan, tabela, karta, URL i formularz działają razem. Cofnięcie wyboru nie przypisuje fikcyjnego domu A.",
+    "evidence": "browser-results.json",
+    "limitation": "Bez nowego formularza rezerwacji i bez dodatkowych kroków sprzedażowych."
+  },
+  {
+    "id": "MOB-01",
+    "priority": "MUST",
+    "status": "Zrobione",
+    "problem": "Klawiatura w menu mobilnym",
+    "change": "Otwarte menu ogranicza Tab do swoich elementów, wyłącza tło przez inert i poprawnie oddaje fokus po zamknięciu.",
+    "evidence": "src/components/navigation/Header.tsx; browser-results.json",
+    "limitation": "Testy Chromium; Safari, VoiceOver i TalkBack pozostają do odbioru."
+  },
+  {
+    "id": "MOB-02",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "HERO na krótkim ekranie i przy większym tekście",
+    "change": "Końcowe reguły HERO przeniesiono do jednej warstwy używanej też w critical CSS. Treść może zwiększyć wysokość sekcji zamiast się ucinać.",
+    "evidence": "hero.css; 8 viewportów; test powiększenia tekstu HERO",
+    "limitation": "Test 200% dotyczy tekstu HERO, nie pełnego browser zoom ani wszystkich sekcji."
+  },
+  {
+    "id": "MOB-03",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Odporność linków sekcji",
+    "change": "Nieprawidłowy escape w hash nie przerywa obsługi strony.",
+    "evidence": "src/app/App.tsx",
+    "limitation": "Brak zmian istniejących identyfikatorów sekcji."
+  },
+  {
+    "id": "MOB-04",
+    "priority": "LIMIT",
+    "status": "Otwarte",
+    "problem": "Pełna dostępność",
+    "change": "Nie wykonano certyfikacji WCAG, audytu screenreaderów ani badań z użytkownikami.",
+    "evidence": "Sekcja granic raportu",
+    "limitation": "Sam zestaw ARIA i przejście testów nie uzasadniają deklaracji zgodności całej witryny."
+  },
+  {
+    "id": "SEO-01",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Precyzyjny tytuł",
+    "change": "Title zawiera produkt i lokalizację: domy parterowe w Grabiku koło Żar.",
+    "evidence": "src/lib/offers.mjs",
+    "limitation": "To doprecyzowanie treści, nie gwarancja wzrostu pozycji."
+  },
+  {
+    "id": "SEO-02",
+    "priority": "MUST",
+    "status": "Zrobione",
+    "problem": "Prawdziwe strony prawne i 404 przed JS",
+    "change": "Własny HTML i metadane, bez odziedziczonego schema strony głównej i niepotrzebnego preloadu HERO.",
+    "evidence": "src/lib/legalContent.mjs; scripts/prepare-dist.mjs",
+    "limitation": "Tekst prawny zachowany, nie prawnie certyfikowany."
+  },
+  {
+    "id": "SEO-03",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Powtarzalność generatora",
+    "change": "Powtórne uruchomienie nie dopisuje pustych wierszy i nie zmienia bez potrzeby wyniku.",
+    "evidence": "scripts/generate-seo.mjs; testy Node",
+    "limitation": "Idempotencja sprawdzana automatycznie."
+  },
+  {
+    "id": "SEO-04",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Spójny obraz OG",
+    "change": "Podgląd udostępnianej strony odpowiada kadrowi całego osiedla.",
+    "evidence": "src/lib/offers.mjs",
+    "limitation": "Odświeżenie cache serwisów społecznościowych może wymagać ich ponownego pobrania strony."
+  },
+  {
+    "id": "SEO-05",
+    "priority": "MUST / MIGRACJA",
+    "status": "Otwarte",
+    "problem": "Porównanie adresów produkcji",
+    "change": "Brak odczytanego pełnego DOM i listy istniejących adresów produkcyjnych; nie zgadujemy przekierowań.",
+    "evidence": "logs/live-browser-error.txt",
+    "limitation": "Przed podmianą potrzebna mapa URL, kontrola 200/301/404 i Search Console."
+  },
+  {
+    "id": "SEO-06",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "FAQ dostępne dla klientów bez JS",
+    "change": "Te same 17 pytań pochodzi z jednego zbioru treści; no-JS i React używają wspólnej polityki etapu.",
+    "evidence": "src/data/faq-content.json; scripts/generate-seo.mjs",
+    "limitation": "Nie tworzono sztucznego „AEO score” ani obietnic cytowania przez modele."
+  },
+  {
+    "id": "PERF-01",
+    "priority": "MUST",
+    "status": "Kod poprawiony; CI otwarte",
+    "problem": "Aktualne testy i polecenia CI",
+    "change": "Zaktualizowano klucze analityki, testy etapu i ścieżki ofert; dodano brakujący skrypt test:offers.",
+    "evidence": "package.json; .github/workflows/check-app.yml",
+    "limitation": "Workflow nie został uruchomiony w GitHub Actions w tej sesji."
+  },
+  {
+    "id": "PERF-02",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Jednakowe adresy zdjęcia HERO",
+    "change": "Preload, src i srcset korzystają ze zgodnego wersjonowania.",
+    "evidence": "Hero.tsx; generate-seo.mjs; assetUrl",
+    "limitation": "W pomiarze nie dowiedziono wcześniejszego podwójnego pobierania; nie wyliczamy fikcyjnej oszczędności."
+  },
+  {
+    "id": "PERF-03",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Ochrona rewizji danych",
+    "change": "Starsza rewizja, niepoprawny JSON lub kwoty w prelaunch nie wypierają bezpiecznego snapshotu.",
+    "evidence": "SiteDataProvider.tsx; edge-results.json",
+    "limitation": "Aktualizacja danych wymaga nowej rewizji i walidowanej publikacji."
+  },
+  {
+    "id": "PERF-04",
+    "priority": "MUST",
+    "status": "Otwarte",
+    "problem": "Pełny toolchain i wydajność produkcji",
+    "change": "Portable build oraz kontrole lokalne wykonano; npm ci/tsc/Vite, npm audit i Lighthouse nie.",
+    "evidence": "logs/npm-ci-offline.log; BUILD-VERIFIED.json",
+    "limitation": "Brak kompletu pakietów offline i dostępu do registry; nie oznaczamy tego jako PASS."
+  },
+  {
+    "id": "PERF-05",
+    "priority": "DO NOT CHANGE",
+    "status": "Zachowano",
+    "problem": "Kontrolowane ładowanie ciężkich zasobów",
+    "change": "Nie dodano bibliotek frontendowych, nowych filmów ani ciężkich dekoracji. Grafy spacerów i panorama nie są sztucznie ładowane na start.",
+    "evidence": "Kod i lokalne requesty",
+    "limitation": "Portable bundler nie daje podstaw do ogólnej obietnicy „szybciej od produkcji”."
+  },
+  {
+    "id": "SEC-01",
+    "priority": "MUST",
+    "status": "Zrobione w nowym dist",
+    "problem": "Niepublikowane kwoty faktycznie nie trafiają do klienta",
+    "change": "Publiczny snapshot ma price:null. Walidacja odrzuca mieszankę prelaunch i kwot; eksport usuwa kwoty robocze.",
+    "evidence": "distribution-check.json; sales.mjs; siteSchema.mjs",
+    "limitation": "Publiczna historia Git i wcześniejsze kopie nadal mogą zawierać dawne ceny."
+  },
+  {
+    "id": "SEC-02",
+    "priority": "MUST",
+    "status": "Zrobione",
+    "problem": "Panel kontroli nie interpretuje odpowiedzi jako HTML",
+    "change": "Zamiast innerHTML stosuje DOM/textContent. Klucz jest tylko w pamięci bieżącej strony; czyszczenie unieważnia również spóźnione odpowiedzi.",
+    "evidence": "public/administrator-control/control.js; edge-results.json",
+    "limitation": "Klucz pozostaje dostępny dla skryptu podczas aktywnej sesji; to redukcja ekspozycji, nie gwarancja odporności na każdy XSS."
+  },
+  {
+    "id": "SEC-03",
+    "priority": "SHOULD",
+    "status": "Konfiguracja gotowa; hosting otwarty",
+    "problem": "Nagłówki CSP i osadzanie",
+    "change": "Ochrona frame-ancestors przeniesiona do nagłówka HTTP. Panel ma odrębną CSP; szersza polityka skryptów witryny jest Report-Only.",
+    "evidence": "public/.htaccess; administrator-control/.htaccess",
+    "limitation": "Skuteczność zależy od serwera; test DOM z set_content nie weryfikuje egzekwowania CSP."
+  },
+  {
+    "id": "SEC-04",
+    "priority": "SHOULD",
+    "status": "Konfiguracja gotowa; hosting otwarty",
+    "problem": "Ochrona przed przypadkowym wysłaniem źródeł",
+    "change": "Dodano blokady źródeł, testów, vendor i backupów oraz kontrolę sekretów w dist.",
+    "evidence": "public/.htaccess; distribution-check.json",
+    "limitation": "Podstawą pozostaje publikacja wyłącznie dist i dane prywatne poza webrootem."
+  },
+  {
+    "id": "SEC-05",
+    "priority": "SHOULD",
+    "status": "Zrobione",
+    "problem": "Rzetelniejszy pomiar zaangażowania",
+    "change": "Pomiar wznawia się po powrocie karty, nie nalicza czasu w tle i respektuje odmowę/cofnięcie zgody.",
+    "evidence": "src/lib/analytics.ts; analytics-runtime.test.mjs",
+    "limitation": "Nie przeprowadzono analizy konwersji na ruchu ani pełnego testu wszystkich przypadków bfcache."
+  },
+  {
+    "id": "SEC-06",
+    "priority": "MUST",
+    "status": "Zrobione; integracja zewnętrzna otwarta",
+    "problem": "Bezpieczniejsza bramka Gov Sync",
+    "change": "Brak wysyłki przed sprzedażą, poprawne URL ofert, kontrola pięciu unikalnych domów/cen, transport HTTPS i zabezpieczenia nagłówków.",
+    "evidence": "api/lib/gov-sync.php; api/gov-sync.php",
+    "limitation": "Nie skonfigurowano ani nie dowiedziono transmisji do oficjalnej usługi. Domyślnie wyłączona."
+  }
+]

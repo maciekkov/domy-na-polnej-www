@@ -1,0 +1,77 @@
+{
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": 0,
+      "images": "loaded",
+      "form": "validation,503,preview success",
+      "selection": "C → form"
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "images": "loaded",
+      "form": "validation,503,preview success",
+      "selection": "C → form"
+    },
+    {
+      "width": 768,
+      "overflow": 0,
+      "images": "loaded",
+      "form": "validation,503,preview success",
+      "selection": "C → form"
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "images": "loaded",
+      "form": "validation,503,preview success",
+      "selection": "C → form"
+    },
+    {
+      "width": 1440,
+      "overflow": 0,
+      "images": "loaded",
+      "form": "validation,503,preview success",
+      "selection": "C → form"
+    },
+    {
+      "width": 1920,
+      "overflow": 0,
+      "images": "loaded",
+      "form": "validation,503,preview success",
+      "selection": "C → form"
+    }
+  ],
+  "errors": [],
+  "broken": [
+    [
+      503,
+      "http://127.0.0.1:4173/api/contact.php"
+    ],
+    [
+      503,
+      "http://127.0.0.1:4173/api/contact.php"
+    ],
+    [
+      503,
+      "http://127.0.0.1:4173/api/contact.php"
+    ],
+    [
+      503,
+      "http://127.0.0.1:4173/api/contact.php"
+    ],
+    [
+      503,
+      "http://127.0.0.1:4173/api/contact.php"
+    ],
+    [
+      503,
+      "http://127.0.0.1:4173/api/contact.php"
+    ]
+  ],
+  "axe": [],
+  "interactions": [
+    "House selection, focus after modal close, invalid form, 503 preserves fields, successful preview, keyboard tabs, gallery Escape, mobile menu Escape"
+  ]
+}

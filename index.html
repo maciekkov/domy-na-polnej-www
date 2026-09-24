@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#252a2c" />
-    <meta name="description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. Sprzedaż i cennik już wkrótce." />
+    <meta name="description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów parterowych z własnymi działkami. Sprzedaż i cennik już wkrótce." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://domynapolnej.pl/" />
 
-    <meta property="og:title" content="Domy na Polnej — Grabik koło Żar" />
-    <meta property="og:description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. Sprzedaż i cennik już wkrótce." />
+    <meta property="og:title" content="Domy na Polnej — domy parterowe w Grabiku koło Żar" />
+    <meta property="og:description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów parterowych z własnymi działkami. Sprzedaż i cennik już wkrótce." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pl_PL" />
     <meta property="og:url" content="https://domynapolnej.pl/" />
-    <meta property="og:image" content="https://domynapolnej.pl/assets/images/hero-front-photoreal.webp?v=33b923d13b43bc92" />
+    <meta property="og:image" content="https://domynapolnej.pl/assets/images/responsive/hero-0-1672.webp" />
     <meta property="og:image:alt" content="Domy na Polnej — pięć wolnostojących domów w Grabiku koło Żar" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Domy na Polnej — Grabik koło Żar" />
-    <meta name="twitter:description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. Sprzedaż i cennik już wkrótce." />
-    <meta name="twitter:image" content="https://domynapolnej.pl/assets/images/hero-front-photoreal.webp?v=33b923d13b43bc92" />
+    <meta name="twitter:title" content="Domy na Polnej — domy parterowe w Grabiku koło Żar" />
+    <meta name="twitter:description" content="Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów parterowych z własnymi działkami. Sprzedaż i cennik już wkrótce." />
+    <meta name="twitter:image" content="https://domynapolnej.pl/assets/images/responsive/hero-0-1672.webp" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=b811e3ad88187d8f" />
     
@@ -328,7 +328,7 @@ h3 {
 /* Hero: one factual message, human-controlled imagery, no autoplay. */
 .hero{position:relative;isolation:isolate;min-height:760px;height:min(100svh,1120px);color:#fff;background:#1a3127;overflow:hidden}
 .hero__media-stack,.hero__media,.hero__shade{position:absolute;inset:0;z-index:-1}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:1;animation:hero-image-in var(--duration-reveal) var(--ease) both}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:1;animation:none}
 .hero__shade{background:linear-gradient(90deg,rgba(8,23,17,.68) 0%,rgba(8,23,17,.48) 24%,rgba(8,23,17,.17) 40%,rgba(8,23,17,0) 58%)}
 .hero__content{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-block:150px 38px;gap:70px}
 .hero__copy{max-width:750px}
@@ -344,9 +344,6 @@ h3 {
 .hero__facts>div{margin:0}
 .hero__facts dt{font-size:clamp(20px,1.9vw,28px);letter-spacing:-.03em;font-weight:500;white-space:nowrap}
 .hero__facts dd{margin:6px 0 0;color:#d7dfd7;font-size:12px;line-height:1.45}
-.hero__controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.hero__controls button{display:grid;place-items:center;min-width:46px;min-height:46px;padding:0;border:1px solid #bdc8bb;color:#fff;background:rgba(13,32,22,.35);border-radius:50%;cursor:pointer;transition:background var(--duration-fast)}
-.hero__controls button:hover{background:rgba(255,255,255,.2)}
 .hero__image-caption{font-size:11px;color:#e3e8de;margin-right:16px}
 .hero__image-caption b{display:block;color:#fff;font-size:13px;font-weight:500;letter-spacing:.12em;margin-top:3px}
 .hero__discover{position:absolute;right:48px;top:51%;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:50%;text-decoration:none}
@@ -370,48 +367,101 @@ h3 {
  .hero__facts>div:last-child{grid-column:1/-1;display:flex;align-items:center;gap:12px}
  .hero__facts>div:last-child dd{margin:0;max-width:145px}
  .hero__facts dt{font-size:22px}.hero__facts dd{font-size:11px}
- .hero__controls{justify-content:flex-end}.hero__image-caption{margin-right:auto;display:flex;align-items:center;gap:12px}.hero__image-caption b{margin:0}
 }
 @media(max-width:360px){.hero h1{font-size:42px}.hero__content{padding-top:270px}.hero__facts dt{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.hero__media img{animation:none}}
 
+/* --- HERO: keep the complete sales message inside a normal desktop viewport. --- */
+/* Ensure the image and overlay stay inside the hero stacking context.
+   The original negative z-index could place the media below the hero background. */
+.hero__media-stack,.hero__media{z-index:0}
+.hero__shade{z-index:1}
+.hero__content{position:relative;z-index:2}
+
+@media (min-width:641px){
+  .hero{
+    height:min(100svh,920px);
+    min-height:650px;
+    max-height:920px;
+  }
+  .hero__content{
+    padding-block:clamp(98px,12vh,128px) clamp(20px,2.8vh,30px);
+    gap:clamp(24px,4.2vh,44px);
+  }
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{font-size:clamp(46px,5vw,74px);margin-bottom:18px}
+  .hero__lead{margin-bottom:22px;font-size:17px;line-height:1.55}
+  .hero__bottom{padding-top:20px}
+  .hero__facts{gap:clamp(28px,3vw,48px)}
+  .hero__facts dt{font-size:clamp(20px,1.6vw,26px)}
+  .hero__discover{display:none}
+}
+@media (min-width:641px) and (max-height:780px){
+  .hero{min-height:620px}
+  .hero__content{padding-top:92px;padding-bottom:18px;gap:20px}
+  .hero .eyebrow{margin-bottom:10px}
+  .hero h1{font-size:clamp(42px,4.5vw,62px);margin-bottom:12px}
+  .hero__lead{font-size:15.5px;line-height:1.45;margin-bottom:16px}
+  .hero__buttons .button{min-height:46px}
+  .hero__tour-link{min-height:42px}
+  .hero__bottom{padding-top:15px}
+  .hero__facts dd{margin-top:3px}
+}
+
+
+@media (max-width:640px){
+  .hero__content{padding:260px 0 16px;gap:22px}
+  .hero .eyebrow{margin-bottom:12px}
+  .hero h1{font-size:44px;margin-bottom:14px}
+  .hero__lead{font-size:15.5px;line-height:1.45;margin-bottom:19px}
+  .hero__buttons{gap:8px}
+  .hero__buttons .button{min-height:48px}
+  .hero__tour-link{min-height:36px}
+  .hero__bottom{gap:14px;padding-top:16px}
+  .hero__facts{gap:12px 10px}
+  .hero__facts dt{font-size:20px}
+}
+@media (max-width:360px){
+  .hero__content{padding-top:230px;gap:18px}
+  .hero h1{font-size:40px}
+  .hero__lead{font-size:15px}
+}
+@media (max-width:640px) and (max-height:740px){
+  .hero{height:100svh;min-height:100svh}
+  .hero__content{padding:172px 0 10px;gap:14px}
+  .hero .eyebrow{font-size:9px;margin-bottom:8px}
+  .hero h1{font-size:36px;line-height:1;margin-bottom:9px}
+  .hero__lead{font-size:14px;line-height:1.35;margin-bottom:12px}
+  .hero__buttons{gap:5px}
+  .hero__buttons .button{min-height:44px;font-size:12px}
+  .hero__tour-link{min-height:31px;font-size:12px}
+  .hero__bottom{gap:10px;padding-top:11px}
+  .hero__facts{gap:9px 8px}
+  .hero__facts dt{font-size:18px}
+  .hero__facts dd{font-size:10px}
+}
+
+/* A small factual caption, not a slideshow control. */
+.hero__visualisation-label{position:absolute;right:0;bottom:12px;padding:3px 8px;background:rgba(13,31,23,.70);border-radius:4px;font-size:10px;line-height:1.5;color:#fff}
+.hero__facts>div:last-child dd{max-width:180px}
+@media(max-width:640px){.hero__visualisation-label{top:205px;bottom:auto}.hero__bottom{position:static}}
+@media(max-width:360px){.hero__visualisation-label{top:183px}}
+/* When text grows or the screen is short, content may extend instead of being clipped. */
+@media(max-width:640px) and (max-height:740px){.hero{height:auto;min-height:100svh}.hero__visualisation-label{top:128px}}
+@media(min-width:641px) and (max-height:640px){.hero{height:auto;max-height:none;min-height:640px}.hero__content{min-height:640px}}
+
 .nojs-offers{padding-block:64px}.nojs-offers__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}.nojs-offers article{padding:24px;border:1px solid #c9cdbf;border-radius:6px;background:#fdfcf8}.nojs-offers a{display:inline-flex;min-height:44px;align-items:center}.nojs-offers article strong{font-size:22px}
 @media(max-width:760px){:root{--shell:calc(100% - 40px)}}</style>
 
-    <script id="site-schema" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://domynapolnej.pl/#organization","name":"X-SMART DEVELOP sp. z o.o.","url":"https://domynapolnej.pl/","email":"biuro@domynapolnej.pl","telephone":"+48455563962"},{"@type":"WebSite","@id":"https://domynapolnej.pl/#website","url":"https://domynapolnej.pl/","name":"Domy na Polnej","inLanguage":"pl-PL","publisher":{"@id":"https://domynapolnej.pl/#organization"}},{"@type":"ItemList","name":"Domy na Polnej — domy A–E","url":"https://domynapolnej.pl/#domy","itemListElement":[{"@type":"ListItem","position":1,"name":"Dom A","item":{"@type":"Product","name":"Dom A","sku":"A","url":"https://domynapolnej.pl/?dom=A#domy"}},{"@type":"ListItem","position":2,"name":"Dom B","item":{"@type":"Product","name":"Dom B","sku":"B","url":"https://domynapolnej.pl/?dom=B#domy"}},{"@type":"ListItem","position":3,"name":"Dom C","item":{"@type":"Product","name":"Dom C","sku":"C","url":"https://domynapolnej.pl/?dom=C#domy"}},{"@type":"ListItem","position":4,"name":"Dom D","item":{"@type":"Product","name":"Dom D","sku":"D","url":"https://domynapolnej.pl/?dom=D#domy"}},{"@type":"ListItem","position":5,"name":"Dom E","item":{"@type":"Product","name":"Dom E","sku":"E","url":"https://domynapolnej.pl/?dom=E#domy"}}]}]}</script>
-    <title>Domy na Polnej — Grabik koło Żar</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="preload" as="image" href="/assets/images/responsive/hero-mobile.webp?v=78765ade65711f2b" media="(max-width:640px)" fetchpriority="high" />
-<link rel="preload" as="image" href="/assets/images/responsive/hero-0-1672.webp" imagesrcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" imagesizes="100vw" media="(min-width:641px)" fetchpriority="high" />
+    <script id="site-schema" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://domynapolnej.pl/#organization","name":"X-SMART DEVELOP sp. z o.o.","url":"https://domynapolnej.pl/","email":"mkdevelop2026@gmail.com","telephone":"+48455563962"},{"@type":"WebSite","@id":"https://domynapolnej.pl/#website","url":"https://domynapolnej.pl/","name":"Domy na Polnej","inLanguage":"pl-PL","publisher":{"@id":"https://domynapolnej.pl/#organization"}},{"@type":"ItemList","name":"Domy na Polnej — domy A–E","url":"https://domynapolnej.pl/#domy","itemListElement":[{"@type":"ListItem","position":1,"name":"Dom A","item":{"@type":"Product","name":"Dom A","sku":"A","url":"https://domynapolnej.pl/?dom=A#domy"}},{"@type":"ListItem","position":2,"name":"Dom B","item":{"@type":"Product","name":"Dom B","sku":"B","url":"https://domynapolnej.pl/?dom=B#domy"}},{"@type":"ListItem","position":3,"name":"Dom C","item":{"@type":"Product","name":"Dom C","sku":"C","url":"https://domynapolnej.pl/?dom=C#domy"}},{"@type":"ListItem","position":4,"name":"Dom D","item":{"@type":"Product","name":"Dom D","sku":"D","url":"https://domynapolnej.pl/?dom=D#domy"}},{"@type":"ListItem","position":5,"name":"Dom E","item":{"@type":"Product","name":"Dom E","sku":"E","url":"https://domynapolnej.pl/?dom=E#domy"}}]}]}</script>
+    <title>Domy na Polnej — domy parterowe w Grabiku koło Żar</title>
+<link rel="preload" as="image" href="/assets/images/responsive/hero-mobile.webp?v=34d6e41cdfa52c47" media="(max-width:640px)" fetchpriority="high" />
+<link rel="preload" as="image" href="/assets/images/responsive/hero-0-1672.webp?v=9c583ce798514689" imagesrcset="/assets/images/responsive/hero-0-640.webp?v=65db5795fdef86ec 640w, /assets/images/responsive/hero-0-1024.webp?v=edd2383eeec7710b 1024w, /assets/images/responsive/hero-0-1672.webp?v=9c583ce798514689 1672w" imagesizes="100vw" media="(min-width:641px)" fetchpriority="high" />
 </head>
   <body>
-    <div id="root"><!--dnp-home-start--><section class="hero" id="start" aria-labelledby="hero-title"><div class="hero__media-stack"><picture class="hero__media is-loaded"><source media="(max-width:640px)" srcset="/assets/images/responsive/hero-mobile.webp?v=78765ade65711f2b"><img src="/assets/images/responsive/hero-0-1672.webp" srcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="Wizualizacja inwestycji Domy na Polnej" fetchpriority="high"></picture></div><div class="hero__shade" aria-hidden="true"></div><div class="hero__content shell"><div class="hero__copy"><p class="eyebrow eyebrow--light">5 domów wolnostojących <span>·</span> Grabik koło Żar</p><h1 id="hero-title">Dom z ogrodem.<br><em>Blisko Żar.</em></h1><p class="hero__lead">Parterowy dom, 5 pokoi i własna działka.<br class="hero__desktop-break"> Przestrzeń do życia — w domu i poza nim.</p><div class="hero__buttons"><a class="button button--light" href="#domy">Wybierz dom i zobacz szczegóły →</a><a class="hero__tour-link" href="tel:+48455563962">+48 455 563 962</a></div></div><div class="hero__bottom"><dl class="hero__facts"><div><dt>110,82 m²</dt><dd>powierzchni użytkowej</dd></div><div><dt>806–1006 m²</dt><dd>powierzchni działki</dd></div><div><dt>Już wkrótce</dt><dd>start sprzedaży i cennik</dd></div></dl></div></div></section>
- <section id="domy" class="nojs-offers shell"><h2>Domy i dostępność</h2><p>Pełny plan i spacery wymagają JavaScript. Cennik sprzedaży jest w przygotowaniu; dokumenty i kontakt są dostępne poniżej.</p><div class="nojs-offers__grid"><article><h3>Dom A</h3><p>Dostępny · działka 589/20</p><p>110,82 m² domu · 810 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-a.pdf?v=d496976d39fc20d8">Karta domu PDF</a></article><article><h3>Dom B</h3><p>Dostępny · działka 589/19</p><p>110,82 m² domu · 809 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-b.pdf?v=15acc3a2de4619c1">Karta domu PDF</a></article><article><h3>Dom C</h3><p>Dostępny · działka 589/18</p><p>110,82 m² domu · 807 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-c.pdf?v=943d702b409a13ac">Karta domu PDF</a></article><article><h3>Dom D</h3><p>Dostępny · działka 589/17</p><p>110,82 m² domu · 806 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-d.pdf?v=e0f80ce45baf994e">Karta domu PDF</a></article><article><h3>Dom E</h3><p>Dostępny · działka 589/16</p><p>110,82 m² domu · 1006 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-e.pdf?v=779fe208e88cedc7">Karta domu PDF</a></article></div><p><a href="/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=738a769f8cee7741">Standard techniczny PDF</a> · <a href="tel:+48455563962">+48 455 563 962</a> · <a href="mailto:biuro@domynapolnej.pl">biuro@domynapolnej.pl</a></p><p><a href="/polityka-prywatnosci/">Polityka prywatności</a> · <a href="/polityka-cookies/">Polityka cookies</a></p></section><!--dnp-home-end--></div>
+    <div id="root"><!--dnp-home-start--><section class="hero" id="start" aria-labelledby="hero-title"><div class="hero__media-stack"><picture class="hero__media is-loaded"><source media="(max-width:640px)" srcset="/assets/images/responsive/hero-mobile.webp?v=34d6e41cdfa52c47"><img src="/assets/images/responsive/hero-0-1672.webp?v=9c583ce798514689" srcset="/assets/images/responsive/hero-0-640.webp?v=65db5795fdef86ec 640w, /assets/images/responsive/hero-0-1024.webp?v=edd2383eeec7710b 1024w, /assets/images/responsive/hero-0-1672.webp?v=9c583ce798514689 1672w" sizes="100vw" width="1672" height="941" alt="Wizualizacja inwestycji Domy na Polnej" fetchpriority="high"></picture></div><div class="hero__shade" aria-hidden="true"></div><div class="hero__content shell"><div class="hero__copy"><p class="eyebrow eyebrow--light">5 domów wolnostojących <span>·</span> Grabik koło Żar</p><h1 id="hero-title">Dom z ogrodem.<br><em>Blisko Żar.</em></h1><p class="hero__lead">Parterowy dom, 5 pokoi i własna działka.<br class="hero__desktop-break"> Przestrzeń do życia — w domu i poza nim.</p><div class="hero__buttons"><a class="button button--light" href="#domy">Wybierz swój dom →</a><a class="hero__tour-link" href="tel:+48455563962">+48 455 563 962</a></div></div><div class="hero__bottom"><dl class="hero__facts"><div><dt>110,82 m²</dt><dd>powierzchni użytkowej</dd></div><div><dt>806–1006 m²</dt><dd>powierzchni działki</dd></div><div><dt>Już wkrótce</dt><dd>sprzedaż i cennik w przygotowaniu</dd></div></dl><span class="hero__visualisation-label">Wizualizacja</span></div></div></section>
+ <section id="domy" class="nojs-offers shell"><h2>Domy i dostępność</h2><p>Pełny plan i spacery wymagają JavaScript. Cennik sprzedaży jest w przygotowaniu; dokumenty i kontakt są dostępne poniżej.</p><div class="nojs-offers__grid"><article><h3>Dom A</h3><p>Przed sprzedażą · działka 589/20</p><p>110,82 m² domu · 810 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-a.pdf?v=d496976d39fc20d8">Karta domu PDF</a></article><article><h3>Dom B</h3><p>Przed sprzedażą · działka 589/19</p><p>110,82 m² domu · 809 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-b.pdf?v=15acc3a2de4619c1">Karta domu PDF</a></article><article><h3>Dom C</h3><p>Przed sprzedażą · działka 589/18</p><p>110,82 m² domu · 807 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-c.pdf?v=943d702b409a13ac">Karta domu PDF</a></article><article><h3>Dom D</h3><p>Przed sprzedażą · działka 589/17</p><p>110,82 m² domu · 806 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-d.pdf?v=e0f80ce45baf994e">Karta domu PDF</a></article><article><h3>Dom E</h3><p>Przed sprzedażą · działka 589/16</p><p>110,82 m² domu · 1006 m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p><a href="/pdf/karta-dom-e.pdf?v=779fe208e88cedc7">Karta domu PDF</a></article></div><p><a href="/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=e4f52074798bd1f4">Standard techniczny PDF</a> · <a href="tel:+48455563962">+48 455 563 962</a> · <a href="mailto:mkdevelop2026@gmail.com">mkdevelop2026@gmail.com</a></p><p><a href="/polityka-prywatnosci/">Polityka prywatności</a> · <a href="/polityka-cookies/">Polityka cookies</a></p></section>
+ <section class="nojs-offers shell" id="faq"><h2>Najważniejsze pytania o Domy na Polnej</h2><details><summary>Kiedy rozpocznie się budowa i kiedy planowane są odbiory?</summary><p>Start robót budowlanych planowany jest na marzec 2027 roku. Aktualny harmonogram roboczy zakłada realizację przedsięwzięcia do końca lutego 2028 roku. Termin odbioru konkretnego domu oraz termin przeniesienia własności będą wskazane w Karcie Domu i dokumentach umownych dotyczących wybranej nieruchomości.</p></details><details><summary>Jaki jest status formalny inwestycji?</summary><p>Inwestycja posiada ostateczną decyzję o warunkach zabudowy oraz uzyskane pozwolenie na budowę. Przed zawarciem umowy nabywca otrzymuje dokumentację dotyczącą konkretnego domu, w tym prospekt informacyjny i dokumenty wymagane dla transakcji deweloperskiej.</p></details><details><summary>Czy działka będzie własnością kupującego?</summary><p>Tak. Każdy dom A–E jest realizowany na przypisanej mu indywidualnej działce, która wraz z domem jest przedmiotem przeniesienia na nabywcę. Razem z nieruchomością nabywany jest również udział w drodze wewnętrznej obsługującej inwestycję.</p></details><details><summary>Kiedy będzie dostępny cennik?</summary><p>Cennik jest w przygotowaniu. Przed rozpoczęciem sprzedaży opublikujemy ceny poszczególnych domów i informacje o obowiązkowych dodatkowych świadczeniach. Karty dostępne obecnie na stronie przedstawiają parametry domów i działek, a nie rozbicie ceny. Zakres wykonania opisuje Standard techniczny.</p></details><details><summary>Co obejmuje standard techniczny domu?</summary><p>W standardzie przewidziano m.in. pompę ciepła, ogrzewanie podłogowe, rekuperację, elektryczne rolety zewnętrzne, stolarkę trzyszybową, duże przeszklenia, przygotowanie PV Ready, utwardzony podjazd i dojście oraz ogrodzenie z bramą i furtką. Wiążący, pełny zakres określa aktualny dokument Standard techniczny.</p></details><details><summary>Czego nie obejmuje podstawowy standard?</summary><p>Poza podstawowym zakresem pozostają m.in. końcowe wykończenie wnętrz, kuchnia i meble, wyposażenie łazienek, klimatyzacja, ładowarka samochodu elektrycznego oraz kompletna instalacja fotowoltaiczna z modułami i falownikiem. Trawnik, nasadzenia i system nawadniania również nie należą do podstawowego standardu. Taras i wiata są wykonywane tylko wtedy, gdy przewiduje to odrębne ustalenie.</p></details><details><summary>Czy wszystko, co widać na wizualizacjach, jest w cenie?</summary><p>Wizualizacje pokazują charakter architektury i przykładowe zagospodarowanie, ale nie zastępują dokumentów sprzedażowych. O tym, co jest objęte ceną konkretnego domu, decydują Karta Domu, Standard techniczny, prospekt i właściwa umowa. Dotyczy to w szczególności elementów takich jak taras, wiata, zieleń i wyposażenie wnętrz.</p></details><details><summary>Czy dom ma strych?</summary><p>Dom posiada poddasze nieużytkowe, które może pełnić funkcję pomocniczej przestrzeni technicznej lub magazynowej. Szczegółowy zakres, sposób dostępu i możliwości wykorzystania wynikają z dokumentacji projektowej konkretnego domu.</p></details><details><summary>Czy można wprowadzać zmiany lokatorskie?</summary><p>Takie zmiany są możliwe wyłącznie po ich technicznej ocenie i pisemnej akceptacji dewelopera. Zakres, koszt oraz wpływ zmiany na termin realizacji ustalane są indywidualnie. Im wcześniejszy etap budowy, tym większa możliwość wprowadzenia zmian bez ingerencji w wykonane już roboty.</p></details><details><summary>Jak wygląda rezerwacja domu?</summary><p>Po wyborze domu przekazujemy dokumentację i warunki rezerwacji właściwe dla danej transakcji. Jeżeli umowa rezerwacyjna przewiduje opłatę rezerwacyjną, jej wysokość i zasady są podane w umowie; po zawarciu umowy deweloperskiej opłata jest rozliczana na poczet Ceny Całkowitej zgodnie z obowiązującymi przepisami.</p></details><details><summary>Gdzie trafiają wpłaty kupującego?</summary><p>Wpłaty na poczet Ceny Całkowitej są dokonywane na otwarty mieszkaniowy rachunek powierniczy, a nie na zwykły rachunek operacyjny dewelopera. Bank wypłaca środki deweloperowi zgodnie z zasadami rachunku i po weryfikacji zakończenia odpowiednich etapów przedsięwzięcia.</p></details><details><summary>Jak zabezpieczony jest zakup?</summary><p>Proces wykorzystuje mechanizmy przewidziane ustawą deweloperską: otwarty mieszkaniowy rachunek powierniczy, Deweloperski Fundusz Gwarancyjny oraz płatności powiązane z postępem realizacji. Przed podpisaniem umowy nabywca otrzymuje prospekt i dokumenty opisujące zasady ochrony środków oraz harmonogram przedsięwzięcia.</p></details><details><summary>Czy budowa jest finansowana wyłącznie z wpłat klientów?</summary><p>Nie. Model przedsięwzięcia zakłada również finansowanie po stronie inwestora/dewelopera oraz finansowanie projektu. Wpłaty klientów podlegają zasadom otwartego mieszkaniowego rachunku powierniczego i nie są traktowane jak swobodne środki na zwykłym rachunku dewelopera.</p></details><details><summary>Czy zakup można sfinansować kredytem hipotecznym?</summary><p>Tak. Nabywca może finansować zakup środkami własnymi lub kredytem hipotecznym w wybranym przez siebie banku. Na potrzeby procesu kredytowego udostępniamy dokumenty dotyczące inwestycji i konkretnego domu; decyzja kredytowa należy do banku nabywcy.</p></details><details><summary>Jakie dodatkowe koszty mogą pojawić się przy zakupie?</summary><p>Poza Ceną Całkowitą mogą wystąpić koszty zależne od konkretnej transakcji, np. finansowania bankowego, wyceny, wpisów i czynności notarialnych, a także wybranych zmian lokatorskich lub elementów ponad standard. Przed podpisaniem umowy klient otrzymuje dokumenty i zestawienie dotyczące wybranego domu.</p></details><details><summary>Jak wygląda odbiór domu i zgłaszanie wad?</summary><p>Odbiór odbywa się przed przeniesieniem własności i jest dokumentowany protokołem. Nabywca może zgłosić zauważone wady i może uczestniczyć w odbiorze z wybranym przez siebie specjalistą. Zgłoszenia są następnie rozpatrywane i usuwane na zasadach wynikających z ustawy oraz dokumentów umownych; przekazywane są również dokumenty gwarancyjne urządzeń objętych standardem.</p></details><details><summary>Czy można obejrzeć działkę i miejsce inwestycji?</summary><p>Tak. Prezentację terenu inwestycji umawiamy indywidualnie. Skontaktuj się z nami telefonicznie lub przez formularz, a ustalimy dogodny termin i pokażemy położenie wybranego domu oraz jego działki.</p></details></section><!--dnp-home-end--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

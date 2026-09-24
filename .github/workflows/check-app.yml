@@ -23,6 +23,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - run: npm run test:syntax
       - run: npm test
       - run: npm run build
       - run: npm run test:dist

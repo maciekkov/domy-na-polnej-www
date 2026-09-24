@@ -1,44 +1,50 @@
-/** A single price/status/SEO policy, used at build time and in the browser. */
+import { isSelling, hasPrice, publishedPrice, publicStatus } from './sales.mjs'
+/** Shared output for the current sales stage; no automatic start of sales. */
 export const SITE_ORIGIN = 'https://domynapolnej.pl'
 export const HOUSE_CODES = ['A','B','C','D','E']
 export const housePath = id => `/dom-${id.toLowerCase()}/`
-export const money = n => new Intl.NumberFormat('pl-PL').format(n).replace(/\u00a0/g, ' ') + ' zł'
+export const money = n => n == null ? 'Już wkrótce' : new Intl.NumberFormat('pl-PL').format(n).replace(/\u00a0/g, ' ') + ' zł'
 export const areaText = n => new Intl.NumberFormat('pl-PL',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2}).format(n).replace(/\u00a0/g,' ') + ' m²'
-export const unitPrice = h => h.price / h.area
-export const moneyPerSqm = h => new Intl.NumberFormat('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2}).format(unitPrice(h)).replace(/\u00a0/g,' ') + ' zł/m²'
+export const unitPrice = h => h.price == null ? null : h.price / h.area
+export const moneyPerSqm = h => h.price == null ? 'Już wkrótce' : new Intl.NumberFormat('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2}).format(unitPrice(h)).replace(/\u00a0/g,' ') + ' zł/m²'
 export function availablePrice(houses) {
   const available = houses.filter(h => h.status === 'Dostępny' && Number.isFinite(h.price) && h.price > 0)
   return available.length ? Math.min(...available.map(h => h.price)) : null
 }
-export function offerLead(_houses) {
-  return 'Sprzedaż i cennik już wkrótce'
+export function offerLead(houses, salesStage = 'prelaunch') {
+  if (salesStage !== 'selling') return 'Sprzedaż i cennik już wkrótce'
+  const price = availablePrice(houses)
+  return price === null ? 'Zapytaj o dostępność' : `od ${money(price)}`
 }
 export const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
 export const safeJson = value => JSON.stringify(value).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029')
 export function pageMeta(data, id = null) {
   const h = data.houses.find(h => h.id === id)
   if (id && !h) throw new Error('Nieznany dom')
-  const title = h ? `${h.name} — ${areaText(h.area)}, działka ${h.plot} m² | Domy na Polnej` : 'Domy na Polnej — Grabik koło Żar'
+  const title = h ? `${h.name} — ${areaText(h.area)}, działka ${h.plot} m² | Domy na Polnej` : 'Domy na Polnej — domy parterowe w Grabiku koło Żar'
+  const launchText = isSelling(data) ? `Aktualna oferta: ${offerLead(data.houses, data.salesStage)}.` : 'Sprzedaż i cennik już wkrótce.'
   const description = h
-    ? `${h.name} w Grabiku koło Żar. Dom wolnostojący ${areaText(h.area)}, ${h.rooms} pokoi, działka ${h.plot} m² (${h.parcel}). ${h.status}. Sprzedaż i cennik już wkrótce.`
-    : 'Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów z własnymi działkami. Sprzedaż i cennik już wkrótce.'
-  return { title, description, canonical: SITE_ORIGIN + (h ? housePath(h.id) : '/'), image: SITE_ORIGIN + (h?.image ?? data.houses[0].image) }
+    ? `${h.name} w Grabiku koło Żar. Dom wolnostojący ${areaText(h.area)}, ${h.rooms} pokoi, działka ${h.plot} m² (${h.parcel}). ${publicStatus(data,h.status)}. ${publishedPrice(data,h) ? `Cena brutto ${money(h.price)} (${moneyPerSqm(h)}).` : 'Sprzedaż i cennik już wkrótce.'}`
+    : `Domy na Polnej w Grabiku pod Żarami — pięć wolnostojących domów parterowych z własnymi działkami. ${launchText}`
+  return { title, description, canonical: SITE_ORIGIN + (h ? housePath(h.id) : '/'), image: SITE_ORIGIN + (h?.image ?? '/assets/images/responsive/hero-0-1672.webp') }
 }
 export function structuredData(data, id = null) {
   const m = pageMeta(data, id)
   const org = {'@type':'Organization','@id':SITE_ORIGIN+'/#organization',name:'X-SMART DEVELOP sp. z o.o.',url:SITE_ORIGIN+'/',email:data.contact.email,telephone:data.contact.phoneHref.slice(4)}
   const website = {'@type':'WebSite','@id':SITE_ORIGIN+'/#website',url:SITE_ORIGIN+'/',name:'Domy na Polnej',inLanguage:'pl-PL',publisher:{'@id':org['@id']}}
   const graph = [org,website]
+  const offerFor = h => ({'@type':'Offer',price:h.price,priceCurrency:'PLN',url:SITE_ORIGIN+'/?dom='+h.id+'#domy',availability:'https://schema.org/'+({'Dostępny':'InStock','Rezerwacja':'OutOfStock','Sprzedany':'SoldOut'}[h.status])})
   if (id) {
     const h = data.houses.find(h => h.id === id)
     const home = {'@type':['SingleFamilyResidence','Product'],'@id':m.canonical+'#dom',name:h.name,description:m.description,url:m.canonical,image:[m.image],identifier:h.parcel,numberOfRooms:h.rooms,
       floorSize:{'@type':'QuantitativeValue',value:h.area,unitCode:'MTK'},
       address:{'@type':'PostalAddress',addressLocality:'Grabik',addressRegion:'lubuskie',addressCountry:'PL'},
       additionalProperty:[{'@type':'PropertyValue',name:'Powierzchnia działki',value:h.plot,unitCode:'MTK'},{'@type':'PropertyValue',name:'Miejsca postojowe',value:h.parking}]}
+    if (publishedPrice(data,h)) home.offers = offerFor(h)
     graph.push(home,{'@type':'RealEstateListing','@id':m.canonical+'#strona',name:m.title,url:m.canonical,description:m.description,inLanguage:'pl-PL',mainEntity:{'@id':home['@id']},isPartOf:{'@id':website['@id']}})
     graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Domy na Polnej',item:SITE_ORIGIN+'/'},{'@type':'ListItem',position:2,name:h.name,item:m.canonical}]})
   } else {
-    graph.push({'@type':'ItemList',name:'Domy na Polnej — domy A–E',url:SITE_ORIGIN+'/#domy',itemListElement:data.houses.map((h,i)=>({'@type':'ListItem',position:i+1,name:h.name,item:{'@type':'Product',name:h.name,sku:h.id,url:SITE_ORIGIN+'/?dom='+h.id+'#domy'}}))})
+    graph.push({'@type':'ItemList',name:'Domy na Polnej — domy A–E',url:SITE_ORIGIN+'/#domy',itemListElement:data.houses.map((h,i)=>({'@type':'ListItem',position:i+1,name:h.name,item:{'@type':'Product',name:h.name,sku:h.id,url:SITE_ORIGIN+'/?dom='+h.id+'#domy',...(publishedPrice(data,h)?{offers:offerFor(h)}:{})}}))})
   }
   return {'@context':'https://schema.org','@graph':graph}
 }

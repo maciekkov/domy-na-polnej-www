@@ -21,7 +21,7 @@ export function Location() {
 
       <div className="shell location__grid">
         <div className="location__content">
-          <div className="section-kicker section-kicker--dark"><b>04 / 12</b><span />Lokalizacja</div>
+          <div className="section-kicker section-kicker--dark"><span />Lokalizacja</div>
           <h2 id="location-title">Spokój natury.<br />Blisko wszystkiego,<br className="location__desktop-break" /> co ważne.</h2>
           <p>Grabik, zaledwie kilka minut od Żar. Kameralna okolica, niska zabudowa, zieleń i szybki dojazd do miasta. Tu łączysz komfort życia blisko natury z wygodnym dostępem do szkół, sklepów i głównych tras.</p>
 
@@ -38,6 +38,7 @@ export function Location() {
         </div>
 
         <div className="location__map" aria-label="Mapa lokalizacji inwestycji w Grabiku koło Żar">
+          <img className="location__mobile-map" src="/assets/images/location-map.webp?v=165b294398bf3ee5" alt="Mapa okolicy: Domy na Polnej w Grabiku, na północny zachód od Żar" width="2048" height="682" loading="lazy" decoding="async" />
           <a className="location__route" href={mapUrl} target="_blank" rel="noreferrer" onClick={directions}>
             <MapPin aria-hidden="true" />
             <span><strong>Grabik</strong><small>Blisko Żar, woj. lubuskie</small></span>

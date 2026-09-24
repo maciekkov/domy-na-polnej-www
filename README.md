@@ -1,56 +1,37 @@
-# Domy na Polnej — v5.1 Premium
+# Domy na Polnej — 5.2.0-rc.13
 
-Kompletna, zmodyfikowana wersja dostarczonej paczki `natural-flow-v4-final`. Źródła, grafiki, backend, testy i gotowy build znajdują się w tym samym katalogu. To nie jest aktualizacja przez kopiowanie fragmentów kodu.
+Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji Gmail: **WDROZENIE-HOSTING.md**.
 
-## Uruchomienie podglądu
+## Build
 
-Wymagany jest Node.js 22.12 lub nowszy. Na Windows uruchom **URUCHOM-PODGLAD-WWW.cmd**, pozostaw okno terminala otwarte i wejdź na `http://127.0.0.1:4173`. Na macOS/Linux: `sh START_PREVIEW.sh`.
-
-Wariant uniwersalny, wykonany w rozpakowanym katalogu projektu:
-
-```sh
-node preview-server.mjs
-```
-
-Podgląd korzysta z dołączonego folderu `dist`; nie wymaga `npm install`, internetu ani ręcznego składania plików. Nie otwieraj `index.html` przez `file://`. Formularz podglądu **nie wysyła poczty** i informuje o tym w komunikacie. Nie jest to produkcyjny serwer PHP.
-
-## Ponowne zbudowanie po zmianach
-
-Przetestowana ścieżka, bez pobierania zależności:
-
-```sh
-node scripts/build-portable.cjs
-node tests/dist-check.mjs
-node preview-server.mjs
-```
-
-Można również uruchomić `BUDUJ-WDROZENIE.cmd`. Portable build korzysta z dostarczonego React 19.1.1 i TypeScript 5.8.3. Kontroluje składnię, ale nie zastępuje pełnego sprawdzania typów.
-
-Standardowa ścieżka deweloperska pozostaje dostępna w `package.json` i `package-lock.json`:
+Node.js >=22.12:
 
 ```sh
 npm ci
-npm run typecheck
-npm run build
+npm run build:hosting
 ```
 
-Tej ścieżki nie ukończono w środowisku przygotowania paczki: brak dostępu do rejestru npm i kompletu zależności w cache. Nie przedstawiamy jej jako zweryfikowanej. Dołączony build portable został rzeczywiście wykonany i przetestowany w przeglądarce.
+Budowanie zachowuje prywatną konfigurację i hasło analityki. Przy aktualizacji działającego hostingu zachowaj jego katalog private; przenieś do konfiguracji poprawiony adres odbiorcy oraz ustawienia SMTP opisane w instrukcji.
 
-## Struktura
+## Podgląd
 
-- `dist/` — komplet gotowych plików do wdrożenia na odpowiedni hosting.
-- `src/` — React/TypeScript, komponenty, dane pomocnicze i CSS.
-- `public/` — aktualne dane, grafiki, rzuty, PDF-y, spacery i panel kontroli.
-- `api/` — backend PHP i konfiguracja przykładowa, bez sekretów.
-- `scripts/`, `vendor/` — narzędzia builda i licencjonowane zależności portable.
-- `tests/`, `docs/qa/`, `docs/qa-v5.1/` — testy, wyniki i zrzuty prawdziwego renderowania.
-- `reference-assets/` — zachowane oryginały nieużywanych grafik i poprawionych kart PDF.
-- `docs/history-v4/` — historyczne raporty z wejściowej paczki; nie są wynikiem bieżącego audytu.
+`node preview-server.mjs` → http://127.0.0.1:4173. Jeśli nie ma dist/, podgląd korzysta z hosting/public_html/. Formularze lokalnego podglądu są symulowane.
 
-## Dane i publikacja
+## Zmiany rc.6
 
-Aktualne dane oferty: `public/data/site-data.json`. Po zmianie danych przebuduj stronę, aby HTML bez JavaScript, SEO i aplikacja były zgodne. Spacery mają własne pliki scen w `public/assets/data/` i obrazy w `public/assets/images/spacer-360/`.
+Mobile: czystszy hero, niższy blok tekstu i maska; mniejsze oznaczenia działek; krótsza karta domu bez dodatkowych CTA; zamykanie karty przyciskiem Wstecz; kompaktowa tabela A–E; usunięty stały dolny pasek kontaktowy; mniejsze odstępy i karty 360°; galeria dopasowująca wysokość do liczby zdjęć. Układ desktop zachowany.
 
-Na hosting przesyła się **zawartość `dist/`, a nie cały projekt**. Konfiguracja SMTP, uprawnienia serwera, dokumenty i informacje wymagające potwierdzenia są opisane w `BRAKI_I_WDROZENIE.md`. Nie nadpisuj istniejącej konfiguracji ani danych formularza na serwerze. Ta paczka nie została wysłana na GitHub ani opublikowana w domenie.
+Adres odbiorcy formularza i powiadomień o zmianach na liście przedsprzedaży: mkdevelop2026@gmail.com. Wysyłka wymaga poprawnego SMTP i hasła aplikacji Google. Nie wysyłano próbnych wiadomości do rzeczywistej skrzynki.
 
-Przeczytaj `RAPORT_POPRAWEK_V5.1.md`, `CHANGELOG.md` i `docs/qa-v5.1/QA_REPORT.md`. Brak plików fontów jest celowy: typografia używa fontów systemowych i nie wymaga połączenia z dostawcą fontów.
+Sprawdzone: build TypeScript/Vite, 100 testów logicznych, 1154 kontroli spaceru, mobilna przeglądarka 320/390/430/760 px i desktop 1440 px, Wstecz/X, brak przewijania poziomego, testy magazynu i API zapisów PHP WASM. Pełne materiały historyczne nie są częścią lekkiej paczki.
+
+## Zmiany rc.7
+Spacery w poziomie wypełniają okno (cover), z karuzelą na zdjęciu. Wstecz zamyka spacer i panoramę; przełączanie wnętrze/zewnątrz nie tworzy dodatkowych kroków historii. Cookies pojawiają się na pierwszej wizycie i po odświeżeniu, zachowując poprzednią decyzję. Panorama: precyzja highp i natywne DPR ekranu zamiast ograniczenia do 2. Dostępny plik ma 4096×2048; do podmiany na większy potrzebny jest oryginał. Komunikat o natywnym pełnym ekranie kontroluje przeglądarka. Test przeglądarkowy: tests/immersive-rc7.mjs.
+
+## Zmiany rc.9 — analityka
+
+Produkcyjny panel /administrator-control/ pokazuje podsumowania, źródła, urządzenia, domy, spacery oraz historię pseudonimowych odwiedzających. Kliknięcie identyfikatora wyświetla jego wizyty i czas w sekcjach oraz scenach spaceru (wyłącznie po zgodzie analitycznej). Przykładowa ścieżka 19 etapów jest jawnie oznaczonym DEMO i nie zwiększa liczników. Aktualizacja panelu wymaga wdrożenia zarówno nowych plików panelu, jak i api/analytics-summary.php oraz api/analytics-journey.php. Dane sprzed instalacji systemu analitycznego oraz wizyty bez zgody nie są możliwe do odtworzenia. Gov Sync pozostaje zablokowany.
+
+## Panel administratora v5.1 Premium (rc.10)
+
+`npm run build:hosting` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Do wysyłania wiadomości do Gmaila potrzebne jest hasło aplikacji w prywatnej konfiguracji serwera; paczka go nie zawiera. Szczegóły w `WDROZENIE-HOSTING.md`.

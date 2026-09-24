@@ -1,0 +1,143 @@
+{
+  "title": "Przykładowa wizyta — Dom B",
+  "id": "visitor_demo_7f2c91a8",
+  "source": "google / organic",
+  "device": "desktop",
+  "house": "B",
+  "startedAt": "2026-09-18T14:00:00Z",
+  "steps": [
+    {
+      "section": "hero",
+      "label": "Hero / start",
+      "kind": "section",
+      "durationMs": 25000,
+      "note": "Czyta główny komunikat"
+    },
+    {
+      "section": "homes",
+      "label": "Domy i ceny",
+      "kind": "section",
+      "durationMs": 90000,
+      "note": "Porównuje działki i wybiera Dom B"
+    },
+    {
+      "section": "why-home",
+      "label": "Dlaczego dom",
+      "kind": "section",
+      "durationMs": 50000,
+      "note": ""
+    },
+    {
+      "section": "location",
+      "label": "Lokalizacja",
+      "kind": "section",
+      "durationMs": 55000,
+      "note": ""
+    },
+    {
+      "section": "homes",
+      "label": "Domy i ceny",
+      "kind": "section",
+      "durationMs": 40000,
+      "note": "Wraca sprawdzić Dom B"
+    },
+    {
+      "section": "layout",
+      "label": "Układ domu",
+      "kind": "section",
+      "durationMs": 100000,
+      "note": "Klika pomieszczenia na rzucie"
+    },
+    {
+      "section": "gallery",
+      "label": "Galeria",
+      "kind": "section",
+      "durationMs": 70000,
+      "note": ""
+    },
+    {
+      "section": "tour-exterior",
+      "label": "Spacer zewnętrzny",
+      "kind": "tour",
+      "durationMs": 180000,
+      "note": "14 kadrów · ogród i elewacje"
+    },
+    {
+      "section": "gallery",
+      "label": "Galeria",
+      "kind": "section",
+      "durationMs": 30000,
+      "note": "Wraca po spacerze"
+    },
+    {
+      "section": "layout",
+      "label": "Układ domu",
+      "kind": "section",
+      "durationMs": 40000,
+      "note": "Porównuje układ ze spacerem"
+    },
+    {
+      "section": "standard",
+      "label": "Standard",
+      "kind": "section",
+      "durationMs": 75000,
+      "note": ""
+    },
+    {
+      "section": "security",
+      "label": "Bezpieczny zakup",
+      "kind": "section",
+      "durationMs": 60000,
+      "note": ""
+    },
+    {
+      "section": "schedule",
+      "label": "Harmonogram",
+      "kind": "section",
+      "durationMs": 50000,
+      "note": ""
+    },
+    {
+      "section": "journal",
+      "label": "Dziennik budowy",
+      "kind": "section",
+      "durationMs": 35000,
+      "note": ""
+    },
+    {
+      "section": "team",
+      "label": "Zespół",
+      "kind": "section",
+      "durationMs": 30000,
+      "note": ""
+    },
+    {
+      "section": "faq",
+      "label": "FAQ",
+      "kind": "section",
+      "durationMs": 75000,
+      "note": ""
+    },
+    {
+      "section": "gallery",
+      "label": "Galeria",
+      "kind": "section",
+      "durationMs": 25000,
+      "note": "Cofa się do spaceru wnętrza"
+    },
+    {
+      "section": "tour-interior",
+      "label": "Spacer wnętrza",
+      "kind": "tour",
+      "durationMs": 240000,
+      "note": "30 kadrów · salon, pokoje, łazienki"
+    },
+    {
+      "section": "contact",
+      "label": "Kontakt",
+      "kind": "section",
+      "durationMs": 80000,
+      "note": "Wypełnia formularz dla Domu B"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ export function Team() {
     <section id="zespol" className="team-section" aria-labelledby="team-title">
       <div className="shell team-section__grid">
         <div className="team-section__intro">
-          <div className="section-kicker"><b>11 / 12</b><span />Inwestor / zespół</div>
+          <div className="section-kicker"><span />Inwestor / zespół</div>
           <h2 id="team-title">Za projektem stoją<br />konkretni ludzie</h2>
           <p>Przygotowanie inwestycji, organizacja budowy i projekt architektoniczny mają swoich opiekunów. Poniżej poznasz osoby oraz pracownię zaangażowane w Domy na Polnej.</p>
           <p className="team-section__note">Masz pytanie o dom, standard lub kolejne etapy? Skontaktuj się bezpośrednio z biurem inwestycji.</p>

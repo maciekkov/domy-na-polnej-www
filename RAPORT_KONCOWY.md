@@ -1,3 +1,9 @@
+> Aktualne wydanie: **5.2.0-rc.4**. Zmiany i testy: `docs/rc4/ZMIANY.md`. Lista zapisów: `PRZEDSPRZEDAZ.md`. Poniżej materiały historyczne.
+
+> Aktualne wydanie: **5.2.0-rc.3**. Bieżący raport: `docs/audit-rc3/AUDYT.md`. Poniżej opis wcześniejszego wydania.
+
+> Raport historyczny. Aktualne ustalenia: docs/audit-premium/AUDYT.md (5.2.0-rc.2).
+
 # Domy na Polnej — audyt, redesign i implementacja v5
 
 **Rezultat:** kompletne źródła oraz rzeczywiście zbudowany i przetestowany `dist/`. Nie wykonano publikacji na hostingu ani push do repozytorium. Dokładna baza to przesłany ZIP `natural-flow-v4-final`, identyfikowany SHA-256 w `VERSION.json`. Wcześniejsze oceny na podstawie pamięci innych rozmów nie są podstawą tego audytu.

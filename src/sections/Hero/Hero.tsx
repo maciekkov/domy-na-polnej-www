@@ -1,5 +1,8 @@
 import { ArrowDown, ArrowRight, ArrowUpRight } from '../../components/common/Icons'
 import { useSiteData } from '../../data/runtime/SiteDataProvider'
+import { offerLead } from '../../lib/offers.mjs'
+import { isSelling } from '../../lib/sales.mjs'
+import { assetUrl } from '../../lib/assetUrl'
 import { formatArea } from '../../data/houses'
 
 export function Hero() {
@@ -11,10 +14,10 @@ export function Hero() {
     <section className="hero" id="start" aria-labelledby="hero-title">
       <div className="hero__media-stack">
         <picture className="hero__media is-loaded">
-          <source media="(max-width: 640px)" srcSet="/assets/images/responsive/hero-mobile.webp?v=78765ade65711f2b" />
+          <source media="(max-width: 640px)" srcSet={assetUrl('/assets/images/responsive/hero-mobile.webp?v=34d6e41cdfa52c47')} />
           <img
-            src="/assets/images/responsive/hero-0-1672.webp"
-            srcSet={[640, 1024, 1672].map(w => `/assets/images/responsive/hero-0-${w}.webp ${w}w`).join(', ')}
+            src={assetUrl('/assets/images/responsive/hero-0-1672.webp?v=9c583ce798514689')}
+            srcSet={[640, 1024, 1672].map(w => `${assetUrl(`/assets/images/responsive/hero-0-${w}.webp`)} ${w}w`).join(', ')}
             sizes="100vw"
             width="1672"
             height="941"
@@ -32,7 +35,7 @@ export function Hero() {
           <h1 id="hero-title">Dom z ogrodem.<br /><em>Blisko Żar.</em></h1>
           <p className="hero__lead">Parterowy dom, {house.rooms} pokoi i własna działka.<br className="hero__desktop-break" /> Przestrzeń do życia — w domu i poza nim.</p>
           <div className="hero__buttons">
-            <a className="button button--light" href="#domy">Wybierz dom i zobacz szczegóły <ArrowRight size={19} /></a>
+            <a className="button button--light" href="#domy">Wybierz swój dom <ArrowRight size={19} /></a>
             <a className="hero__tour-link" href="#spacer-360">Rozejrzyj się w 360° <ArrowUpRight size={19} /></a>
           </div>
         </div>
@@ -40,8 +43,9 @@ export function Hero() {
           <dl className="hero__facts">
             <div><dt>{formatArea(house.area)}</dt><dd>powierzchni użytkowej</dd></div>
             <div><dt>{Math.min(...plots)}–{Math.max(...plots)} m²</dt><dd>powierzchni działki</dd></div>
-            <div><dt>Już wkrótce</dt><dd>start sprzedaży i cennik</dd></div>
+            <div><dt>{isSelling(data) ? offerLead(data.houses, data.salesStage) : 'Już wkrótce'}</dt><dd>{isSelling(data) ? 'cena brutto dostępnego domu' : 'sprzedaż i cennik w przygotowaniu'}</dd></div>
           </dl>
+          <span className="hero__visualisation-label">Wizualizacja</span>
         </div>
       </div>
       <a className="hero__discover" href="#domy" aria-label="Przejdź do planu inwestycji"><ArrowDown size={20} /></a>

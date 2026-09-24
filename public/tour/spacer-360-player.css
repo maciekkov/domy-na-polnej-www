@@ -352,3 +352,16 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
 .tour-image-layer[data-enter="down"]:not(.is-active) { transform: translateY(-.75%) scale(.997); }
 .tour-image-layer[data-enter="fade"]:not(.is-active) { transform: none; }
 .tour-image-layer.is-active { transform: none; }
+
+/* Landscape phone: the photo fills the viewport; navigation overlays the image. */
+@media (max-height: 540px) and (orientation: landscape) {
+ .tour-image-layer{inset:0;width:100%;height:100%;object-fit:cover}
+ .tour-bottom{bottom:max(5px,env(safe-area-inset-bottom));width:min(480px,70vw);gap:8px}
+ .tour-thumbs{width:auto;flex:1;height:59px;padding:4px;background:rgba(9,13,10,.48)}
+ .tour-thumb{height:49px}
+ .tour-source{display:none}
+ .tour-top{top:max(6px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right))}
+ .tour-brand{padding:5px 9px}.tour-brand__title{font-size:14px}
+ .tour-title{top:6px;padding:5px 10px;min-height:32px}
+ .tour-overlay{background:linear-gradient(180deg,#070a0833,transparent 25%,transparent 75%,#070a0833)}
+}

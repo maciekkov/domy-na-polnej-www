@@ -6,8 +6,10 @@ export function MobileContactBar({contact}: {contact:ContactData}) {
   const [visible,setVisible]=useState(false)
   useEffect(()=>{
     const update=()=>{
-      const hero=document.getElementById('start'),form=document.getElementById('kontakt')
-      setVisible(!!hero && hero.getBoundingClientRect().bottom < 80 && (!form || form.getBoundingClientRect().top > innerHeight - 120))
+      const hero=document.getElementById('start'),form=document.getElementById('kontakt'),presale=document.getElementById('przedsprzedaz')
+      const presaleRect=presale?.getBoundingClientRect()
+      const signingUp=presaleRect && presaleRect.top < innerHeight - 120 && presaleRect.bottom > 120
+      setVisible(!signingUp && !!hero && hero.getBoundingClientRect().bottom < 80 && (!form || form.getBoundingClientRect().top > innerHeight - 120))
     }
     update();window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update)
     return()=>{window.removeEventListener('scroll',update);window.removeEventListener('resize',update)}

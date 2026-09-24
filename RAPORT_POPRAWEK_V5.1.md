@@ -1,3 +1,5 @@
+> Raport historyczny. Aktualne ustalenia: docs/audit-premium/AUDYT.md (5.2.0-rc.2).
+
 # Domy na Polnej — raport poprawek v5.1
 
 ## Co było faktycznie zepsute

@@ -1,0 +1,90 @@
+{
+  "assetsCompared": 145,
+  "changedAssets": [],
+  "tourGraphsIdenticalWithoutVersionQueries": {
+    "wewnetrzny": true,
+    "zewnetrzny": true
+  },
+  "masterplanFileIdentical": true,
+  "sizes": {
+    "baseline": {
+      "build": {
+        "builder": "portable",
+        "typescript": "5.8.3",
+        "react": "19.1.1",
+        "node": "v22.16.0",
+        "modules": 56,
+        "jsBytes": 248657,
+        "runtimeBytes": 185873,
+        "cssBytes": 196912,
+        "entry": "site-2621ded2f674.js",
+        "syntaxChecked": true,
+        "typeChecked": false
+      },
+      "files": [
+        {
+          "path": ".htaccess",
+          "bytes": 315,
+          "gzipBytes": 251
+        },
+        {
+          "path": "react-467b459eca46.js",
+          "bytes": 185873,
+          "gzipBytes": 58445
+        },
+        {
+          "path": "site-2621ded2f674.js",
+          "bytes": 248657,
+          "gzipBytes": 59918
+        },
+        {
+          "path": "site-99ed8e19b018.css",
+          "bytes": 196912,
+          "gzipBytes": 35125
+        }
+      ],
+      "publicBytes": 27129238,
+      "htmlBytes": 17356
+    },
+    "after": {
+      "build": {
+        "builder": "portable",
+        "typescript": "5.8.3",
+        "react": "19.1.1",
+        "node": "v22.16.0",
+        "modules": 59,
+        "jsBytes": 259384,
+        "runtimeBytes": 185873,
+        "cssBytes": 197256,
+        "entry": "site-33d23f1ab62e.js",
+        "syntaxChecked": true,
+        "typeChecked": false
+      },
+      "files": [
+        {
+          "path": ".htaccess",
+          "bytes": 315,
+          "gzipBytes": 251
+        },
+        {
+          "path": "react-467b459eca46.js",
+          "bytes": 185873,
+          "gzipBytes": 58445
+        },
+        {
+          "path": "site-33d23f1ab62e.js",
+          "bytes": 259384,
+          "gzipBytes": 63034
+        },
+        {
+          "path": "site-c941dec68ce8.css",
+          "bytes": 197256,
+          "gzipBytes": 35249
+        }
+      ],
+      "publicBytes": 27132087,
+      "htmlBytes": 27095
+    }
+  },
+  "note": "Measured local files, not Lighthouse, network speed, Core Web Vitals or live site comparison."
+}

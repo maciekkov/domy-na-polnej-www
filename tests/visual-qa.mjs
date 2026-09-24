@@ -5,7 +5,7 @@ import { browser, startServer, noOverflow } from './browser-utils.mjs'
 const server=await startServer(), chrome=await browser()
 try {
   const context=await chrome.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'})
-  await context.addInitScript(()=>localStorage.setItem('dnp-analytics-consent-v1','accepted'))
+  await context.addInitScript(()=>localStorage.setItem('dnp-cookie-consent-v2','all'))
   const page=await context.newPage(), errors=[]
   page.on('pageerror',error=>errors.push(error.message))
   await page.goto(server.url+'/',{waitUntil:'networkidle'})
@@ -23,7 +23,7 @@ try {
   await expect(frame.locator('#tourApp')).toHaveAttribute('data-scene','int00-podcien-wejsciowy')
   if(await frame.locator('#tourDisclaimer').isVisible())await frame.locator('#tourDisclaimerAccept').click()
   await frame.locator('#closeTour').click()
-  const events=await page.evaluate(()=>JSON.parse(localStorage.getItem('dnp-analytics-events-v2')||'[]'))
+  const events=await page.evaluate(()=>JSON.parse(localStorage.getItem('dnp-analytics-events-v3')||'[]'))
   if(!events.some(event=>event.eventName==='tour_start'&&event.houseCode==='unknown'))throw new Error('Spacer bez wyboru przypisany do konkretnego domu')
   if(events.some(event=>event.houseCode==='A'))throw new Error('Fikcyjne przypisanie do A')
   await page.goto(server.url+'/?dom=B',{waitUntil:'networkidle'});await expect(select).toHaveValue('B')
@@ -37,13 +37,13 @@ try {
   await expect(form.locator('[role=status]')).toContainText('Tryb podglądu')
 
   // The file can change without rebuilding the React application.
-  const data=JSON.parse(readFileSync('public/data/site-data.json','utf8'))
-  data.revision++;data.houses[1].status='Sprzedany';data.houses[1].price=890000
+  const data=JSON.parse(readFileSync('tests/fixtures/selling-baseline.json','utf8'))
+  data.revision=100;data.houses[1].status='Sprzedany';data.houses[1].price=890000
   data.documents.find(document=>document.type==='house_card'&&document.houseId==='B').active=false
   await page.route('**/data/site-data.json',route=>route.fulfill({json:data}))
   await page.evaluate(()=>localStorage.setItem('dnp-published-site-data-v1',JSON.stringify({revision:999,houses:[{id:'B',price:1}]})))
   await page.goto(server.url+'/?dom=B',{waitUntil:'networkidle'})
-  await expect(page.locator('.house-card__price')).toContainText('Już wkrótce')
+  await expect(page.locator('.house-card__price')).toContainText('890 000 zł')
   await expect(page.locator('.house-card .status-badge')).toHaveText('Sprzedany')
   await expect(page.locator('.house-card__pdf')).toHaveCount(0)
   await page.unroute('**/data/site-data.json')

@@ -11,10 +11,11 @@ import {resolveSiteDocuments} from '../src/data/runtime/siteSchema.mjs'
 import {walk} from '../scripts/asset-inventory.mjs'
 const root=resolve(import.meta.dirname,'..'),read=p=>readFileSync(join(root,p),'utf8')
 const snapshot=JSON.parse(read('public/data/site-data.json')),data=resolveSiteDocuments(snapshot),copy=()=>structuredClone(data)
+const selling=()=>resolveSiteDocuments(JSON.parse(read('tests/fixtures/selling-baseline.json')))
 const valid={name:'Jan',phone:'+48 600 123 456',email:'jan@example.test',message:'Pytanie',consentContact:true,consentPrivacy:true}
-test('Dostępne domy: cena wyłącznie z aktywnej oferty',()=>assert.equal(availablePrice(data.houses),779000))
-test('Sprzedany najtańszy dom nie wpływa na cenę od',()=>{const d=copy();d.houses[0].status='Sprzedany';assert.equal(availablePrice(d.houses),789000)})
-test('Rezerwacja najtańszego domu nie wpływa na cenę od',()=>{const d=copy();d.houses[0].status='Rezerwacja';assert.equal(availablePrice(d.houses),789000)})
+test('Dostępne domy: cena wyłącznie z aktywnej oferty',()=>assert.equal(availablePrice(selling().houses),779000))
+test('Sprzedany najtańszy dom nie wpływa na cenę od',()=>{const d=selling();d.houses[0].status='Sprzedany';assert.equal(availablePrice(d.houses),789000)})
+test('Rezerwacja najtańszego domu nie wpływa na cenę od',()=>{const d=selling();d.houses[0].status='Rezerwacja';assert.equal(availablePrice(d.houses),789000)})
 test('Wyprzedanie całej inwestycji: brak Infinity/0/poprzedniej ceny',()=>{const d=copy();d.houses.forEach(h=>h.status='Sprzedany');assert.equal(availablePrice(d.houses),null);assert.equal(offerLead(d.houses),'Sprzedaż i cennik już wkrótce');assert.ok(!pageMeta(d).description.includes('779'))})
 test('Dane wejściowe polityki ceny nie są mutowane',()=>{const before=JSON.stringify(data);pageMeta(data);structuredData(data,'A');assert.equal(JSON.stringify(data),before)})
 test('Cena pozostaje niepubliczna w komunikacji i danych strukturalnych',()=>{const d=copy();d.houses[0].price=750123;assert.equal(offerLead(d.houses),'Sprzedaż i cennik już wkrótce');assert.ok(!pageMeta(d).description.includes('750 123'));const schema=structuredData(d,'A');assert.ok(!JSON.stringify(schema).includes('750123'));assert.ok(!schema['@graph'].some(x=>x['@type']==='Offer'))})

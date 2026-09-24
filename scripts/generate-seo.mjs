@@ -3,8 +3,10 @@ import {randomUUID} from 'node:crypto'
 import {resolve,join,dirname} from 'node:path'
 import {fileURLToPath} from 'node:url'
 import {parseSiteData,resolveSiteDocuments} from '../src/data/runtime/siteSchema.mjs'
-import {pageMeta,structuredData,safeJson,escapeHtml as e,SITE_ORIGIN,areaText} from '../src/lib/offers.mjs'
+import {isSelling,publishedPrice,publicStatus,faqForStage} from '../src/lib/sales.mjs'
+import {pageMeta,structuredData,safeJson,escapeHtml as e,SITE_ORIGIN,areaText,money,moneyPerSqm,offerLead} from '../src/lib/offers.mjs'
 const root=resolve(import.meta.dirname,'..')
+const faqItems=JSON.parse(readFileSync(join(root,'src/data/faq-content.json'),'utf8'))
 export function headFor(html,data,id=null){
  const m=pageMeta(data,id)
  html=html.replace(/<title>[\s\S]*?<\/title>/,`<title>${e(m.title)}</title>`)
@@ -17,10 +19,15 @@ export function headFor(html,data,id=null){
  html=html.replace(/<script(?: id="site-schema")? type="application\/ld\+json">[\s\S]*?<\/script>/,`<script id="site-schema" type="application/ld+json">${safeJson(structuredData(data,id))}</script>`)
  return html
 }
-export function homeSnapshot(data){
+const imageUrl = (path, assets) => assets[path] ? `${path}?v=${assets[path]}` : path
+export function homeSnapshot(data, assets = {}){
  const h=data.houses[0],plots=data.houses.map(x=>x.plot)
- return `<section class="hero" id="start" aria-labelledby="hero-title"><div class="hero__media-stack"><picture class="hero__media is-loaded"><source media="(max-width:640px)" srcset="/assets/images/responsive/hero-mobile.webp"><img src="/assets/images/responsive/hero-0-1672.webp" srcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="Wizualizacja inwestycji Domy na Polnej" fetchpriority="high"></picture></div><div class="hero__shade" aria-hidden="true"></div><div class="hero__content shell"><div class="hero__copy"><p class="eyebrow eyebrow--light">${data.houses.length} domów wolnostojących <span>·</span> Grabik koło Żar</p><h1 id="hero-title">Dom z ogrodem.<br><em>Blisko Żar.</em></h1><p class="hero__lead">Parterowy dom, ${h.rooms} pokoi i własna działka.<br class="hero__desktop-break"> Przestrzeń do życia — w domu i poza nim.</p><div class="hero__buttons"><a class="button button--light" href="#domy">Wybierz dom i zobacz szczegóły →</a><a class="hero__tour-link" href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a></div></div><div class="hero__bottom"><dl class="hero__facts"><div><dt>${e(areaText(h.area))}</dt><dd>powierzchni użytkowej</dd></div><div><dt>${Math.min(...plots)}–${Math.max(...plots)} m²</dt><dd>powierzchni działki</dd></div><div><dt>Już wkrótce</dt><dd>start sprzedaży i cennik</dd></div></dl></div></div></section>
- <section id="domy" class="nojs-offers shell"><h2>Domy i dostępność</h2><p>Pełny plan i spacery wymagają JavaScript. Cennik sprzedaży jest w przygotowaniu; dokumenty i kontakt są dostępne poniżej.</p><div class="nojs-offers__grid">${data.houses.map(x=>`<article><h3>${e(x.name)}</h3><p>${e(x.status)} · działka ${e(x.parcel)}</p><p>${e(areaText(x.area))} domu · ${x.plot} m² działki</p><strong>Już wkrótce</strong><p>Cennik w przygotowaniu</p>${x.pdf?`<a href="${e(x.pdf)}">Karta domu PDF</a>`:''}</article>`).join('')}</div><p>${data.standardPdf?`<a href="${e(data.standardPdf)}">Standard techniczny PDF</a> · `:''}<a href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a> · <a href="${e(data.contact.emailHref)}">${e(data.contact.email)}</a></p><p><a href="/polityka-prywatnosci/">Polityka prywatności</a> · <a href="/polityka-cookies/">Polityka cookies</a></p></section>`
+ const image = path => e(imageUrl(path,assets))
+ const heroSet = [640,1024,1672].map(w=>`${imageUrl(`/assets/images/responsive/hero-0-${w}.webp`,assets)} ${w}w`).join(', ')
+ const price = isSelling(data) ? offerLead(data.houses,data.salesStage) : 'Już wkrótce'
+ return `<section class="hero" id="start" aria-labelledby="hero-title"><div class="hero__media-stack"><picture class="hero__media is-loaded"><source media="(max-width:640px)" srcset="${image('/assets/images/responsive/hero-mobile.webp')}"><img src="${image('/assets/images/responsive/hero-0-1672.webp')}" srcset="${e(heroSet)}" sizes="100vw" width="1672" height="941" alt="Wizualizacja inwestycji Domy na Polnej" fetchpriority="high"></picture></div><div class="hero__shade" aria-hidden="true"></div><div class="hero__content shell"><div class="hero__copy"><p class="eyebrow eyebrow--light">${data.houses.length} domów wolnostojących <span>·</span> Grabik koło Żar</p><h1 id="hero-title">Dom z ogrodem.<br><em>Blisko Żar.</em></h1><p class="hero__lead">Parterowy dom, ${h.rooms} pokoi i własna działka.<br class="hero__desktop-break"> Przestrzeń do życia — w domu i poza nim.</p><div class="hero__buttons"><a class="button button--light" href="#domy">Wybierz swój dom →</a><a class="hero__tour-link" href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a></div></div><div class="hero__bottom"><dl class="hero__facts"><div><dt>${e(areaText(h.area))}</dt><dd>powierzchni użytkowej</dd></div><div><dt>${Math.min(...plots)}–${Math.max(...plots)} m²</dt><dd>powierzchni działki</dd></div><div><dt>${e(price)}</dt><dd>${isSelling(data)?'cena brutto dostępnego domu':'sprzedaż i cennik w przygotowaniu'}</dd></div></dl><span class="hero__visualisation-label">Wizualizacja</span></div></div></section>
+ <section id="domy" class="nojs-offers shell"><h2>Domy i dostępność</h2><p>Pełny plan i spacery wymagają JavaScript. ${isSelling(data)?'Ceny, dokumenty i kontakt są dostępne poniżej.':'Cennik sprzedaży jest w przygotowaniu; dokumenty i kontakt są dostępne poniżej.'}</p><div class="nojs-offers__grid">${data.houses.map(x=>`<article><h3>${e(x.name)}</h3><p>${e(publicStatus(data,x.status))} · działka ${e(x.parcel)}</p><p>${e(areaText(x.area))} domu · ${x.plot} m² działki</p><strong>${publishedPrice(data,x)?e(money(x.price)):'Już wkrótce'}</strong><p>${publishedPrice(data,x)?e(moneyPerSqm(x))+' brutto':'Cennik w przygotowaniu'}</p>${isSelling(data)&&x.priceHistory.length?`<details><summary>Historia ceny</summary><ul>${x.priceHistory.map(entry=>`<li>${e(entry.validFrom)} – ${e(entry.validTo)}: ${e(money(entry.price))}</li>`).join('')}</ul></details>`:''}${isSelling(data)&&x.mandatoryPayments.length?`<ul>${x.mandatoryPayments.map(p=>`<li>${e(p.name)}: ${e(money(p.amount))}</li>`).join('')}</ul>`:''}${x.pdf?`<a href="${e(x.pdf)}">Karta domu PDF</a>`:''}</article>`).join('')}</div><p>${data.standardPdf?`<a href="${e(data.standardPdf)}">Standard techniczny PDF</a> · `:''}<a href="${e(data.contact.phoneHref)}">${e(data.contact.phoneDisplay)}</a> · <a href="${e(data.contact.emailHref)}">${e(data.contact.email)}</a></p><p><a href="/polityka-prywatnosci/">Polityka prywatności</a> · <a href="/polityka-cookies/">Polityka cookies</a></p></section>
+ <section class="nojs-offers shell" id="faq"><h2>Najważniejsze pytania o Domy na Polnej</h2>${faqForStage(data,faqItems).map(item=>`<details><summary>${e(item.question)}</summary><p>${e(item.answer)}</p></details>`).join('')}</section>`
 }
 
 function replaceSnapshot(html,markup){
@@ -35,13 +42,13 @@ export function prepareSourcePages(projectRoot=root, suppliedData=null){
  let source=readFileSync(index,'utf8')
  const critical=['src/styles/tokens.css','src/styles/globals.css','src/styles/sections/hero.css'].map(p=>readFileSync(join(projectRoot,p),'utf8')).join('\n') + '\n.nojs-offers{padding-block:64px}.nojs-offers__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}.nojs-offers article{padding:24px;border:1px solid #c9cdbf;border-radius:6px;background:#fdfcf8}.nojs-offers a{display:inline-flex;min-height:44px;align-items:center}.nojs-offers article strong{font-size:22px}\n@media(max-width:760px){:root{--shell:calc(100% - 40px)}}'
  source=source.replace(/<style id="dnp-critical-css">[\s\S]*?<\/style>/,`<style id="dnp-critical-css">${critical}</style>`)
- source=source.replace(/<link rel="preload" as="image"[^>]*>/g,'')
- source=source.replace('</head>',`<link rel="preload" as="image" href="/assets/images/responsive/hero-mobile.webp" media="(max-width:640px)" fetchpriority="high" />\n<link rel="preload" as="image" href="/assets/images/responsive/hero-0-1672.webp" imagesrcset="/assets/images/responsive/hero-0-640.webp 640w, /assets/images/responsive/hero-0-1024.webp 1024w, /assets/images/responsive/hero-0-1672.webp 1672w" imagesizes="100vw" media="(min-width:641px)" fetchpriority="high" />\n</head>`)
-
  const versionsPath=join(projectRoot,'public/assets/data/asset-versions.json')
  const versions=existsSync(versionsPath)?JSON.parse(readFileSync(versionsPath,'utf8')).assets:{}
+ source=source.replace(/^[ \t]*<link rel="preload" as="image"[^>]*>[ \t]*\n?/gm,'')
+ const heroSet=[640,1024,1672].map(w=>`${imageUrl(`/assets/images/responsive/hero-0-${w}.webp`,versions)} ${w}w`).join(', ')
+ source=source.replace(/\n\s*<\/head>/,`\n<link rel="preload" as="image" href="${e(imageUrl('/assets/images/responsive/hero-mobile.webp',versions))}" media="(max-width:640px)" fetchpriority="high" />\n<link rel="preload" as="image" href="${e(imageUrl('/assets/images/responsive/hero-0-1672.webp',versions))}" imagesrcset="${e(heroSet)}" imagesizes="100vw" media="(min-width:641px)" fetchpriority="high" />\n</head>`)
  const mobileDigest=versions['/assets/images/responsive/hero-mobile.webp']
- let home=replaceSnapshot(headFor(source,data),homeSnapshot(data))
+ let home=replaceSnapshot(headFor(source,data),homeSnapshot(data,versions))
  if(mobileDigest) home=home.replace(/hero-mobile\.webp(?:\?v=[a-f0-9]+)?/g,`hero-mobile.webp?v=${mobileDigest}`)
  return [{path:index,content:home},{path:join(projectRoot,'public/sitemap.xml'),content:sitemapContent(data)}]
 }
@@ -54,9 +61,11 @@ export function writeSitemap(target,data){writeFileSync(join(target,'sitemap.xml
 /** Publication refreshes metadata and HTML too: no React/Vite rebuild required. */
 export function preparePublishedSeo(target,data){
  if(!existsSync(join(target,'index.html')))return []
+ const manifest=join(target,'assets/data/asset-versions.json')
+ const versions=existsSync(manifest)?JSON.parse(readFileSync(manifest,'utf8')).assets:{}
  let index=readFileSync(join(target,'index.html'),'utf8')
  if(!index.includes('<!--dnp-home-start-->') || !index.includes('<!--dnp-home-end-->')) throw new Error('Brak znaczników strony głównej — wymagany pełny build.')
- return [{path:join(target,'index.html'),content:replaceSnapshot(headFor(index,data),homeSnapshot(data))},{path:join(target,'sitemap.xml'),content:sitemapContent(data)}]
+ return [{path:join(target,'index.html'),content:replaceSnapshot(headFor(index,data),homeSnapshot(data,versions))},{path:join(target,'sitemap.xml'),content:sitemapContent(data)}]
 }
 export function refreshPublishedSeo(target,data){commitFileUpdates(preparePublishedSeo(target,data))}
 

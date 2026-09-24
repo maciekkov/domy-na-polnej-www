@@ -47,9 +47,11 @@ export type AnalyticsEvent = {
 let memorySession = ''
 let memoryVisitor = ''
 let memoryVisit = ''
+let memoryVisitExpires = 0
 const memoryOnce = new Set<string>()
 let memoryConsent: AnalyticsConsent | null = null
 let activeSection: { id: string; startedAt: number; houseCode?: string } | null = null
+let pausedSection: { id:string; houseCode?:string } | null = null
 let listenersInstalled = false
 
 const uuid = () => typeof crypto.randomUUID === 'function'
@@ -94,7 +96,7 @@ export function setConsent(value: AnalyticsConsent) {
   } catch { /* Retain this document's explicit choice in memory. */ }
   if (value === 'necessary') {
     flushSectionTime()
-    memorySession = ''; memoryVisitor = ''; memoryVisit = ''; memoryOnce.clear(); activeSection = null
+    memorySession = ''; memoryVisitor = ''; memoryVisit = ''; memoryOnce.clear(); activeSection = null; pausedSection = null; memoryVisitExpires = 0
     clearCookie(VISITOR_COOKIE); clearCookie(VISIT_COOKIE)
     try { sessionStorage.removeItem(ANALYTICS_SESSION_KEY); localStorage.removeItem(ANALYTICS_EVENTS_KEY) } catch { /* Optional storage. */ }
   } else {
@@ -108,7 +110,7 @@ if (typeof window !== 'undefined') window.addEventListener('storage', event => {
   const value = event.newValue
   memoryConsent = value === 'all' ? 'all' : value === 'necessary' ? 'necessary' : null
   if (memoryConsent !== 'all') {
-    memorySession = ''; memoryVisitor = ''; memoryVisit = ''; memoryOnce.clear(); activeSection = null
+    memorySession = ''; memoryVisitor = ''; memoryVisit = ''; memoryOnce.clear(); activeSection = null; pausedSection = null; memoryVisitExpires = 0
     clearCookie(VISITOR_COOKIE); clearCookie(VISIT_COOKIE)
   }
   window.dispatchEvent(new Event('dnp-consent-changed'))
@@ -133,7 +135,8 @@ function visitId() {
   if (!analyticsAllowed()) return ''
   const stored = readCookie(VISIT_COOKIE)
   const isExisting = stored && /^[a-zA-Z0-9_-]{8,100}$/.test(stored)
-  const id = isExisting ? stored! : (memoryVisit || uuid())
+  const id = isExisting ? stored! : (Date.now() < memoryVisitExpires && memoryVisit ? memoryVisit : uuid())
+  memoryVisitExpires = Date.now() + VISIT_MAX_AGE * 1000
   memoryVisit = id; setCookie(VISIT_COOKIE, id, VISIT_MAX_AGE); return id
 }
 function deviceClass(): AnalyticsEvent['deviceClass'] {
@@ -197,7 +200,7 @@ export function track(eventName: AnalyticsEventName, houseCode?: string, details
 
 export function trackOnce(eventName: AnalyticsEventName, houseCode?: string, discriminator = '', details: AnalyticsDetails = {}): void {
   if (!analyticsAllowed()) return
-  const key = `dnp-event:${eventName}:${window.location.pathname}:${houseCode ?? 'unknown'}:${discriminator}`
+  const key = `dnp-event:${visitId()}:${eventName}:${window.location.pathname}:${houseCode ?? 'unknown'}:${discriminator}`
   if (memoryOnce.has(key)) return
   try { if (sessionStorage.getItem(key)) return } catch { /* optional */ }
   if (!track(eventName, houseCode, details)) return
@@ -216,7 +219,8 @@ export function trackPageView(houseCode?: string) {
 export function trackSection(sectionId: string, houseCode?: string) {
   if (!analyticsAllowed()) return
   const normalized = clean(sectionId, 80)
-  if (!normalized || activeSection?.id === normalized) return
+  if (!normalized || (activeSection?.id === normalized && activeSection.houseCode === houseCode)) return
+  if (document.visibilityState === 'hidden') { pausedSection = {id:normalized,houseCode}; return }
   flushSectionTime()
   activeSection = { id: normalized, startedAt: performance.now(), houseCode }
   track('section_view', houseCode, { sectionId: normalized })
@@ -234,6 +238,13 @@ function installLifecycleListeners() {
   listenersInstalled = true
   window.addEventListener('pagehide', flushSectionTime)
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') flushSectionTime()
+    if (document.visibilityState === 'hidden') {
+      pausedSection = activeSection ? { id:activeSection.id, houseCode:activeSection.houseCode } : null
+      flushSectionTime()
+    } else if (analyticsAllowed()) {
+      const resume=pausedSection; pausedSection=null
+      trackPageView()
+      if (resume) { activeSection={...resume,startedAt:performance.now()} }
+    }
   })
 }

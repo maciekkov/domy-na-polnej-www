@@ -1,13 +1,23 @@
 {
-  "builder": "portable",
-  "typescript": "5.8.3",
-  "react": "19.1.1",
-  "node": "v22.16.0",
-  "modules": 56,
-  "jsBytes": 252386,
-  "runtimeBytes": 185873,
-  "cssBytes": 196707,
-  "entry": "site-05e94fd02d75.js",
-  "syntaxChecked": true,
-  "typeChecked": false
+  "version": "5.2.0-rc.4",
+  "fullTypecheck": true,
+  "sourceChecks": 148,
+  "logicTests": 100,
+  "tourDataChecks": 1154,
+  "presaleStorageChecks": 11,
+  "presaleApiRequests": 18,
+  "presalePhpRuntime": "PHP 8.3/8.5 WASM",
+  "viewports": [
+    320,
+    390,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "axeViolations": 0,
+  "hostedPhpTested": false,
+  "smtpDeliveryTested": false,
+  "published": false,
+  "pushedToGitHub": false
 }

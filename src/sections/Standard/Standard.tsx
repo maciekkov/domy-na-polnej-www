@@ -1,8 +1,6 @@
-import { assetUrl } from '../../lib/assetUrl'
 import { Download, FileText, Leaf, Minus, Plus } from '../../components/common/Icons'
 import { useState } from 'react'
 import { standardGroups, standardHighlights } from '../../data/standard'
-const asset = (path: string) => assetUrl(`${import.meta.env.BASE_URL}${path}`)
 
 export function Standard({ pdfUrl }: { pdfUrl: string }) {
   const [openId, setOpenId] = useState<string | null>('windows')
@@ -11,13 +9,16 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
     <section id="standard" className="standard-section" aria-labelledby="standard-title">
       <div className="shell standard-section__grid">
         <div className="standard-section__content">
-          <div className="section-kicker"><b>07 / 12</b><span />Standard</div>
+          <div className="standard-section__intro">
+          <div className="section-kicker"><span />Standard</div>
           <h2 id="standard-title">To, co ważne, już jest w standardzie</h2>
           <p className="standard-section__lead">Pompa ciepła, ogrzewanie podłogowe, wentylacja z odzyskiem ciepła i okna trzyszybowe. Poniżej najważniejsze elementy, a w dokumencie PDF — szczegółowy zakres materiałów i prac.</p>
 
+          </div>
+          <div className="standard-section__body">
           <div className="standard-highlights" aria-label="Najważniejsze elementy standardu">
             {standardHighlights.map((item) => {
-              return <div className="standard-highlight" key={item.id}><span className="standard-highlight__icon"><img src={asset(`assets/icons/${item.id}.svg`)} alt="" width="48" height="48" loading="lazy" /></span><span>{item.label}</span></div>
+              return <div className="standard-highlight" key={item.id}><span className={`standard-highlight__icon standard-highlight__icon--${item.id}`} aria-hidden="true" /><span>{item.label}</span></div>
             })}
           </div>
 
@@ -40,6 +41,7 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
             })}
           </div>
           <div className="scope-note"><strong>Standard deweloperski, nie dom pod klucz.</strong><p>Wykończenie wnętrz, kuchnia, wyposażenie łazienek, umeblowanie i nasadzenia nie są w cenie podstawowej. PV Ready oznacza przygotowanie pod fotowoltaikę, nie komplet paneli. Taras i wiata wymagają odrębnego uzgodnienia.</p></div>
+          </div>
         </div>
 
         <div className="standard-section__visuals">
@@ -58,7 +60,7 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
               <a className="button button--olive" href={pdfUrl || undefined} aria-disabled={!pdfUrl} download>Pobierz pełny standard PDF <Download size={17} aria-hidden="true" /></a>
             </div>
             <a className="standard-pdf-card__cover" href={pdfUrl || undefined} aria-disabled={!pdfUrl} target="_blank" rel="noreferrer" aria-label="Otwórz standard techniczny w nowej karcie">
-              <img src="/assets/images/standard/standard-cover.webp?v=ad2bd4e03804787a" alt="Okładka dokumentu Standard naszych domów" width="760" height="1075" loading="lazy" decoding="async" />
+              <img src="/assets/images/standard/standard-cover.webp?v=485bb001f613806e" alt="Okładka dokumentu Standard naszych domów" width="760" height="1075" loading="lazy" decoding="async" />
             </a>
           </article>
         </div>

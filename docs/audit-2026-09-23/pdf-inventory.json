@@ -1,0 +1,43 @@
+[
+  {
+    "file": "public/pdf/karta-dom-c.pdf",
+    "pages": 1,
+    "sha256": "943d702b409a13ac524d483ca0628b287a0bb8ed0966ca8c581eae5aca0ec574",
+    "amount_matches": []
+  },
+  {
+    "file": "public/pdf/karta-dom-a.pdf",
+    "pages": 1,
+    "sha256": "d496976d39fc20d8d055c305380891f8f302bf9f6f3ef3cea64c6596a26f7c8d",
+    "amount_matches": []
+  },
+  {
+    "file": "public/pdf/karta-dom-d.pdf",
+    "pages": 1,
+    "sha256": "e0f80ce45baf994e6e197d2d4a014e4e2872facf7ae18fca4f7c503ca797f579",
+    "amount_matches": []
+  },
+  {
+    "file": "public/pdf/karta-dom-b.pdf",
+    "pages": 1,
+    "sha256": "15acc3a2de4619c118b11103ada9d45e012c8ee34baa7b564fc3e3469c7c99de",
+    "amount_matches": []
+  },
+  {
+    "file": "public/pdf/karta-dom-e.pdf",
+    "pages": 1,
+    "sha256": "779fe208e88cedc71e6c5520ef9c45de50ceb74efc48685c23cc9658e2a1975b",
+    "amount_matches": []
+  },
+  {
+    "file": "public/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf",
+    "pages": 13,
+    "sha256": "738a769f8cee7741c94ece2a346b66b7e8c71e7c59887b966eccd83a4da1fc10",
+    "amount_matches": [
+      "wymagań cieplnych",
+      "Izolacja cieplna stropu / poddasza nieużytkowego.",
+      "Kolory elewacji: złamana biel, szarość i grafit.",
+      "Przygotowanie pod przyszły napęd bramy i obsługę"
+    ]
+  }
+]

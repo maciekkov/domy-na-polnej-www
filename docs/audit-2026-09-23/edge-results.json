@@ -1,0 +1,25 @@
+{
+  "mode": "adapted-local-origin; admin DOM test intentionally excludes origin/CSP enforcement",
+  "results": [
+    {
+      "name": "runtime data selling",
+      "passed": true
+    },
+    {
+      "name": "runtime data stale",
+      "passed": true
+    },
+    {
+      "name": "runtime data leak",
+      "passed": true
+    },
+    {
+      "name": "runtime data broken",
+      "passed": true
+    },
+    {
+      "name": "admin API strings render as inert text; clearing removes credential/results",
+      "passed": true
+    }
+  ]
+}

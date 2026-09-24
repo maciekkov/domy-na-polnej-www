@@ -102,6 +102,7 @@ helpBtn.innerHTML = icons.help
 fullscreenBtn.innerHTML = icons.fullscreen
 $('closeTour').innerHTML = icons.close
 $('switchTour').innerHTML = icons[mode === 'interior' ? 'exterior' : 'interior']
+$('switchTour').addEventListener('click', event => { if (embedded) { event.preventDefault(); window.location.replace(event.currentTarget.href) } })
 $('switchTour').href = `${TOUR_URLS[mode === 'interior' ? 'exterior' : 'interior']}${editMode ? '?edit=1' : ''}`
 $('switchTour').title = mode === 'interior' ? 'Spacer na zewnątrz' : 'Spacer we wnętrzu'
 $('switchTour').setAttribute('aria-label', $('switchTour').title)
@@ -208,7 +209,7 @@ function renderThumbs(scene) {
 function followHotspot(point) {
   if (point.tour) {
     const base = TOUR_URLS[point.tour]
-    if (base) window.location.assign(`${base}${editMode ? '?edit=1' : ''}#${encodeURIComponent(point.target)}`)
+    if (base) window.location.replace(`${base}${editMode ? '?edit=1' : ''}#${encodeURIComponent(point.target)}`)
   } else {
     showScene(point.target, point.kind || 'fade')
   }
@@ -292,7 +293,8 @@ function positionHotspots() {
   const width = app.clientWidth, height = app.clientHeight
   const appRect = app.getBoundingClientRect()
   const frame = layers[activeLayer].getBoundingClientRect()
-  const scale = Math.min(frame.width / currentImage.width, frame.height / currentImage.height, 1)
+  const fit = getComputedStyle(layers[activeLayer]).objectFit
+  const scale = fit === 'cover' ? Math.max(frame.width / currentImage.width, frame.height / currentImage.height) : Math.min(frame.width / currentImage.width, frame.height / currentImage.height, fit === 'scale-down' ? 1 : Infinity)
   const picture = { width: currentImage.width * scale, height: currentImage.height * scale }
   picture.left = frame.left - appRect.left + (frame.width - picture.width) / 2
   picture.top = frame.top - appRect.top + (frame.height - picture.height) / 2
@@ -960,7 +962,7 @@ function setupEditor() {
     const point = currentEditorPoint(); if (!point) return
     if (point.tour) {
       const base = TOUR_URLS[point.tour]
-      if (base && point.target) window.location.assign(`${base}?edit=1#${encodeURIComponent(point.target)}`)
+      if (base && point.target) window.location.replace(`${base}?edit=1#${encodeURIComponent(point.target)}`)
     } else if (point.target) showScene(point.target)
   })
   editorPanel.querySelector('[data-editor-test]')?.addEventListener('click', (event) => {

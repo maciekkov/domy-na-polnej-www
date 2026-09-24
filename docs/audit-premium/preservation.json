@@ -1,0 +1,13 @@
+{
+  "publicInvestmentData": "identical, except image cache tokens",
+  "pdfDocuments": "byte-identical",
+  "pdfCount": 9,
+  "salesStage": "prelaunch",
+  "prices": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

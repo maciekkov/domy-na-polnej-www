@@ -1,3 +1,4 @@
+import { useOverlayHistory } from '../../hooks/useOverlayHistory'
 import { createPortal } from 'react-dom'
 import { Crosshair, Minus, Plus, RotateCcw, X } from '../../components/common/Icons'
 import { useEffect, useRef, useState } from 'react'
@@ -11,6 +12,7 @@ const INITIAL_LAT = -6
 const INITIAL_FOV = 76
 
 export function PanoramaModal({ onClose }: PanoramaModalProps) {
+  const closeViewer = useOverlayHistory(onClose)
   const dialogRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -22,7 +24,7 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
   const [dragging, setDragging] = useState(false)
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'error'>('loading')
 
-  useDialog(dialogRef, onClose)
+  useDialog(dialogRef, closeViewer)
   useEffect(() => {
     const host = canvasRef.current
     if (!host) return
@@ -91,7 +93,7 @@ export function PanoramaModal({ onClose }: PanoramaModalProps) {
       </div>
       <div className="panorama-modal__topbar">
         <div><Crosshair aria-hidden="true" /><span><small>Rzeczywista fotografia z drona</small><strong>Grabik · panorama 360°</strong></span></div>
-        <button data-dialog-close ref={closeRef} type="button" onClick={onClose} aria-label="Zamknij panoramę"><X aria-hidden="true" /></button>
+        <button data-dialog-close ref={closeRef} type="button" onClick={closeViewer} aria-label="Zamknij panoramę"><X aria-hidden="true" /></button>
       </div>
       <div className="panorama-modal__controls" aria-label="Sterowanie panoramą">
         <button type="button" onClick={() => { lonRef.current -= 15; requestRenderRef.current() }} aria-label="Obróć w lewo">←</button>

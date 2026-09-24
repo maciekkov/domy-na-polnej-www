@@ -1,6 +1,8 @@
 import { ArrowRight, Mail, MapPin, Phone } from '../../components/common/Icons'
 import { useEffect, useState, useRef } from 'react'
 import type { FormEvent } from 'react'
+import { useSiteData } from '../../data/runtime/SiteDataProvider'
+import { faqForStage } from '../../lib/sales.mjs'
 import { faqItems } from '../../data/faq'
 import { isHouseId, type HouseSelection } from '../../data/houses'
 import type { ContactData } from '../../data/runtime/types'
@@ -35,6 +37,8 @@ const initialFields = (selectedHouse: HouseSelection): ContactFields => ({
 
 
 export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
+  const { data } = useSiteData()
+  const visibleFaq = faqForStage(data,faqItems)
   const [openFaq, setOpenFaq] = useState('')
   const [fields, setFields] = useState<ContactFields>(() => initialFields(selectedHouse))
   const [formState, setFormState] = useState<FormState>('idle')
@@ -114,7 +118,7 @@ export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
       <section id="faq" className="faq-section" aria-labelledby="faq-title">
         <div className="shell faq-section__grid">
           <div className="faq-section__intro">
-            <div className="section-kicker"><b>12 / 12</b><span />FAQ + kontakt</div>
+            <div className="section-kicker"><span />FAQ + kontakt</div>
             <h2 id="faq-title">Masz pytania?</h2>
             <p>Najważniejsze odpowiedzi o domu, zakupie i finansowaniu — krótko i konkretnie.</p>
           </div>
@@ -128,7 +132,7 @@ export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
               <section className="faq-column" key={group.title} aria-label={group.title}>
                 <h3 className="faq-column__title">{group.title}</h3>
                 <div className="faq-list" role="list">
-                  {group.ids.map((id) => faqItems.find((item) => item.id === id)).filter(Boolean).map((item) => {
+                  {group.ids.map((id) => visibleFaq.find((item) => item.id === id)).filter(Boolean).map((item) => {
                     if (!item) return null
                     const open = item.id === openFaq
                     return (
@@ -153,7 +157,7 @@ export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
         <div className="shell contact-section__grid">
           <div className="contact-section__intro">
             <h2 id="contact-title">Porozmawiajmy<br />o Twoim domu</h2>
-            <p>Zapytaj o wybrany dom, zakres standardu lub prezentację działki. Wybór z planu inwestycji przeniesiemy do formularza.</p>
+            <p>Zapytaj o wybrany dom, standard lub spotkanie na działce. Zostaw imię i telefon — porozmawiamy o szczegółach.</p>
 
             <address className="contact-details">
               <a href={contact.phoneHref} onClick={() => track('phone_click')}><Phone aria-hidden="true" /><span><strong>{contact.phoneDisplay}</strong><small>{contact.contactHours}</small></span></a>

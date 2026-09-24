@@ -23,8 +23,8 @@ export type Lead = {
 export type PriceHistoryEntry = {
   id: string
   houseId: string
-  oldPrice: number
-  newPrice: number
+  oldPrice: number | null
+  newPrice: number | null
   changedAt: string
   changedBy: string
   reason: string
@@ -69,25 +69,11 @@ export const seedAdminState = (): AdminState => {
     draft: clone(published),
     published,
     dirty: false,
-    priceHistory: published.houses.map((house) => ({
-      id: `seed-${house.id}`,
-      houseId: house.id,
-      oldPrice: house.price,
-      newPrice: house.price,
-      changedAt: '2026-09-13T18:00:00.000Z',
-      changedBy: 'dane początkowe',
-      reason: 'Import danych wersji 01–12',
-      revisionId: 1,
-      govSyncStatus: 'not_applicable',
-    })),
-    leads: [
-      { id: 'demo-1', createdAt: '2026-09-13T08:42:00.000Z', name: 'Anna Nowak', phone: '+48 600 123 456', email: 'anna@example.test', houseCode: 'C', source: 'Google / organic', campaign: '—', status: 'new', message: 'Proszę o kontakt w sprawie dostępności domu C.', note: '' },
-      { id: 'demo-2', createdAt: '2026-09-12T15:18:00.000Z', name: 'Piotr Zieliński', phone: '+48 600 456 789', email: 'piotr@example.test', houseCode: 'E', source: 'Instagram', campaign: 'jesien_dom_e', status: 'contacted', message: 'Chciałbym umówić prezentację działki.', note: 'Oddzwonić po 17:00.' },
-      { id: 'demo-3', createdAt: '2026-09-11T10:05:00.000Z', name: 'Katarzyna W.', phone: '+48 600 987 654', email: '', houseCode: 'A', source: 'Direct', campaign: '—', status: 'meeting', message: 'Pytanie o standard i możliwość zmian.', note: 'Spotkanie w sobotę.' },
-    ],
-    audit: [{ id: 'audit-seed', createdAt: '2026-09-13T18:00:00.000Z', action: 'system_init', entity: 'System', description: 'Utworzono demonstracyjny stan panelu.' }],
-    revisions: [{ id: 1, createdAt: '2026-09-13T18:00:00.000Z', summary: 'Wersja początkowa 01–12', snapshot: clone(published), isCurrent: true }],
-    lastBackupAt: '2026-09-13T03:10:00.000Z',
+    priceHistory: [],
+    leads: [],
+    audit: [],
+    revisions: [],
+    lastBackupAt: '',
     govMode: 'demo',
   }
 }
@@ -97,9 +83,18 @@ export function readAdminState(): AdminState {
     const value = localStorage.getItem(ADMIN_STATE_KEY)
     if (!value) return seedAdminState()
     const parsed = JSON.parse(value) as AdminState
-    parseSiteData(parsed.draft); parseSiteData(parsed.published)
+    parseSiteData(parsed.draft, { allowDraftPrices: true }); parseSiteData(parsed.published)
     for (const field of ['leads','revisions','audit','priceHistory'] as const) if (!Array.isArray(parsed[field])) return seedAdminState()
-    return parsed
+    // Remove sample records shipped in earlier versions, also from browsers
+    // that persisted that local demo. Preserve any records created by the user.
+    return {
+      ...parsed,
+      leads: parsed.leads.filter((lead) => !['demo-1', 'demo-2', 'demo-3'].includes(lead.id)),
+      priceHistory: parsed.priceHistory.filter((entry) => !entry.id.startsWith('seed-')),
+      audit: parsed.audit.filter((entry) => entry.id !== 'audit-seed'),
+      revisions: parsed.revisions.filter((entry) => !(entry.id === 1 && entry.summary === 'Wersja początkowa 01–12')),
+      lastBackupAt: parsed.lastBackupAt === '2026-09-13T03:10:00.000Z' ? '' : parsed.lastBackupAt,
+    }
   } catch {
     return seedAdminState()
   }
@@ -133,5 +128,6 @@ export function auditEntry(action: string, entity: string, description: string):
 }
 
 export function formatDate(value: string) {
+  if (!value || !Number.isFinite(Date.parse(value))) return '—'
   return new Intl.DateTimeFormat('pl-PL', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(value))
 }

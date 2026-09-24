@@ -11,7 +11,9 @@ function dnpRespond(int $status, array $body, ?int $retry = null): never {
     exit;
 }
 function dnpConfig(): array {
-    $path = dirname(__DIR__) . '/config.php';
+    // Deploy layout: public_html/api next to private/dnp. Legacy deployments keep api/config.php.
+    $private = dirname(__DIR__, 3) . '/private/dnp/config.php';
+    $path = is_file($private) ? $private : dirname(__DIR__) . '/config.php';
     if (!is_file($path)) return [];
     $config = require $path;
     if (!is_array($config)) throw new RuntimeException('Invalid server configuration');
@@ -144,6 +146,13 @@ function dnpAppendAnalytics(string $dir, array $record): bool {
 
 /** Constant-time authentication for private admin API operations. Configure only on the server. */
 function dnpAdminAuthorized(array $config): bool {
+    $login = $config['admin']['login'] ?? '';
+    $hash = $config['admin']['password_sha256'] ?? '';
+    $givenLogin = $_SERVER['HTTP_X_DNP_ADMIN_LOGIN'] ?? '';
+    $givenPassword = $_SERVER['HTTP_X_DNP_ADMIN_PASSWORD'] ?? '';
+    if (is_string($login) && $login !== '' && is_string($hash) && preg_match('/^[a-f0-9]{64}$/', $hash)
+        && is_string($givenLogin) && is_string($givenPassword) && strlen($givenPassword) <= 256
+        && hash_equals($login, $givenLogin) && hash_equals($hash, hash('sha256', $givenPassword))) return true;
     $expected = $config['admin']['control_key'] ?? getenv('DNP_ADMIN_KEY') ?: '';
     $provided = $_SERVER['HTTP_X_DNP_ADMIN_KEY'] ?? '';
     return is_string($expected) && strlen($expected) >= 24 && is_string($provided) && hash_equals($expected, $provided);

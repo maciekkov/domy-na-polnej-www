@@ -2,8 +2,8 @@
 declare(strict_types=1);
 require_once __DIR__.'/lib/security.php';
 $config=dnpConfig();
-dnpRequireAdmin($config);
 [$data,$dir]=dnpGuard('analytics',4096,$config);
+dnpRequireAdmin($config);
 $days=(int)($data['rangeDays']??30);$days=max(1,min(200,$days));
 $cutoff=time()-$days*86400;
 $files=glob($dir.'/analytics/analytics-*.ndjson') ?: [];
@@ -45,7 +45,8 @@ foreach($files as $file){
     fclose($fh);
 }
 $visitorRows=[];$returning=0;
-foreach($visitors as $v){$count=count($v['visits']);if($count>1)$returning++;$visitorRows[]=['id'=>substr($v['id'],0,12).'…','firstSeen'=>gmdate('c',$v['firstSeen']),'lastSeen'=>gmdate('c',$v['lastSeen']),'visits'=>$count,'durationMs'=>$v['durationMs'],'device'=>$v['device'],'lastPath'=>$v['lastPath']];}
+$lookupSecret=dnpSecret($dir);
+foreach($visitors as $v){$count=count($v['visits']);if($count>1)$returning++;$visitorRows[]=['id'=>substr($v['id'],0,12).'…','lookup'=>hash_hmac('sha256','visitor:'.$v['id'],$lookupSecret),'firstSeen'=>gmdate('c',$v['firstSeen']),'lastSeen'=>gmdate('c',$v['lastSeen']),'visits'=>$count,'durationMs'=>$v['durationMs'],'device'=>$v['device'],'lastPath'=>$v['lastPath']];}
 usort($visitorRows,fn($a,$b)=>strcmp($b['lastSeen'],$a['lastSeen']));$visitorRows=array_slice($visitorRows,0,100);
 $sortDesc=fn(&$array,$key)=>usort($array,fn($a,$b)=>($b[$key]??0)<=>($a[$key]??0));
 $sectionRows=array_values($sections);$sortDesc($sectionRows,'durationMs');$tourRows=array_values($tours);$sortDesc($tourRows,'durationMs');

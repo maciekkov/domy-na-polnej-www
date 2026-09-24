@@ -1,7 +1,9 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-node scripts\build-portable.cjs
+call npm ci
 if errorlevel 1 (pause & exit /b 1)
-echo Gotowe pliki wdrozenia znajduja sie w folderze dist.
+call npm run build:hosting
+if errorlevel 1 (pause & exit /b 1)
+echo Gotowe: hosting\public_html i hosting\private
 pause

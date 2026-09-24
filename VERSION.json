@@ -1,9 +1,14 @@
 {
   "project": "Domy na Polnej WWW",
-  "version": "5.1.0",
-  "releaseName": "Premium refinement — feedback pass after v5",
-  "date": "2026-09-21",
+  "version": "5.2.0-rc.13",
+  "releaseName": "Panel i dokumenty · aktualizacja wrzesień 2026",
+  "date": "2026-09-24",
+  "salesStage": "prelaunch",
+  "inputArchive": "Domy_na_Polnej_v5.2.0-rc.3_KOMPLET.zip",
   "publishedToProduction": false,
-  "pushedToGitHub": false,
-  "baselineArchiveSHA256": "057682b62b20eaf3fc79df99b9c50c9c56a0bbd25cbc34b189f92ca2cc1d1f38"
+  "pushedToGitHub": true,
+  "productionComparisonCompleted": false,
+  "fullTypecheckExecuted": true,
+  "buildMethod": "tsc + Vite",
+  "browserVerification": "Chromium, real local HTTP navigation, widths 320/390/768/1024/1440/1920"
 }

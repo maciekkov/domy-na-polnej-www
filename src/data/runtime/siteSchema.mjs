@@ -36,8 +36,9 @@ function httpsUrl(value, path, allowEmpty = false) {
   try { parsed = new URL(value) } catch { fail(path, 'nieprawidłowy URL') }
   if (parsed.protocol !== 'https:' || parsed.username || parsed.password) fail(path, 'wymagany HTTPS bez danych logowania')
 }
-export function parseSiteData(value) {
-  object(value, ['revision','publishedAt','houses','contact','standardPdf','schedule','journal','documents'], 'site')
+export function parseSiteData(value, { allowDraftPrices = false } = {}) {
+  object(value, ['salesStage','revision','publishedAt','houses','contact','standardPdf','schedule','journal','documents'], 'site')
+  choice(value.salesStage, ['prelaunch','selling'], 'salesStage')
   number(value.revision, 'revision', 1, 1_000_000_000, true)
   text(value.publishedAt, 'publishedAt', 100)
   list(value.houses, 'houses', 5)
@@ -49,7 +50,9 @@ export function parseSiteData(value) {
     choice(h.id, HOUSE_IDS, `${path}.id`)
     choice(h.status, ['Dostępny','Rezerwacja','Sprzedany'], `${path}.status`)
     for (const field of ['name','parcel','mapPolygon']) text(h[field], `${path}.${field}`, field === 'mapPolygon' ? 4000 : 100)
-    number(h.price, `${path}.price`, 1, 100_000_000, true)
+    if (h.price !== null) number(h.price, `${path}.price`, 1, 100_000_000, true)
+    if (!allowDraftPrices && value.salesStage === 'selling' && h.price === null) fail(`${path}.price`, 'sprzedaż wymaga opublikowanej ceny')
+    if (!allowDraftPrices && value.salesStage === 'prelaunch' && (h.price !== null || h.priceHistory?.length || h.mandatoryPayments?.length)) fail(path, 'przed sprzedażą dane publiczne nie mogą zawierać kwot')
     number(h.area, `${path}.area`, 1, 10_000)
     number(h.plot, `${path}.plot`, 1, 1_000_000)
     number(h.rooms, `${path}.rooms`, 1, 100, true)

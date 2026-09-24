@@ -1,0 +1,7 @@
+[
+  "Copy link preserves unfinished enquiry and selected house",
+  "Denied clipboard shows selected, focusable URL; changed house resets feedback",
+  "Shared URL opens the correct house",
+  "Short landscape viewport: menu scrolls to contact, closes and restores focus destination",
+  "Mobile comparison anchor and share in house dialog remain usable"
+]

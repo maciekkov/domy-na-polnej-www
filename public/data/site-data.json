@@ -1,13 +1,14 @@
 {
-  "revision": 2,
-  "publishedAt": "18.09.2026, 23:25",
+  "salesStage": "prelaunch",
+  "revision": 5,
+  "publishedAt": "2026-09-23T22:00:00Z",
   "houses": [
     {
       "id": "A",
       "name": "Dom A",
       "parcel": "589/20",
       "status": "Dostępny",
-      "price": 779000,
+      "price": null,
       "area": 110.82,
       "plot": 810,
       "rooms": 5,
@@ -27,7 +28,7 @@
       "name": "Dom B",
       "parcel": "589/19",
       "status": "Dostępny",
-      "price": 789000,
+      "price": null,
       "area": 110.82,
       "plot": 809,
       "rooms": 5,
@@ -47,7 +48,7 @@
       "name": "Dom C",
       "parcel": "589/18",
       "status": "Dostępny",
-      "price": 799000,
+      "price": null,
       "area": 110.82,
       "plot": 807,
       "rooms": 5,
@@ -67,7 +68,7 @@
       "name": "Dom D",
       "parcel": "589/17",
       "status": "Dostępny",
-      "price": 809000,
+      "price": null,
       "area": 110.82,
       "plot": 806,
       "rooms": 5,
@@ -87,7 +88,7 @@
       "name": "Dom E",
       "parcel": "589/16",
       "status": "Dostępny",
-      "price": 819000,
+      "price": null,
       "area": 110.82,
       "plot": 1006,
       "rooms": 5,
@@ -106,15 +107,15 @@
   "contact": {
     "phoneDisplay": "+48 455 563 962",
     "phoneHref": "tel:+48455563962",
-    "email": "biuro@domynapolnej.pl",
-    "emailHref": "mailto:biuro@domynapolnej.pl",
+    "email": "mkdevelop2026@gmail.com",
+    "emailHref": "mailto:mkdevelop2026@gmail.com",
     "addressLine1": "Grabik, ul. Polna",
     "addressLine2": "68-200 Żary, woj. lubuskie",
     "mapHref": "https://www.google.com/maps/search/?api=1&query=Grabik%20ul.%20Polna%20%C5%BBary",
     "instagramHref": "https://www.instagram.com/domynapolnej/",
     "contactHours": "Biuro sprzedaży · Pon. – Pt. 9:00 – 17:00"
   },
-  "standardPdf": "/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=738a769f8cee7741",
+  "standardPdf": "/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=e4f52074798bd1f4",
   "schedule": [
     {
       "id": "I",
@@ -218,11 +219,11 @@
       "id": "standard",
       "type": "standard_pdf",
       "title": "Standard techniczny",
-      "publicUrl": "/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=738a769f8cee7741",
+      "publicUrl": "/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf?v=e4f52074798bd1f4",
       "version": "1.0",
       "active": true,
-      "updatedAt": "03.08.2026",
-      "sizeLabel": "6,0 MB"
+      "updatedAt": "23.09.2026",
+      "sizeLabel": "25.8 MB"
     },
     {
       "id": "prospectus",

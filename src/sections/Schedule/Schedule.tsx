@@ -6,7 +6,7 @@ export function Schedule({ stages }: { stages: ScheduleStage[] }) {
       <div className="shell">
         <div className="schedule-section__intro">
           <div className="schedule-section__copy">
-            <div className="section-kicker"><b>09 / 12</b><span />Harmonogram</div>
+            <div className="section-kicker"><span />Harmonogram</div>
             <h2 id="schedule-title">Od działki do kluczy</h2>
             <p>Przejrzysty harmonogram pokazuje, jak krok po kroku powstają Domy na Polnej. Sprawdź, na jakim etapie jesteśmy i co będzie dalej.</p>
           </div>
@@ -33,8 +33,8 @@ export function Schedule({ stages }: { stages: ScheduleStage[] }) {
         </ol>
 
         <div className="schedule-section__footer">
-          <a className="button button--olive schedule-section__cta" href="#dziennik">Zobacz postęp budowy <ArrowRight size={17} aria-hidden="true" /></a>
-          <div className="schedule-section__promise"><HardHat aria-hidden="true" /><span><strong>Solidny proces.</strong><b>Pewny efekt.</b></span></div>
+          <a className="button button--olive schedule-section__cta" href="#dziennik">Przejdź do dziennika budowy <ArrowRight size={17} aria-hidden="true" /></a>
+          <div className="schedule-section__promise"><HardHat aria-hidden="true" /><span><strong>Etapy realizacji.</strong><b>Planowane terminy.</b></span></div>
         </div>
       </div>
     </section>

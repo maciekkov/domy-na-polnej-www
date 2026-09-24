@@ -58,7 +58,10 @@ check(read('src/sections/Layout/Layout.tsx').includes('plan-2d-precise.webp'),'R
 const inv=inventory(root)
 check(inv.missing.length===0, `Brakujące zasoby: ${JSON.stringify(inv.missing)}`)
 check(inv.unused.length===0, `Nieodwoływane zasoby: ${JSON.stringify(inv.unused)}`)
-check(inv.publicBytes < 32*1024*1024,'Budżet public 32 MiB, bez zmniejszania liczby kadrów')
+// User-supplied 15-page raster PDF is an on-demand download, not a page-load asset.
+const suppliedStandardBytes=statSync(resolve(root,'public/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf')).size
+check(inv.publicBytes-suppliedStandardBytes < 32*1024*1024,'Budżet zasobów bez pobieranego na żądanie standardu: 32 MiB')
+check(suppliedStandardBytes < 30*1024*1024,'Budżet dostarczonego PDF standardu: 30 MiB')
 const access=read('public/.htaccess')
 check(access.includes('no-cache, max-age=0, must-revalidate') && access.includes('no-store'), 'Rewalidacja plików i brak starego JSON-a w cache')
 check(!access.includes('2592000'), 'Usunięty 30-dniowy cache zmiennych plików')
@@ -67,12 +70,12 @@ check(read('scripts/prepare-dist.mjs').includes('scripts/build-cache.htaccess'),
 check(access.includes('R=404') && access.includes('ErrorDocument 404'),'Prawdziwy 404 zachowany')
 for (const route of ['/polityka-prywatnosci','/polityka-cookies']) check(main.includes(route),`Routing ${route}`)
 for (const token of ['rel="canonical"','property="og:url"','application/ld+json']) check(read('index.html').includes(token),`Zachowano SEO ${token}`)
-check((read('src/data/faq.ts').match(/\n    question:/g)||[]).length===17, 'Nie zmieniono 17 pytań FAQ')
+check(JSON.parse(read('src/data/faq-content.json')).length===17, 'Nie zmieniono 17 pytań FAQ')
 for (const field of ['galleryImages','layoutRooms']) {
   const text = read(field==='galleryImages' ? 'src/data/gallery.ts' : 'src/data/layoutRooms.ts')
   check(text.includes('spacer-360/interior/webp/'), `${field}: nadal nowy zestaw renderów`)
 }
-for (const token of ["dnpLimit($privateDir,'contact-send'","$data['website']",'FILTER_VALIDATE_EMAIL','AUTH LOGIN']) check(read('api/contact.php').includes(token),`Zachowano zabezpieczenie kontaktu: ${token}`)
+for (const token of ["dnpLimit($privateDir,'contact-send'","$data['website']",'FILTER_VALIDATE_EMAIL','AUTH LOGIN']) check((read('api/contact.php')+read('api/lib/smtp.php')).includes(token),`Zachowano zabezpieczenie kontaktu: ${token}`)
 check(read('api/contact.php').includes("'unknown'"), 'Backend akceptuje brak wyboru domu')
 const pkg=JSON.parse(read('package.json'))
 check(pkg.scripts.prebuild.includes('version-assets.mjs') && pkg.scripts.build.includes('prepare-dist.mjs'),'Wersje zasobów powstają PRZED hashowaniem Vite')
