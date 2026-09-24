@@ -1,3 +1,8 @@
+## 5.2.0-rc.15 · 24.09.2026
+
+- Jeden okrągły pin w każdym kierunku spaceru wewnętrznego i zewnętrznego; po najechaniu podświetlenie i podpis.
+- Zachowane przejścia między scenami, geometria znaczników oraz nazwy przycisków dla czytników ekranu.
+
 ## 5.2.0-rc.14 · 24.09.2026
 
 - Ilustracje standardu powiększone o 20% (76 → 91 px); w widoku telefonu zachowane dwie ikony w rzędzie.

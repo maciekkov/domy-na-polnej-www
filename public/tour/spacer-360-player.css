@@ -92,6 +92,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .tour-hotspot__label { max-width: 150px; font-size: 10px; padding: 6px 9px; }
   .tour-help { top: 56px; max-height: calc(100dvh - 66px); }
 }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
@@ -352,3 +353,49 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
 .tour-image-layer[data-enter="down"]:not(.is-active) { transform: translateY(-.75%) scale(.997); }
 .tour-image-layer[data-enter="fade"]:not(.is-active) { transform: none; }
 .tour-image-layer.is-active { transform: none; }
+
+/* Landscape phone: the photo fills the viewport; navigation overlays the image. */
+@media (max-height: 540px) and (orientation: landscape) {
+ .tour-image-layer{inset:0;width:100%;height:100%;object-fit:cover}
+ .tour-bottom{bottom:max(5px,env(safe-area-inset-bottom));width:min(480px,70vw);gap:8px}
+ .tour-thumbs{width:auto;flex:1;height:59px;padding:4px;background:rgba(9,13,10,.48)}
+ .tour-thumb{height:49px}
+ .tour-source{display:none}
+ .tour-top{top:max(6px,env(safe-area-inset-top));left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right))}
+ .tour-brand{padding:5px 9px}.tour-brand__title{font-size:14px}
+ .tour-title{top:6px;padding:5px 10px;min-height:32px}
+ .tour-overlay{background:linear-gradient(180deg,#070a0833,transparent 25%,transparent 75%,#070a0833)}
+}
+
+/* One quiet navigation pin for every direction in both tours. The original
+   direction remains in data-kind and controls the transition, not its icon. */
+.tour-hotspot__core {
+  border: 0;
+  background: transparent url('/tour/pin-premium.png?v=7fc0cda7179bfbad') center / 152% no-repeat;
+  box-shadow: none;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,.42));
+  transition: transform 220ms var(--ease), filter 220ms ease;
+}
+.tour-hotspot:hover .tour-hotspot__core,
+.tour-hotspot:focus-visible .tour-hotspot__core {
+  transform: scale(1.12);
+  border: 0;
+  background: transparent url('/tour/pin-premium.png?v=7fc0cda7179bfbad') center / 152% no-repeat;
+  box-shadow: none;
+  filter: brightness(1.18) drop-shadow(0 0 12px rgba(233,211,160,.45)) drop-shadow(0 8px 14px rgba(0,0,0,.42));
+}
+.tour-hotspot:active .tour-hotspot__core { transform: scale(.98); }
+.tour-hotspot__line { display: none; }
+.tour-hotspot__core::before,
+.tour-hotspot[data-pulse="true"] .tour-hotspot__core::before { content: none; animation: none; }
+.tour-hotspot__label { opacity: 0; pointer-events: none; transition: opacity 180ms ease, border-color 220ms ease, background 220ms ease; }
+.tour-hotspot:hover .tour-hotspot__label,
+.tour-hotspot:focus-visible .tour-hotspot__label { opacity: 1; pointer-events: auto; }
+@media (hover: none) {
+  .tour-hotspot__label { display: none; }
+  .tour-app.is-editor-mode .tour-hotspot__label { display: block; opacity: 1; pointer-events: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-hotspot__core, .tour-hotspot__label { transition: none; }
+  .tour-hotspot[data-pulse="true"] .tour-hotspot__core::before { animation: none; }
+}

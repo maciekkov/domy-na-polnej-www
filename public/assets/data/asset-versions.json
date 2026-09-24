@@ -1,5 +1,5 @@
 {
-  "release": "9e84562822e56a12",
+  "release": "62a9d9495f0bdc04",
   "assets": {
     "/assets/icons/blinds.svg": "048490b634d4081e",
     "/assets/icons/fence.svg": "32c5a814d4e694ad",
@@ -142,6 +142,7 @@
     "/pdf/karta-dom-b.pdf": "15acc3a2de4619c1",
     "/pdf/karta-dom-c.pdf": "943d702b409a13ac",
     "/pdf/karta-dom-d.pdf": "e0f80ce45baf994e",
-    "/pdf/karta-dom-e.pdf": "779fe208e88cedc7"
+    "/pdf/karta-dom-e.pdf": "779fe208e88cedc7",
+    "/tour/pin-premium.png": "7fc0cda7179bfbad"
   }
 }
