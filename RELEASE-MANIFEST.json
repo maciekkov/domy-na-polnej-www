@@ -1,5 +1,5 @@
 {
-  "version": "5.2.0-rc.15",
+  "version": "5.2.0-rc.16",
   "deploy": "hosting/",
   "build": "npm run build:hosting",
   "qa": "Build, source/dist tests, PHP WASM analytics and presale; browser visual QA as environment permits",

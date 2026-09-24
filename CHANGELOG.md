@@ -1,3 +1,8 @@
+## 5.2.0-rc.16 · 24.09.2026
+
+- Naprawiono otwieranie obu spacerów i panoramy w podglądzie HTTP: znaczniki historii nie wymagają `crypto.randomUUID()`.
+- Dodano test odtwarzający brak tej funkcji w przeglądarce.
+
 ## 5.2.0-rc.15 · 24.09.2026
 
 - Jeden okrągły pin w każdym kierunku spaceru wewnętrznego i zewnętrznego; po najechaniu podświetlenie i podpis.
