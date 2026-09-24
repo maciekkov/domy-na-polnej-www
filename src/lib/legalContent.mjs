@@ -1,0 +1,41 @@
+import { escapeHtml as e } from './offers.mjs'
+/** Authored policy text shared by React and static HTML. Not external HTML input. */
+export function legalContent(name,contact) {
+  if (name === 'privacy') return {title:"Polityka prywatności",lead:"Poniżej wyjaśniamy, jakie dane przetwarzamy w serwisie Domy na Polnej, w jakim celu i jakie prawa przysługują osobom korzystającym ze strony.",updated:"24 września 2026",body:`      <section><h2>1. Administrator danych</h2><p>Administratorem danych osobowych jest X-SMART DEVELOP sp. z o.o. z siedzibą w Lubsku, ul. Warszawska 58/3, 68-300 Lubsko, KRS 0001091198, NIP 8943230686, REGON 527945971.</p><p>Kontakt: <a href="${e(contact.emailHref)}">${e(contact.email)}</a>, <a href="${e(contact.phoneHref)}">${e(contact.phoneDisplay)}</a>.</p></section>
+      <section><h2>2. Dane z formularza</h2><p>Możemy przetwarzać wybrany dom, imię, telefon, opcjonalny e-mail i treść wiadomości w celu odpowiedzi na zapytanie i obsługi kontaktu. Dane formularza nie są dołączane do zdarzeń analitycznych. Podstawą obsługi zapytania jest podjęcie działań na Twoje żądanie przed umową (art. 6 ust. 1 lit. b RODO) lub nasz prawnie uzasadniony interes w prowadzeniu korespondencji (art. 6 ust. 1 lit. f RODO). Zgoda na kontakt w sprawie oferty obejmuje tylko wskazany przez Ciebie sposób kontaktu.</p><h3>Powiadomienie o przedsprzedaży</h3><p>Po dobrowolnym zapisie przetwarzamy adres e-mail oraz datę i treść udzielonej zgody, aby przesłać informację o rozpoczęciu przedsprzedaży Domów na Polnej i warunkach promocji. Podstawą przetwarzania jest zgoda (art. 6 ust. 1 lit. a RODO). Zapis nie oznacza rezerwacji ani zgody na inne kampanie. Adres nie jest przekazywany do analityki.</p><p>Zgodę można wycofać przez formularz „Wypisz się z listy” w <a href="/#przedsprzedaz">sekcji przedsprzedaży</a> albo pisząc na <a href="${e(contact.emailHref)}">${e(contact.email)}</a>. Wycofanie zgody nie wpływa na zgodność z prawem wcześniejszego przetwarzania. Listę przechowujemy do wysłania zapowiedzianej informacji lub wcześniejszego wycofania zgody, po czym usuwamy adres z listy.</p></section>
+      <section><h2>3. Pseudonimowa analityka po zgodzie</h2><p>Po zgodzie na analityczne pliki cookie losowy identyfikator first-party może być utrzymywany do 180 dni. System rejestruje wizyty i powroty, ścieżkę strony, wybraną ofertę, źródło kampanii, kategorię urządzenia i zakres szerokości ekranu, wejścia do sekcji oraz czas w sekcjach i scenach spaceru.</p><p>Identyfikator nie zawiera imienia, telefonu ani e-maila. Nie prowadzimy nagrań sesji, keyloggingu ani zapisu ruchu myszy. Dane są używane do oceny zainteresowania ofertą i poprawy serwisu.</p></section>
+      <section><h2>4. Dane techniczne i bezpieczeństwo</h2><p>Hosting może przetwarzać standardowe logi bezpieczeństwa, takie jak adres IP, czas żądania, zasób i informacje o błędach. Są one oddzielone od pseudonimowej analityki zachowania i służą ochronie infrastruktury oraz diagnostyce (art. 6 ust. 1 lit. f RODO).</p></section>
+      <section><h2>5. Odbiorcy danych</h2><p>Dane mogą być powierzane podmiotom obsługującym hosting, pocztę i utrzymanie IT wyłącznie w niezbędnym zakresie i na odpowiedniej podstawie prawnej. Odnośniki do Instagrama i Map Google prowadzą do usług zarządzanych przez ich dostawców; po przejściu obowiązują ich zasady prywatności.</p></section>
+      <section><h2>6. Okres przechowywania</h2><p>Zdarzenia analityczne są przechowywane maksymalnie około 200 dni, a identyfikator odwiedzającego w przeglądarce maksymalnie 180 dni od ostatniego odświeżenia zgody i korzystania. Dane z zapytań są przechowywane przez okres potrzebny do obsługi kontaktu oraz ustalenia lub obrony ewentualnych roszczeń. Okres przechowywania logów technicznych zależy od konfiguracji hostingu.</p></section>
+      <section><h2>7. Twoje prawa</h2><p>W przypadkach przewidzianych przepisami przysługuje Ci prawo dostępu, sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie, przenoszenia danych i cofnięcia zgody. Wnioski kieruj na <a href="${e(contact.emailHref)}">${e(contact.email)}</a>. Możesz także złożyć skargę do Prezesa UODO.</p></section>
+      <section><h2>8. Dobrowolność danych</h2><p>Podanie danych w formularzu jest dobrowolne, lecz imię i telefon są potrzebne do skutecznej odpowiedzi. E-mail i wiadomość dodatkowa w formularzu kontaktowym są opcjonalne. W osobnym formularzu powiadomienia o przedsprzedaży potrzebny jest wyłącznie adres e-mail i zgoda na wskazaną wiadomość.</p></section>
+      <section><h2>9. Zautomatyzowane decyzje</h2><p>Nie podejmujemy wobec użytkowników decyzji wywołujących skutki prawne wyłącznie automatycznie i nie prowadzimy profilowania reklamowego na podstawie tej analityki.</p></section>
+`}
+  if (name === 'cookies') return {title:"Polityka cookies",lead:"Wyjaśniamy, jakie pliki cookie i podobne mechanizmy wykorzystuje serwis Domy na Polnej oraz jak możesz nimi zarządzać.",updated:"24 września 2026",body:`      <section>
+        <h2>1. Niezbędne pliki cookie i pamięć</h2>
+        <p>Mechanizmy niezbędne służą do działania strony, ochrony formularza oraz zapamiętania Twojej decyzji dotyczącej plików cookie. Wybór przechowujemy w localStorage pod kluczem <code>dnp-cookie-consent-v2</code> do czasu zmiany decyzji lub usunięcia danych witryny. Samo zapamiętanie odmowy nie tworzy historii odwiedzin w analityce.</p>
+      </section>
+      <section>
+        <h2>2. Analityczne pliki cookie — tylko po zgodzie</h2>
+        <p>Po wybraniu „Akceptuj wszystkie” tworzymy losowy, pseudonimowy identyfikator odwiedzającego na maksymalnie 180 dni oraz identyfikator wizyty <code>dnp_visit</code> na maksymalnie 30 minut. Identyfikator przeglądarki nosi nazwę <code>dnp_vid</code>; oba okresy odnawiają się podczas korzystania z serwisu. Pomocnicze dane sesji i kolejka zdarzeń mogą być przechowywane w sessionStorage i localStorage. Pozwala to rozpoznać powrót tej samej przeglądarki, policzyć wizyty, typ urządzenia oraz czas spędzony w sekcjach strony i scenach wirtualnego spaceru.</p>
+        <p>Jeśli wybierzesz „Tylko niezbędne”, analityczne identyfikatory nie są tworzone, a pomiar zachowania użytkownika jest wyłączony. Zmiana decyzji na „Tylko niezbędne” usuwa nasze identyfikatory analityczne i kolejkę zdarzeń z przeglądarki. Dane wcześniej zapisane na serwerze podlegają okresowi retencji z polityki prywatności.</p>
+      </section>
+      <section>
+        <h2>3. Czego nie rejestrujemy w analityce</h2>
+        <p>Nie zapisujemy w zdarzeniach analitycznych imienia, telefonu, e-maila, treści formularza, pełnego User-Agent, ruchu kursora, wpisywanych klawiszy ani nagrań sesji. Serwis nie używa zewnętrznych reklamowych trackerów do śledzenia użytkownika pomiędzy różnymi stronami.</p>
+      </section>
+      <section>
+        <h2>4. Zmiana decyzji</h2>
+        <p>Ustawienia możesz zmienić w każdej chwili przez „Ustawienia cookies” w stopce. Możesz również usunąć dane witryny w ustawieniach przeglądarki. Odnośniki do Instagrama i Map Google prowadzą do odrębnych usług, które mogą stosować własne pliki cookie.</p>
+      </section>
+      <section>
+        <h2>5. Kontakt</h2>
+        <p>Pytania dotyczące cookies i prywatności możesz kierować na adres <a href="${e(contact.emailHref)}">${e(contact.email)}</a>.</p>
+      </section>
+`}
+  throw new Error('Nieznana polityka')
+}
+export function legalMarkup(name,contact) {
+  const p=legalContent(name,contact)
+  return `<div class="legal-page"><header class="legal-page__header"><div class="shell legal-page__header-inner"><a href="/">Domy na Polnej</a><a class="legal-page__back" href="/">← Wróć do strony</a></div></header><main class="shell legal-page__main"><div class="legal-page__heading"><p class="eyebrow">Domy na Polnej</p><h1>${e(p.title)}</h1><p>${e(p.lead)}</p><time>Aktualizacja: ${e(p.updated)}</time></div><div class="legal-page__content">${p.body}</div></main><footer class="legal-page__footer"><div class="shell"><strong>X-SMART DEVELOP sp. z o.o.</strong><span>ul. Warszawska 58/3, 68-300 Lubsko · KRS 0001091198 · NIP 8943230686 · REGON 527945971</span><div><a href="${e(contact.phoneHref)}">${e(contact.phoneDisplay)}</a><a href="${e(contact.emailHref)}">${e(contact.email)}</a></div></div></footer></div>`
+}

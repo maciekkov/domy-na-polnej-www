@@ -490,3 +490,12 @@
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 }
+.standard-section .standard-highlight__icon{width:76px;height:76px;border:0;border-radius:0;box-shadow:none;background-image:url('/assets/icons/standard-illustrations.png?v=c83f4722790d3e47');background-size:400% 200%;background-repeat:no-repeat;background-color:transparent}
+.standard-section .standard-highlight__icon--heat-pump{background-position:0 0}
+.standard-section .standard-highlight__icon--ventilation{background-position:33.333% 0}
+.standard-section .standard-highlight__icon--floor-heating{background-position:66.667% 0}
+.standard-section .standard-highlight__icon--blinds{background-position:100% 0}
+.standard-section .standard-highlight__icon--windows{background-position:0 100%}
+.standard-section .standard-highlight__icon--glazing{background-position:33.333% 100%}
+.standard-section .standard-highlight__icon--pv{background-position:66.667% 100%}
+.standard-section .standard-highlight__icon--fence{background-position:100% 100%}

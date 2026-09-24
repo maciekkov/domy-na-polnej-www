@@ -1,14 +1,14 @@
 {
   "name": "domy-na-polnej-www",
   "private": true,
-  "version": "5.1.0",
+  "version": "5.2.0-rc.13",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc -b && vite build && node scripts/prepare-dist.mjs",
+    "build": "tsc -b && vite build && vite build --config vite.admin.config.ts && node scripts/prepare-dist.mjs",
     "preview": "node preview-server.mjs",
     "typecheck": "tsc -b --pretty false",
-    "test": "node tests/source-check.mjs && node --test tests/logic-six.test.mjs tests/audit-7-12.test.mjs tests/analytics-runtime.test.mjs && node tests/tour-check.mjs",
+    "test": "node tests/source-check.mjs && node --test tests/logic-six.test.mjs tests/audit-7-12.test.mjs tests/analytics-runtime.test.mjs tests/audit-launch.test.mjs && node tests/tour-check.mjs",
     "test:visual": "node tests/visual-qa.mjs",
     "test:admin": "node tests/admin-qa.mjs",
     "test:all": "npm run test && npm run build && npm run test:dist && npm run test:visual && npm run test:admin",
@@ -26,7 +26,13 @@
     "seo:refresh": "node scripts/generate-seo.mjs",
     "test:api": "python3 tests/api-security-qa.py",
     "build:portable": "node scripts/build-portable.cjs",
-    "start": "node preview-server.mjs"
+    "start": "node preview-server.mjs",
+    "test:offers": "node tests/offer-browser-qa.mjs",
+    "test:audit": "python3 tests/launch-browser-qa.py",
+    "test:premium": "node tests/premium-qa.mjs",
+    "test:immersive": "node tests/immersive-premium-qa.mjs",
+    "build:hosting": "npm run build && node scripts/build-hosting.mjs",
+    "test:admin:production": "node tests/admin-production-browser.mjs"
   },
   "dependencies": {
     "react": "19.1.1",

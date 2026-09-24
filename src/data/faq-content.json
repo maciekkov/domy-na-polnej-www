@@ -1,0 +1,87 @@
+[
+  {
+    "id": "timeline",
+    "question": "Kiedy rozpocznie się budowa i kiedy planowane są odbiory?",
+    "answer": "Start robót budowlanych planowany jest na marzec 2027 roku. Aktualny harmonogram roboczy zakłada realizację przedsięwzięcia do końca lutego 2028 roku. Termin odbioru konkretnego domu oraz termin przeniesienia własności będą wskazane w Karcie Domu i dokumentach umownych dotyczących wybranej nieruchomości."
+  },
+  {
+    "id": "formal-status",
+    "question": "Jaki jest status formalny inwestycji?",
+    "answer": "Inwestycja posiada ostateczną decyzję o warunkach zabudowy oraz uzyskane pozwolenie na budowę. Przed zawarciem umowy nabywca otrzymuje dokumentację dotyczącą konkretnego domu, w tym prospekt informacyjny i dokumenty wymagane dla transakcji deweloperskiej."
+  },
+  {
+    "id": "plot",
+    "question": "Czy działka będzie własnością kupującego?",
+    "answer": "Tak. Każdy dom A–E jest realizowany na przypisanej mu indywidualnej działce, która wraz z domem jest przedmiotem przeniesienia na nabywcę. Razem z nieruchomością nabywany jest również udział w drodze wewnętrznej obsługującej inwestycję."
+  },
+  {
+    "id": "price-scope",
+    "question": "Co dokładnie obejmuje cena całkowita?",
+    "answer": "Cennik jest w przygotowaniu. Przed rozpoczęciem sprzedaży opublikujemy ceny poszczególnych domów i informacje o obowiązkowych dodatkowych świadczeniach. Karty dostępne obecnie na stronie przedstawiają parametry domów i działek, a nie rozbicie ceny. Zakres wykonania opisuje Standard techniczny."
+  },
+  {
+    "id": "standard",
+    "question": "Co obejmuje standard techniczny domu?",
+    "answer": "W standardzie przewidziano m.in. pompę ciepła, ogrzewanie podłogowe, rekuperację, elektryczne rolety zewnętrzne, stolarkę trzyszybową, duże przeszklenia, przygotowanie PV Ready, utwardzony podjazd i dojście oraz ogrodzenie z bramą i furtką. Wiążący, pełny zakres określa aktualny dokument Standard techniczny."
+  },
+  {
+    "id": "not-included",
+    "question": "Czego nie obejmuje podstawowy standard?",
+    "answer": "Poza podstawowym zakresem pozostają m.in. końcowe wykończenie wnętrz, kuchnia i meble, wyposażenie łazienek, klimatyzacja, ładowarka samochodu elektrycznego oraz kompletna instalacja fotowoltaiczna z modułami i falownikiem. Trawnik, nasadzenia i system nawadniania również nie należą do podstawowego standardu. Taras i wiata są wykonywane tylko wtedy, gdy przewiduje to odrębne ustalenie."
+  },
+  {
+    "id": "visualisations",
+    "question": "Czy wszystko, co widać na wizualizacjach, jest w cenie?",
+    "answer": "Wizualizacje pokazują charakter architektury i przykładowe zagospodarowanie, ale nie zastępują dokumentów sprzedażowych. O tym, co jest objęte ceną konkretnego domu, decydują Karta Domu, Standard techniczny, prospekt i właściwa umowa. Dotyczy to w szczególności elementów takich jak taras, wiata, zieleń i wyposażenie wnętrz."
+  },
+  {
+    "id": "attic",
+    "question": "Czy dom ma strych?",
+    "answer": "Dom posiada poddasze nieużytkowe, które może pełnić funkcję pomocniczej przestrzeni technicznej lub magazynowej. Szczegółowy zakres, sposób dostępu i możliwości wykorzystania wynikają z dokumentacji projektowej konkretnego domu."
+  },
+  {
+    "id": "changes",
+    "question": "Czy można wprowadzać zmiany lokatorskie?",
+    "answer": "Takie zmiany są możliwe wyłącznie po ich technicznej ocenie i pisemnej akceptacji dewelopera. Zakres, koszt oraz wpływ zmiany na termin realizacji ustalane są indywidualnie. Im wcześniejszy etap budowy, tym większa możliwość wprowadzenia zmian bez ingerencji w wykonane już roboty."
+  },
+  {
+    "id": "reservation",
+    "question": "Jak wygląda rezerwacja domu?",
+    "answer": "Po wyborze domu przekazujemy dokumentację i warunki rezerwacji właściwe dla danej transakcji. Jeżeli umowa rezerwacyjna przewiduje opłatę rezerwacyjną, jej wysokość i zasady są podane w umowie; po zawarciu umowy deweloperskiej opłata jest rozliczana na poczet Ceny Całkowitej zgodnie z obowiązującymi przepisami."
+  },
+  {
+    "id": "escrow",
+    "question": "Gdzie trafiają wpłaty kupującego?",
+    "answer": "Wpłaty na poczet Ceny Całkowitej są dokonywane na otwarty mieszkaniowy rachunek powierniczy, a nie na zwykły rachunek operacyjny dewelopera. Bank wypłaca środki deweloperowi zgodnie z zasadami rachunku i po weryfikacji zakończenia odpowiednich etapów przedsięwzięcia."
+  },
+  {
+    "id": "security",
+    "question": "Jak zabezpieczony jest zakup?",
+    "answer": "Proces wykorzystuje mechanizmy przewidziane ustawą deweloperską: otwarty mieszkaniowy rachunek powierniczy, Deweloperski Fundusz Gwarancyjny oraz płatności powiązane z postępem realizacji. Przed podpisaniem umowy nabywca otrzymuje prospekt i dokumenty opisujące zasady ochrony środków oraz harmonogram przedsięwzięcia."
+  },
+  {
+    "id": "developer-financing",
+    "question": "Czy budowa jest finansowana wyłącznie z wpłat klientów?",
+    "answer": "Nie. Model przedsięwzięcia zakłada również finansowanie po stronie inwestora/dewelopera oraz finansowanie projektu. Wpłaty klientów podlegają zasadom otwartego mieszkaniowego rachunku powierniczego i nie są traktowane jak swobodne środki na zwykłym rachunku dewelopera."
+  },
+  {
+    "id": "mortgage",
+    "question": "Czy zakup można sfinansować kredytem hipotecznym?",
+    "answer": "Tak. Nabywca może finansować zakup środkami własnymi lub kredytem hipotecznym w wybranym przez siebie banku. Na potrzeby procesu kredytowego udostępniamy dokumenty dotyczące inwestycji i konkretnego domu; decyzja kredytowa należy do banku nabywcy."
+  },
+  {
+    "id": "extra-costs",
+    "question": "Jakie dodatkowe koszty mogą pojawić się przy zakupie?",
+    "answer": "Poza Ceną Całkowitą mogą wystąpić koszty zależne od konkretnej transakcji, np. finansowania bankowego, wyceny, wpisów i czynności notarialnych, a także wybranych zmian lokatorskich lub elementów ponad standard. Przed podpisaniem umowy klient otrzymuje dokumenty i zestawienie dotyczące wybranego domu."
+  },
+  {
+    "id": "handover",
+    "question": "Jak wygląda odbiór domu i zgłaszanie wad?",
+    "answer": "Odbiór odbywa się przed przeniesieniem własności i jest dokumentowany protokołem. Nabywca może zgłosić zauważone wady i może uczestniczyć w odbiorze z wybranym przez siebie specjalistą. Zgłoszenia są następnie rozpatrywane i usuwane na zasadach wynikających z ustawy oraz dokumentów umownych; przekazywane są również dokumenty gwarancyjne urządzeń objętych standardem."
+  },
+  {
+    "id": "visit",
+    "question": "Czy można obejrzeć działkę i miejsce inwestycji?",
+    "answer": "Tak. Prezentację terenu inwestycji umawiamy indywidualnie. Skontaktuj się z nami telefonicznie lub przez formularz, a ustalimy dogodny termin i pokażemy położenie wybranego domu oraz jego działki."
+  }
+]

@@ -1,0 +1,58 @@
+.table-mobile{display:none}
+/* Mobile refinements requested in the rc.6 audit. Desktop geometry stays in component styles. */
+@media(max-width:760px){
+ .hero__bottom,.hero__tour-link,.hero__discover{display:none}
+ .hero{min-height:100svh;height:auto;max-height:none}
+ .hero__content{min-height:100svh;height:auto;justify-content:flex-end;padding-top:320px;padding-bottom:28px;gap:0}
+ .hero__shade{background:linear-gradient(0deg,rgba(8,23,17,.92) 0%,rgba(8,23,17,.72) 22%,rgba(8,23,17,.12) 53%,transparent 72%)}
+ .hero__copy{width:100%}
+ .homes__heading .section-kicker{display:none}
+ .homes__transaction-note{display:none}
+ .masterplan .plot-label,.masterplan .plot-label[aria-pressed=true]{min-width:30px;min-height:36px;transform:translate(-50%,-10px);gap:2px;padding:0;border:0}
+ .masterplan .plot-label>span,.masterplan .plot-label.is-active>span{width:20px;height:20px;min-width:20px;font-size:10px;transform:none;border-width:1px;box-shadow:0 1px 4px #0004}
+ .masterplan .plot-label small{font-size:7px;line-height:1.15;padding:1px 2px;letter-spacing:0}
+ .house-sheet .house-card__cta,.house-sheet .house-card__details,.house-sheet .house-card__pdf,.house-sheet .house-card__share-status,.house-sheet .house-card__share-fallback{display:none}
+ .house-sheet__panel{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+ .house-sheet .house-card{padding-top:12px}
+ .house-sheet .house-card__image,.house-sheet .house-card__image img{height:140px;max-height:140px}
+ .house-sheet .house-card__facts{margin-block:8px;gap:5px 8px}
+ .house-sheet .house-card__price{margin-bottom:0;padding-bottom:0}
+ .homes-table .table-mobile{display:block}
+ .homes-table .table-desktop{display:none}
+ .homes-table-wrap{display:block;padding:0;overflow:hidden;margin-top:18px}
+ .homes-table{min-width:0;width:100%;table-layout:fixed}
+ .homes-table th,.homes-table td,.homes-table thead th,.homes-table tbody th,.homes-table tbody td{padding:8px 3px;font-size:clamp(9px,2.5vw,11px);height:auto;line-height:1.35;white-space:normal;overflow-wrap:normal}
+ .homes-table th:nth-child(1){width:11%}.homes-table th:nth-child(2){width:13%}.homes-table th:nth-child(3){width:19%}.homes-table th:nth-child(4){width:15%}.homes-table th:nth-child(5){width:13%}.homes-table th:nth-child(6){width:9%}.homes-table th:nth-child(7){width:20%}
+ .homes-table button{min-width:0;min-height:44px;padding:0;width:100%;font-size:inherit;white-space:normal}
+ .homes-table .status-badge{font-size:inherit;white-space:normal;padding:3px;line-height:1.3;gap:2px;justify-content:center}
+ .homes-table .status-badge::before{display:none}
+ .homes-table .pricing-pending{font-size:inherit;white-space:normal}
+ .homes-mobile-list{display:none}
+ .homes,.why-home,.gallery-section{padding-block:44px}
+ .why-home{padding-bottom:20px}
+ .editorial-gallery,.gallery-section .editorial-gallery--four{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:auto;gap:8px;min-height:0;height:auto}
+ .gallery-section .editorial-gallery .gallery-tile{grid-column:auto;grid-row:auto;aspect-ratio:4/3;height:auto;min-height:0}
+ .gallery-section .editorial-gallery .gallery-tile:first-child{grid-column:1/-1;aspect-ratio:16/9}
+ .gallery-section .editorial-gallery--four .gallery-tile:last-child{grid-column:1/-1;aspect-ratio:16/9}
+ .immersive-grid{gap:12px}
+ .immersive-card{min-height:230px;height:230px}
+ .immersive-card__content{left:18px;right:18px;bottom:16px}
+ .immersive-card__content>svg{width:25px;height:25px;margin-bottom:5px}
+ .immersive-card__content h3{font-size:26px;margin-bottom:10px}
+ .immersive-card__content p,.immersive-card__content small{display:none}
+ .immersive-card__content .eyebrow{font-size:9px;margin-bottom:4px}
+ .immersive-card__content .button{min-height:44px}
+ .immersive-card__badge{font-size:9px;padding:5px 8px;top:12px;right:12px}
+ .immersive-card__orbit{width:42px;height:42px;top:12px;right:12px;font-size:10px}
+ .footer{padding-bottom:30px}
+}
+@media(min-width:761px) and (max-width:960px){
+ .homes-table-wrap{display:block;overflow-x:auto}.homes-mobile-list{display:none}
+ .house-sheet .house-card__cta,.house-sheet .house-card__details,.house-sheet .house-card__pdf{display:none}
+}
+@media(max-width:760px){
+ .contact-section__intro,.contact-form{min-width:0}
+ .contact-details a{overflow-wrap:anywhere}
+ .immersive-card__content .eyebrow{color:#e5ece2}
+}
+@media(max-width:760px){.why-home + .layout-section{padding-top:32px}}

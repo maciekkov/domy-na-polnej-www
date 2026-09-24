@@ -1,3 +1,39 @@
+## 5.2.0-rc.13 · 24.09.2026
+
+- Historia wizyty w panelu: ciągła linia na osi czasu i czytelne przejścia między sekcjami.
+- Lokalny edytor oznaczony zgodnie z faktycznym zapisem; usunięto etykietę DEMO z panelu głównego.
+- Uzupełniono politykę prywatności i cookies zgodnie z formularzami oraz pierwszostronną analityką.
+- Dokumenty PDF w zwartej formie poziomej na desktopie; standard z dostarczonymi ilustracjami instalacji i elementów domu.
+
+## 5.2.0-rc.12 — 2026-09-24
+
+- Panel `/administrator/`: czytelna hierarchia analityki, nazwy sekcji, czas oglądania i widok odwiedzających z powrotami.
+- Historia wybranego odwiedzającego pokazuje jego wizyty i oś czasu (godzina poziomo, sekcja pionowo) z pomiarem aktywnego czasu; poniżej dostępna chronologiczna lista zdarzeń. Pomiar nie zapisuje pozycji w pikselach.
+- Usunięto przykładowych klientów i stare demonstracyjne wpisy z nowego stanu oraz z zapisanych w przeglądarce wcześniejszych kopii. Produkcyjnych logów serwera nie usuwano ani nie importowano.
+
+## 5.2.0-rc.2 — 2026-09-23
+
+Audyt premium, poprawa czytelności i ścieżki wyboru, responsywność, naprawa TS2322, kompresja, finalny build Vite. Pełne uzasadnienie i wyniki: docs/audit-premium/AUDYT.md. Fakty i PDF-y bez zmian. Bez publikacji na hostingu.
+
+# CHANGELOG — v5.2.0-rc.1 / 23.09.2026
+
+Baza: odtworzony snapshot main `27fcf7f`; lokalna gałąź `audit/six-layers-2026-09-23`. Status: brak push i brak publikacji produkcyjnej.
+
+- Wspólna polityka prelaunch/selling, brak kwot w bieżącym publicznym JSON-ie i bundlu; walidacja eksportu, ochrony rewizji i historii cen.
+- Spójne komunikaty w HERO, na planie, w tabeli, mobilnej karcie, FAQ, SEO i wersji bez JavaScript.
+- Czytelny nagłówek nad jasnym HERO, mały podpis „Wizualizacja”, brak slidera, ujednolicone critical CSS i adresy zdjęcia.
+- Menu mobilne z ograniczeniem fokusu i wyłączeniem tła; odporna synchronizacja URL oraz obsługa błędnego fragmentu.
+- Lepszy title/OG; 17 pytań FAQ, polityki i 404 w realnym HTML przed JS; idempotentny generator.
+- Panel kontroli: bez innerHTML z danych API, klucz wyłącznie w pamięci, jawne czyszczenie, zewnętrzny skrypt i polityka CSP panelu.
+- Nagłówki i ochrona przed omyłkową publikacją źródeł; blokada Gov Sync przed sprzedażą i walidacja transportu.
+- Poprawiony pomiar aktywnego czasu sekcji po powrocie do karty i przy zmianie domu.
+- Aktualne testy cen, rewizji, eksportu, DOM, API i instrukcje CI; zachowane testy trybu sprzedaży.
+- Bez zmian geometrii masterplanu, 145 obrazów/SVG/PDF oraz grafów 30 + 14 scen (po pominięciu technicznych query wersji).
+
+Wyniki i ograniczenia: `docs/audit-2026-09-23/02-AUDYT-PO-I-ODBIOR.md`. Nie deklarujemy wzrostu konwersji, wyniku Lighthouse, pełnego typechecka, wdrożonej oficjalnej integracji Gov Sync ani ukończonego porównania z działającą domeną.
+
+---
+
 # CHANGELOG — v5.1.0 Premium refinement / 21.09.2026
 
 ## Poprawki po wizualnym przeglądzie v5
@@ -47,3 +83,17 @@ Wartości i statusy domów A–E, powierzchnie, działki, dane kontaktowe, harmo
 ## Status
 
 Build i opisane testy wykonano. Nie wykonano produkcyjnego wdrożenia, push do repozytorium, realnej wysyłki SMTP, pomiarów CWV na hostingu ani pełnego typechecka standardowego toolchainu. GPU panoramy nie było dostępne w środowisku QA — przetestowano wariant awaryjny.
+
+## 5.2.0-rc.9 — historia wizyt
+Produkcyjny panel: historia pojedynczych wizyt z istniejących logów, oś czasu sekcji/spacerów, źródła, urządzenia, zainteresowanie domami. Osobno oznaczona symulacja 19 etapów. Autoryzowany endpoint PHP z podpisanymi identyfikatorami odwiedzających; Gov Sync nadal zablokowany.
+## 5.2.0-rc.10 — panel `/administrator/` z v5.1 Premium
+
+- Dodano pełny panel demonstracyjny v5.1 w osobnym pakiecie JS/CSS, oddzielonym od publicznego kodu strony.
+- Dostęp produkcyjny przez sesję PHP i hasło z bieżącej prywatnej konfiguracji; przycisk Zaloguj się i Enter. Zakładka Analityka odczytuje bieżące zbiorcze statystyki bez przekazywania klucza do przeglądarki.
+- Wersja deweloperska `/administrator` nadal działa przez `npm run dev:admin`. Archiwum `_old_copy.zip` oraz jego dane nie są używane.
+## 5.2.0-rc.11 — 2026-09-24
+
+- Zakładka Analityka w panelu `/administrator/` pobiera automatycznie statystyki serwera i otwiera historię wizyt z czasu w sekcjach. W produkcji nie podstawia danych demo, gdy serwer zwróci błąd.
+- Pasek panelu odróżnia rzeczywiste dane analityki od lokalnego edytora demo. Historii wizyt z `_old_copy.zip` nie przenoszono.
+- SMTP Gmail pozostaje bez hasła, dopóki nie skonfigurujesz hasła aplikacji na serwerze. Formularz kontaktowy zgłasza niedostępność wysyłki; konfiguracja obsługuje `DNP_SMTP_APP_PASSWORD`. W archiwum nie ma hasła Gmail.
+- Testy sesji PHP oraz historii odwiedzającego i pliki wdrożeniowe aktualizowane wspólnie.

@@ -1,4 +1,4 @@
-import { FileText, Handshake, Landmark, ScrollText, ShieldCheck } from '../../components/common/Icons'
+import { ClipboardList, Handshake, Home, Landmark, ScrollText, ShieldCheck } from '../../components/common/Icons'
 import { useEffect, useRef, useState } from 'react'
 import { useSiteData } from '../../data/runtime/SiteDataProvider'
 import { ArrowUpRight } from '../../components/common/Icons'
@@ -42,6 +42,7 @@ function ProcessGlyph({ kind }: { kind: ProcessGlyphKind }) {
 export function SecurityProcess() {
   const { data } = useSiteData()
   const documents = data.documents.filter(d=>d.active && d.publicUrl && ['house_card','standard_pdf','prospectus'].includes(d.type))
+  const downloads = [documents.find(d => d.type === 'house_card'), ...documents.filter(d => d.type !== 'house_card')].filter((d): d is NonNullable<typeof d> => Boolean(d))
   const sectionRef = useRef<HTMLElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -61,7 +62,7 @@ export function SecurityProcess() {
   return (
     <section id="bezpieczenstwo" ref={sectionRef} className={`security-section ${visible ? 'is-visible' : ''}`} aria-labelledby="security-title">
       <div className="shell">
-        <div className="section-kicker section-kicker--dark"><b>08 / 12</b><span />Bezpieczeństwo + proces zakupu</div>
+        <div className="section-kicker section-kicker--dark"><span />Bezpieczeństwo + proces zakupu</div>
         <h2 id="security-title">Najpierw konkret. Potem decyzja.</h2>
         <p className="security-section__lead">Poznaj zakres domu, dokumenty i etapy zakupu. Warunki rezerwacji, wpłat oraz odbioru sprawdź przed podpisaniem umowy.</p>
 
@@ -81,8 +82,8 @@ export function SecurityProcess() {
         </div>
 
         <div className="document-shelf" id="dokumenty">
-          <div className="document-shelf__intro"><span>Do spokojnego sprawdzenia</span><h3>Materiały do pobrania</h3><p>Karty konkretnych domów i standard techniczny — bez formularza i bez zostawiania numeru telefonu.</p></div>
-          <div className="document-shelf__files">{documents.map(doc=><a key={doc.id} href={doc.publicUrl} target="_blank" rel="noreferrer"><FileText size={22} /><span><strong>{doc.title}</strong><small>PDF{doc.version && doc.version !== '—' ? ` · wersja ${doc.version}` : ''}</small></span><ArrowUpRight size={20} /></a>)}</div>
+          <div className="document-shelf__intro"><span>Do spokojnego sprawdzenia</span><h3>Materiały do pobrania</h3><p>Przykładowa karta domu i pełny standard wykonania — bez formularza. Karty poszczególnych działek znajdziesz przy wyborze domu.</p></div>
+          <div className="document-shelf__files">{downloads.map(doc=><a key={doc.id} href={doc.publicUrl} target="_blank" rel="noreferrer" aria-label={`Otwórz ${doc.type === 'house_card' ? 'przykładową kartę domu' : doc.title}, PDF`}>{doc.type === 'house_card' ? <Home size={22} aria-hidden="true" /> : <ClipboardList size={22} aria-hidden="true" />}<span><strong>{doc.type === 'house_card' ? 'Przykładowa karta domu' : doc.title}</strong><small>PDF{doc.version && doc.version !== '—' ? ` · wersja ${doc.version}` : ''}</small></span><ArrowUpRight size={18} aria-hidden="true" /></a>)}</div>
         </div>
         <div className="security-ref__process">
           <div className="security-ref__process-heading">
