@@ -1,6 +1,6 @@
 {
   "version": "5.2.0-rc.23",
-  "scope": "Complete delivered project including dist and audit, excluding this manifest",
+  "scope": "Complete sources and dist; deploy tree hosting/ is included in ZIP but excluded from this source manifest because it contains private credentials",
   "files": [
     {
       "path": ".env.example",
@@ -29,8 +29,8 @@
     },
     {
       "path": "BUDUJ-WDROZENIE.cmd",
-      "bytes": 201,
-      "sha256": "a33efc332ef80cd3f7cc32b65f5e9bc621d56c55273188980a301b9b36bbf553"
+      "bytes": 193,
+      "sha256": "2b587f06f1a9001250edf56b59e5a9b3987383cef4ecb03ea70152b87184ea5a"
     },
     {
       "path": "BUILD-VERIFIED.json",
@@ -94,18 +94,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 3812,
-      "sha256": "ea7d5a01754fe92bf6ae008a3f0c85338a32c941a6aed64ef2db8e24ed60feb1"
+      "bytes": 3849,
+      "sha256": "795ee10a426633ded83c4e9cf04265358fe58eb7c4739c910b0a3f95ea1fc841"
     },
     {
       "path": "README.txt",
-      "bytes": 261,
-      "sha256": "a8422a06bf104b8b4be5e787688f6406891e49c118f39da7ee1d4de3bad90802"
+      "bytes": 286,
+      "sha256": "62f2356141ef499a49791bfab4cf0e0a32ccd2b684e342eed0abc4626af59afb"
     },
     {
       "path": "RELEASE-MANIFEST.json",
-      "bytes": 257,
-      "sha256": "c33c970c9eb4e3540d043a56dd17c1c6f8f585bf9a1be893109db5941bc9e085"
+      "bytes": 294,
+      "sha256": "e150d6fbc9bdb2f9844829d1d8e69e41dc4538582abeedb6383188dbaf39580b"
     },
     {
       "path": "START_PREVIEW.bat",
@@ -119,8 +119,8 @@
     },
     {
       "path": "START_TUTAJ_rc23.txt",
-      "bytes": 987,
-      "sha256": "b563c4e244252d409b791df6b44379391ec3365340d0d3b2beb68580a1189bb2"
+      "bytes": 1191,
+      "sha256": "0a1a987ae2e6465832cceceb8e0578221645b14127feb49c09f68c45c00a471c"
     },
     {
       "path": "URUCHOM-PODGLAD-WWW.cmd",
@@ -139,8 +139,8 @@
     },
     {
       "path": "WDROZENIE-HOSTING.md",
-      "bytes": 9124,
-      "sha256": "9ac18e5c45eb0fbcb171126abeed6d4da10733f1afd3437caea7d3335e347053"
+      "bytes": 9266,
+      "sha256": "a7c74ae428ab0bce07a36a278dbf1d05d3470f618a142717dc4de054507dba19"
     },
     {
       "path": "api/.htaccess",
@@ -164,8 +164,8 @@
     },
     {
       "path": "api/config.example.php",
-      "bytes": 2438,
-      "sha256": "6356b32de7d004baa0e851aa1afb0373f130656ce821f17878037895760a8357"
+      "bytes": 2430,
+      "sha256": "d4f90ec090e2e1cb8b1ec1eecf61a20566f9b3fca93b90aee9078d9fa21a3c97"
     },
     {
       "path": "api/contact.php",
@@ -219,8 +219,8 @@
     },
     {
       "path": "buduj-wdrozenie.sh",
-      "bytes": 76,
-      "sha256": "87a2850486fbb522ca59a674d34cc2164c0071bf1c9a96fa9c6552e0d4d3e946"
+      "bytes": 68,
+      "sha256": "711f2f8a8fc61f337e184e494f6d1afbb093ceaa28e4e863f87d8dc30b027460"
     },
     {
       "path": "dist/.htaccess",
@@ -231,6 +231,31 @@
       "path": "dist/404.html",
       "bytes": 15071,
       "sha256": "31abaf199f910cf9af8b56f8a528c479914d5114bfb8d40b2ce710f1cd709493"
+    },
+    {
+      "path": "dist/administrator-control/.htaccess",
+      "bytes": 400,
+      "sha256": "9f36df89999eba2eba2e2d99e09d46944b94f868d2bfa31f2c9dfa70ffa3ff92"
+    },
+    {
+      "path": "dist/administrator-control/control.css",
+      "bytes": 6939,
+      "sha256": "04304645ec33f3eceb61a67b2653ac415b60df84e0a9f6a41b09b65c40c83207"
+    },
+    {
+      "path": "dist/administrator-control/control.js",
+      "bytes": 15613,
+      "sha256": "8478c63cfc7ff3980abc3682843d71f6b989d12c7fb66929e51f0c6f1ff6f166"
+    },
+    {
+      "path": "dist/administrator-control/demo-visit.json",
+      "bytes": 3141,
+      "sha256": "e6c51afd9e55817f1926cfe9716544d14cd3097bcea3992db11c41f5f809b167"
+    },
+    {
+      "path": "dist/administrator-control/index.html",
+      "bytes": 7012,
+      "sha256": "d2d146fd00cfc754da12af3a7ca3917fc46d5542305edaf42dd1f2a53aec9772"
     },
     {
       "path": "dist/administrator/.htaccess",
@@ -268,31 +293,6 @@
       "sha256": "013c810fd189c307990b1cd62d2c420811340f687a4b881771a53b8da7534ed7"
     },
     {
-      "path": "dist/administrator-control/.htaccess",
-      "bytes": 400,
-      "sha256": "9f36df89999eba2eba2e2d99e09d46944b94f868d2bfa31f2c9dfa70ffa3ff92"
-    },
-    {
-      "path": "dist/administrator-control/control.css",
-      "bytes": 6939,
-      "sha256": "04304645ec33f3eceb61a67b2653ac415b60df84e0a9f6a41b09b65c40c83207"
-    },
-    {
-      "path": "dist/administrator-control/control.js",
-      "bytes": 15613,
-      "sha256": "8478c63cfc7ff3980abc3682843d71f6b989d12c7fb66929e51f0c6f1ff6f166"
-    },
-    {
-      "path": "dist/administrator-control/demo-visit.json",
-      "bytes": 3141,
-      "sha256": "e6c51afd9e55817f1926cfe9716544d14cd3097bcea3992db11c41f5f809b167"
-    },
-    {
-      "path": "dist/administrator-control/index.html",
-      "bytes": 7012,
-      "sha256": "d2d146fd00cfc754da12af3a7ca3917fc46d5542305edaf42dd1f2a53aec9772"
-    },
-    {
       "path": "dist/api/.htaccess",
       "bytes": 216,
       "sha256": "034081daca9fe3207d13cba7477e23f57103445bd327ac73f497eed8789fa9d9"
@@ -314,8 +314,8 @@
     },
     {
       "path": "dist/api/config.example.php",
-      "bytes": 2438,
-      "sha256": "6356b32de7d004baa0e851aa1afb0373f130656ce821f17878037895760a8357"
+      "bytes": 2430,
+      "sha256": "d4f90ec090e2e1cb8b1ec1eecf61a20566f9b3fca93b90aee9078d9fa21a3c97"
     },
     {
       "path": "dist/api/contact.php",
@@ -1640,7 +1640,7 @@
     {
       "path": "package.json",
       "bytes": 2534,
-      "sha256": "9c4f5449312a3ef8d9d3d0d3cb877cbfd3a6aa4d658eac5694b0851b14db4e26"
+      "sha256": "ed844122b5f80d671ff7138a252dd8a6ff62ecf4dbef0e25e1f6e9a552822c2f"
     },
     {
       "path": "preview-server.mjs",
@@ -1656,31 +1656,6 @@
       "path": "public/.htaccess",
       "bytes": 2096,
       "sha256": "af4e650775d3188346f7766a8e36d048a82fcd0e5014bc4f79abe97e12ff3437"
-    },
-    {
-      "path": "public/administrator/.htaccess",
-      "bytes": 91,
-      "sha256": "0474a42435b943405d8272f5dba71f0a5ddfafa5a7316d0334024a9c5cb62cfd"
-    },
-    {
-      "path": "public/administrator/analytics.php",
-      "bytes": 711,
-      "sha256": "0e6fd02a1d0f86aaba0d61ccb1a09e4948555dce03f72aca55687e0889b9707e"
-    },
-    {
-      "path": "public/administrator/auth.php",
-      "bytes": 2784,
-      "sha256": "1fa8c456da65bd907e2919a271948d94f0e8a06bb05dffc4f7ef8c1f6706c300"
-    },
-    {
-      "path": "public/administrator/index.php",
-      "bytes": 3455,
-      "sha256": "eeb26e36baf4d05248bc3343dd2a281fa12c6cfeff32226369798d8da8d1217b"
-    },
-    {
-      "path": "public/administrator/journey.php",
-      "bytes": 604,
-      "sha256": "013c810fd189c307990b1cd62d2c420811340f687a4b881771a53b8da7534ed7"
     },
     {
       "path": "public/administrator-control/.htaccess",
@@ -1706,6 +1681,31 @@
       "path": "public/administrator-control/index.html",
       "bytes": 7012,
       "sha256": "d2d146fd00cfc754da12af3a7ca3917fc46d5542305edaf42dd1f2a53aec9772"
+    },
+    {
+      "path": "public/administrator/.htaccess",
+      "bytes": 91,
+      "sha256": "0474a42435b943405d8272f5dba71f0a5ddfafa5a7316d0334024a9c5cb62cfd"
+    },
+    {
+      "path": "public/administrator/analytics.php",
+      "bytes": 711,
+      "sha256": "0e6fd02a1d0f86aaba0d61ccb1a09e4948555dce03f72aca55687e0889b9707e"
+    },
+    {
+      "path": "public/administrator/auth.php",
+      "bytes": 2784,
+      "sha256": "1fa8c456da65bd907e2919a271948d94f0e8a06bb05dffc4f7ef8c1f6706c300"
+    },
+    {
+      "path": "public/administrator/index.php",
+      "bytes": 3455,
+      "sha256": "eeb26e36baf4d05248bc3343dd2a281fa12c6cfeff32226369798d8da8d1217b"
+    },
+    {
+      "path": "public/administrator/journey.php",
+      "bytes": 604,
+      "sha256": "013c810fd189c307990b1cd62d2c420811340f687a4b881771a53b8da7534ed7"
     },
     {
       "path": "public/assets/data/asset-versions.json",
@@ -2784,8 +2784,8 @@
     },
     {
       "path": "scripts/build-portable.cjs",
-      "bytes": 5766,
-      "sha256": "4269a35568b3bcf46cbffeb34f3fac0a727044d1088b10f683b08577ff6cb81e"
+      "bytes": 5874,
+      "sha256": "3c4015253f0988524d234947446c04541a45c0e26758d73bddc92abbbd19fca0"
     },
     {
       "path": "scripts/dev-admin.mjs",

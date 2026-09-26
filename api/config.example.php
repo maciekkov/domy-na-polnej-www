@@ -19,7 +19,7 @@ return [
     // Wygeneruj losowe >= 32 bajty i trzymaj WYŁĄCZNIE w api/config.php na serwerze.
     'admin' => [
         'control_key' => 'UZUPELNIJ_LOSOWY_KLUCZ_MIN_32_ZNAKI',
-        // Przy npm run build:hosting login i hasło powstają automatycznie w katalogu private/.
+        // Przy npm run build login i hasło powstają automatycznie w katalogu private/.
         // Jeśli konfigurujesz ręcznie: hasło >= 32 losowe bajty, tu wpisz hash SHA-256 hasła.
         // 'login' => 'analityka',
         // 'password_sha256' => '64_ZNAKI_HEKS_SHA256',

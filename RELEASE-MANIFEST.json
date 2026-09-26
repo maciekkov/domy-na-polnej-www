@@ -1,6 +1,6 @@
 {
   "version": "5.2.0-rc.23",
-  "deploy": "dist/",
+  "deploy": "hosting/public_html/ and hosting/private/",
   "build": "npm run build",
   "qa": "TypeScript + Vite; 90 source checks; 100/101 node checks (PHP CLI absent); 1136 tour checks; browser functional QA 5 widths; screenshot audit",
   "smtpLiveTest": false

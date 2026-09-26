@@ -1,4 +1,4 @@
-# Domy na Polnej — 5.2.0-rc.19
+# Domy na Polnej — 5.2.0-rc.23
 
 Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji Gmail: **WDROZENIE-HOSTING.md**.
 
@@ -10,10 +10,10 @@ Node.js >=22.12:
 
 ```sh
 npm ci
-npm run build:hosting
+npm run build
 ```
 
-Budowanie zachowuje prywatną konfigurację i hasło analityki, jeśli są już w `hosting/private/`; przy pierwszym buildzie generuje dane dostępu. Paczka wdrożeniowa zawiera dotychczasową konfigurację z rc.16. Przy aktualizacji działającego hostingu zachowaj jego katalog private; przenieś do konfiguracji poprawiony adres odbiorcy oraz ustawienia SMTP opisane w instrukcji.
+Zwykły build od razu przygotowuje `hosting/public_html/` i `hosting/private/`. Komenda `npm run build:hosting` pozostaje zgodna wstecznie i uruchamia ten sam build tylko raz. Budowanie zachowuje prywatną konfigurację i hasło analityki, jeśli są już w `hosting/private/`; przy pierwszym buildzie generuje dane dostępu. Przy aktualizacji działającego hostingu zachowaj jego katalog private; ustawienia SMTP opisano w instrukcji.
 
 ## Podgląd
 
@@ -36,4 +36,4 @@ Produkcyjny panel /administrator-control/ pokazuje podsumowania, źródła, urz�
 
 ## Panel administratora v5.1 Premium (rc.10)
 
-`npm run build:hosting` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Do wysyłania wiadomości do Gmaila potrzebne jest hasło aplikacji w prywatnej konfiguracji serwera; paczka go nie zawiera. Szczegóły w `WDROZENIE-HOSTING.md`.
+`npm run build` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Do wysyłania wiadomości do Gmaila potrzebne jest hasło aplikacji w prywatnej konfiguracji serwera; paczka go nie zawiera. Szczegóły w `WDROZENIE-HOSTING.md`.

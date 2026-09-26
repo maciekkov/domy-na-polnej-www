@@ -8,10 +8,10 @@ Wymagany Node.js 22.12 lub nowszy. Z katalogu źródeł uruchom:
 
 ```sh
 npm ci
-npm run build:hosting
+npm run build
 ```
 
-Za każdym razem komenda przebuduje stronę i odświeży `hosting/public_html/`. `hosting/private/` zachowuje już utworzoną konfigurację, hasło i dane. Przy pierwszym uruchomieniu powstaje losowe hasło do analityki. **Nie udostępniaj innym całej paczki wdrożeniowej, bo zawiera hasło w części private.**
+Za każdym razem zwykłe `npm run build` przebuduje stronę i odświeży `hosting/public_html/`. `npm run build:hosting` robi dokładnie to samo (zgodność ze starszymi instrukcjami). `hosting/private/` zachowuje już utworzoną konfigurację, hasło i dane. Przy pierwszym uruchomieniu powstaje losowe hasło do analityki. **Nie udostępniaj innym całej paczki wdrożeniowej, bo zawiera hasło w części private.** Katalog `hosting/` jest ignorowany przez Git.
 
 ## Co i dokąd wgrać
 

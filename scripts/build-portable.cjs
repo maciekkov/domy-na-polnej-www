@@ -59,5 +59,6 @@ let html=fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/<script t
 html=html.replace('</head>',`<link rel="stylesheet" href="/assets/build/${cssName}" />\n<link rel="modulepreload" href="/assets/build/${vendorName}" />\n</head>`);
 fs.writeFileSync(path.join(out,'index.html'),html);
 cp.execFileSync(process.execPath,[path.join(root,'scripts/prepare-dist.mjs')],{cwd:root,stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(root,'scripts/build-hosting.mjs')],{cwd:root,stdio:'inherit'});
 fs.writeFileSync(path.join(root,'BUILD-VERIFIED.json'),JSON.stringify({builder:'portable',typescript:ts.version,react:'19.1.1',node:process.version,modules:modules.size,jsBytes:Buffer.byteLength(js),runtimeBytes:Buffer.byteLength(runtime),cssBytes:Buffer.byteLength(css),entry:jsName,syntaxChecked:true,typeChecked:false},null,2));
 console.log(`Portable production build: ${modules.size} modules, JS ${Math.round(js.length/1024)} KB + React ${Math.round(runtime.length/1024)} KB, CSS ${Math.round(css.length/1024)} KB.`);
