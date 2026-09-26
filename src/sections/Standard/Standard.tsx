@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { standardGroups, standardHighlights } from '../../data/standard'
 
 export function Standard({ pdfUrl }: { pdfUrl: string }) {
-  const [openId, setOpenId] = useState<string | null>('windows')
+  const [openId, setOpenId] = useState<string | null>(null)
 
   return (
     <section id="standard" className="standard-section" aria-labelledby="standard-title">
@@ -11,7 +11,7 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
         <div className="standard-section__content">
           <div className="standard-section__intro">
           <div className="section-kicker"><span />Standard</div>
-          <h2 id="standard-title">To, co ważne, już jest w standardzie</h2>
+          <h2 id="standard-title">To, co ważne,<br />jest już w standardzie.</h2>
           <p className="standard-section__lead">Pompa ciepła, ogrzewanie podłogowe, wentylacja z odzyskiem ciepła i okna trzyszybowe. Poniżej najważniejsze elementy, a w dokumencie PDF — szczegółowy zakres materiałów i prac.</p>
 
           </div>
@@ -40,7 +40,7 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
               )
             })}
           </div>
-          <div className="scope-note"><strong>Standard deweloperski, nie dom pod klucz.</strong><p>Wykończenie wnętrz, kuchnia, wyposażenie łazienek, umeblowanie i nasadzenia nie są w cenie podstawowej. PV Ready oznacza przygotowanie pod fotowoltaikę, nie komplet paneli. Taras i wiata wymagają odrębnego uzgodnienia.</p></div>
+
           </div>
         </div>
 
@@ -64,6 +64,7 @@ export function Standard({ pdfUrl }: { pdfUrl: string }) {
             </a>
           </article>
         </div>
+          <div className="scope-note"><strong>Standard deweloperski, nie dom pod klucz.</strong><p>Wykończenie wnętrz, kuchnia, wyposażenie łazienek, umeblowanie i nasadzenia nie są w cenie podstawowej. PV Ready oznacza przygotowanie pod fotowoltaikę, nie komplet paneli. Taras i wiata wymagają odrębnego uzgodnienia.</p></div>
       </div>
     </section>
   )

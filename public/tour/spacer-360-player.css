@@ -92,6 +92,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
   .tour-hotspot__label { max-width: 150px; font-size: 10px; padding: 6px 9px; }
   .tour-help { top: 56px; max-height: calc(100dvh - 66px); }
 }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
@@ -364,4 +365,42 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
  .tour-brand{padding:5px 9px}.tour-brand__title{font-size:14px}
  .tour-title{top:6px;padding:5px 10px;min-height:32px}
  .tour-overlay{background:linear-gradient(180deg,#070a0833,transparent 25%,transparent 75%,#070a0833)}
+}
+
+/* One quiet navigation pin for every direction in both tours. The original
+   direction remains in data-kind and controls the transition, not its icon. */
+.tour-hotspot__core {
+  border: 0;
+  background: transparent url('/tour/pin-premium.png?v=7fc0cda7179bfbad') center / 152% no-repeat;
+  box-shadow: none;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,.42));
+  transition: transform 220ms var(--ease), filter 220ms ease;
+}
+.tour-hotspot:hover .tour-hotspot__core,
+.tour-hotspot:focus-visible .tour-hotspot__core {
+  transform: scale(1.12);
+  border: 0;
+  background: transparent url('/tour/pin-premium.png?v=7fc0cda7179bfbad') center / 152% no-repeat;
+  box-shadow: none;
+  filter: brightness(1.18) drop-shadow(0 0 12px rgba(233,211,160,.45)) drop-shadow(0 8px 14px rgba(0,0,0,.42));
+}
+.tour-hotspot:active .tour-hotspot__core { transform: scale(.98); }
+.tour-hotspot__line { display: none; }
+.tour-hotspot__core::before,
+.tour-hotspot[data-pulse="true"] .tour-hotspot__core::before { content: none; animation: none; }
+.tour-hotspot__label { display: block; opacity: 1; pointer-events: auto; transition: border-color 220ms ease, background 220ms ease; }
+.tour-hotspot:hover .tour-hotspot__label,
+.tour-hotspot:focus-visible .tour-hotspot__label { border-color: rgba(231,195,111,.48); background: rgba(20,24,20,.86); }
+@media (max-width: 760px), (max-height: 540px) and (orientation: landscape) {
+  .tour-hotspot, .tour-hotspot.is-left { width: 44px; height: 44px; padding: 9px; }
+  .tour-hotspot__core,
+  .tour-hotspots[data-density="dense"] .tour-hotspot__core { width: 26px; height: 26px; }
+  .tour-hotspot__label,
+  .tour-hotspots[data-density="dense"] .tour-hotspot__label {
+    display: block; max-width: min(110px, 28vw); padding: 4px 6px; font-size: 9px; line-height: 1.2;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-hotspot__core, .tour-hotspot__label { transition: none; }
+  .tour-hotspot[data-pulse="true"] .tour-hotspot__core::before { animation: none; }
 }

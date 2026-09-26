@@ -37,12 +37,13 @@ export function Gallery({ selectedHouse }: GalleryProps) {
   }
 
   return (
+    <>
     <section id="galeria" className="gallery-section" aria-labelledby="gallery-title">
       <div className="shell">
         <div className="gallery-section__top">
           <div>
-            <div className="section-kicker section-kicker--dark"><span />Galeria + spacer 360°</div>
-            <h2 id="gallery-title">Zobacz Domy na Polnej</h2>
+            <div className="section-kicker section-kicker--dark"><span />Zdjęcia i wizualizacje</div>
+            <h2 id="gallery-title">Zobacz Domy na Polnej</h2><p className="gallery-intro">Poznaj nasze domy z każdej perspektywy — zobacz elewacje, wnętrza i najbliższą okolicę.</p>
           </div>
           <div className="gallery-tabs" role="tablist" aria-label="Kategorie galerii">
             {galleryCategories.map((item, index) => (
@@ -62,8 +63,8 @@ export function Gallery({ selectedHouse }: GalleryProps) {
           </div>
         </div>
 
-        <div id="gallery-panel" role="tabpanel" aria-labelledby={`gallery-tab-${category}`} className={`editorial-gallery ${images.length === 4 ? 'editorial-gallery--four' : ''}`.trim()}>
-          {images.map((image, index) => (
+        <div id="gallery-panel" role="tabpanel" aria-labelledby={`gallery-tab-${category}`} className="editorial-gallery editorial-gallery--three">
+          {images.slice(0, 3).map((image, index) => (
             <button className={`gallery-tile gallery-tile--${index + 1}`} key={image.src} type="button" onClick={() => { setLightboxIndex(index); track('gallery_open', selectedHouse) }} aria-label={`Otwórz zdjęcie: ${image.title}`}>
               <img src={image.src} alt={image.alt} loading="lazy" width="1672" height="941" decoding="async" />
               <span><ImageIcon /> Zobacz zdjęcie <ArrowUpRight /></span>
@@ -71,10 +72,11 @@ export function Gallery({ selectedHouse }: GalleryProps) {
           ))}
         </div>
 
-        <p className="gallery__disclaimer">Wizualizacje pokazują przykładową aranżację. Wykończenie wnętrz, wyposażenie i zieleń nie określają zakresu ceny. Zdjęcia okolicy przedstawiają rzeczywisty teren.</p>
-        <div id="spacer-360" className="immersive-heading" style={{ scrollMarginTop: '88px' }}>
-          <div><span>Dwa sposoby oglądania</span><h3>Poznaj dom. Rozejrzyj się po okolicy.</h3></div>
-          <p>Wirtualny spacer pokazuje wnętrze i ogród. Panorama z drona pozwala zobaczyć rzeczywiste otoczenie inwestycji.</p>
+        <div className="gallery-benefits"><span><ImageIcon /> Zdjęcia i wizualizacje</span><span><Move3d /> Wirtualny spacer 360°</span><span><Scan /> Poznaj rzeczywistą okolicę</span><button type="button" className="button button--outline" onClick={() => setLightboxIndex(0)}>Zobacz całą galerię <ArrowUpRight /></button></div><p className="gallery__disclaimer">Wizualizacje pokazują przykładową aranżację. Wykończenie wnętrz, wyposażenie i zieleń nie określają zakresu ceny. Zdjęcia okolicy przedstawiają rzeczywisty teren.</p>
+        </div></section>
+      <section id="spacer-360" className="immersive-section" aria-labelledby="immersive-title"><div className="shell"><div className="immersive-heading">
+          <div><span>Dwa sposoby oglądania</span><h2 id="immersive-title">Poznaj dom z dwóch perspektyw.</h2></div>
+          <p>Wejdź do środka i poczuj przestrzeń — zobacz wnętrza i ogród w spacerze 360° lub poznaj prawdziwe otoczenie inwestycji z lotu ptaka.</p>
         </div>
 
         <div className="immersive-grid">
@@ -84,28 +86,29 @@ export function Gallery({ selectedHouse }: GalleryProps) {
             <div className="immersive-card__badge">{tours.exterior.count} na zewnątrz · {tours.interior.count} we wnętrzu</div>
             <div className="immersive-card__content">
               <Move3d aria-hidden="true" />
-              <div className="eyebrow eyebrow--light">Dom i działka</div>
+              <div className="eyebrow eyebrow--light">Odkryj każdy detal</div>
               <h3>Spacer 360°</h3>
-              <p>Wejdź do domu i poznaj salon, kuchnię, pokoje, łazienki oraz domowe zaplecze. Przez taras przejdź do spaceru po ogrodzie.</p>
+              <p>Przejdź przez salon, kuchnię i pokoje. Wyjdź na taras i zobacz, jak dom łączy się z ogrodem.</p>
               <button id="choose-tour" className="button button--olive" type="button" onClick={() => setTourPickerOpen(true)}>Wybierz spacer <ChevronRight size={17} /></button>
               <small>Interaktywny spacer · przykładowy układ domu</small>
             </div>
           </article>
 
           <article className="immersive-card immersive-card--panorama">
-            <img src="/assets/images/responsive/panorama-preview.webp?v=8807f8911f0a6449" alt="Panorama okolicy Grabika wykonana z drona" loading="lazy" decoding="async" />
+            <img src="/assets/images/neighborhood/forest-panorama.webp?v=66a5cc20b925ff3b" alt="Panorama okolicy Grabika wykonana z drona" loading="lazy" decoding="async" />
             <div className="immersive-card__shade" aria-hidden="true" />
             <div className="immersive-card__orbit" aria-hidden="true"><span>360°</span></div>
             <div className="immersive-card__content">
               <Scan aria-hidden="true" />
-              <div className="eyebrow eyebrow--light">Prawdziwe otoczenie</div>
+              <div className="eyebrow eyebrow--light">Szersza perspektywa</div>
               <h3>Panorama z drona</h3>
-              <p>Obejrzyj Grabik, otwarte łąki i linię lasu w rzeczywistej fotografii sferycznej.</p>
+              <p>Zobacz Grabik, otwarte łąki i linię lasu. Rozejrzyj się po rzeczywistym otoczeniu Twojego przyszłego domu.</p>
               <button className="button button--outline" type="button" onClick={() => { setPanoramaOpen(true); track('gallery_open', selectedHouse) }}>Otwórz panoramę <ChevronRight size={17} /></button>
               <small>Rzeczywisty widok otoczenia inwestycji</small>
             </div>
           </article>
         </div>
+        <div className="immersive-signature"><span />Więcej niż dom · przestrzeń do życia<span /></div>
       </div>
 
       {lightboxIndex !== null && <GalleryLightbox images={images} index={lightboxIndex} onIndex={setLightboxIndex} onClose={() => setLightboxIndex(null)} />}
@@ -113,5 +116,6 @@ export function Gallery({ selectedHouse }: GalleryProps) {
       {tourMode && <TourFrameModal houseCode={selectedHouse} onClose={() => setTourMode(null)} onEngaged={() => track('tour_engaged', selectedHouse === 'unknown' ? undefined : selectedHouse, { tourMode })} src={tours[tourMode].src} title={tours[tourMode].title} />}
       {panoramaOpen && <PanoramaModal onClose={() => setPanoramaOpen(false)} />}
     </section>
+    </>
   )
 }

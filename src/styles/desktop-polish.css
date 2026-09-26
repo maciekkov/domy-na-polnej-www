@@ -1,0 +1,80 @@
+/* The plan photograph must stay visible through the selection. */
+.masterplan .masterplan__polygons path[aria-pressed="true"] {
+  fill: transparent;
+  stroke: transparent;
+  filter: none;
+}
+.masterplan .masterplan__polygons path:is(.masterplan-plot--available,.masterplan-plot--reserved,.masterplan-plot--sold):is(:hover,:focus-visible,.is-active) {
+  fill: rgba(192, 236, 121, .065);
+  stroke: #c9f37e;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 4px rgba(179, 232, 104, .7));
+}
+.masterplan .masterplan__polygons path.masterplan-plot--reserved:is(:hover,:focus-visible,.is-active) {
+  stroke: #f3d47f;
+}
+.masterplan .masterplan__polygons path.masterplan-plot--sold:is(:hover,:focus-visible,.is-active) {
+  stroke: #eca894;
+}
+
+/* The PDF is the single action inside a selected home's card. */
+.house-card a.house-card__pdf {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 761px) {
+  .hero__shade {
+    background: linear-gradient(90deg, rgba(8, 23, 17, .7) 0%, rgba(8, 23, 17, .47) 24%, rgba(8, 23, 17, .12) 39%, transparent 56%);
+  }
+  .hero__content {
+    padding-bottom: clamp(112px, 14vh, 148px);
+  }
+  .homes__heading {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 961px) {
+  .site-header:not(.site-header--scrolled) {
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+  .site-header:not(.site-header--scrolled) .site-header__inner {
+    text-shadow: 0 1px 6px rgba(5, 17, 12, .72);
+  }
+  .house-card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1672 / 941;
+    background: #e6e8df;
+  }
+  .house-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: none;
+  }
+  .house-card:hover .house-card__image img {
+    transform: none;
+  }
+  .location__shade {
+    background: linear-gradient(90deg, rgba(27,35,27,.99) 0%, rgba(27,35,27,.97) 25%, rgba(27,35,27,.70) 39%, rgba(27,35,27,.18) 54%, transparent 66%);
+  }
+  .location__media img {
+    filter: brightness(1.2) saturate(1.13) contrast(1.03);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 960px) {
+  .house-card__image {
+    aspect-ratio: 1672 / 941;
+  }
+  .house-card__image img {
+    object-fit: contain;
+  }
+}

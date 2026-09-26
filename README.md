@@ -1,6 +1,8 @@
-# Domy na Polnej — 5.2.0-rc.13
+# Domy na Polnej — 5.2.0-rc.19
 
 Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji Gmail: **WDROZENIE-HOSTING.md**.
+
+W rc.19 po interaktywnym rzucie dodano sekcję o suficie katedralnym z wysokością 5,82 m w najwyższym punkcie salonu. Używa istniejącego zdjęcia ze spaceru wewnętrznego; nie zastępuje materiału technicznego pokazującego pełny przekrój sufitu.
 
 ## Build
 
@@ -11,7 +13,7 @@ npm ci
 npm run build:hosting
 ```
 
-Budowanie zachowuje prywatną konfigurację i hasło analityki. Przy aktualizacji działającego hostingu zachowaj jego katalog private; przenieś do konfiguracji poprawiony adres odbiorcy oraz ustawienia SMTP opisane w instrukcji.
+Budowanie zachowuje prywatną konfigurację i hasło analityki, jeśli są już w `hosting/private/`; przy pierwszym buildzie generuje dane dostępu. Paczka wdrożeniowa zawiera dotychczasową konfigurację z rc.16. Przy aktualizacji działającego hostingu zachowaj jego katalog private; przenieś do konfiguracji poprawiony adres odbiorcy oraz ustawienia SMTP opisane w instrukcji.
 
 ## Podgląd
 

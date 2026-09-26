@@ -20,7 +20,7 @@ try {
   await page.locator('#choose-tour').click()
   await page.locator('.tour-choice-option--interior').click()
   const frame=page.frameLocator('.tour-frame-modal iframe')
-  await expect(frame.locator('#tourApp')).toHaveAttribute('data-scene','int00-podcien-wejsciowy')
+  await expect(frame.locator('#tourApp')).toHaveAttribute('data-scene','int01-wejscie-do-domu')
   if(await frame.locator('#tourDisclaimer').isVisible())await frame.locator('#tourDisclaimerAccept').click()
   await frame.locator('#closeTour').click()
   const events=await page.evaluate(()=>JSON.parse(localStorage.getItem('dnp-analytics-events-v3')||'[]'))

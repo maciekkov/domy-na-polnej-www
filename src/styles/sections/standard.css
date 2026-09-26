@@ -490,7 +490,7 @@
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 }
-.standard-section .standard-highlight__icon{width:76px;height:76px;border:0;border-radius:0;box-shadow:none;background-image:url('/assets/icons/standard-illustrations.png?v=c83f4722790d3e47');background-size:400% 200%;background-repeat:no-repeat;background-color:transparent}
+.standard-section .standard-highlight__icon{width:91px;height:91px;border:0;border-radius:0;box-shadow:none;background-image:url('/assets/icons/standard-illustrations.png?v=c83f4722790d3e47');background-size:400% 200%;background-repeat:no-repeat;background-color:transparent}
 .standard-section .standard-highlight__icon--heat-pump{background-position:0 0}
 .standard-section .standard-highlight__icon--ventilation{background-position:33.333% 0}
 .standard-section .standard-highlight__icon--floor-heating{background-position:66.667% 0}

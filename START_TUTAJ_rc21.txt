@@ -1,0 +1,17 @@
+DOMY NA POLNEJ — 5.2.0-rc.21 REFERENCE PREMIUM
+
+1. Rozpakuj cały ZIP.
+2. Podgląd Windows: uruchom URUCHOM-PODGLAD-WWW.cmd.
+   Linux/macOS: w katalogu projektu uruchom node preview-server.mjs.
+   Otwórz http://127.0.0.1:4173. Wymagany Node.js >=22.12.
+   Gotowy dist jest dołączony; nie musisz budować strony do podglądu.
+3. Źródła: src/ i public/. Instalacja: npm ci. Budowanie: npm run build.
+4. Wdrożenie: zawartość dist/ do katalogu WWW; zachowaj prywatną konfigurację
+   istniejącego hostingu. Szczegóły w WDROZENIE-HOSTING.md.
+5. Audyt i zrzuty: docs/reference-audit/AUDYT_RC21.md.
+
+Wersja przebudowuje wygląd według 14 referencji, zachowuje własne zdjęcia,
+łączy nowe pełne tła z detalami oliwnymi i zmniejsza wysokości sekcji.
+PHP i rzeczywista wysyłka SMTP nie były testowane w tym środowisku.
+Starsze raporty w projekcie opisują wcześniejsze wersje; bieżący audyt jest
+w docs/reference-audit. Ta paczka nie została opublikowana na serwerze.

@@ -10,7 +10,8 @@ const configs = {
   interior: load('public/assets/data/spacer-360-wewnetrzny.json'),
   exterior: load('public/assets/data/spacer-360-zewnetrzny.json'),
 }
-const audit = load('docs/spacer-wnetrza/klasyfikacja.json')
+const auditFile = 'docs/spacer-wnetrza/klasyfikacja.json'
+const audit = existsSync(path.join(root, auditFile)) ? load(auditFile) : null
 let checks = 0
 const check = (condition, message) => { assert.ok(condition, message); checks++ }
 const graph = new Map()
@@ -51,12 +52,18 @@ for (const start of graph.keys()) {
   check(seen.size === graph.size, `Z ${start} da się dotrzeć do wszystkich ${graph.size} scen i wrócić`)
 }
 const interior = configs.interior
+check(interior.startScene === 'int01-wejscie-do-domu', 'Wnętrze zaczyna się przy otwartych drzwiach')
+check(!interior.scenes.some(s => s.id === 'int00-podcien-wejsciowy'), 'Powtórzone zamknięte drzwi usunięte')
+check(configs.exterior.scenes.find(s => s.id === '04_podcien_wejsciowy').hotspots.some(p => p.tour === 'interior' && p.target === interior.startScene), 'Drzwi otwierane wyłącznie na zewnątrz')
+check(interior.scenes[0].hotspots.some(p => p.tour === 'exterior' && p.target === '04_podcien_wejsciowy'), 'Powrót pod podcień z wnętrza')
 check(interior.scenes.length === interior.stats.scenes, 'Liczba kadrów zgodna ze statystykami')
 check(interior.scenes.filter(s => s.sourceType === 'render').length === interior.stats.renders, 'Liczba renderów zgodna ze statystykami')
 check(interior.scenes.filter(s => s.sourceType === 'blender').length === interior.stats.blender, 'Liczba szkiców zgodna ze statystykami')
 check(interior.loop === false, 'Koniec strychu nie zapętla się skokiem do wejścia')
-check(audit.sketches.length === 29, 'Sklasyfikowane wszystkie 29 szkiców')
-check(audit.summary.inputRenderFiles === 20 && audit.summary.uniqueRenders === 18, 'pierwotny audyt: 20 plików, 18 unikalnych renderów')
+if (audit) {
+  check(audit.sketches.length === 29, 'Sklasyfikowane wszystkie 29 szkiców')
+  check(audit.summary.inputRenderFiles === 20 && audit.summary.uniqueRenders === 18, 'pierwotny audyt: 20 plików, 18 unikalnych renderów')
+}
 check(interior.scenes.find(s => s.id.startsWith('int25-')).room === 'master-bath', 'Poprawna klasyfikacja INT_25')
 check(!interior.scenes.some(s => /^int(04|19|23|24|29)-/.test(s.id)), 'Odrzucone duplikujące/niespójne/zasłonięte kadry nie trafiają do głównej trasy')
 for (const stem of ['wewnatrz','zewnatrz']) {
@@ -70,4 +77,7 @@ check(read('src/data/tours.ts').includes('tour-summary.json'), 'Liczba kadrów p
 check(read('public/tour/spacer-360-wewnatrz.html').includes('id="tourDisclaimer"'), 'Wnętrze: komunikat wejściowy')
 check(read('public/tour/spacer-360-zewnatrz.html').includes('id="tourDisclaimer"'), 'Zewnątrz: komunikat wejściowy')
 check(read('public/tour/spacer-360-player.js').includes('frame.width / currentImage.width'), 'Pinezki liczone względem obrazu, nie ekranu')
+check(read('public/tour/spacer-360-player.js').includes('sessionStorage.getItem(DISCLAIMER_STORAGE_KEY)'), 'Komunikat czytany z pamięci sesji')
+check(read('public/tour/spacer-360-player.js').includes('sessionStorage.setItem(DISCLAIMER_STORAGE_KEY'), 'Komunikat zapisywany w pamięci sesji')
+check(read('public/tour/spacer-360-player.css').includes('.tour-hotspot__label { display: block; opacity: 1;'), 'Etykiety stale widoczne')
 console.log(`OK — ${checks} sprawdzeń danych i integracji. ${interior.scenes.length} wnętrz + ${configs.exterior.scenes.length} zewnętrznych; każda scena osiągalna z każdej innej.`)

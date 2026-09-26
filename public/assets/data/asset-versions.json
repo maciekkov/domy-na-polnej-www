@@ -1,6 +1,9 @@
 {
-  "release": "954bf862f55f443b",
+  "release": "4ab7d06952cdc01f",
   "assets": {
+    "/assets/fonts/Body.woff": "9f140025e3bdc93e",
+    "/assets/fonts/Editorial-Italic.woff": "18dddff6e1160609",
+    "/assets/fonts/Editorial.woff": "0449830cc51c0467",
     "/assets/icons/blinds.svg": "048490b634d4081e",
     "/assets/icons/fence.svg": "32c5a814d4e694ad",
     "/assets/icons/floor-heating.svg": "0eb7f80114ba12dd",
@@ -14,7 +17,10 @@
     "/assets/images/decor/botanical-line-branch.svg": "6dc3ddc1132c2701",
     "/assets/images/decor/botanical-reed-right.svg": "a699f0ac8a76deb9",
     "/assets/images/decor/botanical-sprig-left.svg": "b5566d6896b654a3",
+    "/assets/images/decor/forest-wallpaper.webp": "d39ee7078a4a8b21",
+    "/assets/images/decor/ivory-wallpaper.webp": "afc1af4a26210ba2",
     "/assets/images/decor/linden-corner.png": "4e04f38fe0ea2c54",
+    "/assets/images/decor/olive-branch.png": "0b063fb387dd2e31",
     "/assets/images/dnp-masterplan.svg": "357da8c9d52a4803",
     "/assets/images/dnp-masterplan.webp": "513c9a85fe20f11f",
     "/assets/images/floorplan.webp": "7b25c009149bd165",
@@ -235,6 +241,7 @@
     "/pdf/karta-dom-b.pdf": "15acc3a2de4619c1",
     "/pdf/karta-dom-c.pdf": "943d702b409a13ac",
     "/pdf/karta-dom-d.pdf": "e0f80ce45baf994e",
-    "/pdf/karta-dom-e.pdf": "779fe208e88cedc7"
+    "/pdf/karta-dom-e.pdf": "779fe208e88cedc7",
+    "/tour/pin-premium.png": "7fc0cda7179bfbad"
   }
 }

@@ -7,6 +7,7 @@ import { Homes } from '../sections/Homes/Homes'
 import { WhyHome } from '../sections/WhyHome/WhyHome'
 import { Location } from '../sections/Location/Location'
 import { Layout } from '../sections/Layout/Layout'
+import { CathedralCeiling } from '../sections/CathedralCeiling/CathedralCeiling'
 import { Gallery } from '../sections/Gallery/Gallery'
 import { Standard } from '../sections/Standard/Standard'
 import { SecurityProcess } from '../sections/SecurityProcess/SecurityProcess'
@@ -55,16 +56,6 @@ export function App() {
     params.delete('dom')
     const search = params.toString()
     window.history.replaceState({}, '', `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`)
-  }, [selectHouse])
-
-  const askAboutHouse = useCallback((id: HouseId) => {
-    selectHouse(id)
-    window.setTimeout(() => {
-      const form = document.getElementById('kontakt')
-      form?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
-      form?.querySelector<HTMLInputElement>('input[name="name"]')?.focus({preventScroll:true})
-    }, 40)
-    track('house_contact_click', id)
   }, [selectHouse])
 
   useEffect(() => {
@@ -144,9 +135,10 @@ export function App() {
       <main id="main">
         <Hero />
         {dataError && <p className="site-data-warning" role="status">{dataError}</p>}
-        <Homes houses={houses} selectedId={selectedId} onSelect={selectHouse} onAsk={askAboutHouse} />
+        <Homes houses={houses} selectedId={selectedId} onSelect={selectHouse} />
         <WhyHome />
         <Layout />
+        <CathedralCeiling />
         <Location />
         <Gallery selectedHouse={selectedId ?? 'unknown'} />
         <Standard pdfUrl={data.standardPdf} />

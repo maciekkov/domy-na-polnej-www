@@ -5,11 +5,11 @@
   "mode": "interior",
   "coordinateSystem": "image",
   "loop": false,
-  "startScene": "int00-podcien-wejsciowy",
-  "description": "Spacer po wnętrzu domu z zachowaniem wszystkich kadrów i uproszczoną nawigacją lokalną: krótsze przejścia, spójne kierunki strzałek i mniej nakładających się pinów.",
+  "startScene": "int01-wejscie-do-domu",
+  "description": "Spacer po wnętrzu domu z zachowaniem wszystkich kadrów i uproszczoną nawigacją lokalną: krótsze przejścia, czytelne podpisy pinów i mniej nakładających się pinów.",
   "stats": {
-    "scenes": 30,
-    "renders": 30,
+    "scenes": 29,
+    "renders": 29,
     "blender": 0,
     "inputSketches": 29,
     "inputRenderFiles": 37,
@@ -19,7 +19,7 @@
     {
       "id": "entry",
       "title": "Wejście i wiatrołap",
-      "scene": "int00-podcien-wejsciowy"
+      "scene": "int01-wejscie-do-domu"
     },
     {
       "id": "utility",
@@ -79,64 +79,6 @@
   ],
   "scenes": [
     {
-      "id": "int00-podcien-wejsciowy",
-      "title": "Podcień wejściowy",
-      "room": "entry",
-      "roomLabel": "Wejście i wiatrołap",
-      "image": "/assets/images/spacer-360/interior/webp/int00-podcien-wejsciowy.webp?v=3ad94d1b66cf6caf",
-      "thumb": "/assets/images/spacer-360/interior/thumbs/int00-podcien-wejsciowy.webp?v=ed384e2e09c4f609",
-      "fallbackImage": "/assets/images/spacer-360/interior/webp/int00-podcien-wejsciowy.webp?v=3ad94d1b66cf6caf",
-      "sourceType": "render",
-      "width": 1600,
-      "height": 900,
-      "hotspots": [
-        {
-          "target": "int01-wejscie-do-domu",
-          "x": 53.5,
-          "y": 42.8,
-          "label": "Otwórz\ndrzwi",
-          "kind": "portal",
-          "align": "left",
-          "pulse": true
-        },
-        {
-          "tour": "exterior",
-          "target": "03_wejscie_glowne",
-          "x": 24,
-          "y": 67.4,
-          "label": "Wróć przed\nwejście",
-          "kind": "downLeft",
-          "align": "right",
-          "pulse": false
-        }
-      ],
-      "source": {
-        "camera": "EXT_04",
-        "renderFile": "04_podcien_wejsciowy.webp"
-      },
-      "fallbackHotspots": [
-        {
-          "target": "int01-wejscie-do-domu",
-          "x": 53.5,
-          "y": 42.8,
-          "label": "Otwórz\ndrzwi",
-          "kind": "portal",
-          "align": "left",
-          "pulse": true
-        },
-        {
-          "tour": "exterior",
-          "target": "03_wejscie_glowne",
-          "x": 24,
-          "y": 67.4,
-          "label": "Wróć przed\nwejście",
-          "kind": "downLeft",
-          "align": "right",
-          "pulse": false
-        }
-      ]
-    },
-    {
       "id": "int01-wejscie-do-domu",
       "title": "Wejście do domu",
       "room": "entry",
@@ -158,13 +100,14 @@
           "pulse": true
         },
         {
-          "target": "int00-podcien-wejsciowy",
+          "target": "04_podcien_wejsciowy",
           "x": 13,
           "y": 68.7,
           "label": "Wróć pod\npodcień",
           "kind": "back",
           "align": "right",
-          "pulse": false
+          "pulse": false,
+          "tour": "exterior"
         }
       ],
       "source": {
@@ -183,13 +126,14 @@
           "pulse": true
         },
         {
-          "target": "int00-podcien-wejsciowy",
+          "target": "04_podcien_wejsciowy",
           "x": 13,
           "y": 68.7,
           "label": "Wróć pod\npodcień",
           "kind": "back",
           "align": "right",
-          "pulse": false
+          "pulse": false,
+          "tour": "exterior"
         }
       ]
     },

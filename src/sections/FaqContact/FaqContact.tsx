@@ -119,7 +119,7 @@ export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
         <div className="shell faq-section__grid">
           <div className="faq-section__intro">
             <div className="section-kicker"><span />FAQ + kontakt</div>
-            <h2 id="faq-title">Masz pytania?</h2>
+            <h2 id="faq-title">Masz <em>pytania?</em></h2>
             <p>Najważniejsze odpowiedzi o domu, zakupie i finansowaniu — krótko i konkretnie.</p>
           </div>
 
@@ -150,13 +150,14 @@ export function FaqContact({ selectedHouse, onHouseChange, contact }: Props) {
               </section>
             ))}
           </div>
+          <aside className="faq-help"><img src="/assets/images/spacer-360/exterior/webp/04_podcien_wejsciowy.webp?v=53b469e6311733ca" alt="Zadaszony podcień przy wejściu do domu" loading="lazy" /><div><span className="eyebrow">Nie znalazłeś odpowiedzi?</span><h3>Porozmawiajmy<br />o Twoich potrzebach.</h3><p>Chętnie odpowiemy na pytania i przedstawimy szczegóły oferty.</p><a className="button button--olive" href="#kontakt">Skontaktuj się z nami <ArrowRight size={16} /></a><a href={contact.phoneHref}><Phone size={18} />{contact.phoneDisplay}</a><a href={contact.emailHref}><Mail size={18} />{contact.email}</a></div></aside>
         </div>
       </section>
 
       <section id="kontakt" className="contact-section" aria-labelledby="contact-title">
         <div className="shell contact-section__grid">
           <div className="contact-section__intro">
-            <h2 id="contact-title">Porozmawiajmy<br />o Twoim domu</h2>
+            <div className="section-kicker section-kicker--dark"><span />Kontakt</div><h2 id="contact-title">Porozmawiajmy<br />o Twoim domu</h2>
             <p>Zapytaj o wybrany dom, standard lub spotkanie na działce. Zostaw imię i telefon — porozmawiamy o szczegółach.</p>
 
             <address className="contact-details">

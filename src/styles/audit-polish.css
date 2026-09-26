@@ -1,0 +1,51 @@
+/* rc.22 — final user-directed proportions. */
+.hero__copy,.hero__bottom{position:relative;top:28px}
+#domy{padding-bottom:28px}
+#domy>.shell{width:100%;max-width:none}
+#domy .homes__heading,#domy .masterplan-legend,#domy .homes__map-caption{width:var(--shell);margin-inline:auto}
+#domy .homes__showcase{display:block;width:100%;margin:0}
+#domy .homes__map-column{width:100%;max-width:none}
+#domy .masterplan{width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:1672/941;border-radius:0;border:0}
+#domy .masterplan>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:none}
+#domy .masterplan__polygons{inset:0;width:100%;height:100%}
+#domy .homes__map-caption{padding-top:15px}
+.homes--comparison{padding-bottom:36px}
+.homes__transaction-note{margin-top:20px}
+.why-home__visual img{object-position:center}
+.cathedral-ceiling{padding-block:72px}
+.cathedral-ceiling__grid{min-height:570px}
+.cathedral-ceiling__intro{padding:40px 34px}
+.cathedral-ceiling__intro h2{font-size:clamp(38px,3.325vw,51.3px);margin-top:33px}
+.cathedral-ceiling__intro>p{margin-block:24px;font-size:14.25px}
+.cathedral-ceiling__metric strong{font-size:49.4px}
+.cathedral-ceiling__visual{grid-template-rows:minmax(332px,1fr) auto}
+.cathedral-ceiling__photo{min-height:332px}
+.cathedral-ceiling__garden{padding:28px 36px}
+.immersive-section .immersive-card{height:460px;min-height:460px}
+.immersive-card .immersive-card__content{padding:28px}
+.immersive-card .immersive-card__content>svg{width:44px;height:44px;padding:10px;margin-bottom:10px}
+.immersive-card .immersive-card__content p{margin-bottom:18px}
+.immersive-card .immersive-card__content small{margin-top:15px}
+.immersive-card .immersive-card__content h3{font-size:40px}
+.standard-section .standard-highlight__icon{width:79.2px;height:79.2px}
+.standard-highlight{min-height:116px}
+.standard-section__grid{grid-template-columns:1.06fr 1fr;column-gap:30px;row-gap:0}
+.standard-section__content{display:contents}
+.standard-section__intro{grid-column:1;grid-row:1}
+.standard-section__body{grid-column:1;grid-row:2}
+.standard-section__visuals{grid-column:2;grid-row:2;align-self:start}
+.standard-lifestyle__media{height:416px}
+.standard-section__grid>.scope-note{grid-column:1/-1;grid-row:3;margin-top:24px}
+.purchase-section .security-ref__step-head{display:flex;flex-direction:column;align-items:center;width:100%;margin:0 0 16px;gap:11px}
+.purchase-section .security-ref__medallion{width:80px;height:80px;background:radial-gradient(circle at 40% 30%,#fffdf6,#e9e3cc);border-color:#b5aa84;box-shadow:inset 0 0 0 5px #faf7eb}
+.purchase-section .security-ref__medallion svg{width:53px;height:53px;stroke-width:1.3;color:#827044}
+.purchase-section .security-ref__step-head b{margin:0;line-height:1;font-size:20px}
+.purchase-section .security-ref__step h4{min-height:56px;margin:0 0 12px;display:flex;align-items:flex-start;justify-content:center}
+.purchase-section .security-ref__connector{top:40px;left:calc(50% + 47px);width:calc(100% + 24px - 94px)}
+.journal-instagram__icon{color:white;background:radial-gradient(circle at 28% 105%,#ffd76b 0,#f6a647 22%,#e44774 48%,#ad42a0 70%,#7251bc 100%);border:0;box-shadow:0 4px 12px #a73b7617}
+.journal-instagram__icon svg{color:white;stroke:white}
+.faq-help>img{object-position:50% 50%}
+@media(min-width:961px) and (max-height:820px){.standard-section .standard-highlight__icon{width:72px;height:72px}.standard-lifestyle__media{height:351px}}
+@media(max-width:960px){.hero__copy,.hero__bottom{top:20px}.cathedral-ceiling{padding-block:57px}.cathedral-ceiling__intro h2{font-size:37px}.immersive-section .immersive-card{height:500px;min-height:500px}.immersive-card .immersive-card__content h3{font-size:34px}.immersive-card .immersive-card__content{padding:23px}.standard-section__grid{grid-template-columns:1fr 1fr}.standard-section__intro{grid-column:1/-1}.standard-lifestyle__media{height:416px}}
+@media(max-width:640px){.hero__copy,.hero__bottom{top:16px}#domy .homes__heading,#domy .masterplan-legend,#domy .homes__map-caption{width:calc(100% - 40px)}.homes--comparison{padding-bottom:28px}.cathedral-ceiling{padding-block:46px}.cathedral-ceiling__grid{min-height:0}.cathedral-ceiling__intro{padding:28.5px}.cathedral-ceiling__intro h2{font-size:41.8px;margin-top:25px}.cathedral-ceiling__metric strong{font-size:45.6px}.cathedral-ceiling__visual{grid-template-rows:247px auto}.cathedral-ceiling__photo{min-height:247px}.cathedral-ceiling__garden{padding:25px 28.5px}.immersive-section .immersive-card{height:500px;min-height:500px}.immersive-card .immersive-card__content h3{font-size:34px}.standard-section .standard-highlight__icon{width:68.4px;height:68.4px}.standard-highlight{min-height:110px}.standard-section__grid{grid-template-columns:1fr;row-gap:20px}.standard-section__intro{grid-column:1;grid-row:1}.standard-section__body{grid-column:1;grid-row:2}.standard-section__visuals{grid-column:1;grid-row:3}.standard-lifestyle__media{height:auto;aspect-ratio:4/3}.standard-section__grid>.scope-note{grid-column:1;grid-row:4;margin-top:0}.purchase-section .security-ref__step h4{min-height:0}.purchase-section .security-ref__step-head{width:100%}}
+#domy .homes__map-column{border:0;border-radius:0;box-shadow:none;background:transparent}

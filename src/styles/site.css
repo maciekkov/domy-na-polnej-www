@@ -6,6 +6,7 @@
 @import './sections/why-home.css';
 @import './sections/location.css';
 @import './sections/layout.css';
+@import './sections/cathedral-ceiling.css';
 @import './sections/gallery.css';
 @import './sections/standard.css';
 @import './sections/security.css';
@@ -29,3 +30,12 @@
 @import './sections/presale.css';
 
 @import './mobile-audit.css';
+@import './desktop-polish.css';
+
+@import './reference-premium.css';
+
+@import './flow-refinement.css';
+
+@import './audit-polish.css';
+
+@import './audit-polish-23.css';

@@ -7,7 +7,7 @@ export function Team() {
       <div className="shell team-section__grid">
         <div className="team-section__intro">
           <div className="section-kicker"><span />Inwestor / zespół</div>
-          <h2 id="team-title">Za projektem stoją<br />konkretni ludzie</h2>
+          <h2 id="team-title">Za projektem stoją<br /><em>konkretni ludzie</em></h2>
           <p>Przygotowanie inwestycji, organizacja budowy i projekt architektoniczny mają swoich opiekunów. Poniżej poznasz osoby oraz pracownię zaangażowane w Domy na Polnej.</p>
           <p className="team-section__note">Masz pytanie o dom, standard lub kolejne etapy? Skontaktuj się bezpośrednio z biurem inwestycji.</p>
 
@@ -15,7 +15,7 @@ export function Team() {
         </div>
 
         <div className="team-section__people">
-          <div className="team-cards">
+          <div className="team-cards" tabIndex={0} role="region" aria-label="Poznaj zespół — na telefonie przewiń karty w bok">
             {teamMembers.map((member) => (
               <article className="team-card" key={member.id}>
                 {member.image ? (

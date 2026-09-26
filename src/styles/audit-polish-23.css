@@ -1,0 +1,28 @@
+/* Final content cleanup: keep the existing section layouts intact. */
+.hero__content{gap:0}
+.hero__copy{top:28px}
+/* Table stays within its own grid column at every viewport width. */
+#porownanie-domow .homes-comparison-layout > div:first-child{min-width:0}
+#porownanie-domow .homes__comparison{min-width:0}
+#porownanie-domow .homes-table-wrap{overflow-x:hidden;scrollbar-width:none}
+#porownanie-domow .homes-table{width:100%;min-width:0;table-layout:fixed}
+#porownanie-domow .homes-table th,#porownanie-domow .homes-table td{min-width:0;white-space:normal;overflow-wrap:anywhere}
+#porownanie-domow .homes-table tbody tr > *{border-radius:0}
+/* Bring footer columns closer and give the existing Instagram link a quiet accent. */
+.site-footer{padding-block:23px 12px}
+.site-footer>.shell{width:min(1100px,calc(100% - 80px))}
+.site-footer__grid{gap:20px;padding-bottom:16px}
+.site-footer nav,.site-footer__docs,.site-footer__contact{gap:3px}
+.site-footer__legal{padding-top:10px}
+.site-footer__bottom{padding-top:10px}
+.site-footer__socials>a[aria-label^="Instagram"]{width:31px;height:31px;border:1px solid #f4d3d6a8;background:linear-gradient(135deg,#7d5fab,#bc648f 53%,#e9a069);color:#fff;box-shadow:0 2px 12px #c65b9040}
+.site-footer__socials>a[aria-label^="Instagram"] svg{width:17px;height:17px;stroke:#fff}
+.site-footer__socials>a[aria-label^="Instagram"]:hover{filter:brightness(1.13)}
+@media(max-width:1150px){#porownanie-domow .homes-table th,#porownanie-domow .homes-table td{padding-inline:5px;font-size:11px}}
+@media(max-width:960px){#porownanie-domow .homes-table-wrap{display:block;overflow-x:hidden}#porownanie-domow .homes-table{min-width:0}.site-footer>.shell{width:calc(100% - 44px)}}
+@media(max-width:640px){.hero__copy{top:16px}#porownanie-domow .homes__comparison{padding:5px}#porownanie-domow .homes-table th,#porownanie-domow .homes-table td{padding:8px 2px;font-size:clamp(9px,2.5vw,11px);overflow-wrap:anywhere}.site-footer{padding-block:22px 12px}.site-footer__grid{gap:16px 14px;padding-bottom:14px}.site-footer nav,.site-footer__docs,.site-footer__contact{gap:4px}}
+@media(max-width:390px){.site-footer__grid{grid-template-columns:1fr 1fr}.site-footer__brand,.site-footer__contact{grid-column:1/-1}}
+@media(min-width:961px){.site-footer>.shell{width:min(1000px,calc(100% - 80px))}.site-footer__grid{grid-template-columns:1.15fr .85fr 1fr 1fr;gap:18px}}
+.site-footer nav a,.site-footer__docs a,.site-footer__contact a,.site-footer .site-footer__link-button{min-height:22px;padding-block:0;line-height:1.35}
+.site-footer__legal{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+@media(max-width:640px){#porownanie-domow .homes-table th:nth-child(6),#porownanie-domow .homes-table td:nth-child(6){display:none}#porownanie-domow .homes-table th:nth-child(1){width:14%}#porownanie-domow .homes-table th:nth-child(2){width:15%}#porownanie-domow .homes-table th:nth-child(3){width:19%}#porownanie-domow .homes-table th:nth-child(4){width:17%}#porownanie-domow .homes-table th:nth-child(5){width:16%}#porownanie-domow .homes-table th:nth-child(7){width:19%}.site-footer nav a,.site-footer__docs a,.site-footer__contact a,.site-footer .site-footer__link-button{min-height:28px}}

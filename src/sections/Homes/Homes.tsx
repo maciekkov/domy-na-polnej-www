@@ -11,10 +11,9 @@ type HomesProps = {
   houses: House[]
   selectedId: HouseId | null
   onSelect: (id: HouseId) => void
-  onAsk: (id: HouseId) => void
 }
 
-export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
+export function Homes({ houses, selectedId, onSelect }: HomesProps) {
   const { data } = useSiteData()
   const [hoveredId, setHoveredId] = useState<HouseId | null>(null)
   const selectedHouse = houses.find((house) => house.id === selectedId) ?? null
@@ -44,6 +43,7 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
   }, [])
 
   return (
+    <>
     <section className="homes" id="domy" aria-labelledby="homes-title">
       <div className="shell">
         <header className="homes__heading">
@@ -52,7 +52,6 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
             <h2 id="homes-title">Wybierz swój dom</h2>
             <p>Pięć wolnostojących domów. Ten sam przemyślany układ, różne działki i położenie.</p>
           </div>
-          <div className="homes__signature"><span>{isSelling(data) ? 'Poznaj ofertę' : 'Przed rozpoczęciem sprzedaży'}</span><p>{isSelling(data) ? 'Porównaj działki, ceny i dostępność.' : 'Poznaj działki i układ domu. Cennik jest w przygotowaniu.'}</p><a href={isSelling(data) ? "#kontakt" : "#przedsprzedaz"}>{isSelling(data) ? "Zapytaj o szczegóły" : "Powiadom mnie o przedsprzedaży"} <span aria-hidden="true">↗</span></a></div>
         </header>
 
         <div className="masterplan-legend" aria-label="Legenda planu"><span><i className="available" />{isSelling(data) ? 'Dostępny' : 'Przed sprzedażą'}</span>{isSelling(data) && <><span><i className="reserved" />Rezerwacja</span><span><i className="sold" />Sprzedany</span></>}<small>Kliknij literę A–E lub obszar działki</small></div>
@@ -70,10 +69,11 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
               <span className="homes__north-caption">N ↘ <span>Północ</span></span>
             </div>
           </div>
-          <HouseCard house={selectedHouse} fallbackHouse={houses[0]} onAsk={() => selectedHouse && onAsk(selectedHouse.id)} />
-        </div>
 
-        <div id="lista-domow" className="homes__comparison">
+        </div>
+      </div></section>
+      <section className="homes homes--comparison" id="porownanie-domow" aria-labelledby="comparison-title"><div className="shell">
+        <div className="homes-comparison-layout"><div><header className="comparison-heading"><div className="section-kicker"><span />Porównanie domów</div><h2 id="comparison-title">Wszystkie domy w jednym miejscu</h2><p>Porównaj metraż działki, status i układ. Wybierz dom, aby zobaczyć szczegóły.</p></header><div id="lista-domow" className="homes__comparison">
         <div className="homes-table-wrap">
           <table className="homes-table">
             <caption className="sr-only">Lista domów, statusy, powierzchnie, działki i stan przygotowania cennika</caption>
@@ -101,10 +101,11 @@ export function Homes({ houses, selectedId, onSelect, onAsk }: HomesProps) {
           </table>
         </div>
         </div>
-        <p className="homes__transaction-note">{isSelling(data) ? 'Ceny brutto i statusy dotyczą poszczególnych domów.' : 'Przygotowujemy sprzedaż. Oznaczenia na planie nie oznaczają jeszcze możliwości zawarcia rezerwacji; cennik opublikujemy przed startem sprzedaży.'} Zakres sprzedaży, udział w drodze i warunki płatności sprawdź w karcie domu oraz dokumentach przed zawarciem umowy.</p>
+</div><aside className="comparison-aside"><HouseCard house={selectedHouse} fallbackHouse={houses[0]} /></aside></div><p className="homes__transaction-note">{isSelling(data) ? 'Ceny brutto i statusy dotyczą poszczególnych domów.' : 'Przygotowujemy sprzedaż. Oznaczenia na planie nie oznaczają jeszcze możliwości zawarcia rezerwacji; cennik opublikujemy przed startem sprzedaży.'} Zakres sprzedaży, udział w drodze i warunki płatności sprawdź w karcie domu oraz dokumentach przed zawarciem umowy.</p>
         <p className="sr-only" role="status">{selectedHouse ? `Wybrano ${selectedHouse.name}. ${publishedPrice(data,selectedHouse) ? 'Cena '+formatPrice(selectedHouse.price) : 'Cennik w przygotowaniu'}, działka ${selectedHouse.plot} metrów kwadratowych.` : 'Nie wybrano domu.'}</p>
       </div>
-      {sheetOpen && selectedHouse && <HouseModal house={selectedHouse} onClose={closeSheet} onAsk={()=>{setSheetOpen(false);onAsk(selectedHouse.id)}} />}
+      {sheetOpen && selectedHouse && <HouseModal house={selectedHouse} onClose={closeSheet} />}
     </section>
+    </>
   )
 }

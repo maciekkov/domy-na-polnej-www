@@ -1,5 +1,6 @@
-import { ArrowRight, Check, HardHat } from '../../components/common/Icons'
+import { ArrowRight, Check, HardHat, FileText, Home, KeyRound, Building2 } from '../../components/common/Icons'
 import type { ScheduleStage } from '../../data/schedule'
+const stageIcons = [FileText, HardHat, Building2, Home, KeyRound]
 export function Schedule({ stages }: { stages: ScheduleStage[] }) {
   return (
     <section id="harmonogram" className="schedule-section" aria-labelledby="schedule-title">
@@ -16,15 +17,15 @@ export function Schedule({ stages }: { stages: ScheduleStage[] }) {
           </figure>
         </div>
 
-        <ol className="schedule-timeline" aria-label="Etapy realizacji inwestycji">
-          {stages.map((stage) => (
+        <p className="schedule-swipe">Przesuń, aby zobaczyć kolejne etapy →</p><ol className="schedule-timeline" tabIndex={0} aria-label="Etapy realizacji inwestycji — przewijana lista">
+          {stages.map((stage, index) => (
             <li className={`schedule-stage schedule-stage--${stage.state}`} key={stage.id}>
               <div className="schedule-stage__rail" aria-hidden="true" />
               <div className="schedule-stage__marker" aria-hidden="true">
                 {stage.state === 'completed' ? <Check /> : <span />}
               </div>
               <span className="schedule-stage__roman">{stage.id}</span>
-              <h3>{stage.title}</h3>
+              <span className="schedule-stage__icon" aria-hidden="true">{(() => { const Icon = stageIcons[index % stageIcons.length]; return <Icon /> })()}</span><h3>{stage.title}</h3>
               <p>{stage.description}</p>
               <span className="schedule-stage__status">{stage.status}</span>
               <time>{stage.term}</time>

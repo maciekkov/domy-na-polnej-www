@@ -1,14 +1,14 @@
 {
   "project": "Domy na Polnej WWW",
-  "version": "5.2.0-rc.13",
-  "releaseName": "Panel i dokumenty · aktualizacja wrzesień 2026",
+  "version": "5.2.0-rc.23",
+  "releaseName": "Final Details — uproszczenie hero, tabeli i stopki",
   "date": "2026-09-24",
   "salesStage": "prelaunch",
-  "inputArchive": "Domy_na_Polnej_v5.2.0-rc.3_KOMPLET.zip",
+  "inputArchive": "Domy_na_Polnej_v5.2.0-rc.19_PREMIUM_REDESIGN(1).zip",
   "publishedToProduction": false,
-  "pushedToGitHub": true,
+  "pushedToGitHub": false,
   "productionComparisonCompleted": false,
   "fullTypecheckExecuted": true,
   "buildMethod": "tsc + Vite",
-  "browserVerification": "Chromium, real local HTTP navigation, widths 320/390/768/1024/1440/1920"
+  "browserVerification": "Chromium: screenshot audit desktop/mobile; functional checks 320/390/768/1024/1440"
 }

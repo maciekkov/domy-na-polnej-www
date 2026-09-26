@@ -1,14 +1,10 @@
-import { ArrowDown, ArrowRight, ArrowUpRight } from '../../components/common/Icons'
+import { ArrowRight, ArrowUpRight } from '../../components/common/Icons'
 import { useSiteData } from '../../data/runtime/SiteDataProvider'
-import { offerLead } from '../../lib/offers.mjs'
-import { isSelling } from '../../lib/sales.mjs'
 import { assetUrl } from '../../lib/assetUrl'
-import { formatArea } from '../../data/houses'
 
 export function Hero() {
   const { data } = useSiteData()
   const house = data.houses[0]
-  const plots = data.houses.map(h => h.plot)
 
   return (
     <section className="hero" id="start" aria-labelledby="hero-title">
@@ -33,22 +29,13 @@ export function Hero() {
         <div className="hero__copy">
           <p className="eyebrow eyebrow--light">{data.houses.length} domów wolnostojących <span>·</span> Grabik koło Żar</p>
           <h1 id="hero-title">Dom z ogrodem.<br /><em>Blisko Żar.</em></h1>
-          <p className="hero__lead">Parterowy dom, {house.rooms} pokoi i własna działka.<br className="hero__desktop-break" /> Przestrzeń do życia — w domu i poza nim.</p>
+          <p className="hero__lead">Parterowy dom, {house.rooms} pokoi i własna działka.<br className="hero__desktop-break" /> Więcej przestrzeni do życia — w domu i poza nim.</p>
           <div className="hero__buttons">
             <a className="button button--light" href="#domy">Wybierz swój dom <ArrowRight size={19} /></a>
             <a className="hero__tour-link" href="#spacer-360">Rozejrzyj się w 360° <ArrowUpRight size={19} /></a>
           </div>
         </div>
-        <div className="hero__bottom">
-          <dl className="hero__facts">
-            <div><dt>{formatArea(house.area)}</dt><dd>powierzchni użytkowej</dd></div>
-            <div><dt>{Math.min(...plots)}–{Math.max(...plots)} m²</dt><dd>powierzchni działki</dd></div>
-            <div><dt>{isSelling(data) ? offerLead(data.houses, data.salesStage) : 'Już wkrótce'}</dt><dd>{isSelling(data) ? 'cena brutto dostępnego domu' : 'sprzedaż i cennik w przygotowaniu'}</dd></div>
-          </dl>
-          <span className="hero__visualisation-label">Wizualizacja</span>
-        </div>
       </div>
-      <a className="hero__discover" href="#domy" aria-label="Przejdź do planu inwestycji"><ArrowDown size={20} /></a>
     </section>
   )
 }

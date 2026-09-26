@@ -25,7 +25,9 @@ export const required = [
   'public/tour/spacer-360-player.js','public/tour/spacer-360-player.css',
   ...['a','b','c','d','e'].map(id => `public/pdf/karta-dom-${id}.pdf`),
 ]
-const obsolete = JSON.parse(read('docs/cleanup-six/removed-assets.json')).map(item => item.file)
+// Archived cleanup inventory is optional in a distribution of current sources.
+const cleanupInventory = 'docs/cleanup-six/removed-assets.json'
+const obsolete = has(cleanupInventory) ? JSON.parse(read(cleanupInventory)).map(item => item.file) : []
 check(!required.some(item => obsolete.includes(item)), 'Listy wymagane i usunięte muszą być rozłączne')
 for (const file of required) check(has(file), `Brak ${file}`)
 for (const file of obsolete) check(!has(file), `Powrócił nieużywany plik ${file}`)

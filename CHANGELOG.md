@@ -1,3 +1,69 @@
+# 5.2.0-rc.23 — ostatnie korekty audytu
+
+- Usunięte parametry spod przycisków w hero.
+- Tabela domów mieści się bez przewijania; aktywny wiersz A ma prostą krawędź. Na telefonie pominięto w tabeli powtarzającą się liczbę pokoi.
+- Dokumenty pokazują jedynie nazwy, bez dodatkowej etykiety PDF i numeru wersji.
+- Zwarta stopka z wyrównanymi danymi i delikatnym kolorem ikony Instagrama.
+
+# 5.2.0-rc.22 — korekty po audycie użytkownika
+
+- Masterplan na pełną szerokość ekranu, bez bocznej karty; SVG zachowuje proporcje.
+- Usunięty blok wspólnego układu i zmniejszony dolny odstęp porównania.
+- Treść hero obniżona; zdjęcie frontu w zaletach domu i podcienia w FAQ.
+- Wysoki sufit pomniejszony około 5%; krótsze karty spacerów.
+- Ikony standardu +20%, kolaż desktop +30% wysokości i wyrównanie do ikon.
+- Bogatsze ikony procesu z wyrównaniem osi; subtelne barwy Instagrama.
+
+# 5.2.0-rc.21 — korekta proporcji i rytmu
+
+- Naprawiony rzut: wspólne proporcje obrazu i SVG, bez obcięcia dolnej części.
+- Podświetlenie pomieszczeń używa maski i lasera z masterplanu, z priorytetem hover.
+- Przebudowany panel pomieszczeń i pełny wybór z listy.
+- Usunięty podpis i strzałka z hero.
+- Jasna galeria i proces zakupu rozdzielają zielone sekcje; wspólna skala odstępów.
+- Nowa mozaika trzech zdjęć, większe karty spacerów i kompozycja wysokiego sufitu.
+
+# 5.2.0-rc.20 — Reference Premium (2026-09-24)
+
+- Przebudowa wszystkich sekcji według 14 wizualizacji; własne zdjęcia zachowane.
+- Kompletne tła botaniczne, lokalne fonty, kompaktowa typografia i odstępy.
+- Mozaika galerii, oddzielny spacer 360, porównanie domów i plan osiedla.
+- Responsywne karty zespołu i harmonogramu; audyt desktop/mobile i interakcji.
+- Gotowy build w dist/; szczegóły w docs/reference-audit/AUDYT_REFERENCJI.md.
+
+## 5.2.0-rc.19 · 24.09.2026
+
+- Nowa sekcja o suficie katedralnym po interaktywnym rzucie, przed lokalizacją: wysokość 5,82 m w najwyższym punkcie salonu i otwarta strefa dzienna z ogrodem na własnej działce.
+- Desktop i mobile odpowiadają zaakceptowanej makiecie; użyto istniejącego, wskazanego przez inwestora kadru ze spaceru 360 bez podmiany oryginału.
+- Zdjęcie przedstawia przykładową aranżację; sam kadr nie pokazuje pełnego przekroju sufitu.
+
+## 5.2.0-rc.18 · 24.09.2026
+
+- Desktop: przejrzysty pasek nawigacji nad hero, widoczna belka po rozpoczęciu przewijania, odsłonięta fotografia poza obszarem tekstu.
+- Hero: usunięto widoczną etykietę wizualizacji oraz dolny pasek parametrów i linię; statyczny widok SEO jest zgodny z aplikacją.
+- Wybór domu: usunięto dodatkowy blok przedsprzedaży, przycięcie fotografii oraz kopiowanie linku; karta oferuje pobranie PDF.
+- Masterplan: delikatne wypełnienie i czytelny obrys zaznaczonej działki; desktopowa mapa ma pełniejszą jasność poza gradientem tekstowym.
+
+## 5.2.0-rc.17 · 24.09.2026
+
+- Podpisy pinów stale widoczne w obu spacerach; na telefonie punkty i podpisy zmniejszone, z zachowaniem pola dotykowego 44 px.
+- Komunikat o wizualizacjach pokazywany raz na sesję przeglądarki dla każdego spaceru.
+- Wnętrze rozpoczyna się od otwartych drzwi; usunięto powtórzony kadr podcienia, a przejście przez drzwi pozostawiono na zewnątrz.
+
+## 5.2.0-rc.16 · 24.09.2026
+
+- Naprawiono otwieranie obu spacerów i panoramy w podglądzie HTTP: znaczniki historii nie wymagają `crypto.randomUUID()`.
+- Dodano test odtwarzający brak tej funkcji w przeglądarce.
+
+## 5.2.0-rc.15 · 24.09.2026
+
+- Jeden okrągły pin w każdym kierunku spaceru wewnętrznego i zewnętrznego; po najechaniu podświetlenie i podpis.
+- Zachowane przejścia między scenami, geometria znaczników oraz nazwy przycisków dla czytników ekranu.
+
+## 5.2.0-rc.14 · 24.09.2026
+
+- Ilustracje standardu powiększone o 20% (76 → 91 px); w widoku telefonu zachowane dwie ikony w rzędzie.
+
 ## 5.2.0-rc.13 · 24.09.2026
 
 - Historia wizyty w panelu: ciągła linia na osi czasu i czytelne przejścia między sekcjami.

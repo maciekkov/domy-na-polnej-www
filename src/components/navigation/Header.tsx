@@ -29,10 +29,11 @@ export function Header({ activeSection, contact }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 90)
+    const onScroll = () => setScrolled(window.scrollY > (window.innerWidth > 960 ? 12 : 90))
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll) }
   }, [])
 
   useEffect(() => {

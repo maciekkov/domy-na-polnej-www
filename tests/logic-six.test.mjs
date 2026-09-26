@@ -136,20 +136,25 @@ test('Generator rozpoznaje także ścieżki Windows',()=>{
 })
 
 // Run the real migration function from the native player, not a rewritten copy.
-test('Stary szkic edytora: odświeżenie URL zdjęć bez utraty ręcznych pinezek',()=>{
+test('Stary szkic edytora: usunięty podcień nie wraca, ręczne piny zostają',()=>{
  const source=readFileSync(join(root,'public/tour/spacer-360-player.js'),'utf8')
  const extract=name=>source.match(new RegExp(`^function ${name}\\([^]*?^}`, 'm'))?.[0]
  const validate=extract('validateConfig'), load=extract('loadEditorDraft')
  assert.ok(validate && load)
  const base=readJson('public/assets/data/spacer-360-wewnetrzny.json'), draft=structuredClone(base)
+ const legacy=structuredClone(draft.scenes[0]);legacy.id='int00-podcien-wejsciowy';draft.scenes.unshift(legacy)
+ draft.startScene=legacy.id;draft.rooms[0].scene=legacy.id;draft.stats.scenes=30;draft.stats.renders=30
  draft.scenes[0].image=draft.scenes[0].image.split('?')[0]
- draft.scenes[0].hotspots[0].x=42.5;draft.scenes[0].hotspots[0].label='Moja pinezka'
+ draft.scenes[1].hotspots[0].x=42.5;draft.scenes[1].hotspots[0].label='Moja pinezka'
+ for(const field of ['hotspots','fallbackHotspots'])draft.scenes[1][field][1]={...draft.scenes[1][field][1],tour:undefined,target:legacy.id}
  const returned=runInNewContext(`${validate}\n${load}\nloadEditorDraft(base)`, {
-   base,editMode:true,EDIT_DRAFT_KEY:'test',TOUR_URLS:{interior:'in',exterior:'out'},
+   base,editMode:true,mode:'interior',LEGACY_INTERIOR_ENTRY:'int00-podcien-wejsciowy',INTERIOR_ENTRY:'int01-wejscie-do-domu',EDIT_DRAFT_KEY:'test',TOUR_URLS:{interior:'in',exterior:'out'},
    console,localStorage:{getItem:()=>JSON.stringify(draft),removeItem:()=>assert.fail('Nie wolno kasować poprawnego szkicu')},
  })
- assert.equal(returned.scenes[0].image,base.scenes[0].image)
  assert.equal(returned.scenes[0].hotspots[0].x,42.5)
  assert.equal(returned.scenes[0].hotspots[0].label,'Moja pinezka')
- assert.equal(returned.scenes.length,30)
+ assert.equal(returned.scenes[0].hotspots[1].target,'04_podcien_wejsciowy')
+ assert.equal(returned.scenes[0].hotspots[1].tour,'exterior')
+ assert.equal(returned.startScene,'int01-wejscie-do-domu')
+ assert.equal(returned.scenes.length,29)
 })

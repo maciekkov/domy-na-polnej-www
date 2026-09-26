@@ -30,9 +30,9 @@ export const galleryImages: Record<GalleryCategory, GalleryImage[]> = {
       alt: 'Tylna elewacja domu z ogrodem i tarasem',
     },
     {
-      src: '/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp?v=3d050a9fe333ba1a',
-      title: 'Dom od strony ogrodu',
-      alt: 'Szeroki widok domu od strony ogrodu i tarasu',
+      src: '/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp?v=cb834c2f372c4006',
+      title: 'Taras przy salonie',
+      alt: 'Taras przy salonie i prywatny ogród',
     },
   ],
   inside: [

@@ -1,8 +1,7 @@
 {
-  "version": "5.2.0-rc.13",
-  "deploy": "hosting/",
-  "build": "npm run build:hosting",
-  "qa": "Build, source/dist tests, PHP WASM analytics and presale; browser visual QA as environment permits",
-  "panoramaSource": "4096x2048; higher-resolution original not available",
+  "version": "5.2.0-rc.23",
+  "deploy": "dist/",
+  "build": "npm run build",
+  "qa": "TypeScript + Vite; 90 source checks; 100/101 node checks (PHP CLI absent); 1136 tour checks; browser functional QA 5 widths; screenshot audit",
   "smtpLiveTest": false
 }

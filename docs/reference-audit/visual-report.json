@@ -1,0 +1,404 @@
+[
+  {
+    "width": 1440,
+    "overflow": -15,
+    "errors": [],
+    "sizes": [
+      {
+        "id": "start",
+        "x": 0,
+        "y": 0,
+        "width": 1425,
+        "height": 820
+      },
+      {
+        "id": "domy",
+        "x": 0,
+        "y": 96,
+        "width": 1425,
+        "height": 1166.375
+      },
+      {
+        "id": "porownanie-domow",
+        "x": 0,
+        "y": 96.25,
+        "width": 1425,
+        "height": 673.796875
+      },
+      {
+        "id": "dom",
+        "x": 0,
+        "y": 96.046875,
+        "width": 1425,
+        "height": 764.1875
+      },
+      {
+        "id": "uklad",
+        "x": 0,
+        "y": 96.234375,
+        "width": 1425,
+        "height": 1053.25
+      },
+      {
+        "id": "wysoki-sufit",
+        "x": 0,
+        "y": 96.484375,
+        "width": 1425,
+        "height": 714
+      },
+      {
+        "id": "lokalizacja",
+        "x": 0,
+        "y": 96.484375,
+        "width": 1425,
+        "height": 668.5
+      },
+      {
+        "id": "galeria",
+        "x": 0,
+        "y": 95.984375,
+        "width": 1425,
+        "height": 906.125
+      },
+      {
+        "id": "spacer-360",
+        "x": 0,
+        "y": 96.109375,
+        "width": 1425,
+        "height": 858.8125
+      },
+      {
+        "id": "standard",
+        "x": 0,
+        "y": 95.921875,
+        "width": 1425,
+        "height": 1165.34375
+      },
+      {
+        "id": "bezpieczenstwo",
+        "x": 0,
+        "y": 96.265625,
+        "width": 1425,
+        "height": 779.546875
+      },
+      {
+        "id": "proces-zakupu",
+        "x": 0,
+        "y": 95.8125,
+        "width": 1425,
+        "height": 676.65625
+      },
+      {
+        "id": "harmonogram",
+        "x": 0,
+        "y": 96.46875,
+        "width": 1425,
+        "height": 801.6875
+      },
+      {
+        "id": "dziennik",
+        "x": 0,
+        "y": 96.15625,
+        "width": 1425,
+        "height": 854.203125
+      },
+      {
+        "id": "przedsprzedaz",
+        "x": 0,
+        "y": 96.359375,
+        "width": 1425,
+        "height": 595.28125
+      },
+      {
+        "id": "zespol",
+        "x": 0,
+        "y": 95.640625,
+        "width": 1425,
+        "height": 548.4375
+      },
+      {
+        "id": "faq",
+        "x": 0,
+        "y": 96.078125,
+        "width": 1425,
+        "height": 698.4375
+      },
+      {
+        "id": "kontakt",
+        "x": 0,
+        "y": 95.515625,
+        "width": 1425,
+        "height": 704.5625
+      }
+    ],
+    "broken": []
+  },
+  {
+    "width": 1366,
+    "overflow": -15,
+    "errors": [],
+    "sizes": [
+      {
+        "id": "start",
+        "x": 0,
+        "y": 0,
+        "width": 1351,
+        "height": 768
+      },
+      {
+        "id": "domy",
+        "x": 0,
+        "y": 96,
+        "width": 1351,
+        "height": 1116.875
+      },
+      {
+        "id": "porownanie-domow",
+        "x": 0,
+        "y": 95.75,
+        "width": 1351,
+        "height": 663.515625
+      },
+      {
+        "id": "dom",
+        "x": 0,
+        "y": 96.265625,
+        "width": 1351,
+        "height": 764.1875
+      },
+      {
+        "id": "uklad",
+        "x": 0,
+        "y": 96.453125,
+        "width": 1351,
+        "height": 1050.4375
+      },
+      {
+        "id": "wysoki-sufit",
+        "x": 0,
+        "y": 95.890625,
+        "width": 1351,
+        "height": 714
+      },
+      {
+        "id": "lokalizacja",
+        "x": 0,
+        "y": 95.890625,
+        "width": 1351,
+        "height": 668.5
+      },
+      {
+        "id": "galeria",
+        "x": 0,
+        "y": 96.390625,
+        "width": 1351,
+        "height": 903.3125
+      },
+      {
+        "id": "spacer-360",
+        "x": 0,
+        "y": 95.703125,
+        "width": 1351,
+        "height": 856
+      },
+      {
+        "id": "standard",
+        "x": 0,
+        "y": 95.703125,
+        "width": 1351,
+        "height": 1082.625
+      },
+      {
+        "id": "bezpieczenstwo",
+        "x": 0,
+        "y": 96.328125,
+        "width": 1351,
+        "height": 773.921875
+      },
+      {
+        "id": "proces-zakupu",
+        "x": 0,
+        "y": 96.25,
+        "width": 1351,
+        "height": 671.03125
+      },
+      {
+        "id": "harmonogram",
+        "x": 0,
+        "y": 96.28125,
+        "width": 1351,
+        "height": 743.6875
+      },
+      {
+        "id": "dziennik",
+        "x": 0,
+        "y": 95.96875,
+        "width": 1351,
+        "height": 782.578125
+      },
+      {
+        "id": "przedsprzedaz",
+        "x": 0,
+        "y": 95.546875,
+        "width": 1351,
+        "height": 595.28125
+      },
+      {
+        "id": "zespol",
+        "x": 0,
+        "y": 95.828125,
+        "width": 1351,
+        "height": 548.4375
+      },
+      {
+        "id": "faq",
+        "x": 0,
+        "y": 96.265625,
+        "width": 1351,
+        "height": 698.4375
+      },
+      {
+        "id": "kontakt",
+        "x": 0,
+        "y": 95.703125,
+        "width": 1351,
+        "height": 704.5625
+      }
+    ],
+    "broken": []
+  },
+  {
+    "width": 390,
+    "overflow": -15,
+    "errors": [],
+    "sizes": [
+      {
+        "id": "start",
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 740
+      },
+      {
+        "id": "domy",
+        "x": 0,
+        "y": 80,
+        "width": 375,
+        "height": 528.640625
+      },
+      {
+        "id": "porownanie-domow",
+        "x": 0,
+        "y": 79.515625,
+        "width": 375,
+        "height": 610.375
+      },
+      {
+        "id": "dom",
+        "x": 0,
+        "y": 79.890625,
+        "width": 375,
+        "height": 1046.71875
+      },
+      {
+        "id": "uklad",
+        "x": 0,
+        "y": 79.609375,
+        "width": 375,
+        "height": 1452.328125
+      },
+      {
+        "id": "wysoki-sufit",
+        "x": 0,
+        "y": 79.9375,
+        "width": 375,
+        "height": 1084.703125
+      },
+      {
+        "id": "lokalizacja",
+        "x": 0,
+        "y": -0.359375,
+        "width": 375,
+        "height": 1067.90625
+      },
+      {
+        "id": "galeria",
+        "x": 0,
+        "y": 79.546875,
+        "width": 375,
+        "height": 838.6875
+      },
+      {
+        "id": "spacer-360",
+        "x": 0,
+        "y": 80.234375,
+        "width": 375,
+        "height": 1415.203125
+      },
+      {
+        "id": "standard",
+        "x": 0,
+        "y": 80.4375,
+        "width": 375,
+        "height": 1633.6875
+      },
+      {
+        "id": "bezpieczenstwo",
+        "x": 0,
+        "y": 80.125,
+        "width": 375,
+        "height": 1309.625
+      },
+      {
+        "id": "proces-zakupu",
+        "x": 0,
+        "y": 79.75,
+        "width": 375,
+        "height": 1147.71875
+      },
+      {
+        "id": "harmonogram",
+        "x": 0,
+        "y": 80.46875,
+        "width": 375,
+        "height": 877.03125
+      },
+      {
+        "id": "dziennik",
+        "x": 0,
+        "y": 79.5,
+        "width": 375,
+        "height": 1035.75
+      },
+      {
+        "id": "przedsprzedaz",
+        "x": 0,
+        "y": 80.25,
+        "width": 375,
+        "height": 1127.359375
+      },
+      {
+        "id": "zespol",
+        "x": 0,
+        "y": 79.609375,
+        "width": 375,
+        "height": 895.046875
+      },
+      {
+        "id": "faq",
+        "x": 0,
+        "y": 79.65625,
+        "width": 375,
+        "height": 1875.671875
+      },
+      {
+        "id": "kontakt",
+        "x": 0,
+        "y": 80.328125,
+        "width": 375,
+        "height": 1258.734375
+      }
+    ],
+    "broken": []
+  }
+]

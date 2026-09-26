@@ -1,5 +1,5 @@
-import { Armchair, ChevronLeft, ChevronRight, Compass, DoorOpen, Maximize2, SunMedium } from '../../components/common/Icons'
-import { useEffect, useState } from 'react'
+import { Armchair, Compass, DoorOpen, Maximize2, SunMedium } from '../../components/common/Icons'
+import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { layoutRooms, PLAN_HEIGHT, PLAN_VIEWBOX, PLAN_WIDTH, type PlanMode, type ZoneId, zoneLabels, zoneOrder } from '../../data/layoutRooms'
 const modes: Array<{ id: PlanMode; label: string }> = [
@@ -9,7 +9,7 @@ const modes: Array<{ id: PlanMode; label: string }> = [
 ]
 
 const benefitIcons = [SunMedium, Armchair, DoorOpen]
-const ROOM_PICKER_PAGE_SIZE = 4
+
 
 export function Layout() {
   const [mode, setMode] = useState<PlanMode>('layout')
@@ -17,21 +17,8 @@ export function Layout() {
   const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [activeZone, setActiveZone] = useState<ZoneId | null>(null)
   const [hoveredId, setHoveredId] = useState<string | null>(null)
-  const [pickerStart, setPickerStart] = useState(0)
 
   const active = layoutRooms.find((room) => room.id === activeId) ?? layoutRooms[0]
-  const activeIndex = layoutRooms.findIndex((room) => room.id === activeId)
-  const pickerPageCount = Math.ceil(layoutRooms.length / ROOM_PICKER_PAGE_SIZE)
-  const pickerRooms = Array.from(
-    { length: Math.min(ROOM_PICKER_PAGE_SIZE, layoutRooms.length) },
-    (_, offset) => layoutRooms[(pickerStart + offset) % layoutRooms.length],
-  )
-
-  useEffect(() => {
-    const pageStart = Math.floor(Math.max(activeIndex, 0) / ROOM_PICKER_PAGE_SIZE) * ROOM_PICKER_PAGE_SIZE
-    setPickerStart(pageStart)
-  }, [activeIndex])
-
   const chooseMode = (nextMode: PlanMode) => {
     setMode(nextMode)
     setSelectedIds([])
@@ -72,14 +59,6 @@ export function Layout() {
     setSelectedIds(ids)
     setActiveZone(zone)
     setActiveId(ids[0] ?? activeId)
-  }
-
-  const movePicker = (direction: number) => {
-    setPickerStart((current) => {
-      const currentPage = Math.floor(current / ROOM_PICKER_PAGE_SIZE)
-      const nextPage = (currentPage + direction + pickerPageCount) % pickerPageCount
-      return nextPage * ROOM_PICKER_PAGE_SIZE
-    })
   }
 
   return (
@@ -134,11 +113,12 @@ export function Layout() {
                   {layoutRooms.map((room) => room.paths.map((path, index) => {
                     const selected = selectedIds.includes(room.id)
                     const hovered = hoveredId === room.id
+                    const illuminated = hoveredId ? hovered : selected
                     return (
                       <path
                         key={`${room.id}-${index}`}
                         d={path}
-                        className={`${selected ? 'is-selected' : ''} ${hovered ? 'is-hovered' : ''}`}
+                        className={`${selected ? 'is-selected' : ''} ${illuminated ? 'is-illuminated' : ''}`}
                         role="button"
                         tabIndex={0}
                         aria-pressed={selected}
@@ -163,6 +143,7 @@ export function Layout() {
               {mode === 'furniture' && <span className="interactive-plan__badge"><Maximize2 size={16} /> Widok umeblowany</span>}
               <span className="interactive-plan__compass" aria-label="Północ znajduje się po prawej stronie planu"><Compass aria-hidden="true" /><b>N</b></span>
             </div>
+            <p className="plan-instruction">Wybierz pomieszczenie na rzucie, aby zobaczyć szczegóły.</p>
           </div>
 
           <aside className="room-panel" aria-live="polite">
@@ -170,7 +151,7 @@ export function Layout() {
               <img key={active.image} src={active.image} alt={`Wizualizacja: ${active.title}`} width="720" height="420" loading="lazy" decoding="async" />
             </div>
             <div className="room-panel__body">
-              <h3>{active.title}{active.area ? <span> · {active.area}</span> : null}</h3>
+              <h3>{active.title}{active.area ? <span>{active.area}</span> : null}</h3>
               <p>{active.description}</p>
               <div className="room-panel__benefits">
                 {active.benefits.map((benefit, index) => {
@@ -178,16 +159,12 @@ export function Layout() {
                   return <div key={benefit.title}><Icon aria-hidden="true" /><span><strong>{benefit.title}</strong><small>{benefit.text}</small></span></div>
                 })}
               </div>
-              <div className="room-picker">
-                <span>Wybierz pomieszczenie:</span>
-                <div>
-                  <button type="button" className="room-picker__arrow" aria-label="Pokaż poprzednie pomieszczenia" onClick={() => movePicker(-1)}><ChevronLeft size={17} /></button>
-                  {pickerRooms.map((room) => (
-                    <button key={room.id} type="button" className={selectedIds.includes(room.id) ? 'is-active' : ''} onClick={() => toggleRoom(room.id)}>{room.shortTitle}</button>
-                  ))}
-                  <button type="button" className="room-picker__arrow" aria-label="Pokaż następne pomieszczenia" onClick={() => movePicker(1)}><ChevronRight size={17} /></button>
-                </div>
-              </div>
+              <label className="room-selector">
+                <span>Przejdź do pomieszczenia</span>
+                <select value={activeId} onChange={(event) => toggleRoom(event.target.value)}>
+                  {layoutRooms.map(room => <option key={room.id} value={room.id}>{room.title}{room.area ? ` · ${room.area}` : ''}</option>)}
+                </select>
+              </label>
             </div>
           </aside>
         </div>

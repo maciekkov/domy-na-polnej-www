@@ -36,7 +36,7 @@ export function Masterplan({ houses, selectedId, hoveredId, onHover, onSelect }:
 
   return (
     <div className="masterplan" aria-label="Interaktywny plan domów A–E" onMouseLeave={() => onHover(null)}>
-      <img src={asset('assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f')} srcSet="/assets/images/responsive/masterplan-640.webp?v=9a74a7c03aa7e1b6 640w, /assets/images/responsive/masterplan-1024.webp?v=740749013a0af93e 1024w, /assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f 1672w" sizes="(max-width: 960px) calc(100vw - 40px), (max-width: 1200px) 60vw, 820px" alt="Widok z góry na pięć działek i domów przy ulicy Polnej" width="1672" height="941" loading="lazy" decoding="async" />
+      <img src={asset('assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f')} srcSet="/assets/images/responsive/masterplan-640.webp?v=9a74a7c03aa7e1b6 640w, /assets/images/responsive/masterplan-1024.webp?v=740749013a0af93e 1024w, /assets/images/dnp-masterplan.webp?v=513c9a85fe20f11f 1672w" sizes="100vw" alt="Widok z góry na pięć działek i domów przy ulicy Polnej" width="1672" height="941" loading="lazy" decoding="async" />
       <svg className="masterplan__polygons" viewBox="0 0 442.38331 248.97291" preserveAspectRatio="none" aria-label="Wybierz dom na planie">
         {houses.map((house) => (
           <path

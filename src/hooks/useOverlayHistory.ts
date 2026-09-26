@@ -1,20 +1,24 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+let nextViewerId = 0
 
 /** One history entry per viewer; Android Back consumes it without leaving the page. */
 export function useOverlayHistory(onClose: () => void) {
   const callback = useRef(onClose)
   callback.current = onClose
-  const token = useRef(`viewer-${crypto.randomUUID()}`)
+  // History markers only need to be unique within this page. randomUUID is
+  // unavailable in some HTTP previews and must not prevent the viewer opening.
+  const [token] = useState(() => `viewer-${Date.now().toString(36)}-${++nextViewerId}`)
   useEffect(() => {
-    if (window.history.state?.dnpViewer !== token.current) {
-      window.history.pushState({ ...window.history.state, dnpViewer: token.current }, '', window.location.href)
+    if (window.history.state?.dnpViewer !== token) {
+      window.history.pushState({ ...window.history.state, dnpViewer: token }, '', window.location.href)
     }
-    const onPop = () => { if (window.history.state?.dnpViewer !== token.current) callback.current() }
+    const onPop = () => { if (window.history.state?.dnpViewer !== token) callback.current() }
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
-  }, [])
+  }, [token])
   return useCallback(() => {
-    if (window.history.state?.dnpViewer === token.current) window.history.back()
+    if (window.history.state?.dnpViewer === token) window.history.back()
     else callback.current()
-  }, [])
+  }, [token])
 }
