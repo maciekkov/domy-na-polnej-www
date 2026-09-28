@@ -191,7 +191,7 @@ Produkcyjny panel: historia pojedynczych wizyt z istniejących logów, oś czasu
 
 - Zakładka Analityka w panelu `/administrator/` pobiera automatycznie statystyki serwera i otwiera historię wizyt z czasu w sekcjach. W produkcji nie podstawia danych demo, gdy serwer zwróci błąd.
 - Pasek panelu odróżnia rzeczywiste dane analityki od lokalnego edytora demo. Historii wizyt z `_old_copy.zip` nie przenoszono.
-- SMTP Gmail pozostaje bez hasła, dopóki nie skonfigurujesz hasła aplikacji na serwerze. Formularz kontaktowy zgłasza niedostępność wysyłki; konfiguracja obsługuje `DNP_SMTP_APP_PASSWORD`. W archiwum nie ma hasła Gmail.
+- [Historia rc.11 — zastąpiona w rc.30] SMTP Gmail pozostawał bez hasła i formularz wymagał hasła aplikacji. Od rc.30 domyślny transport to lokalne PHP `mail()` hostingu i Gmail jest wyłącznie odbiorcą.
 - Testy sesji PHP oraz historii odwiedzającego i pliki wdrożeniowe aktualizowane wspólnie.
 
 - rc.25: usunięto zbędne opisy przy masterplanie, przywrócono kolumny cen w tabeli, zastąpiono CTA PDF stanem ceny, ustawiono domyślną galerię na Okolica oraz poprawiono sekcję Standard.
@@ -199,3 +199,12 @@ Produkcyjny panel: historia pojedynczych wizyt z istniejących logów, oś czasu
 - rc.27: przywrócono blok pobrania standardu jako osobny kontener w prawej kolumnie, obok treści i akordeonu po lewej stronie.
 
 - rc.28: sekcja Standard przebudowana 1:1 wg zaakceptowanej wizualizacji — 8 ikon, 6 opisowych kart w układzie 3x2, prawa grafika i kompaktowy blok PDF; usunięto akordeon i dolną notę.
+
+## 5.2.0-rc.30 — 2026-09-28
+
+- Formularz kontaktowy wysyła domyślnie przez lokalny transport PHP `mail()` hostingu na `mkdevelop2026@gmail.com`; Gmail jest odbiorcą i nie wymaga hasła ani logowania SMTP.
+- Nadawca techniczny: `kontakt@domynapolnej.pl`; adres klienta trafia do `Reply-To`, więc odpowiedź z Gmaila kieruje się do klienta.
+- Ta sama warstwa wysyłki obsługuje powiadomienia listy przedsprzedaży.
+- Stara prywatna konfiguracja z pustym Gmail SMTP nie blokuje formularza: nowa sekcja `mail` ma własne bezpieczne domyślne wartości.
+- SMTP pozostawiono jako opcjonalny, jawnie wybierany transport awaryjny; nie jest używany domyślnie.
+- QA: 150 kontroli źródłowych, 52 testy PHP/HTTP/security, składnia wszystkich plików PHP bez błędów. Nie wysyłano wiadomości do rzeczywistego Gmaila z lokalnego środowiska.

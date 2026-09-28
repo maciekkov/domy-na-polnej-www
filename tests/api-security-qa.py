@@ -86,9 +86,9 @@ def main():
         config = www / 'api/config.php'
 
         def configure(smtp=True):
-            text = "<?php return ['recipient'=>'test@example.test','from_email'=>'sender@example.test','from_name'=>'DNP test','security'=>['storage_dir'=>" + repr(str(private)) + ",'allowed_origins'=>[" + repr(origin) + " ]],'admin'=>['control_key'=>'qa-control-key-12345678901234567890'],'gov_sync'=>['mode'=>'disabled','endpoint'=>'','developer'=>['name'=>'X-SMART DEVELOP sp. z o.o.','nip'=>'8943230686'],'investment'=>['name'=>'Domy na Polnej','location'=>'Grabik']]];"
+            text = "<?php return ['recipient'=>'test@example.test','from_email'=>'sender@example.test','from_name'=>'DNP test','mail'=>['transport'=>'smtp','recipient'=>'test@example.test','from_email'=>'sender@example.test','from_name'=>'DNP test'],'security'=>['storage_dir'=>" + repr(str(private)) + ",'allowed_origins'=>[" + repr(origin) + " ]],'admin'=>['control_key'=>'qa-control-key-12345678901234567890'],'gov_sync'=>['mode'=>'disabled','endpoint'=>'','developer'=>['name'=>'X-SMART DEVELOP sp. z o.o.','nip'=>'8943230686'],'investment'=>['name'=>'Domy na Polnej','location'=>'Grabik']]];"
             if smtp:
-                text = text[:-2] + ", 'smtp'=>['host'=>'127.0.0.1','port'=>" + str(smtp_port) + ",'encryption'=>'none','username'=>'test','password'=>'test-only']];"
+                text = text[:-2] + ", 'smtp'=>['host'=>'127.0.0.1','port'=>" + str(smtp_port) + ",'encryption'=>'none','username'=>'test@example.test','password'=>'test-only']];"
             config.write_text(text)
 
         def reset_rates():
@@ -177,7 +177,7 @@ def main():
             check('contact: cookie-independent cooldown + Retry-After', status == 429 and int(headers.get('Retry-After', 0)) > 0 and len(MAILS) == 1)
             configure(smtp=False)
             reset_rates()
-            check('contact: missing SMTP is not fake success', request('contact', good)[0] == 503)
+            check('contact: explicitly selected missing SMTP is not fake success', request('contact', good)[0] == 502)
             configure()
             reset_rates()
             for _ in range(20): request('contact', {'name':'x'})

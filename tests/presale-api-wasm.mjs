@@ -8,7 +8,7 @@ const {PHP}=await import(pathToFileURL(base+'/@php-wasm/universal/index.js'))
 const {loadNodeRuntime}=await import(pathToFileURL(base+'/@php-wasm/node/index.js'))
 const php=new PHP(await loadNodeRuntime('8.3',{emscriptenOptions:{processId:process.pid}}))
 for(const dir of ['/www','/www/api','/www/api/lib','/www/data','/private'])php.mkdir(dir)
-for(const name of ['presale.php','lib/presale.php','lib/security.php','lib/smtp.php'])php.writeFile('/www/api/'+name,readFileSync('api/'+name))
+for(const name of ['presale.php','lib/presale.php','lib/security.php','lib/mailer.php','lib/smtp.php'])php.writeFile('/www/api/'+name,readFileSync('api/'+name))
 php.writeFile('/www/api/config.php',"<?php return ['security'=>['allowed_origins'=>['https://domynapolnej.pl'],'storage_dir'=>'/private']];")
 php.writeFile('/www/data/site-data.json',JSON.stringify({salesStage:'prelaunch'}))
 const results=[]

@@ -11,13 +11,30 @@ function dnpRespond(int $status, array $body, ?int $retry = null): never {
     exit;
 }
 function dnpConfig(): array {
+    // Safe public defaults. The contact form can send through the hosting server's
+    // local PHP mail transport without any Gmail password or SMTP secret.
+    $defaults = [
+        'recipient' => 'mkdevelop2026@gmail.com',
+        'from_email' => 'kontakt@domynapolnej.pl',
+        'from_name' => 'Domy na Polnej — formularz WWW',
+        'mail' => [
+            'transport' => 'php_mail',
+            'recipient' => 'mkdevelop2026@gmail.com',
+            'from_email' => 'kontakt@domynapolnej.pl',
+            'from_name' => 'Domy na Polnej — formularz WWW',
+        ],
+        'security' => [
+            'allowed_origins' => ['https://domynapolnej.pl', 'https://www.domynapolnej.pl'],
+            'trusted_proxy_ips' => [],
+        ],
+    ];
     // Deploy layout: public_html/api next to private/dnp. Legacy deployments keep api/config.php.
     $private = dirname(__DIR__, 3) . '/private/dnp/config.php';
     $path = is_file($private) ? $private : dirname(__DIR__) . '/config.php';
-    if (!is_file($path)) return [];
+    if (!is_file($path)) return $defaults;
     $config = require $path;
     if (!is_array($config)) throw new RuntimeException('Invalid server configuration');
-    return $config;
+    return array_replace_recursive($defaults, $config);
 }
 function dnpStorage(array $config): string {
     $dir = $config['security']['storage_dir'] ?? getenv('DNP_PRIVATE_DIR') ?: dirname(__DIR__) . '/data/private';

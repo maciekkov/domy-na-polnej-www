@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__.'/lib/security.php';
 require_once __DIR__.'/lib/presale.php';
-require_once __DIR__.'/lib/smtp.php';
+require_once __DIR__.'/lib/mailer.php';
 try {
     $config = dnpConfig();
     [$data, $privateDir, $identity] = dnpGuard('presale', 4096, $config);
@@ -24,13 +24,12 @@ try {
     if ($changed) {
         // The private list is authoritative; a temporary mail failure cannot undo a saved consent/removal.
         try {
-            $to = (string)($config['recipient'] ?? '');
-            $from = (string)($config['from_email'] ?? '');
-            if (!filter_var($to, FILTER_VALIDATE_EMAIL) || !filter_var($from, FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $to.$from.(string)($config['from_name'] ?? ''))) throw new RuntimeException('Mail configuration unavailable');
-            sendSmtp((array)($config['smtp'] ?? []), $to, $from, (string)($config['from_name'] ?? 'Domy na Polnej'),
+            dnpSendConfiguredMail(
+                $config,
                 $action === 'subscribe' ? 'Nowy zapis na przedsprzedaż' : 'Rezygnacja z powiadomienia',
-                "Adres: ".$email."\nOperacja: ".$action."\nData UTC: ".gmdate('c')."\nBieżąca lista w prywatnym magazynie jest wiążąca.");
-        } catch (Throwable $mailError) { error_log('[DNP presale] Saved change; notification delivery failed. Check SMTP and private list.'); }
+                "Adres: ".$email."\nOperacja: ".$action."\nData UTC: ".gmdate('c')."\nBieżąca lista w prywatnym magazynie jest wiążąca."
+            );
+        } catch (Throwable $mailError) { error_log('[DNP presale] Saved change; notification delivery failed. Check hosting mail transport and private list.'); }
     }
     dnpRespond(200, ['ok'=>true]);
 } catch (Throwable $error) {

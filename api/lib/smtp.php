@@ -23,16 +23,18 @@ function sendSmtp(array $cfg, string $to, string $fromEmail, string $fromName, s
         || $password === '' || preg_match('/UZUPELNIJ|HASLO_APLIKACJI|CHANGE_ME|APP_PASSWORD/i', $password)) {
         throw new RuntimeException('SMTP_NOT_CONFIGURED');
     }
-    if (!in_array(($cfg['encryption'] ?? 'tls'), ['tls', 'ssl'], true)) throw new RuntimeException('SMTP_ENCRYPTION_INVALID');
+    $encryption = (string)($cfg['encryption'] ?? 'tls');
+    $loopbackPlain = $encryption === 'none' && in_array($host, ['127.0.0.1', '::1', 'localhost'], true);
+    if (!in_array($encryption, ['tls', 'ssl'], true) && !$loopbackPlain) throw new RuntimeException('SMTP_ENCRYPTION_INVALID');
     $timeout = 12;
-    $socket = fsockopen(($cfg['encryption'] ?? 'tls') === 'ssl' ? 'ssl://' . $host : $host, $port, $errno, $errstr, $timeout);
+    $socket = fsockopen($encryption === 'ssl' ? 'ssl://' . $host : $host, $port, $errno, $errstr, $timeout);
     if (!$socket) throw new RuntimeException("SMTP connect: $errstr ($errno)");
     try {
     stream_set_timeout($socket, $timeout);
     $banner = smtpRead($socket);
     if ((int)substr($banner, 0, 3) !== 220) throw new RuntimeException('SMTP banner: ' . trim($banner));
     smtpCommand($socket, 'EHLO domynapolnej.pl', [250]);
-    if (($cfg['encryption'] ?? 'tls') === 'tls') {
+    if ($encryption === 'tls') {
         smtpCommand($socket, 'STARTTLS', [220]);
         if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) throw new RuntimeException('Nie udało się uruchomić TLS.');
         smtpCommand($socket, 'EHLO domynapolnej.pl', [250]);

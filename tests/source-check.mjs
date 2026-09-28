@@ -16,7 +16,7 @@ export const required = [
   'src/components/house-selector/Masterplan.tsx','src/sections/FaqContact/FaqContact.tsx',
   'src/sections/Layout/Layout.tsx','src/data/layoutRooms.ts','src/data/gallery.ts',
   'src/pages/PrivacyPolicy.tsx','src/pages/CookiePolicy.tsx','src/pages/NotFound.tsx',
-  'api/contact.php','api/analytics.php','api/analytics-summary.php','api/gov-sync.php','api/gov-sync-cron.php','api/lib/gov-sync.php','api/config.example.php','api/.htaccess',
+  'api/contact.php','api/lib/mailer.php','api/analytics.php','api/analytics-summary.php','api/gov-sync.php','api/gov-sync-cron.php','api/lib/gov-sync.php','api/config.example.php','api/.htaccess',
   'public/.htaccess','public/robots.txt','public/sitemap.xml','scripts/prepare-dist.mjs',
   'scripts/version-assets.mjs','scripts/publish-site-data.mjs','scripts/build-cache.htaccess',
   'public/assets/images/dnp-masterplan.webp','src/components/house-selector/NorthIndicator.tsx',
@@ -31,8 +31,8 @@ const obsolete = has(cleanupInventory) ? JSON.parse(read(cleanupInventory)).map(
 check(!required.some(item => obsolete.includes(item)), 'Listy wymagane i usunięte muszą być rozłączne')
 for (const file of required) check(has(file), `Brak ${file}`)
 for (const file of obsolete) check(!has(file), `Powrócił nieużywany plik ${file}`)
-check(!has('api/config.php'), 'Paczka nie może zawierać sekretów SMTP')
-check(read('.gitignore').includes('api/config.php'), 'Brak wykluczenia sekretów')
+check(!has('api/config.php'), 'Paczka nie może zawierać prywatnej konfiguracji serwera')
+check(read('.gitignore').includes('api/config.php'), 'Brak wykluczenia prywatnej konfiguracji')
 const app = read('src/app/App.tsx'), main = read('src/main.tsx'), form = read('src/sections/FaqContact/FaqContact.tsx')
 check(!/selectedId\s*\?\?\s*['"]A['"]/.test(app), 'Brak domyślnego Domu A')
 check((app.match(/selectedId \?\? 'unknown'/g) || []).length === 2, 'Galeria i formularz otrzymują unknown')
@@ -77,7 +77,9 @@ for (const field of ['galleryImages','layoutRooms']) {
   const text = read(field==='galleryImages' ? 'src/data/gallery.ts' : 'src/data/layoutRooms.ts')
   check(text.includes('spacer-360/interior/webp/'), `${field}: nadal nowy zestaw renderów`)
 }
-for (const token of ["dnpLimit($privateDir,'contact-send'","$data['website']",'FILTER_VALIDATE_EMAIL','AUTH LOGIN']) check((read('api/contact.php')+read('api/lib/smtp.php')).includes(token),`Zachowano zabezpieczenie kontaktu: ${token}`)
+for (const token of ["dnpLimit($privateDir,'contact-send'","$data['website']",'FILTER_VALIDATE_EMAIL']) check((read('api/contact.php')+read('api/lib/mailer.php')).includes(token),`Zachowano zabezpieczenie kontaktu: ${token}`)
+check(read('api/lib/mailer.php').includes('dnpPhpMail') && read('api/config.example.php').includes("'transport' => 'php_mail'"), 'Formularz domyślnie używa lokalnego PHP mail bez hasła Gmaila')
+check(read('api/lib/smtp.php').includes('AUTH LOGIN'), 'Opcjonalny transport SMTP pozostaje dostępny')
 check(read('api/contact.php').includes("'unknown'"), 'Backend akceptuje brak wyboru domu')
 const pkg=JSON.parse(read('package.json'))
 check(pkg.scripts.prebuild.includes('version-assets.mjs') && pkg.scripts.build.includes('prepare-dist.mjs'),'Wersje zasobów powstają PRZED hashowaniem Vite')

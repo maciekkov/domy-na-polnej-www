@@ -1,26 +1,29 @@
 {
   "project": "Domy na Polnej WWW",
-  "version": "5.2.0-rc.29",
-  "releaseName": "Standard editorial — 2 sekcje wg zaakceptowanej wizualizacji",
+  "version": "5.2.0-rc.30",
+  "releaseName": "Contact mail — PHP hosting transport, Gmail recipient without Gmail credentials",
   "date": "2026-09-28",
   "salesStage": "prelaunch",
-  "inputArchive": "domy-na-polnej-www-5.2.0-rc.28-STANDARD-GRID(1).zip",
+  "inputArchive": "domy-na-polnej-www-5.2.0-rc.29-MOBILE-TABLE-FIX.zip",
   "publishedToProduction": false,
   "pushedToGitHub": false,
   "productionComparisonCompleted": false,
   "fullTypecheckExecuted": false,
-  "buildMethod": "Unchanged: tsc + Vite, npm run build",
-  "browserVerification": "Sprawdzono rzeczywisty komponent Standard TSX z pełnym CSS strony w Chromium i React/ReactDOM 19.1.1: 320, 390, 768, 1024, 1440, 1920 px. Lokalny transport blob; nie pełny build Vite ani test HTTP/PHP.",
+  "buildMethod": "Unchanged frontend build. Backend contact/presale mail transport changed to local PHP mail() by default.",
+  "browserVerification": "Frontend untouched in RC30; mail changes verified at PHP/API layer only.",
   "viteBuildExecuted": false,
-  "npmInstall": "npm ci nie ukończyło pobrania zależności z powodu niedostępnej sieci/DNS npm. W paczce wejściowej nie było node_modules; pakiety tymczasowe z nieudanej instalacji nie są dystrybuowane.",
+  "npmInstall": "Not required for backend-only RC30 change; no node_modules added to distribution.",
   "standardPdf": "Original supplied 15-page PDF, unchanged; local browser download byte-verified.",
   "newImagesGenerated": false,
   "sourceTests": {
-    "passed": 110,
-    "blockedFiles": [
-      "tests/overlay-history.test.mjs"
-    ],
-    "reason": "Brak zainstalowanych zależności React dla testu renderowania serwerowego; nie zmieniano ani nie pozorowano tego testu."
+    "passed": 150,
+    "blockedFiles": [],
+    "reason": "source-check passed"
   },
-  "syntaxCheck": "59 modułów TS/TSX, 17 plików JS/MJS; lokalny TypeScript 5.8.3. Nie jest to pełny typecheck deklarowaną wersją 5.9.2."
+  "syntaxCheck": "All 13 PHP API files passed php -l.",
+  "mailDelivery": "Recipient mkdevelop2026@gmail.com; default sender kontakt@domynapolnej.pl; PHP mail() on hosting; no Gmail password required. Optional SMTP path retained but disabled by default.",
+  "apiSecurityTests": {
+    "passed": 52,
+    "mode": "local PHP HTTP + loopback SMTP mock for optional SMTP path; no external email sent"
+  }
 }

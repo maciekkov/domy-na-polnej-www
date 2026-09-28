@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__.'/lib/security.php';
+require_once __DIR__.'/lib/mailer.php';
 try {
     $config = dnpConfig();
     [$data,$privateDir,$identity] = dnpGuard('contact',32768,$config);
@@ -27,29 +28,21 @@ try {
     $retry=dnpLimit($privateDir,'contact-send',$identity,[[1,45],[5,3600],[100,86400,true]]);
     if($retry)dnpRespond(429,['ok'=>false,'message'=>'Odczekaj przed kolejną wiadomością.'], $retry);
 } catch(Throwable $error) { dnpRespond(503,['ok'=>false,'message'=>'Formularz chwilowo niedostępny.'],60); }
-if(empty($config['smtp']))dnpRespond(503,['ok'=>false,'message'=>'Formularz oczekuje na konfigurację serwera pocztowego.']);
-foreach(['recipient','from_email'] as $key) if(!filter_var($config[$key]??'',FILTER_VALIDATE_EMAIL)||preg_match('/[\r\n]/',(string)($config[$key]??'')))dnpRespond(503,['ok'=>false,'message'=>'Formularz oczekuje na konfigurację poczty.']);
-if(preg_match('/[\r\n]/',(string)($config['from_name']??'')))dnpRespond(503,['ok'=>false,'message'=>'Formularz oczekuje na konfigurację poczty.']);
-
-require_once __DIR__.'/lib/smtp.php';
 
 $houseLabel = $house === 'unknown' ? 'jeszcze nie wybrano' : 'Dom ' . $house;
 $body = "Nowe zapytanie ze strony Domy na Polnej\n\n" .
         "Dom: {$houseLabel}\nImię: {$name}\nTelefon: {$phone}\nE-mail: " . ($email ?: '—') . "\n\nWiadomość:\n" . ($message ?: '—') . "\n";
 
 try {
-    sendSmtp(
-        (array)($config['smtp'] ?? []),
-        (string)($config['recipient'] ?? ''),
-        (string)($config['from_email'] ?? ''),
-        (string)($config['from_name'] ?? 'Domy na Polnej'),
+    $transport = dnpSendConfiguredMail(
+        $config,
         'Nowe zapytanie — ' . $houseLabel,
         $body,
         $email
     );
+    error_log('[DNP contact] message accepted by ' . $transport);
     dnpRespond(200, ['ok' => true]);
 } catch (Throwable $error) {
-    error_log('[DNP contact] SMTP delivery failed: ' . ($error->getMessage() === 'SMTP_NOT_CONFIGURED' ? 'SMTP_NOT_CONFIGURED' : 'SMTP_DELIVERY_ERROR'));
-    if ($error->getMessage() === 'SMTP_NOT_CONFIGURED') dnpRespond(503, ['ok' => false, 'message' => 'Wysyłka wiadomości jest chwilowo niedostępna. Zadzwoń do nas.']);
+    error_log('[DNP contact] mail delivery failed');
     dnpRespond(502, ['ok' => false, 'message' => 'Nie udało się teraz wysłać wiadomości. Zadzwoń do nas lub spróbuj ponownie później.']);
 }

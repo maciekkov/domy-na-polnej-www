@@ -1,0 +1,33 @@
+{
+  "version": "5.2.0-rc.30",
+  "date": "2026-09-28",
+  "phpLint": {
+    "passed": 13,
+    "failed": 0
+  },
+  "sourceCheck": {
+    "passed": 150,
+    "failed": 0
+  },
+  "apiSecurity": {
+    "passed": 52,
+    "failed": 0,
+    "note": "Optional SMTP path tested only against local loopback mock; no external email sent."
+  },
+  "defaultMailConfig": {
+    "transport": "php_mail",
+    "recipient": "mkdevelop2026@gmail.com",
+    "from": "kontakt@domynapolnej.pl"
+  },
+  "productionDeliveryTested": false,
+  "productionDeliveryNote": "Real delivery requires deployment on the target PHP hosting because local environment has no access to the production mail transport.",
+  "phpMailHarness": {
+    "passed": true,
+    "httpStatus": 200,
+    "recipient": "mkdevelop2026@gmail.com",
+    "from": "kontakt@domynapolnej.pl",
+    "replyTo": "client@example.com",
+    "externalDelivery": false,
+    "note": "PHP mail() was exercised end-to-end against a local fake sendmail capture. No Gmail or SMTP credentials were used and no external email was sent."
+  }
+}

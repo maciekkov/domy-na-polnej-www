@@ -1,0 +1,30 @@
+RC30 vs supplied RC29 MOBILE TABLE FIX
+
+MODIFIED
+CHANGELOG.md
+DEPLOYMENT.md
+README.md
+VERSION
+VERSION.json
+WDROZENIE-HOSTING.md
+api/config.example.php
+api/contact.php
+api/lib/security.php
+api/lib/smtp.php
+api/presale.php
+package-lock.json
+package.json
+tests/api-security-qa.py
+tests/presale-api-wasm.mjs
+tests/source-check.mjs
+
+ADDED
+CHANGED_FILES_RC30.txt
+QA_RC30.json
+ZMIANY_RC30.md
+api/lib/mailer.php
+
+REMOVED
+none
+
+Functional scope: mail backend/configuration and deployment documentation only. Public frontend/UI/assets remain unchanged from RC29 MOBILE TABLE FIX.

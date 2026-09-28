@@ -1,8 +1,8 @@
-# Domy na Polnej — 5.2.0-rc.29
+# Domy na Polnej — 5.2.0-rc.30
 
-Aktualizacja: dwie sekcje standardu według przesłanego wzoru. Komplet kodu, wyciętych grafik WebP i oryginalnego PDF znajduje się w tej paczce.
+Aktualizacja: formularz kontaktowy i powiadomienia formularza przedsprzedaży korzystają domyślnie z lokalnego transportu PHP `mail()` na hostingu. Odbiorcą pozostaje `mkdevelop2026@gmail.com`; Gmail nie jest serwerem wysyłającym i nie wymaga hasła.
 
-Zmiany i zakres weryfikacji: **ZMIANY_RC29.md** oraz **QA_RC29.json**. Jest to paczka źródłowa; build Vite wymaga wykonania `npm ci` i `npm run build` w środowisku z dostępem do npm. W tej sesji sprawdzono lokalnie rzeczywisty komponent React i CSS, ale nie wykonano builda produkcyjnego (niedostępna sieć npm).
+Zmiany pocztowe i zakres weryfikacji: **ZMIANY_RC30.md** oraz **QA_RC30.json**. Poprzednie zmiany Standardu pozostają bez zmian w **ZMIANY_RC29.md** oraz **QA_RC29.json**. Jest to paczka źródłowa; build Vite wymaga wykonania `npm ci` i `npm run build` w środowisku z dostępem do npm. W tej sesji sprawdzono lokalnie rzeczywisty komponent React i CSS, ale nie wykonano builda produkcyjnego (niedostępna sieć npm).
 
 ---
 
@@ -10,7 +10,7 @@ Zmiany i zakres weryfikacji: **ZMIANY_RC29.md** oraz **QA_RC29.json**. Jest to p
 
 Poniższe informacje o dawnych wynikach testów i gotowych katalogach dotyczą wcześniejszych wydań. Aktualny zakres weryfikacji RC29 oraz brak builda opisano powyżej i w `QA_RC29.json`.
 
-Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji Gmail: **WDROZENIE-HOSTING.md**.
+Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji formularza: **WDROZENIE-HOSTING.md**.
 
 W rc.19 po interaktywnym rzucie dodano sekcję o suficie katedralnym z wysokością 5,82 m w najwyższym punkcie salonu. Używa istniejącego zdjęcia ze spaceru wewnętrznego; nie zastępuje materiału technicznego pokazującego pełny przekrój sufitu.
 
@@ -23,7 +23,7 @@ npm ci
 npm run build
 ```
 
-Zwykły build od razu przygotowuje `hosting/public_html/` i `hosting/private/`. Komenda `npm run build:hosting` pozostaje zgodna wstecznie i uruchamia ten sam build tylko raz. Budowanie zachowuje prywatną konfigurację i hasło analityki, jeśli są już w `hosting/private/`; przy pierwszym buildzie generuje dane dostępu. Przy aktualizacji działającego hostingu zachowaj jego katalog private; ustawienia SMTP opisano w instrukcji.
+Zwykły build od razu przygotowuje `hosting/public_html/` i `hosting/private/`. Komenda `npm run build:hosting` pozostaje zgodna wstecznie i uruchamia ten sam build tylko raz. Budowanie zachowuje prywatną konfigurację i hasło analityki, jeśli są już w `hosting/private/`; przy pierwszym buildzie generuje dane dostępu. Przy aktualizacji działającego hostingu zachowaj jego katalog private; formularz nie wymaga sekretu pocztowego przy domyślnym transporcie PHP `mail()`.
 
 ## Podgląd
 
@@ -33,7 +33,7 @@ Zwykły build od razu przygotowuje `hosting/public_html/` i `hosting/private/`. 
 
 Mobile: czystszy hero, niższy blok tekstu i maska; mniejsze oznaczenia działek; krótsza karta domu bez dodatkowych CTA; zamykanie karty przyciskiem Wstecz; kompaktowa tabela A–E; usunięty stały dolny pasek kontaktowy; mniejsze odstępy i karty 360°; galeria dopasowująca wysokość do liczby zdjęć. Układ desktop zachowany.
 
-Adres odbiorcy formularza i powiadomień o zmianach na liście przedsprzedaży: mkdevelop2026@gmail.com. Wysyłka wymaga poprawnego SMTP i hasła aplikacji Google. Nie wysyłano próbnych wiadomości do rzeczywistej skrzynki.
+Adres odbiorcy formularza i powiadomień o zmianach na liście przedsprzedaży: `mkdevelop2026@gmail.com`. Domyślna wysyłka odbywa się przez lokalny mechanizm PHP `mail()` hostingu z nadawcą technicznym `kontakt@domynapolnej.pl`; nie wymaga hasła Gmaila. Nie wysyłano próbnych wiadomości do rzeczywistej skrzynki z tego środowiska.
 
 Sprawdzone: build TypeScript/Vite, 100 testów logicznych, 1154 kontroli spaceru, mobilna przeglądarka 320/390/430/760 px i desktop 1440 px, Wstecz/X, brak przewijania poziomego, testy magazynu i API zapisów PHP WASM. Pełne materiały historyczne nie są częścią lekkiej paczki.
 
@@ -46,4 +46,4 @@ Produkcyjny panel /administrator-control/ pokazuje podsumowania, źródła, urz�
 
 ## Panel administratora v5.1 Premium (rc.10)
 
-`npm run build` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Do wysyłania wiadomości do Gmaila potrzebne jest hasło aplikacji w prywatnej konfiguracji serwera; paczka go nie zawiera. Szczegóły w `WDROZENIE-HOSTING.md`.
+`npm run build` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Formularz wysyła na Gmail przez lokalny transport pocztowy hostingu i nie potrzebuje hasła Gmaila. Opcjonalny SMTP pozostaje wyłącznie jako świadomie włączany fallback. Szczegóły w `WDROZENIE-HOSTING.md`.
