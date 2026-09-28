@@ -45,3 +45,22 @@ qa/cleanup-six/
 
 # Generated HTML offer entrypoints (npm run seo:refresh)
 /dom-*/index.html
+
+# Python QA cache
+__pycache__/
+*.pyc
+
+# Generated deploy tree contains a private analytics password.
+/hosting/
+
+# Generated visual QA/reference artifacts — keep out of the repository.
+/qa/
+/qa-natural-flow-*/
+/reference-assets/
+/docs/audit-*/
+/docs/qa*/
+/docs/rc*/
+/docs/reference-audit/
+/docs/history-v4/
+/docs/spacer-wnetrza/
+/docs/odtworzenie-*/

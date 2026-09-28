@@ -150,6 +150,10 @@ def main():
             check('analytics summary: protected aggregate returns pseudonymous visitor', status==200 and summary.get('uniqueVisitors',0)>=1 and summary.get('uniqueVisits',0)>=1)
             check('analytics summary: wrong admin key rejected', request('analytics-summary', {'rangeDays':30}, headers={'X-DNP-Admin-Key':'wrong-key-wrong-key-wrong-key'})[0]==401)
             status, _, body = request('gov-sync', {'action':'preview'}, headers=admin_headers)
+            check('gov sync: prelaunch refuses reporting unpublished prices', status==503 and 'rozpoczęciem' in json.loads(body).get('message',''))
+            selling=json.loads((ROOT/'tests/fixtures/selling-baseline.json').read_text())
+            (www/'data/site-data.json').write_text(json.dumps(selling))
+            status, _, body = request('gov-sync', {'action':'preview'}, headers=admin_headers)
             gov=json.loads(body)
             check('gov sync: preview contains 5 houses and unit price', status==200 and len(gov.get('payload',{}).get('houses',[]))==5 and gov['payload']['houses'][0]['grossPricePerM2Pln']>0)
             check('gov sync: cannot enable without official transport config', request('gov-sync', {'action':'enable'}, headers=admin_headers)[0]==409)
@@ -213,7 +217,7 @@ def main():
             if php.poll() is None: php.kill()
             http_log.close()
     report = {'passed': len(RESULTS), 'checks': RESULTS, 'smtp': 'local mock server only; no external mail sent', 'server': 'PHP CLI HTTP on loopback, not production hosting'}
-    out = ROOT/'docs/audit-7-12/api-security-test.json'
+    out = ROOT/'docs/audit-2026-09-23/api-security-test.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2))
     print(f'PASS {len(RESULTS)} real PHP/HTTP/SMTP/parallel rate-limit checks')

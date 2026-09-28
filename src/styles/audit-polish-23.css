@@ -1,0 +1,384 @@
+/* Final content cleanup: keep the existing section layouts intact. */
+.hero__content{gap:0}
+.hero__copy{top:28px}
+/* Table stays within its own grid column at every viewport width. */
+#porownanie-domow .homes-comparison-layout > div:first-child{min-width:0}
+#porownanie-domow .homes__comparison{min-width:0}
+#porownanie-domow .homes-table-wrap{overflow-x:hidden;scrollbar-width:none}
+#porownanie-domow .homes-table{width:100%;min-width:0;table-layout:fixed}
+#porownanie-domow .homes-table th,#porownanie-domow .homes-table td{min-width:0;white-space:normal;overflow-wrap:anywhere}
+#porownanie-domow .homes-table tbody tr > *{border-radius:0}
+/* Bring footer columns closer and give the existing Instagram link a quiet accent. */
+.site-footer{padding-block:23px 12px}
+.site-footer>.shell{width:min(1100px,calc(100% - 80px))}
+.site-footer__grid{gap:20px;padding-bottom:16px}
+.site-footer nav,.site-footer__docs,.site-footer__contact{gap:3px}
+.site-footer__legal{padding-top:10px}
+.site-footer__bottom{padding-top:10px}
+.site-footer__socials>a[aria-label^="Instagram"]{width:31px;height:31px;border:1px solid #f4d3d6a8;background:linear-gradient(135deg,#7d5fab,#bc648f 53%,#e9a069);color:#fff;box-shadow:0 2px 12px #c65b9040}
+.site-footer__socials>a[aria-label^="Instagram"] svg{width:17px;height:17px;stroke:#fff}
+.site-footer__socials>a[aria-label^="Instagram"]:hover{filter:brightness(1.13)}
+@media(max-width:1150px){#porownanie-domow .homes-table th,#porownanie-domow .homes-table td{padding-inline:5px;font-size:11px}}
+@media(max-width:960px){#porownanie-domow .homes-table-wrap{display:block;overflow-x:hidden}#porownanie-domow .homes-table{min-width:0}.site-footer>.shell{width:calc(100% - 44px)}}
+@media(max-width:640px){.hero__copy{top:16px}#porownanie-domow .homes__comparison{padding:5px}#porownanie-domow .homes-table th,#porownanie-domow .homes-table td{padding:8px 2px;font-size:clamp(9px,2.5vw,11px);overflow-wrap:anywhere}.site-footer{padding-block:22px 12px}.site-footer__grid{gap:16px 14px;padding-bottom:14px}.site-footer nav,.site-footer__docs,.site-footer__contact{gap:4px}}
+@media(max-width:390px){.site-footer__grid{grid-template-columns:1fr 1fr}.site-footer__brand,.site-footer__contact{grid-column:1/-1}}
+@media(min-width:961px){.site-footer>.shell{width:min(1000px,calc(100% - 80px))}.site-footer__grid{grid-template-columns:1.15fr .85fr 1fr 1fr;gap:18px}}
+.site-footer nav a,.site-footer__docs a,.site-footer__contact a,.site-footer .site-footer__link-button{min-height:22px;padding-block:0;line-height:1.35}
+.site-footer__legal{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+@media(max-width:640px){#porownanie-domow .homes-table th:nth-child(6),#porownanie-domow .homes-table td:nth-child(6){display:none}#porownanie-domow .homes-table th:nth-child(1){width:14%}#porownanie-domow .homes-table th:nth-child(2){width:15%}#porownanie-domow .homes-table th:nth-child(3){width:19%}#porownanie-domow .homes-table th:nth-child(4){width:17%}#porownanie-domow .homes-table th:nth-child(5){width:16%}#porownanie-domow .homes-table th:nth-child(7){width:19%}.site-footer nav a,.site-footer__docs a,.site-footer__contact a,.site-footer .site-footer__link-button{min-height:28px}}
+
+/* rc.24 — user-directed cleanup and alignment pass. */
+@media(min-width:961px){
+  /* Comparison: heading is above both columns; table and photo card share exactly one row. */
+  #porownanie-domow .comparison-heading{max-width:760px;margin:0 auto 28px;text-align:center}
+  #porownanie-domow .homes-comparison-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:stretch;margin-top:0}
+  #porownanie-domow .homes__comparison{height:100%;margin:0;display:flex;flex-direction:column}
+  #porownanie-domow .homes-table-wrap{height:100%;flex:1}
+  #porownanie-domow .homes-table{height:100%}
+  #porownanie-domow .comparison-aside{display:flex;min-width:0;height:100%}
+  #porownanie-domow .comparison-aside .house-card{position:static;width:100%;height:100%;margin:0}
+
+  /* Cathedral: no numeric height block; use the green panel as one calm editorial composition. */
+  .cathedral-ceiling__intro{padding:52px 44px 42px}
+  .cathedral-ceiling__intro h2{max-width:420px;margin-top:52px;font-size:clamp(44px,3.8vw,58px);line-height:1.08}
+  .cathedral-ceiling__intro>p{max-width:430px;margin:38px 0 0;font-size:16px;line-height:1.72}
+  .cathedral-ceiling__link{margin-top:auto;padding-top:30px;min-height:60px}
+
+  /* Standard: right visual uses the full column and starts exactly with the icon row. */
+  .standard-section__grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.18fr);column-gap:34px}
+  .standard-section__visuals{grid-column:2;grid-row:2;align-self:start;width:100%;max-width:none;margin:0}
+  .standard-section__visuals .standard-lifestyle{width:100%;max-width:none;margin:0}
+  .standard-lifestyle__media{width:100%;height:460px;max-width:none}
+  .standard-lifestyle__media img{display:block;width:100%;height:100%;object-fit:cover}
+}
+
+@media(max-width:960px){
+  #porownanie-domow .comparison-heading{margin-bottom:22px}
+}
+
+@media(max-width:640px){
+  .cathedral-ceiling__intro{padding:31px 29px 28px}
+  .cathedral-ceiling__intro h2{margin-top:28px}
+  .cathedral-ceiling__intro>p{margin-top:24px}
+}
+
+/* rc.25 — homes comparison + gallery default + stronger standard section. */
+@media (min-width: 961px) {
+  #porownanie-domow > .shell {
+    width: min(1460px, calc(100% - 48px));
+  }
+
+  #porownanie-domow .homes-comparison-layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 28px;
+  }
+
+  #porownanie-domow .comparison-aside .house-card {
+    padding: 24px;
+  }
+}
+
+#porownanie-domow .homes-table thead th:nth-child(1),
+#porownanie-domow .homes-table tbody th:nth-child(1) {
+  width: 12%;
+}
+
+#porownanie-domow .homes-table th:nth-child(2),
+#porownanie-domow .homes-table td:nth-child(2) {
+  width: 12%;
+}
+
+#porownanie-domow .homes-table th:nth-child(3),
+#porownanie-domow .homes-table td:nth-child(3) {
+  width: 14%;
+}
+
+#porownanie-domow .homes-table th:nth-child(4),
+#porownanie-domow .homes-table td:nth-child(4) {
+  width: 13%;
+}
+
+#porownanie-domow .homes-table th:nth-child(5),
+#porownanie-domow .homes-table td:nth-child(5) {
+  width: 10%;
+}
+
+#porownanie-domow .homes-table th:nth-child(6),
+#porownanie-domow .homes-table td:nth-child(6) {
+  width: 8%;
+}
+
+#porownanie-domow .homes-table th:nth-child(7),
+#porownanie-domow .homes-table td:nth-child(7),
+#porownanie-domow .homes-table th:nth-child(8),
+#porownanie-domow .homes-table td:nth-child(8) {
+  width: 15.5%;
+}
+
+#porownanie-domow .homes-table th,
+#porownanie-domow .homes-table td {
+  padding-inline: 12px;
+}
+
+#porownanie-domow .homes-table td:nth-child(7),
+#porownanie-domow .homes-table td:nth-child(8) {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+#porownanie-domow .pricing-pending {
+  display: inline-block;
+  max-width: 120px;
+  color: #5c6640;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+#porownanie-domow .house-card__price {
+  margin-top: auto;
+}
+
+#porownanie-domow .house-card__price--pending strong {
+  font-size: clamp(28px, 2.2vw, 34px);
+}
+
+#porownanie-domow .house-card__price--pending small {
+  max-width: 28ch;
+}
+
+.standard-section__body {
+  display: grid;
+  gap: 18px;
+}
+
+.standard-accordion {
+  gap: 12px;
+}
+
+.standard-accordion__item {
+  border-color: rgba(63, 73, 56, .14);
+  border-radius: 16px;
+  background: rgba(255,255,255,.55);
+}
+
+.standard-accordion__item.is-open {
+  border-color: rgba(93,103,61,.32);
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(246,243,235,.92));
+  box-shadow: 0 14px 28px rgba(37,42,44,.06);
+}
+
+.standard-accordion__item button {
+  min-height: 66px;
+  padding: 0 20px;
+  color: #1d231f;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.standard-accordion__item button span {
+  display: block;
+}
+
+.standard-accordion__item button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.standard-accordion__panel {
+  padding: 0 20px 20px;
+}
+
+.standard-accordion__panel strong {
+  margin-bottom: 7px;
+  font-size: 15px;
+}
+
+.standard-accordion__panel p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (min-width: 961px) {
+  .standard-section__grid {
+    grid-template-columns: minmax(0, .98fr) minmax(0, 1.12fr);
+    column-gap: 36px;
+  }
+
+  .standard-section__visuals {
+    gap: 16px;
+  }
+
+  .standard-lifestyle {
+    margin: 0;
+  }
+
+  .standard-lifestyle__media {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .standard-lifestyle__media > img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (max-width: 640px) {
+  #porownanie-domow .homes-table th:nth-child(6),
+  #porownanie-domow .homes-table td:nth-child(6) {
+    display: none;
+  }
+
+  #porownanie-domow .homes-table th:nth-child(7),
+  #porownanie-domow .homes-table td:nth-child(7),
+  #porownanie-domow .homes-table th:nth-child(8),
+  #porownanie-domow .homes-table td:nth-child(8) {
+    min-width: 92px;
+  }
+
+  .standard-accordion__item button {
+    min-height: 60px;
+    padding-inline: 17px;
+    font-size: 16px;
+  }
+}
+
+/* rc.30 — mobile offer table: keep the desktop table language and scale the same layout down cleanly. */
+@media (max-width: 760px) {
+  #porownanie-domow .homes-comparison-layout,
+  #porownanie-domow .homes__comparison,
+  #porownanie-domow .homes-table-wrap,
+  #porownanie-domow .homes-table {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #porownanie-domow .homes__comparison {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #porownanie-domow .homes-table-wrap {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  #porownanie-domow .homes-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  /* On mobile the table remains the same table as desktop — no alternate labels or removed columns. */
+  #porownanie-domow .homes-table .table-desktop { display: inline; }
+  #porownanie-domow .homes-table .table-mobile { display: none; }
+  #porownanie-domow .homes-table th:nth-child(6),
+  #porownanie-domow .homes-table td:nth-child(6) { display: table-cell; }
+
+  #porownanie-domow .homes-table th,
+  #porownanie-domow .homes-table td,
+  #porownanie-domow .homes-table thead th,
+  #porownanie-domow .homes-table tbody th,
+  #porownanie-domow .homes-table tbody td {
+    min-width: 0;
+    height: auto;
+    padding: 10px 2px;
+    font-size: clamp(7.4px, 2.05vw, 9px);
+    line-height: 1.18;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #porownanie-domow .homes-table thead th {
+    padding-block: 9px;
+    font-size: clamp(6.8px, 1.9vw, 8.2px);
+    line-height: 1.14;
+  }
+
+  #porownanie-domow .homes-table tbody th button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    height: 25px;
+    min-width: 28px;
+    min-height: 25px;
+    padding: 0 3px;
+    border-radius: 999px;
+    font-size: 8px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  #porownanie-domow .homes-table .status-badge {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 3px 4px;
+    gap: 0;
+    font-size: clamp(6.3px, 1.7vw, 7.4px);
+    line-height: 1.12;
+    white-space: normal;
+    justify-content: center;
+  }
+
+  #porownanie-domow .homes-table .status-badge::before { display: none; }
+  #porownanie-domow .homes-table .pricing-pending {
+    display: inline;
+    max-width: none;
+    font-size: inherit;
+    font-weight: 650;
+    line-height: inherit;
+    white-space: normal;
+  }
+
+  #porownanie-domow .homes-table td:nth-child(7),
+  #porownanie-domow .homes-table td:nth-child(8) {
+    min-width: 0;
+    font-size: clamp(7.1px, 1.95vw, 8.7px);
+    line-height: 1.16;
+  }
+
+  #porownanie-domow .homes-table th:nth-child(1),
+  #porownanie-domow .homes-table td:nth-child(1) { width: 9%; }
+  #porownanie-domow .homes-table th:nth-child(2),
+  #porownanie-domow .homes-table td:nth-child(2) { width: 12%; }
+  #porownanie-domow .homes-table th:nth-child(3),
+  #porownanie-domow .homes-table td:nth-child(3) { width: 15%; }
+  #porownanie-domow .homes-table th:nth-child(4),
+  #porownanie-domow .homes-table td:nth-child(4) { width: 13.5%; }
+  #porownanie-domow .homes-table th:nth-child(5),
+  #porownanie-domow .homes-table td:nth-child(5) { width: 10.5%; }
+  #porownanie-domow .homes-table th:nth-child(6),
+  #porownanie-domow .homes-table td:nth-child(6) { width: 7%; }
+  #porownanie-domow .homes-table th:nth-child(7),
+  #porownanie-domow .homes-table td:nth-child(7) { width: 17%; }
+  #porownanie-domow .homes-table th:nth-child(8),
+  #porownanie-domow .homes-table td:nth-child(8) { width: 16%; }
+}
+
+@media (max-width: 360px) {
+  #porownanie-domow .homes-table th,
+  #porownanie-domow .homes-table td,
+  #porownanie-domow .homes-table thead th,
+  #porownanie-domow .homes-table tbody th,
+  #porownanie-domow .homes-table tbody td {
+    padding-inline: 1px;
+  }
+
+  #porownanie-domow .homes-table tbody th button {
+    height: 23px;
+    min-width: 25px;
+    min-height: 23px;
+    padding-inline: 2px;
+    font-size: 7.4px;
+  }
+}

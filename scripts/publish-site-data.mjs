@@ -19,10 +19,11 @@ function publicationDate(value) {
 
 export function mergePublicPriceHistory(input, previous) {
   if (!previous) return input
+  if (previous.salesStage === 'selling' && input.salesStage === 'prelaunch') throw new Error('Powrót do prelaunch nie może usuwać opublikowanej historii cen. Wymagana osobna decyzja publikacyjna.')
   const next = structuredClone(input)
   for (const house of next.houses ?? []) {
     const old = previous.houses?.find(item => item.id === house.id)
-    if (!old || old.price === house.price) continue
+    if (!old || old.price === house.price || previous.salesStage !== 'selling' || old.price === null || next.salesStage !== 'selling') continue
     if (!Array.isArray(house.priceHistory)) house.priceHistory = []
     const validFrom = publicationDate(old.publishedAt ?? previous.publishedAt)
     const validTo = publicationDate(next.publishedAt)

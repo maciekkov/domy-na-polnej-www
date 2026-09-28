@@ -32,6 +32,7 @@ export function SiteDataProvider({ children }: { children: ReactNode }) {
     let controller: AbortController | null = null
     let lastAttempt = 0
     let pending = false
+    let acceptedRevision = fallbackSiteData.revision
     const refresh = async () => {
       if (pending) return
       lastAttempt = Date.now()
@@ -43,13 +44,15 @@ export function SiteDataProvider({ children }: { children: ReactNode }) {
         if (!response.ok) throw new Error(`HTTP ${response.status}`)
         const data = parseSiteData(await response.json())
         if (!alive) return
+        if (data.revision < acceptedRevision) throw new Error('Odrzucono starszą rewizję danych')
+        acceptedRevision = data.revision
         setProduction(data)
         setSource('production')
         setError(null)
       } catch (reason) {
         if (!alive) return
         // Do not replace a working snapshot with a broken or stale server response.
-        setError('Nie udało się potwierdzić aktualności oferty. Ceny i dostępność potwierdź w biurze sprzedaży.')
+        setError('Nie udało się potwierdzić aktualności danych. Szczegóły inwestycji potwierdź w biurze.')
         console.warn('[Dane strony]', reason instanceof Error ? reason.message : 'Błąd danych')
       } finally {
         clearTimeout(timer)

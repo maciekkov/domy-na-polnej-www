@@ -1,0 +1,113 @@
+{
+  "version": "5.2.0-rc.29",
+  "date": "2026-09-28",
+  "browser": {
+    "mode": "Actual Standard TSX and all site CSS, offline CommonJS transpilation; exact React / React DOM 19.1.1. Blob transport for local assets and PDF. Not a Vite build or an HTTP/PHP check.",
+    "scope": "Actual Standard component in isolation with complete site CSS; not a full App navigation/HTTP/backend test.",
+    "react": "19.1.1",
+    "reactDOM": "19.1.1",
+    "viewports": [
+      {
+        "width": 1440,
+        "horizontalOverflow": 0,
+        "highlights": 8,
+        "detailCards": 6,
+        "allImagesLoaded": true,
+        "cardOverflows": [],
+        "detailMouseAndKeyboardChecks": "passed"
+      },
+      {
+        "width": 390,
+        "horizontalOverflow": 0,
+        "highlights": 8,
+        "detailCards": 6,
+        "allImagesLoaded": true,
+        "cardOverflows": [],
+        "detailMouseAndKeyboardChecks": "passed"
+      },
+      {
+        "width": 320,
+        "horizontalOverflow": 0,
+        "highlights": 8,
+        "detailCards": 6,
+        "allImagesLoaded": true,
+        "cardOverflows": [],
+        "detailMouseAndKeyboardChecks": "passed"
+      },
+      {
+        "width": 768,
+        "horizontalOverflow": 0,
+        "highlights": 8,
+        "detailCards": 6,
+        "allImagesLoaded": true,
+        "cardOverflows": [],
+        "detailMouseAndKeyboardChecks": "passed"
+      },
+      {
+        "width": 1024,
+        "horizontalOverflow": 0,
+        "highlights": 8,
+        "detailCards": 6,
+        "allImagesLoaded": true,
+        "cardOverflows": [],
+        "detailMouseAndKeyboardChecks": "passed"
+      },
+      {
+        "width": 1920,
+        "horizontalOverflow": 0,
+        "highlights": 8,
+        "detailCards": 6,
+        "allImagesLoaded": true,
+        "cardOverflows": [],
+        "detailMouseAndKeyboardChecks": "passed"
+      }
+    ],
+    "consoleErrors": [],
+    "missingPdfFallback": "passed",
+    "pdfDownload": {
+      "passed": true,
+      "method": "Chromium download from original bytes transported as a blob; HTTP server not tested.",
+      "sha256": "e4f52074798bd1f432de3406a4c110f11cb2540f3a11082f045146e98a5f950d",
+      "pages": 15
+    }
+  },
+  "sourceCheck": {
+    "status": "passed",
+    "conditions": 148
+  },
+  "availableUnitTests": {
+    "status": "passed",
+    "tests": 110
+  },
+  "fullNpmTest": {
+    "status": "blocked",
+    "blockedFile": "tests/overlay-history.test.mjs",
+    "reason": "React server-rendering dependencies were not installed because npm ci could not reach the registry. This existing test remains unchanged."
+  },
+  "syntax": {
+    "status": "passed",
+    "typescriptVersion": "5.8.3",
+    "tsTsxModules": 59,
+    "jsMjsFiles": 17,
+    "semanticTypecheck": false
+  },
+  "tourData": {
+    "status": "passed",
+    "checks": 1136,
+    "interiorScenes": 29,
+    "exteriorScenes": 14
+  },
+  "assets": {
+    "references": 161,
+    "missing": [],
+    "unused": [],
+    "newWebPCount": 14,
+    "newWebPBytes": 242866
+  },
+  "productionViteBuild": false,
+  "fullTypecheck": false,
+  "productionBrowserSuite": false,
+  "httpOrPhpIntegrationTest": false,
+  "published": false,
+  "notes": "Source package based on user RC28. npm ci / npm run build must be run in a network-enabled environment before hosting. No generated substitutes for the original PDF; no new AI images. Original source data, other site sections and PDF are unchanged."
+}

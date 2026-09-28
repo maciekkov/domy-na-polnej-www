@@ -27,6 +27,7 @@ export type SiteDocument = {
 }
 
 export type SiteData = {
+  salesStage: 'prelaunch' | 'selling'
   revision: number
   publishedAt: string
   houses: House[]

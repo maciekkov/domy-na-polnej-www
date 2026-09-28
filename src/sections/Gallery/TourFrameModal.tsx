@@ -1,3 +1,4 @@
+import { useOverlayHistory } from '../../hooks/useOverlayHistory'
 import { createPortal } from 'react-dom'
 import { X } from '../../components/common/Icons'
 import { useEffect, useRef, useState } from 'react'
@@ -17,18 +18,19 @@ type TourFrameModalProps = {
 /** The standalone player owns its toolbar after ready; messages require both
  * a matching origin and the exact iframe Window. Loading always has an exit. */
 export function TourFrameModal({ onClose, onEngaged, src, title, houseCode }: TourFrameModalProps) {
+  const closeViewer = useOverlayHistory(onClose)
   const dialogRef = useRef<HTMLDivElement>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const closeCallback = useRef(onClose)
+  const closeCallback = useRef(closeViewer)
   const engagedCallback = useRef(onEngaged)
-  closeCallback.current = onClose
+  closeCallback.current = closeViewer
   engagedCallback.current = onEngaged
   const [slow, setSlow] = useState(false)
   const [ready, setReady] = useState(false)
   const [activeTitle, setActiveTitle] = useState(title)
   const editTour = new URLSearchParams(window.location.search).get('editTour') === '1'
   const frameSrc = editTour ? `${src}${src.includes('?') ? '&' : '?'}edit=1` : src
-  useDialog(dialogRef, onClose)
+  useDialog(dialogRef, closeViewer)
 
   useEffect(() => {
     const timer = window.setTimeout(() => engagedCallback.current?.(), 12_000)
@@ -68,7 +70,7 @@ export function TourFrameModal({ onClose, onEngaged, src, title, houseCode }: To
 
   return createPortal(<div ref={dialogRef} className="tour-frame-modal" role="dialog" aria-modal="true" aria-label={activeTitle}>
     <iframe ref={iframeRef} src={frameSrc} title={activeTitle} allow="fullscreen" allowFullScreen tabIndex={0} />
-    {!ready && slow && <div className="tour-load-help" role="status"><p>Ładowanie trwa dłużej niż zwykle.</p><a href={frameSrc} target="_blank" rel="noreferrer">Otwórz spacer w osobnej karcie</a><button type="button" onClick={onClose}>Wróć do strony</button></div>}
-    {!ready && <div className="tour-frame-modal__actions"><button data-dialog-close type="button" onClick={onClose} aria-label="Zamknij ładowanie spaceru"><X aria-hidden="true" /></button></div>}
+    {!ready && slow && <div className="tour-load-help" role="status"><p>Ładowanie trwa dłużej niż zwykle.</p><a href={frameSrc} target="_blank" rel="noreferrer">Otwórz spacer w osobnej karcie</a><button type="button" onClick={closeViewer}>Wróć do strony</button></div>}
+    {!ready && <div className="tour-frame-modal__actions"><button data-dialog-close type="button" onClick={closeViewer} aria-label="Zamknij ładowanie spaceru"><X aria-hidden="true" /></button></div>}
   </div>, document.body)
 }

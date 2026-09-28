@@ -8,7 +8,7 @@ if errorlevel 1 (
   exit /b 1
 )
 if not exist "dist\index.html" (
-  node scripts\build-portable.cjs
+  call npm run build
   if errorlevel 1 (pause & exit /b 1)
 )
 echo Podglad: http://127.0.0.1:4173

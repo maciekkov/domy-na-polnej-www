@@ -1,3 +1,85 @@
+## 5.2.0-rc.29 — 2026-09-28
+
+- Standard przebudowany na dwa bloki według zatwierdzonej kompozycji: 8 ilustracji + trzy zdjęcia, następnie 6 rozwijanych kart + dokument PDF.
+- 14 lekkich WebP z przesłanej planszy, bez generowania nowych obrazów. Własne SVG i rzeczywiste HTML/CSS zamiast zrzutu całego interfejsu.
+- Zachowano pełne opisy techniczne i oryginalny PDF. Responsywność oraz obsługa klawiatury.
+- Zastąpiony kolaż, atlas i arkusz standard.css usunięte. Kontrakty testowe sekcji zaktualizowane do RC29.
+- Lokalna kontrola Chromium/React 19.1.1; pełnego Vite builda nie wykonano z powodu niedostępnej sieci npm. Szczegóły: ZMIANY_RC29.md.
+
+# 5.2.0-rc.26 — 28.09.2026
+
+- Sekcja wysokiego sufitu: układ z zaakceptowanej wizualizacji, wartość 5,82 m, oryginalny render. Usunięto oba odsyłacze „Zobacz układ domu” (desktop i mobile).
+- Surowa panorama equirektangularna nie jest elementem zwykłej galerii ani lightboxa. Oryginał zachowany dla przeglądarki panoramy 360°.
+- Kafle wejścia do spacerów: 230 px zamiast 460 px na komputerze, 250 px na telefonie. Zachowane przyciski, wybór obu spacerów i dane o scenach.
+- Usunięto oddzielny podpis „Materiały i instalacje” i wysoką kartę z okładką standardu. Jeden zwarty pas PDF zajmuje pełną szerokość zawartości sekcji.
+- Zachowano domyślną galerię Okolica, rozwiniętą Konstrukcję, kolumny cen i wcześniejsze poprawki masterplanu.
+- Dodano testy kontraktów rc.26 i test przeglądarkowy do uruchomienia po lokalnym buildzie.
+- Zakres rzeczywistej weryfikacji i ograniczenia opisuje ZMIANY_RC26.md. Nie wykonano builda Vite ani publikacji na produkcji.
+
+---
+
+# 5.2.0-rc.23 — ostatnie korekty audytu
+
+## 5.2.0-rc.24 — 2026-09-28
+- usunięto publiczny komunikat awaryjny o niepotwierdzonej aktualności danych; fallback działa nadal bez technicznego alertu dla użytkownika,
+- usunięto blok „cena wkrótce” z karty domu przed publikacją cennika i uproszczono notę pod tabelą,
+- wyrównano kartę domu ze zdjęciem dokładnie do tabeli porównawczej,
+- usunięto dropdown wyboru pomieszczenia z planu domu,
+- usunięto blok dokładnej wysokości z sekcji sufitu katedralnego i uporządkowano zielony panel,
+- powiększono zdjęcie po prawej stronie sekcji Standard i zlicowano je z górną krawędzią siatki ikon,
+- panorama 360 otrzymała lekkie wyostrzenie w rendererze WebGL; źródło pozostaje oryginalnym 4096×2048.
+
+
+- Usunięte parametry spod przycisków w hero.
+- Tabela domów mieści się bez przewijania; aktywny wiersz A ma prostą krawędź. Na telefonie pominięto w tabeli powtarzającą się liczbę pokoi.
+- Dokumenty pokazują jedynie nazwy, bez dodatkowej etykiety PDF i numeru wersji.
+- Zwarta stopka z wyrównanymi danymi i delikatnym kolorem ikony Instagrama.
+
+# 5.2.0-rc.22 — korekty po audycie użytkownika
+
+- Masterplan na pełną szerokość ekranu, bez bocznej karty; SVG zachowuje proporcje.
+- Usunięty blok wspólnego układu i zmniejszony dolny odstęp porównania.
+- Treść hero obniżona; zdjęcie frontu w zaletach domu i podcienia w FAQ.
+- Wysoki sufit pomniejszony około 5%; krótsze karty spacerów.
+- Ikony standardu +20%, kolaż desktop +30% wysokości i wyrównanie do ikon.
+- Bogatsze ikony procesu z wyrównaniem osi; subtelne barwy Instagrama.
+
+# 5.2.0-rc.21 — korekta proporcji i rytmu
+
+- Naprawiony rzut: wspólne proporcje obrazu i SVG, bez obcięcia dolnej części.
+- Podświetlenie pomieszczeń używa maski i lasera z masterplanu, z priorytetem hover.
+- Przebudowany panel pomieszczeń i pełny wybór z listy.
+- Usunięty podpis i strzałka z hero.
+- Jasna galeria i proces zakupu rozdzielają zielone sekcje; wspólna skala odstępów.
+- Nowa mozaika trzech zdjęć, większe karty spacerów i kompozycja wysokiego sufitu.
+
+# 5.2.0-rc.20 — Reference Premium (2026-09-24)
+
+- Przebudowa wszystkich sekcji według 14 wizualizacji; własne zdjęcia zachowane.
+- Kompletne tła botaniczne, lokalne fonty, kompaktowa typografia i odstępy.
+- Mozaika galerii, oddzielny spacer 360, porównanie domów i plan osiedla.
+- Responsywne karty zespołu i harmonogramu; audyt desktop/mobile i interakcji.
+- Gotowy build w dist/; szczegóły w docs/reference-audit/AUDYT_REFERENCJI.md.
+
+## 5.2.0-rc.19 · 24.09.2026
+
+- Nowa sekcja o suficie katedralnym po interaktywnym rzucie, przed lokalizacją: wysokość 5,82 m w najwyższym punkcie salonu i otwarta strefa dzienna z ogrodem na własnej działce.
+- Desktop i mobile odpowiadają zaakceptowanej makiecie; użyto istniejącego, wskazanego przez inwestora kadru ze spaceru 360 bez podmiany oryginału.
+- Zdjęcie przedstawia przykładową aranżację; sam kadr nie pokazuje pełnego przekroju sufitu.
+
+## 5.2.0-rc.18 · 24.09.2026
+
+- Desktop: przejrzysty pasek nawigacji nad hero, widoczna belka po rozpoczęciu przewijania, odsłonięta fotografia poza obszarem tekstu.
+- Hero: usunięto widoczną etykietę wizualizacji oraz dolny pasek parametrów i linię; statyczny widok SEO jest zgodny z aplikacją.
+- Wybór domu: usunięto dodatkowy blok przedsprzedaży, przycięcie fotografii oraz kopiowanie linku; karta oferuje pobranie PDF.
+- Masterplan: delikatne wypełnienie i czytelny obrys zaznaczonej działki; desktopowa mapa ma pełniejszą jasność poza gradientem tekstowym.
+
+## 5.2.0-rc.17 · 24.09.2026
+
+- Podpisy pinów stale widoczne w obu spacerach; na telefonie punkty i podpisy zmniejszone, z zachowaniem pola dotykowego 44 px.
+- Komunikat o wizualizacjach pokazywany raz na sesję przeglądarki dla każdego spaceru.
+- Wnętrze rozpoczyna się od otwartych drzwi; usunięto powtórzony kadr podcienia, a przejście przez drzwi pozostawiono na zewnątrz.
+
 ## 5.2.0-rc.16 · 24.09.2026
 
 - Naprawiono otwieranie obu spacerów i panoramy w podglądzie HTTP: znaczniki historii nie wymagają `crypto.randomUUID()`.
@@ -111,3 +193,9 @@ Produkcyjny panel: historia pojedynczych wizyt z istniejących logów, oś czasu
 - Pasek panelu odróżnia rzeczywiste dane analityki od lokalnego edytora demo. Historii wizyt z `_old_copy.zip` nie przenoszono.
 - SMTP Gmail pozostaje bez hasła, dopóki nie skonfigurujesz hasła aplikacji na serwerze. Formularz kontaktowy zgłasza niedostępność wysyłki; konfiguracja obsługuje `DNP_SMTP_APP_PASSWORD`. W archiwum nie ma hasła Gmail.
 - Testy sesji PHP oraz historii odwiedzającego i pliki wdrożeniowe aktualizowane wspólnie.
+
+- rc.25: usunięto zbędne opisy przy masterplanie, przywrócono kolumny cen w tabeli, zastąpiono CTA PDF stanem ceny, ustawiono domyślną galerię na Okolica oraz poprawiono sekcję Standard.
+
+- rc.27: przywrócono blok pobrania standardu jako osobny kontener w prawej kolumnie, obok treści i akordeonu po lewej stronie.
+
+- rc.28: sekcja Standard przebudowana 1:1 wg zaakceptowanej wizualizacji — 8 ikon, 6 opisowych kart w układzie 3x2, prawa grafika i kompaktowy blok PDF; usunięto akordeon i dolną notę.

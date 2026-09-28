@@ -60,3 +60,4 @@ function sendSmtp(array $cfg, string $to, string $fromEmail, string $fromName, s
     smtpCommand($socket, 'QUIT', [221]);
     } finally { fclose($socket); }
 }
+

@@ -1,0 +1,2890 @@
+{
+  "project": "Domy na Polnej WWW",
+  "sourceVersion": "5.2.0-rc.23",
+  "auditDate": "2026-09-28",
+  "scope": "source package; generated dist/ and hosting/ excluded",
+  "before": {
+    "files": 1043,
+    "bytes": 334813793,
+    "MiB": 319.3
+  },
+  "after": {
+    "files": 391,
+    "bytes": 51193285,
+    "MiB": 48.82
+  },
+  "reduction": {
+    "bytes": 283620508,
+    "MiB": 270.48,
+    "percent": 84.7
+  },
+  "publicAfter": {
+    "bytes": 49869540,
+    "MiB": 47.56
+  },
+  "removedFiles": 656,
+  "addedFiles": [
+    "CLEANUP_REPORT.json",
+    "public/assets/icons/standard-illustrations.webp",
+    "public/assets/images/decor/olive-branch.webp",
+    "public/tour/pin-premium.webp"
+  ],
+  "changedFiles": [
+    ".gitignore",
+    "START_PREVIEW.sh",
+    "URUCHOM-PODGLAD-WWW.cmd",
+    "index.html",
+    "package.json",
+    "public/assets/data/asset-versions.json",
+    "public/tour/spacer-360-player.css",
+    "public/tour/spacer-360-wewnatrz.html",
+    "public/tour/spacer-360-wewnatrz.js",
+    "public/tour/spacer-360-zewnatrz.html",
+    "public/tour/spacer-360-zewnatrz.js",
+    "src/styles/reference-premium.css",
+    "src/styles/sections/standard.css",
+    "tests/analytics-runtime.test.mjs",
+    "tests/syntax-check.mjs"
+  ],
+  "removedByTopLevel": {
+    "docs": {
+      "files": 368,
+      "bytes": 137493242
+    },
+    "public": {
+      "files": 100,
+      "bytes": 70114461
+    },
+    "qa": {
+      "files": 69,
+      "bytes": 36740016
+    },
+    "qa-natural-flow-v3": {
+      "files": 11,
+      "bytes": 19504847
+    },
+    "reference-assets": {
+      "files": 50,
+      "bytes": 9629084
+    },
+    "vendor": {
+      "files": 5,
+      "bytes": 9263157
+    },
+    "AUDYT_SPACERU_WNETRZA.html": {
+      "files": 1,
+      "bytes": 1607515
+    },
+    "qa-natural-flow-v4": {
+      "files": 6,
+      "bytes": 1436882
+    },
+    "SOURCE_MANIFEST.json": {
+      "files": 1,
+      "bytes": 133862
+    },
+    "src": {
+      "files": 12,
+      "bytes": 21144
+    },
+    "AUDYT_POPRAWEK_7-12.md": {
+      "files": 1,
+      "bytes": 10004
+    },
+    "AUDYT_POPRAWEK_1-6.md": {
+      "files": 1,
+      "bytes": 9744
+    },
+    "RAPORT_KONCOWY.md": {
+      "files": 1,
+      "bytes": 8540
+    },
+    "AUDYT_ANALITYKA_CENY_GOV.md": {
+      "files": 1,
+      "bytes": 7252
+    },
+    "scripts": {
+      "files": 2,
+      "bytes": 7157
+    },
+    "README-SPACER-WNETRZA.md": {
+      "files": 1,
+      "bytes": 7082
+    },
+    "VISUAL_QA.md": {
+      "files": 1,
+      "bytes": 5935
+    },
+    "ASSET_INVENTORY.md": {
+      "files": 1,
+      "bytes": 4334
+    },
+    "PRZEDSPRZEDAZ.md": {
+      "files": 1,
+      "bytes": 3741
+    },
+    "RAPORT_POPRAWEK_V5.1.md": {
+      "files": 1,
+      "bytes": 3564
+    },
+    "CHANGELOG_V6_PRODUCTION.md": {
+      "files": 1,
+      "bytes": 2965
+    },
+    "IMPLEMENTATION_NOTES.md": {
+      "files": 1,
+      "bytes": 2595
+    },
+    "BRAKI_I_WDROZENIE.md": {
+      "files": 1,
+      "bytes": 2356
+    },
+    "STAGE_09_10_AUDIT.md": {
+      "files": 1,
+      "bytes": 2242
+    },
+    "AUDIT_IMPLEMENTACJI.md": {
+      "files": 1,
+      "bytes": 1992
+    },
+    "STAGE_11_12_AUDIT.md": {
+      "files": 1,
+      "bytes": 1914
+    },
+    "DEMO_ANALITYKA_UZYTKOWNIKA.md": {
+      "files": 1,
+      "bytes": 1337
+    },
+    "MISSING_CONTENT.md": {
+      "files": 1,
+      "bytes": 1272
+    },
+    "START_TUTAJ_rc23.txt": {
+      "files": 1,
+      "bytes": 1191
+    },
+    "ZMIANY_UI_OFERTA_KONTAKT.md": {
+      "files": 1,
+      "bytes": 1132
+    },
+    "POPRAWKA-ANALITYKA-rc9.txt": {
+      "files": 1,
+      "bytes": 1072
+    },
+    "V10_RZUT2D_IMPLEMENTACJA.md": {
+      "files": 1,
+      "bytes": 1004
+    },
+    "START_TUTAJ_rc20.txt": {
+      "files": 1,
+      "bytes": 993
+    },
+    "START_TUTAJ_rc21.txt": {
+      "files": 1,
+      "bytes": 987
+    },
+    "START_TUTAJ_rc22.txt": {
+      "files": 1,
+      "bytes": 987
+    },
+    "ZMIANY_HERO_START.md": {
+      "files": 1,
+      "bytes": 888
+    },
+    "ZMIANY_COOKIE_FOUC.md": {
+      "files": 1,
+      "bytes": 857
+    },
+    "POPRAWKA-rc8.txt": {
+      "files": 1,
+      "bytes": 677
+    },
+    "TEST_REPORT.md": {
+      "files": 1,
+      "bytes": 459
+    },
+    "RELEASE-MANIFEST.json": {
+      "files": 1,
+      "bytes": 294
+    },
+    "README.txt": {
+      "files": 1,
+      "bytes": 286
+    },
+    "BUILD-VERIFIED.json": {
+      "files": 1,
+      "bytes": 265
+    }
+  },
+  "productionAssets": {
+    "unusedRemoved": 95,
+    "missingAfter": 0,
+    "unusedAfter": 0,
+    "referencesChecked": 150,
+    "losslessPngToWebp": [
+      {
+        "from": "public/assets/icons/standard-illustrations.png",
+        "to": "public/assets/icons/standard-illustrations.webp",
+        "pixelDifferenceAE": 0
+      },
+      {
+        "from": "public/assets/images/decor/olive-branch.png",
+        "to": "public/assets/images/decor/olive-branch.webp",
+        "pixelDifferenceAE": 0
+      },
+      {
+        "from": "public/tour/pin-premium.png",
+        "to": "public/tour/pin-premium.webp",
+        "pixelDifferenceAE": 0
+      }
+    ]
+  },
+  "codeCleanup": [
+    "removed six unreferenced *Refinement.css files",
+    "removed obsolete separate-house entrypoint src/house-page.tsx and offer-only helper/style",
+    "removed unused MobileContactBar.tsx and src/data/contact.ts",
+    "removed broken/redundant build:portable path and 8.83 MiB vendor copy of TypeScript/React",
+    "tests now resolve TypeScript from package dependency",
+    "preview scripts use the canonical npm run build path",
+    "gitignore blocks generated QA/reference directories from returning"
+  ],
+  "verification": {
+    "sourceCheck": "PASS — 148 conditions; 150 asset references; 0 missing; 0 unused",
+    "logicAndAuditTests": "PASS — 87/87",
+    "analyticsRuntimeTests": "PASS — 13/13",
+    "tourCheck": "PASS — 1136 checks; 29 interior + 14 exterior scenes reachable",
+    "syntaxCheck": "PASS — 59 TS/TSX + 17 JS/MJS (using available global TypeScript 5.8.3)",
+    "fullViteBuild": "NOT RUN in this sandbox after final cleanup because package node_modules/Vite are not installed and network install is unavailable. Run npm ci && npm run build && npm run test:dist locally before deployment."
+  },
+  "largestRemainingIntentionalFile": {
+    "path": "public/documents/Domy_na_Polnej_Standard_Techniczny_1.0.pdf",
+    "bytes": 27082569,
+    "note": "15-page image-based technical PDF; lossless structural optimization saved only ~4 KiB, so original was preserved to avoid quality/content risk."
+  },
+  "removed": [
+    {
+      "path": "ASSET_INVENTORY.md",
+      "bytes": 4334
+    },
+    {
+      "path": "AUDIT_IMPLEMENTACJI.md",
+      "bytes": 1992
+    },
+    {
+      "path": "AUDYT_ANALITYKA_CENY_GOV.md",
+      "bytes": 7252
+    },
+    {
+      "path": "AUDYT_POPRAWEK_1-6.md",
+      "bytes": 9744
+    },
+    {
+      "path": "AUDYT_POPRAWEK_7-12.md",
+      "bytes": 10004
+    },
+    {
+      "path": "AUDYT_SPACERU_WNETRZA.html",
+      "bytes": 1607515
+    },
+    {
+      "path": "BRAKI_I_WDROZENIE.md",
+      "bytes": 2356
+    },
+    {
+      "path": "BUILD-VERIFIED.json",
+      "bytes": 265
+    },
+    {
+      "path": "CHANGELOG_V6_PRODUCTION.md",
+      "bytes": 2965
+    },
+    {
+      "path": "DEMO_ANALITYKA_UZYTKOWNIKA.md",
+      "bytes": 1337
+    },
+    {
+      "path": "IMPLEMENTATION_NOTES.md",
+      "bytes": 2595
+    },
+    {
+      "path": "MISSING_CONTENT.md",
+      "bytes": 1272
+    },
+    {
+      "path": "POPRAWKA-ANALITYKA-rc9.txt",
+      "bytes": 1072
+    },
+    {
+      "path": "POPRAWKA-rc8.txt",
+      "bytes": 677
+    },
+    {
+      "path": "PRZEDSPRZEDAZ.md",
+      "bytes": 3741
+    },
+    {
+      "path": "RAPORT_KONCOWY.md",
+      "bytes": 8540
+    },
+    {
+      "path": "RAPORT_POPRAWEK_V5.1.md",
+      "bytes": 3564
+    },
+    {
+      "path": "README-SPACER-WNETRZA.md",
+      "bytes": 7082
+    },
+    {
+      "path": "README.txt",
+      "bytes": 286
+    },
+    {
+      "path": "RELEASE-MANIFEST.json",
+      "bytes": 294
+    },
+    {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 133862
+    },
+    {
+      "path": "STAGE_09_10_AUDIT.md",
+      "bytes": 2242
+    },
+    {
+      "path": "STAGE_11_12_AUDIT.md",
+      "bytes": 1914
+    },
+    {
+      "path": "START_TUTAJ_rc20.txt",
+      "bytes": 993
+    },
+    {
+      "path": "START_TUTAJ_rc21.txt",
+      "bytes": 987
+    },
+    {
+      "path": "START_TUTAJ_rc22.txt",
+      "bytes": 987
+    },
+    {
+      "path": "START_TUTAJ_rc23.txt",
+      "bytes": 1191
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "bytes": 459
+    },
+    {
+      "path": "V10_RZUT2D_IMPLEMENTACJA.md",
+      "bytes": 1004
+    },
+    {
+      "path": "VISUAL_QA.md",
+      "bytes": 5935
+    },
+    {
+      "path": "ZMIANY_COOKIE_FOUC.md",
+      "bytes": 857
+    },
+    {
+      "path": "ZMIANY_HERO_START.md",
+      "bytes": 888
+    },
+    {
+      "path": "ZMIANY_UI_OFERTA_KONTAKT.md",
+      "bytes": 1132
+    },
+    {
+      "path": "docs/archive/ASSET_INVENTORY.md",
+      "bytes": 4276
+    },
+    {
+      "path": "docs/archive/AUDIT_IMPLEMENTACJI.md",
+      "bytes": 1955
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V10_FAQ_3_COLUMNS.md",
+      "bytes": 663
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V7_TARGETED.md",
+      "bytes": 1354
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V8_UI_REFINEMENTS.md",
+      "bytes": 1046
+    },
+    {
+      "path": "docs/archive/CHANGELOG_V9_FAQ_SCHEDULE.md",
+      "bytes": 1345
+    },
+    {
+      "path": "docs/archive/IMPLEMENTATION_NOTES.md",
+      "bytes": 2531
+    },
+    {
+      "path": "docs/archive/STAGE_09_10_AUDIT.md",
+      "bytes": 2214
+    },
+    {
+      "path": "docs/archive/STAGE_11_12_AUDIT.md",
+      "bytes": 1893
+    },
+    {
+      "path": "docs/archive/V10_RZUT2D_IMPLEMENTACJA.md",
+      "bytes": 994
+    },
+    {
+      "path": "docs/archive/VISUAL_QA.md",
+      "bytes": 5857
+    },
+    {
+      "path": "docs/audit-2026-09-23/01-AUDYT-PRZED.md",
+      "bytes": 7551
+    },
+    {
+      "path": "docs/audit-2026-09-23/02-AUDYT-PO-I-ODBIOR.md",
+      "bytes": 27045
+    },
+    {
+      "path": "docs/audit-2026-09-23/api-security-test.json",
+      "bytes": 4955
+    },
+    {
+      "path": "docs/audit-2026-09-23/browser-results.json",
+      "bytes": 3338
+    },
+    {
+      "path": "docs/audit-2026-09-23/distribution-check.json",
+      "bytes": 343
+    },
+    {
+      "path": "docs/audit-2026-09-23/edge-results.json",
+      "bytes": 526
+    },
+    {
+      "path": "docs/audit-2026-09-23/extra-results.json",
+      "bytes": 666
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/hero-after-desktop.jpg",
+      "bytes": 244527
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/hero-after-mobile.jpg",
+      "bytes": 76133
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/hero-before-desktop.jpg",
+      "bytes": 246246
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/hero-before-mobile.jpg",
+      "bytes": 76696
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/homes-after.jpg",
+      "bytes": 197003
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/mobile-house-e.jpg",
+      "bytes": 40072
+    },
+    {
+      "path": "docs/audit-2026-09-23/figures/pdf-cards-review.jpg",
+      "bytes": 552215
+    },
+    {
+      "path": "docs/audit-2026-09-23/findings.json",
+      "bytes": 12598
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/acceptance.log",
+      "bytes": 1836
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/api-qa.log",
+      "bytes": 54
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/edges.log",
+      "bytes": 179
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/extra-qa.log",
+      "bytes": 411
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/final-build.log",
+      "bytes": 370
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/final-dist.log",
+      "bytes": 113
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/final-syntax.log",
+      "bytes": 125
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/final-tests.log",
+      "bytes": 18228
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/live-browser-error.txt",
+      "bytes": 157
+    },
+    {
+      "path": "docs/audit-2026-09-23/logs/npm-ci-offline.log",
+      "bytes": 290
+    },
+    {
+      "path": "docs/audit-2026-09-23/main-blob-verification.json",
+      "bytes": 2623
+    },
+    {
+      "path": "docs/audit-2026-09-23/pdf-inventory.json",
+      "bytes": 1295
+    },
+    {
+      "path": "docs/audit-2026-09-23/policy-preservation.json",
+      "bytes": 51
+    },
+    {
+      "path": "docs/audit-2026-09-23/preservation-and-size.json",
+      "bytes": 2150
+    },
+    {
+      "path": "docs/audit-7-12/api-security-test.json",
+      "bytes": 4847
+    },
+    {
+      "path": "docs/audit-7-12/contact-1440.png",
+      "bytes": 108546
+    },
+    {
+      "path": "docs/audit-7-12/contact-390.png",
+      "bytes": 86898
+    },
+    {
+      "path": "docs/audit-7-12/css-comparison-differences.json",
+      "bytes": 1208
+    },
+    {
+      "path": "docs/audit-7-12/css-refactor.json",
+      "bytes": 713
+    },
+    {
+      "path": "docs/audit-7-12/http-apache.json",
+      "bytes": 2987
+    },
+    {
+      "path": "docs/audit-7-12/offer-a-1440.png",
+      "bytes": 1538507
+    },
+    {
+      "path": "docs/audit-7-12/offer-a-390.png",
+      "bytes": 638191
+    },
+    {
+      "path": "docs/audit-7-12/package-files.json",
+      "bytes": 74543
+    },
+    {
+      "path": "docs/audit-7-12/preserved-data.json",
+      "bytes": 173
+    },
+    {
+      "path": "docs/audit-7-12/static-layout-test.json",
+      "bytes": 10351
+    },
+    {
+      "path": "docs/audit-premium/AUDYT.md",
+      "bytes": 11859
+    },
+    {
+      "path": "docs/audit-premium/before/1440-hero.png",
+      "bytes": 1889204
+    },
+    {
+      "path": "docs/audit-premium/before/1440-kontakt.png",
+      "bytes": 142053
+    },
+    {
+      "path": "docs/audit-premium/before/390-domy.png",
+      "bytes": 133916
+    },
+    {
+      "path": "docs/audit-premium/before/390-hero.png",
+      "bytes": 450940
+    },
+    {
+      "path": "docs/audit-premium/build-final.log",
+      "bytes": 989
+    },
+    {
+      "path": "docs/audit-premium/changed-files.json",
+      "bytes": 1130
+    },
+    {
+      "path": "docs/audit-premium/launch.log",
+      "bytes": 1512
+    },
+    {
+      "path": "docs/audit-premium/lighthouse-desktop.html",
+      "bytes": 1502244
+    },
+    {
+      "path": "docs/audit-premium/lighthouse-desktop.json",
+      "bytes": 1430361
+    },
+    {
+      "path": "docs/audit-premium/lighthouse-final.log",
+      "bytes": 376
+    },
+    {
+      "path": "docs/audit-premium/lighthouse-mobile.html",
+      "bytes": 791367
+    },
+    {
+      "path": "docs/audit-premium/lighthouse-mobile.json",
+      "bytes": 715662
+    },
+    {
+      "path": "docs/audit-premium/logic-final.log",
+      "bytes": 5667
+    },
+    {
+      "path": "docs/audit-premium/offers.log",
+      "bytes": 277
+    },
+    {
+      "path": "docs/audit-premium/premium-final.log",
+      "bytes": 2448
+    },
+    {
+      "path": "docs/audit-premium/preservation.json",
+      "bytes": 218
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-bezpieczenstwo.png",
+      "bytes": 191231
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-dom.png",
+      "bytes": 540555
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-domy.png",
+      "bytes": 1170651
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-dziennik.png",
+      "bytes": 724849
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-faq.png",
+      "bytes": 114785
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-galeria.png",
+      "bytes": 1949359
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-harmonogram.png",
+      "bytes": 371961
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-kontakt.png",
+      "bytes": 106486
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-lokalizacja.png",
+      "bytes": 967489
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-standard.png",
+      "bytes": 549832
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-start.png",
+      "bytes": 1792706
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-uklad.png",
+      "bytes": 904318
+    },
+    {
+      "path": "docs/audit-premium/qa/1440-zespol.png",
+      "bytes": 358709
+    },
+    {
+      "path": "docs/audit-premium/qa/390-bezpieczenstwo.png",
+      "bytes": 215000
+    },
+    {
+      "path": "docs/audit-premium/qa/390-dom.png",
+      "bytes": 214575
+    },
+    {
+      "path": "docs/audit-premium/qa/390-domy.png",
+      "bytes": 270966
+    },
+    {
+      "path": "docs/audit-premium/qa/390-dziennik.png",
+      "bytes": 193164
+    },
+    {
+      "path": "docs/audit-premium/qa/390-faq.png",
+      "bytes": 117607
+    },
+    {
+      "path": "docs/audit-premium/qa/390-galeria.png",
+      "bytes": 604963
+    },
+    {
+      "path": "docs/audit-premium/qa/390-harmonogram.png",
+      "bytes": 275275
+    },
+    {
+      "path": "docs/audit-premium/qa/390-kontakt.png",
+      "bytes": 95739
+    },
+    {
+      "path": "docs/audit-premium/qa/390-lokalizacja.png",
+      "bytes": 196870
+    },
+    {
+      "path": "docs/audit-premium/qa/390-standard.png",
+      "bytes": 302775
+    },
+    {
+      "path": "docs/audit-premium/qa/390-start.png",
+      "bytes": 413135
+    },
+    {
+      "path": "docs/audit-premium/qa/390-uklad.png",
+      "bytes": 281646
+    },
+    {
+      "path": "docs/audit-premium/qa/390-zespol.png",
+      "bytes": 177269
+    },
+    {
+      "path": "docs/audit-premium/qa/immersive.json",
+      "bytes": 205
+    },
+    {
+      "path": "docs/audit-premium/qa/panorama.png",
+      "bytes": 1480921
+    },
+    {
+      "path": "docs/audit-premium/qa/results.json",
+      "bytes": 1632
+    },
+    {
+      "path": "docs/audit-premium/visual-final.log",
+      "bytes": 313
+    },
+    {
+      "path": "docs/audit-rc3/AUDYT.md",
+      "bytes": 6935
+    },
+    {
+      "path": "docs/audit-rc3/accessibility.json",
+      "bytes": 99
+    },
+    {
+      "path": "docs/audit-rc3/mobile-house.png",
+      "bytes": 129128
+    },
+    {
+      "path": "docs/audit-rc3/preservation.json",
+      "bytes": 1120
+    },
+    {
+      "path": "docs/audit-rc3/regression.json",
+      "bytes": 352
+    },
+    {
+      "path": "docs/cleanup-six/apache-http-test.json",
+      "bytes": 2289
+    },
+    {
+      "path": "docs/cleanup-six/asset-inventory.json",
+      "bytes": 84
+    },
+    {
+      "path": "docs/cleanup-six/changed-files.json",
+      "bytes": 7423
+    },
+    {
+      "path": "docs/cleanup-six/exterior-component-smoke.png",
+      "bytes": 1454959
+    },
+    {
+      "path": "docs/cleanup-six/interior-component-smoke.png",
+      "bytes": 1263004
+    },
+    {
+      "path": "docs/cleanup-six/metrics.json",
+      "bytes": 208
+    },
+    {
+      "path": "docs/cleanup-six/tour-browser-test.json",
+      "bytes": 194
+    },
+    {
+      "path": "docs/cleanup-six/tour-dom-smoke.json",
+      "bytes": 205
+    },
+    {
+      "path": "docs/history-v4/AESTHETIC_AUDIT_2026-09-19.md",
+      "bytes": 3506
+    },
+    {
+      "path": "docs/history-v4/ASSET_INVENTORY.md",
+      "bytes": 4276
+    },
+    {
+      "path": "docs/history-v4/AUDIT_IMPLEMENTACJI.md",
+      "bytes": 1955
+    },
+    {
+      "path": "docs/history-v4/AUDYT_ANALITYKA_CENY_GOV.md",
+      "bytes": 7115
+    },
+    {
+      "path": "docs/history-v4/AUDYT_POPRAWEK_1-6.md",
+      "bytes": 9649
+    },
+    {
+      "path": "docs/history-v4/AUDYT_POPRAWEK_7-12.md",
+      "bytes": 9893
+    },
+    {
+      "path": "docs/history-v4/AUDYT_SPACERU_WNETRZA.html",
+      "bytes": 1607513
+    },
+    {
+      "path": "docs/history-v4/CHANGELOG_V6_PRODUCTION.md",
+      "bytes": 2882
+    },
+    {
+      "path": "docs/history-v4/DEMO_ANALITYKA_UZYTKOWNIKA.md",
+      "bytes": 1298
+    },
+    {
+      "path": "docs/history-v4/DEPLOYMENT.md",
+      "bytes": 2566
+    },
+    {
+      "path": "docs/history-v4/IMPLEMENTATION_NOTES.md",
+      "bytes": 2531
+    },
+    {
+      "path": "docs/history-v4/MISSING_CONTENT.md",
+      "bytes": 1249
+    },
+    {
+      "path": "docs/history-v4/POPRAWKI_WWW_V2.md",
+      "bytes": 4553
+    },
+    {
+      "path": "docs/history-v4/POPRAWKI_WWW_V3.md",
+      "bytes": 1013
+    },
+    {
+      "path": "docs/history-v4/QA_NATURAL_FLOW_V4.md",
+      "bytes": 3862
+    },
+    {
+      "path": "docs/history-v4/RAPORT_TESTOW_WWW_V2.md",
+      "bytes": 4460
+    },
+    {
+      "path": "docs/history-v4/RAPORT_TESTOW_WWW_V3.md",
+      "bytes": 1955
+    },
+    {
+      "path": "docs/history-v4/README.md",
+      "bytes": 10897
+    },
+    {
+      "path": "docs/history-v4/README.txt",
+      "bytes": 423
+    },
+    {
+      "path": "docs/history-v4/STAGE_09_10_AUDIT.md",
+      "bytes": 2214
+    },
+    {
+      "path": "docs/history-v4/STAGE_11_12_AUDIT.md",
+      "bytes": 1893
+    },
+    {
+      "path": "docs/history-v4/TEST_REPORT.md",
+      "bytes": 454
+    },
+    {
+      "path": "docs/history-v4/URUCHOM-PODGLAD-WWW.cmd",
+      "bytes": 413
+    },
+    {
+      "path": "docs/history-v4/V10_RZUT2D_IMPLEMENTACJA.md",
+      "bytes": 994
+    },
+    {
+      "path": "docs/history-v4/VISUAL_QA.md",
+      "bytes": 5857
+    },
+    {
+      "path": "docs/history-v4/ZMIANY_COOKIE_FOUC.md",
+      "bytes": 840
+    },
+    {
+      "path": "docs/history-v4/ZMIANY_HERO_START.md",
+      "bytes": 865
+    },
+    {
+      "path": "docs/history-v4/ZMIANY_UI_OFERTA_KONTAKT.md",
+      "bytes": 1106
+    },
+    {
+      "path": "docs/odtworzenie-2026-09-23/checks.json",
+      "bytes": 160
+    },
+    {
+      "path": "docs/odtworzenie-2026-09-23/restore-browser.json",
+      "bytes": 708
+    },
+    {
+      "path": "docs/odtworzenie-2026-09-23/restore-build.log",
+      "bytes": 370
+    },
+    {
+      "path": "docs/odtworzenie-2026-09-23/restore-tests.log",
+      "bytes": 13886
+    },
+    {
+      "path": "docs/qa-v5.1/01-hero-desktop-1440x768.png",
+      "bytes": 1497663
+    },
+    {
+      "path": "docs/qa-v5.1/02-homes-desktop-1600x900.png",
+      "bytes": 1181108
+    },
+    {
+      "path": "docs/qa-v5.1/03-homes-table-1600.png",
+      "bytes": 223679
+    },
+    {
+      "path": "docs/qa-v5.1/04-architecture-desktop.png",
+      "bytes": 615442
+    },
+    {
+      "path": "docs/qa-v5.1/05-gallery-tabs.png",
+      "bytes": 1350755
+    },
+    {
+      "path": "docs/qa-v5.1/06-spacer-panorama.png",
+      "bytes": 799766
+    },
+    {
+      "path": "docs/qa-v5.1/07-purchase-process.png",
+      "bytes": 260138
+    },
+    {
+      "path": "docs/qa-v5.1/08-schedule.png",
+      "bytes": 382022
+    },
+    {
+      "path": "docs/qa-v5.1/09-journal.png",
+      "bytes": 968525
+    },
+    {
+      "path": "docs/qa-v5.1/10-mobile-hero-390x844.png",
+      "bytes": 403194
+    },
+    {
+      "path": "docs/qa-v5.1/11-mobile-homes-390x844.png",
+      "bytes": 203934
+    },
+    {
+      "path": "docs/qa-v5.1/12-mobile-gallery-390x844.png",
+      "bytes": 254982
+    },
+    {
+      "path": "docs/qa-v5.1/13-mobile-hero-360x780.png",
+      "bytes": 354987
+    },
+    {
+      "path": "docs/qa-v5.1/14-mobile-hero-320x700.png",
+      "bytes": 295564
+    },
+    {
+      "path": "docs/qa-v5.1/QA_REPORT.md",
+      "bytes": 2438
+    },
+    {
+      "path": "docs/qa/1024-hero.png",
+      "bytes": 1135412
+    },
+    {
+      "path": "docs/qa/1440-bezpieczenstwo.png",
+      "bytes": 178798
+    },
+    {
+      "path": "docs/qa/1440-dom.png",
+      "bytes": 736648
+    },
+    {
+      "path": "docs/qa/1440-domy.png",
+      "bytes": 1091240
+    },
+    {
+      "path": "docs/qa/1440-dziennik.png",
+      "bytes": 788698
+    },
+    {
+      "path": "docs/qa/1440-faq.png",
+      "bytes": 115895
+    },
+    {
+      "path": "docs/qa/1440-galeria.png",
+      "bytes": 1338635
+    },
+    {
+      "path": "docs/qa/1440-gallery-dialog.png",
+      "bytes": 1188414
+    },
+    {
+      "path": "docs/qa/1440-harmonogram.png",
+      "bytes": 386210
+    },
+    {
+      "path": "docs/qa/1440-hero.png",
+      "bytes": 1826666
+    },
+    {
+      "path": "docs/qa/1440-kontakt.png",
+      "bytes": 199817
+    },
+    {
+      "path": "docs/qa/1440-lokalizacja.png",
+      "bytes": 943679
+    },
+    {
+      "path": "docs/qa/1440-panorama.png",
+      "bytes": 34623
+    },
+    {
+      "path": "docs/qa/1440-standard.png",
+      "bytes": 551764
+    },
+    {
+      "path": "docs/qa/1440-tour-wewnatrz.png",
+      "bytes": 1500283
+    },
+    {
+      "path": "docs/qa/1440-tour-zewnatrz.png",
+      "bytes": 1445332
+    },
+    {
+      "path": "docs/qa/1440-uklad.png",
+      "bytes": 918580
+    },
+    {
+      "path": "docs/qa/1440-zespol.png",
+      "bytes": 387683
+    },
+    {
+      "path": "docs/qa/1920-hero.png",
+      "bytes": 2612051
+    },
+    {
+      "path": "docs/qa/320-hero.png",
+      "bytes": 299823
+    },
+    {
+      "path": "docs/qa/390-bezpieczenstwo.png",
+      "bytes": 95290
+    },
+    {
+      "path": "docs/qa/390-dom.png",
+      "bytes": 65035
+    },
+    {
+      "path": "docs/qa/390-domy.png",
+      "bytes": 191296
+    },
+    {
+      "path": "docs/qa/390-dziennik.png",
+      "bytes": 206204
+    },
+    {
+      "path": "docs/qa/390-faq.png",
+      "bytes": 56931
+    },
+    {
+      "path": "docs/qa/390-galeria.png",
+      "bytes": 252129
+    },
+    {
+      "path": "docs/qa/390-harmonogram.png",
+      "bytes": 214124
+    },
+    {
+      "path": "docs/qa/390-hero.png",
+      "bytes": 396911
+    },
+    {
+      "path": "docs/qa/390-house-sheet.png",
+      "bytes": 143261
+    },
+    {
+      "path": "docs/qa/390-kontakt.png",
+      "bytes": 59925
+    },
+    {
+      "path": "docs/qa/390-lokalizacja.png",
+      "bytes": 221829
+    },
+    {
+      "path": "docs/qa/390-standard.png",
+      "bytes": 52721
+    },
+    {
+      "path": "docs/qa/390-uklad.png",
+      "bytes": 204915
+    },
+    {
+      "path": "docs/qa/390-zespol.png",
+      "bytes": 94379
+    },
+    {
+      "path": "docs/qa/404.html.png",
+      "bytes": 509238
+    },
+    {
+      "path": "docs/qa/768-hero.png",
+      "bytes": 954583
+    },
+    {
+      "path": "docs/qa/api-tests.txt",
+      "bytes": 54
+    },
+    {
+      "path": "docs/qa/archived-v5-assets.json",
+      "bytes": 10408
+    },
+    {
+      "path": "docs/qa/assets-final.txt",
+      "bytes": 84
+    },
+    {
+      "path": "docs/qa/build-final.txt",
+      "bytes": 370
+    },
+    {
+      "path": "docs/qa/bundle-sizes.json",
+      "bytes": 751
+    },
+    {
+      "path": "docs/qa/data-preservation.json",
+      "bytes": 3887
+    },
+    {
+      "path": "docs/qa/extra-package-final.txt",
+      "bytes": 391
+    },
+    {
+      "path": "docs/qa/extra-results.json",
+      "bytes": 646
+    },
+    {
+      "path": "docs/qa/initial-requests-desktop.json",
+      "bytes": 819
+    },
+    {
+      "path": "docs/qa/interaction-results.json",
+      "bytes": 1448
+    },
+    {
+      "path": "docs/qa/interactions-package-final.txt",
+      "bytes": 929
+    },
+    {
+      "path": "docs/qa/logic-final.txt",
+      "bytes": 13515
+    },
+    {
+      "path": "docs/qa/overview-1440.jpg",
+      "bytes": 405777
+    },
+    {
+      "path": "docs/qa/overview-390.jpg",
+      "bytes": 383795
+    },
+    {
+      "path": "docs/qa/pdf-check/body-detail-after.png",
+      "bytes": 70893
+    },
+    {
+      "path": "docs/qa/pdf-check/body-detail-before.png",
+      "bytes": 69966
+    },
+    {
+      "path": "docs/qa/pdf-check/cards.jpg",
+      "bytes": 992926
+    },
+    {
+      "path": "docs/qa/pdf-check/corrections.json",
+      "bytes": 846
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-a.png",
+      "bytes": 1744297
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-b-after.png",
+      "bytes": 1712572
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-b.png",
+      "bytes": 1712529
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-c-after.png",
+      "bytes": 1709578
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-c.png",
+      "bytes": 1709474
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-d-after.png",
+      "bytes": 1651911
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-d.png",
+      "bytes": 1651919
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-e-after.png",
+      "bytes": 1705079
+    },
+    {
+      "path": "docs/qa/pdf-check/karta-dom-e.png",
+      "bytes": 1705063
+    },
+    {
+      "path": "docs/qa/polityka-cookies.png",
+      "bytes": 129664
+    },
+    {
+      "path": "docs/qa/polityka-prywatnosci.png",
+      "bytes": 125519
+    },
+    {
+      "path": "docs/qa/responsive-results.json",
+      "bytes": 1142
+    },
+    {
+      "path": "docs/qa/source-final.txt",
+      "bytes": 99
+    },
+    {
+      "path": "docs/qa/tour-final.txt",
+      "bytes": 116
+    },
+    {
+      "path": "docs/qa/webgl-limitation.json",
+      "bytes": 212
+    },
+    {
+      "path": "docs/rc4/1440-dokumenty.png",
+      "bytes": 33136
+    },
+    {
+      "path": "docs/rc4/1440-dom.png",
+      "bytes": 540599
+    },
+    {
+      "path": "docs/rc4/1440-domy.png",
+      "bytes": 1168887
+    },
+    {
+      "path": "docs/rc4/1440-dziennik.png",
+      "bytes": 740740
+    },
+    {
+      "path": "docs/rc4/1440-lokalizacja.png",
+      "bytes": 967489
+    },
+    {
+      "path": "docs/rc4/1440-przedsprzedaz.png",
+      "bytes": 97131
+    },
+    {
+      "path": "docs/rc4/1440-standard.png",
+      "bytes": 559397
+    },
+    {
+      "path": "docs/rc4/390-dokumenty.png",
+      "bytes": 29900
+    },
+    {
+      "path": "docs/rc4/390-dom.png",
+      "bytes": 190095
+    },
+    {
+      "path": "docs/rc4/390-domy.png",
+      "bytes": 244207
+    },
+    {
+      "path": "docs/rc4/390-dziennik.png",
+      "bytes": 198036
+    },
+    {
+      "path": "docs/rc4/390-lokalizacja.png",
+      "bytes": 216784
+    },
+    {
+      "path": "docs/rc4/390-przedsprzedaz.png",
+      "bytes": 84476
+    },
+    {
+      "path": "docs/rc4/390-standard.png",
+      "bytes": 306111
+    },
+    {
+      "path": "docs/rc4/WDROZENIE-rc5.md",
+      "bytes": 931
+    },
+    {
+      "path": "docs/rc4/ZMIANY.md",
+      "bytes": 4852
+    },
+    {
+      "path": "docs/rc4/browser.json",
+      "bytes": 1252
+    },
+    {
+      "path": "docs/rc4/php-api.json",
+      "bytes": 1061
+    },
+    {
+      "path": "docs/rc4/standard-sha256.txt",
+      "bytes": 197
+    },
+    {
+      "path": "docs/rc6/320-editorial-gallery.png",
+      "bytes": 247233
+    },
+    {
+      "path": "docs/rc6/320-hero.png",
+      "bytes": 355816
+    },
+    {
+      "path": "docs/rc6/320-homes.png",
+      "bytes": 164089
+    },
+    {
+      "path": "docs/rc6/320-immersive-grid.png",
+      "bytes": 160103
+    },
+    {
+      "path": "docs/rc6/390-editorial-gallery.png",
+      "bytes": 330569
+    },
+    {
+      "path": "docs/rc6/390-hero.png",
+      "bytes": 424790
+    },
+    {
+      "path": "docs/rc6/390-homes.png",
+      "bytes": 210069
+    },
+    {
+      "path": "docs/rc6/390-immersive-grid.png",
+      "bytes": 187241
+    },
+    {
+      "path": "docs/rc6/430-editorial-gallery.png",
+      "bytes": 400661
+    },
+    {
+      "path": "docs/rc6/430-hero.png",
+      "bytes": 465320
+    },
+    {
+      "path": "docs/rc6/430-homes.png",
+      "bytes": 239619
+    },
+    {
+      "path": "docs/rc6/430-immersive-grid.png",
+      "bytes": 212501
+    },
+    {
+      "path": "docs/rc6/760-editorial-gallery.png",
+      "bytes": 1273362
+    },
+    {
+      "path": "docs/rc6/760-hero.png",
+      "bytes": 785706
+    },
+    {
+      "path": "docs/rc6/760-homes.png",
+      "bytes": 672133
+    },
+    {
+      "path": "docs/rc6/760-immersive-grid.png",
+      "bytes": 196247
+    },
+    {
+      "path": "docs/rc7/exterior-landscape.png",
+      "bytes": 2753229
+    },
+    {
+      "path": "docs/rc7/interior-landscape.png",
+      "bytes": 2353384
+    },
+    {
+      "path": "docs/rc8/panel-desktop.png",
+      "bytes": 95713
+    },
+    {
+      "path": "docs/rc8/panel-mobile.png",
+      "bytes": 94473
+    },
+    {
+      "path": "docs/rc9/analytics-desktop.png",
+      "bytes": 203446
+    },
+    {
+      "path": "docs/rc9/analytics-mobile.png",
+      "bytes": 199847
+    },
+    {
+      "path": "docs/rc9/demo-desktop.png",
+      "bytes": 223613
+    },
+    {
+      "path": "docs/rc9/historia-desktop.png",
+      "bytes": 223461
+    },
+    {
+      "path": "docs/rc9/historia-mobile.png",
+      "bytes": 216408
+    },
+    {
+      "path": "docs/reference-audit/AUDYT_RC21.md",
+      "bytes": 2649
+    },
+    {
+      "path": "docs/reference-audit/AUDYT_RC22.md",
+      "bytes": 2073
+    },
+    {
+      "path": "docs/reference-audit/AUDYT_RC23.md",
+      "bytes": 1196
+    },
+    {
+      "path": "docs/reference-audit/AUDYT_REFERENCJI.md",
+      "bytes": 5384
+    },
+    {
+      "path": "docs/reference-audit/interaction-report.json",
+      "bytes": 790
+    },
+    {
+      "path": "docs/reference-audit/plan-laser-1440.png",
+      "bytes": 616301
+    },
+    {
+      "path": "docs/reference-audit/plan-laser-390.png",
+      "bytes": 6476
+    },
+    {
+      "path": "docs/reference-audit/przeglad-1366.jpg",
+      "bytes": 385141
+    },
+    {
+      "path": "docs/reference-audit/przeglad-1440.jpg",
+      "bytes": 370487
+    },
+    {
+      "path": "docs/reference-audit/przeglad-390.jpg",
+      "bytes": 579246
+    },
+    {
+      "path": "docs/reference-audit/rc23/1024-bezpieczenstwo-23.png",
+      "bytes": 532274
+    },
+    {
+      "path": "docs/reference-audit/rc23/1024-footer-23.png",
+      "bytes": 43836
+    },
+    {
+      "path": "docs/reference-audit/rc23/1024-hero-23.png",
+      "bytes": 1163290
+    },
+    {
+      "path": "docs/reference-audit/rc23/1024-porownanie-23.png",
+      "bytes": 287079
+    },
+    {
+      "path": "docs/reference-audit/rc23/1440-bezpieczenstwo-23.png",
+      "bytes": 698919
+    },
+    {
+      "path": "docs/reference-audit/rc23/1440-footer-23.png",
+      "bytes": 44838
+    },
+    {
+      "path": "docs/reference-audit/rc23/1440-hero-23.png",
+      "bytes": 1786314
+    },
+    {
+      "path": "docs/reference-audit/rc23/1440-porownanie-23.png",
+      "bytes": 345774
+    },
+    {
+      "path": "docs/reference-audit/rc23/320-bezpieczenstwo-23.png",
+      "bytes": 283454
+    },
+    {
+      "path": "docs/reference-audit/rc23/320-footer-23.png",
+      "bytes": 44683
+    },
+    {
+      "path": "docs/reference-audit/rc23/320-hero-23.png",
+      "bytes": 308281
+    },
+    {
+      "path": "docs/reference-audit/rc23/320-porownanie-23.png",
+      "bytes": 76067
+    },
+    {
+      "path": "docs/reference-audit/rc23/390-bezpieczenstwo-23.png",
+      "bytes": 282180
+    },
+    {
+      "path": "docs/reference-audit/rc23/390-footer-23.png",
+      "bytes": 46413
+    },
+    {
+      "path": "docs/reference-audit/rc23/390-hero-23.png",
+      "bytes": 363938
+    },
+    {
+      "path": "docs/reference-audit/rc23/390-porownanie-23.png",
+      "bytes": 82849
+    },
+    {
+      "path": "docs/reference-audit/rc23/audit.json",
+      "bytes": 767
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-bezpieczenstwo.png",
+      "bytes": 666032
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-dom.png",
+      "bytes": 776437
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-domy.png",
+      "bytes": 2167059
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-dziennik.png",
+      "bytes": 678541
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-faq.png",
+      "bytes": 308115
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-galeria.png",
+      "bytes": 1176643
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-harmonogram.png",
+      "bytes": 519423
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-kontakt.png",
+      "bytes": 399854
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-lokalizacja.png",
+      "bytes": 934304
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-porownanie-domow.png",
+      "bytes": 318718
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-proces-zakupu.png",
+      "bytes": 85446
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-przedsprzedaz.png",
+      "bytes": 454742
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-spacer-360.png",
+      "bytes": 767370
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-standard.png",
+      "bytes": 606943
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-start.png",
+      "bytes": 1630548
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-uklad.png",
+      "bytes": 964393
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-wysoki-sufit.png",
+      "bytes": 349949
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1366-zespol.png",
+      "bytes": 528785
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-bezpieczenstwo.png",
+      "bytes": 691277
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-dom.png",
+      "bytes": 797041
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-domy.png",
+      "bytes": 2461525
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-dziennik.png",
+      "bytes": 702555
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-faq.png",
+      "bytes": 312502
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-galeria.png",
+      "bytes": 1183894
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-harmonogram.png",
+      "bytes": 637365
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-kontakt.png",
+      "bytes": 450556
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-lokalizacja.png",
+      "bytes": 981762
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-porownanie-domow.png",
+      "bytes": 334522
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-proces-zakupu.png",
+      "bytes": 87126
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-przedsprzedaz.png",
+      "bytes": 499363
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-spacer-360.png",
+      "bytes": 771277
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-standard.png",
+      "bytes": 765574
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-start.png",
+      "bytes": 1798376
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-uklad.png",
+      "bytes": 1095117
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-wysoki-sufit.png",
+      "bytes": 354066
+    },
+    {
+      "path": "docs/reference-audit/screenshots/1440-zespol.png",
+      "bytes": 539406
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-bezpieczenstwo.png",
+      "bytes": 329883
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-dom.png",
+      "bytes": 295125
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-domy.png",
+      "bytes": 225169
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-dziennik.png",
+      "bytes": 179421
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-faq.png",
+      "bytes": 438320
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-galeria.png",
+      "bytes": 255922
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-harmonogram.png",
+      "bytes": 169452
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-kontakt.png",
+      "bytes": 263325
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-lokalizacja.png",
+      "bytes": 211987
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-porownanie-domow.png",
+      "bytes": 84476
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-proces-zakupu.png",
+      "bytes": 103160
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-przedsprzedaz.png",
+      "bytes": 315628
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-spacer-360.png",
+      "bytes": 424524
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-standard.png",
+      "bytes": 323080
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-start.png",
+      "bytes": 372293
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-uklad.png",
+      "bytes": 401708
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-wysoki-sufit.png",
+      "bytes": 159300
+    },
+    {
+      "path": "docs/reference-audit/screenshots/390-zespol.png",
+      "bytes": 255582
+    },
+    {
+      "path": "docs/reference-audit/visual-report.json",
+      "bytes": 7440
+    },
+    {
+      "path": "docs/spacer-wnetrza/AUDYT_UX_SPACER_360_FINAL.md",
+      "bytes": 2309
+    },
+    {
+      "path": "docs/spacer-wnetrza/TESTY.md",
+      "bytes": 4315
+    },
+    {
+      "path": "docs/spacer-wnetrza/browser-qa.json",
+      "bytes": 1185
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/README.txt",
+      "bytes": 303
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-wewnetrzny-FINAL.json",
+      "bytes": 60761
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-wewnetrzny-UX.json",
+      "bytes": 58491
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-zewnetrzny-FINAL.json",
+      "bytes": 12177
+    },
+    {
+      "path": "docs/spacer-wnetrza/final-config/spacer-360-zewnetrzny-UX.json",
+      "bytes": 23093
+    },
+    {
+      "path": "docs/spacer-wnetrza/klasyfikacja.json",
+      "bytes": 32946
+    },
+    {
+      "path": "docs/spacer-wnetrza/original-change-check.json",
+      "bytes": 466
+    },
+    {
+      "path": "docs/spacer-wnetrza/package-manifest.json",
+      "bytes": 1024
+    },
+    {
+      "path": "docs/spacer-wnetrza/preview-server-check.json",
+      "bytes": 852
+    },
+    {
+      "path": "docs/spacer-wnetrza/tsx-syntax-check.json",
+      "bytes": 243
+    },
+    {
+      "path": "docs/spacer-wnetrza/warianty/int23-pokoj-dzieciecy-kontrkadr-wariant-renderu.webp",
+      "bytes": 151322
+    },
+    {
+      "path": "docs/spacer-wnetrza/warianty/int24-pokoj-mlodziezowy-kontrkadr-wariant-renderu.webp",
+      "bytes": 134990
+    },
+    {
+      "path": "public/assets/icons/standard-illustrations.png",
+      "bytes": 2052450
+    },
+    {
+      "path": "public/assets/images/botanical-corner.svg",
+      "bytes": 1364
+    },
+    {
+      "path": "public/assets/images/decor/botanical-reed-right.svg",
+      "bytes": 1512
+    },
+    {
+      "path": "public/assets/images/decor/botanical-sprig-left.svg",
+      "bytes": 1922
+    },
+    {
+      "path": "public/assets/images/decor/linden-corner.png",
+      "bytes": 379168
+    },
+    {
+      "path": "public/assets/images/decor/olive-branch.png",
+      "bytes": 1896350
+    },
+    {
+      "path": "public/assets/images/dnp-masterplan.svg",
+      "bytes": 4585458
+    },
+    {
+      "path": "public/assets/images/floorplan.webp",
+      "bytes": 155916
+    },
+    {
+      "path": "public/assets/images/gallery/aerial.webp",
+      "bytes": 299310
+    },
+    {
+      "path": "public/assets/images/gallery/bathroom.webp",
+      "bytes": 136898
+    },
+    {
+      "path": "public/assets/images/gallery/bedroom.webp",
+      "bytes": 238830
+    },
+    {
+      "path": "public/assets/images/gallery/forest.webp",
+      "bytes": 292724
+    },
+    {
+      "path": "public/assets/images/gallery/front-angle.webp",
+      "bytes": 349576
+    },
+    {
+      "path": "public/assets/images/gallery/front.webp",
+      "bytes": 366796
+    },
+    {
+      "path": "public/assets/images/gallery/garden-house.webp",
+      "bytes": 472200
+    },
+    {
+      "path": "public/assets/images/gallery/garden-mobile.webp",
+      "bytes": 229054
+    },
+    {
+      "path": "public/assets/images/gallery/kitchen.webp",
+      "bytes": 164772
+    },
+    {
+      "path": "public/assets/images/gallery/living-wide.webp",
+      "bytes": 225328
+    },
+    {
+      "path": "public/assets/images/gallery/living.webp",
+      "bytes": 286642
+    },
+    {
+      "path": "public/assets/images/gallery/panorama.webp",
+      "bytes": 500546
+    },
+    {
+      "path": "public/assets/images/gallery/rear.webp",
+      "bytes": 358764
+    },
+    {
+      "path": "public/assets/images/hero-all-houses.webp",
+      "bytes": 459528
+    },
+    {
+      "path": "public/assets/images/hero-desktop.webp",
+      "bytes": 393034
+    },
+    {
+      "path": "public/assets/images/hero-mobile.webp",
+      "bytes": 393034
+    },
+    {
+      "path": "public/assets/images/hero_front_nowe.webp",
+      "bytes": 393034
+    },
+    {
+      "path": "public/assets/images/house-front.webp",
+      "bytes": 393034
+    },
+    {
+      "path": "public/assets/images/layout/plan-2d-precise.svg",
+      "bytes": 1157694
+    },
+    {
+      "path": "public/assets/images/layout/plan.webp",
+      "bytes": 155916
+    },
+    {
+      "path": "public/assets/images/layout/room-bath-main.webp",
+      "bytes": 136898
+    },
+    {
+      "path": "public/assets/images/layout/room-bath.webp",
+      "bytes": 81744
+    },
+    {
+      "path": "public/assets/images/layout/room-bedroom.webp",
+      "bytes": 238830
+    },
+    {
+      "path": "public/assets/images/layout/room-child-two.webp",
+      "bytes": 202816
+    },
+    {
+      "path": "public/assets/images/layout/room-child.webp",
+      "bytes": 215764
+    },
+    {
+      "path": "public/assets/images/layout/room-entry.webp",
+      "bytes": 366796
+    },
+    {
+      "path": "public/assets/images/layout/room-kitchen.webp",
+      "bytes": 164772
+    },
+    {
+      "path": "public/assets/images/layout/room-living.webp",
+      "bytes": 225328
+    },
+    {
+      "path": "public/assets/images/layout/room-office.webp",
+      "bytes": 149186
+    },
+    {
+      "path": "public/assets/images/layout/room-utility.webp",
+      "bytes": 139718
+    },
+    {
+      "path": "public/assets/images/location-aerial.webp",
+      "bytes": 299310
+    },
+    {
+      "path": "public/assets/images/location-map.png",
+      "bytes": 2663630
+    },
+    {
+      "path": "public/assets/images/responsive/panorama-preview.webp",
+      "bytes": 73808
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/01_widok_posesji_od_frontu.png",
+      "bytes": 2723682
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/02_front_domu_i_podjazd.png",
+      "bytes": 3042909
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/03_wejscie_glowne.png",
+      "bytes": 2448758
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/04_podcien_wejsciowy.png",
+      "bytes": 2314466
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/05_podjazd_i_wiata.png",
+      "bytes": 2518360
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/06_przejscie_pod_wiata.png",
+      "bytes": 2587810
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/07_naroznik_ogrodowy.png",
+      "bytes": 2852065
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/08_elewacja_ogrodowa.png",
+      "bytes": 2597211
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/09_taras_przy_salonie.png",
+      "bytes": 2586721
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/10_dom_od_strony_ogrodu.png",
+      "bytes": 2701372
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/11_przejscie_wzdluz_domu.png",
+      "bytes": 2724299
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/12_ogrod_boczny.png",
+      "bytes": 3088744
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/13_powrot_w_strone_frontu.png",
+      "bytes": 2584498
+    },
+    {
+      "path": "public/assets/images/spacer-360/exterior/originals/14_dom_i_dzialka_z_gory.png",
+      "bytes": 3123735
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int02-salon-w-strone-kuchni.webp",
+      "bytes": 52634
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int04-kuchnia-blat.webp",
+      "bytes": 34332
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int05b-widok-na-salon.webp",
+      "bytes": 140340
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int07-korytarz-do-pokojow.webp",
+      "bytes": 21250
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int13-lazienka-ogolna-wejscie.webp",
+      "bytes": 28584
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int16-strych-wiazary.webp",
+      "bytes": 58352
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int19-jadalnia-widok-na-salon.webp",
+      "bytes": 47644
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int23-pokoj-dzieciecy-kontrkadr.webp",
+      "bytes": 34954
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int24-pokoj-mlodziezowy-kontrkadr.webp",
+      "bytes": 31992
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int27-lazienka-ogolna-prysznic.webp",
+      "bytes": 26798
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/blender/int29-przejscie-loft-zasloniety.webp",
+      "bytes": 12944
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int00-podcien-wejsciowy.webp",
+      "bytes": 17824
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int02-salon-w-strone-kuchni.webp",
+      "bytes": 11714
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/thumbs/int16-strych-wiazary.webp",
+      "bytes": 6502
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int00-podcien-wejsciowy.webp",
+      "bytes": 214822
+    },
+    {
+      "path": "public/assets/images/spacer-360/interior/webp/int02-salon-w-strone-kuchni.webp",
+      "bytes": 153792
+    },
+    {
+      "path": "public/assets/images/standard/icons/blinds.webp",
+      "bytes": 3490
+    },
+    {
+      "path": "public/assets/images/standard/icons/fence.webp",
+      "bytes": 4428
+    },
+    {
+      "path": "public/assets/images/standard/icons/floor-heating.webp",
+      "bytes": 3256
+    },
+    {
+      "path": "public/assets/images/standard/icons/glazing.webp",
+      "bytes": 3130
+    },
+    {
+      "path": "public/assets/images/standard/icons/heat-pump.webp",
+      "bytes": 4936
+    },
+    {
+      "path": "public/assets/images/standard/icons/pv.webp",
+      "bytes": 4082
+    },
+    {
+      "path": "public/assets/images/standard/icons/ventilation.webp",
+      "bytes": 3674
+    },
+    {
+      "path": "public/assets/images/standard/icons/windows.webp",
+      "bytes": 3778
+    },
+    {
+      "path": "public/assets/images/team/mateusz-kempinski-site-manager-v108.png",
+      "bytes": 2077731
+    },
+    {
+      "path": "public/assets/images/team/mr-atelier-portfolio-panel.png",
+      "bytes": 2498673
+    },
+    {
+      "path": "public/assets/images/tour/entrance.webp",
+      "bytes": 366796
+    },
+    {
+      "path": "public/assets/images/tour/kitchen.webp",
+      "bytes": 164772
+    },
+    {
+      "path": "public/assets/images/tour/living.webp",
+      "bytes": 286642
+    },
+    {
+      "path": "public/assets/images/tour/terrace.webp",
+      "bytes": 472200
+    },
+    {
+      "path": "public/assets/images/ui/masterplan-compass.png",
+      "bytes": 1836459
+    },
+    {
+      "path": "public/assets/images/ui/masterplan-north.svg",
+      "bytes": 699
+    },
+    {
+      "path": "public/assets/images/ui/purchase/step-01.png",
+      "bytes": 95605
+    },
+    {
+      "path": "public/assets/images/ui/purchase/step-02.png",
+      "bytes": 92714
+    },
+    {
+      "path": "public/assets/images/ui/purchase/step-03.png",
+      "bytes": 96238
+    },
+    {
+      "path": "public/assets/images/ui/purchase/step-04.png",
+      "bytes": 80273
+    },
+    {
+      "path": "public/assets/images/ui/purchase/step-05.png",
+      "bytes": 89930
+    },
+    {
+      "path": "public/assets/images/ui/why-home/architecture.png",
+      "bytes": 197665
+    },
+    {
+      "path": "public/assets/images/ui/why-home/garden.png",
+      "bytes": 207343
+    },
+    {
+      "path": "public/assets/images/ui/why-home/nature.png",
+      "bytes": 200879
+    },
+    {
+      "path": "public/assets/images/ui/why-home/value.png",
+      "bytes": 207101
+    },
+    {
+      "path": "public/assets/images/why-home.webp",
+      "bytes": 404006
+    },
+    {
+      "path": "public/tour/dnp-spacer-12-kadrow.html",
+      "bytes": 645
+    },
+    {
+      "path": "public/tour/konfigurator-spaceru-360.html",
+      "bytes": 26756
+    },
+    {
+      "path": "public/tour/pin-premium.png",
+      "bytes": 591998
+    },
+    {
+      "path": "qa-natural-flow-v3/browser-qa.json",
+      "bytes": 1729
+    },
+    {
+      "path": "qa-natural-flow-v3/dom-1440.png",
+      "bytes": 802940
+    },
+    {
+      "path": "qa-natural-flow-v3/domy-1440.png",
+      "bytes": 1029132
+    },
+    {
+      "path": "qa-natural-flow-v3/dziennik-1440.png",
+      "bytes": 726678
+    },
+    {
+      "path": "qa-natural-flow-v3/full-v3-1440.png",
+      "bytes": 11372900
+    },
+    {
+      "path": "qa-natural-flow-v3/full-v3-390.png",
+      "bytes": 4831386
+    },
+    {
+      "path": "qa-natural-flow-v3/kontakt-1440.png",
+      "bytes": 99019
+    },
+    {
+      "path": "qa-natural-flow-v3/source-v2-regression.log",
+      "bytes": 124
+    },
+    {
+      "path": "qa-natural-flow-v3/source-v3-regression.log",
+      "bytes": 89
+    },
+    {
+      "path": "qa-natural-flow-v3/standard-1440.png",
+      "bytes": 640536
+    },
+    {
+      "path": "qa-natural-flow-v3/v2-v3-diff.txt",
+      "bytes": 314
+    },
+    {
+      "path": "qa-natural-flow-v4/contact-1440.jpg",
+      "bytes": 109803
+    },
+    {
+      "path": "qa-natural-flow-v4/contact-sheet.jpg",
+      "bytes": 341701
+    },
+    {
+      "path": "qa-natural-flow-v4/homes-1440.jpg",
+      "bytes": 346002
+    },
+    {
+      "path": "qa-natural-flow-v4/journal-1440.jpg",
+      "bytes": 197452
+    },
+    {
+      "path": "qa-natural-flow-v4/standard-1440.jpg",
+      "bytes": 246576
+    },
+    {
+      "path": "qa-natural-flow-v4/why-home-1440.jpg",
+      "bytes": 195348
+    },
+    {
+      "path": "qa/.gitkeep",
+      "bytes": 0
+    },
+    {
+      "path": "qa/full-stage-1024.png",
+      "bytes": 3138311
+    },
+    {
+      "path": "qa/full-stage-1440.png",
+      "bytes": 4655236
+    },
+    {
+      "path": "qa/full-stage-390.png",
+      "bytes": 1519150
+    },
+    {
+      "path": "qa/modal-dom-c-1440x900.png",
+      "bytes": 401062
+    },
+    {
+      "path": "qa/reference-vs-implementation.png",
+      "bytes": 2137347
+    },
+    {
+      "path": "qa/section-03-04-check.png",
+      "bytes": 4756461
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-01-int01-wejscie-do-domu.jpg",
+      "bytes": 157186
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-02-int17-wiatrolap-i-kuchnia.jpg",
+      "bytes": 110691
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-03-int14-pralnia-wejscie.jpg",
+      "bytes": 106371
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-04-int28-pralnia-widok-na-wiatrolap.jpg",
+      "bytes": 109940
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-05-int05-kuchnia-barek.jpg",
+      "bytes": 79984
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-06-int06-kuchnia-wejscie-do-spizarni.jpg",
+      "bytes": 148133
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-07-int20-spizarnia.jpg",
+      "bytes": 115631
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-08-int02-salon-w-strone-kuchni.jpg",
+      "bytes": 141457
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-09-int03-jadalnia-i-taras.jpg",
+      "bytes": 147895
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-10-int11-sypialnia-rodzicow.jpg",
+      "bytes": 79094
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-11-int25-lazienka-prywatna-wanna.jpg",
+      "bytes": 162927
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-12-int26-lazienka-prywatna-umywalka.jpg",
+      "bytes": 127582
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-13-int12-lazienka-prywatna-powrot.jpg",
+      "bytes": 137788
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-14-int18-salon-wysoki-sufit.jpg",
+      "bytes": 126746
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-15-int07-korytarz-do-pokojow.jpg",
+      "bytes": 119206
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-16-int10-pokoj-mlodziezowy.jpg",
+      "bytes": 119611
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-17-int09-pokoj-dzieciecy.jpg",
+      "bytes": 129399
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-18-int21-korytarz-do-salonu.jpg",
+      "bytes": 67907
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-19-int13-lazienka-ogolna-wejscie.jpg",
+      "bytes": 67559
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-20-int27-lazienka-ogolna-prysznic.jpg",
+      "bytes": 63802
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-21-int22-gabinet-biurko.jpg",
+      "bytes": 137661
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-22-int08-gabinet-szafa-i-wylaz.jpg",
+      "bytes": 66282
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-23-int15-strych-widok-techniczny.jpg",
+      "bytes": 111975
+    },
+    {
+      "path": "qa/spacer-wnetrza/desktop-24-int16-strych-wiazary.jpg",
+      "bytes": 90694
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-01-int01-wejscie-do-domu.jpg",
+      "bytes": 40092
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-02-int17-wiatrolap-i-kuchnia.jpg",
+      "bytes": 42574
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-03-int14-pralnia-wejscie.jpg",
+      "bytes": 41097
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-04-int28-pralnia-widok-na-wiatrolap.jpg",
+      "bytes": 36587
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-05-int05-kuchnia-barek.jpg",
+      "bytes": 33137
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-06-int06-kuchnia-wejscie-do-spizarni.jpg",
+      "bytes": 40454
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-07-int20-spizarnia.jpg",
+      "bytes": 35491
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-08-int02-salon-w-strone-kuchni.jpg",
+      "bytes": 40366
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-09-int03-jadalnia-i-taras.jpg",
+      "bytes": 41172
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-10-int11-sypialnia-rodzicow.jpg",
+      "bytes": 32562
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-11-int25-lazienka-prywatna-wanna.jpg",
+      "bytes": 41408
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-12-int26-lazienka-prywatna-umywalka.jpg",
+      "bytes": 38268
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-13-int12-lazienka-prywatna-powrot.jpg",
+      "bytes": 37234
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-14-int18-salon-wysoki-sufit.jpg",
+      "bytes": 38345
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-15-int07-korytarz-do-pokojow.jpg",
+      "bytes": 36918
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-16-int10-pokoj-mlodziezowy.jpg",
+      "bytes": 35906
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-17-int09-pokoj-dzieciecy.jpg",
+      "bytes": 35790
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-18-int21-korytarz-do-salonu.jpg",
+      "bytes": 30430
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-19-int13-lazienka-ogolna-wejscie.jpg",
+      "bytes": 31024
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-20-int27-lazienka-ogolna-prysznic.jpg",
+      "bytes": 28498
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-21-int22-gabinet-biurko.jpg",
+      "bytes": 38662
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-22-int08-gabinet-szafa-i-wylaz.jpg",
+      "bytes": 31135
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-23-int15-strych-widok-techniczny.jpg",
+      "bytes": 39395
+    },
+    {
+      "path": "qa/spacer-wnetrza/mobile-24-int16-strych-wiazary.jpg",
+      "bytes": 33857
+    },
+    {
+      "path": "qa/stage-09-10-1024-final.png",
+      "bytes": 1214123
+    },
+    {
+      "path": "qa/stage-09-10-1055-final.png",
+      "bytes": 1292962
+    },
+    {
+      "path": "qa/stage-09-10-1440-final.png",
+      "bytes": 1778851
+    },
+    {
+      "path": "qa/stage-09-10-390-final.png",
+      "bytes": 841583
+    },
+    {
+      "path": "qa/stage-09-10-final.html",
+      "bytes": 2122347
+    },
+    {
+      "path": "qa/stage-11-12-1024-final.png",
+      "bytes": 970356
+    },
+    {
+      "path": "qa/stage-11-12-1440-final.png",
+      "bytes": 1333047
+    },
+    {
+      "path": "qa/stage-11-12-390-final.png",
+      "bytes": 206136
+    },
+    {
+      "path": "qa/stage-11-12-390-full-final.png",
+      "bytes": 893178
+    },
+    {
+      "path": "qa/stage-11-12-functional.json",
+      "bytes": 2123
+    },
+    {
+      "path": "qa/stage-11-12-reference-vs-implementation.png",
+      "bytes": 2987992
+    },
+    {
+      "path": "qa/viewport-1024x768.png",
+      "bytes": 983919
+    },
+    {
+      "path": "qa/viewport-1440x900.png",
+      "bytes": 1546122
+    },
+    {
+      "path": "qa/viewport-390x844.png",
+      "bytes": 353787
+    },
+    {
+      "path": "reference-assets/public/assets/images/decor/journal-branch.png",
+      "bytes": 435538
+    },
+    {
+      "path": "reference-assets/public/assets/images/decor/leaf-shadow.png",
+      "bytes": 782106
+    },
+    {
+      "path": "reference-assets/public/assets/images/decor/leafy-foreground.png",
+      "bytes": 618227
+    },
+    {
+      "path": "reference-assets/public/assets/images/floorplan.webp",
+      "bytes": 155916
+    },
+    {
+      "path": "reference-assets/public/assets/images/gallery/bathroom.webp",
+      "bytes": 136898
+    },
+    {
+      "path": "reference-assets/public/assets/images/gallery/bedroom.webp",
+      "bytes": 238830
+    },
+    {
+      "path": "reference-assets/public/assets/images/gallery/kitchen.webp",
+      "bytes": 164772
+    },
+    {
+      "path": "reference-assets/public/assets/images/gallery/living-wide.webp",
+      "bytes": 225328
+    },
+    {
+      "path": "reference-assets/public/assets/images/gallery/living.webp",
+      "bytes": 286642
+    },
+    {
+      "path": "reference-assets/public/assets/images/hero-all-houses.webp",
+      "bytes": 459528
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/plan.webp",
+      "bytes": 155916
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-bath-main.webp",
+      "bytes": 136898
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-bath.webp",
+      "bytes": 81744
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-bedroom.webp",
+      "bytes": 238830
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-child-two.webp",
+      "bytes": 202816
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-child.webp",
+      "bytes": 215764
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-entry.webp",
+      "bytes": 366796
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-kitchen.webp",
+      "bytes": 164772
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-living.webp",
+      "bytes": 225328
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-office.webp",
+      "bytes": 149186
+    },
+    {
+      "path": "reference-assets/public/assets/images/layout/room-utility.webp",
+      "bytes": 139718
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/blinds.webp",
+      "bytes": 3490
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/fence.webp",
+      "bytes": 4428
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/floor-heating.webp",
+      "bytes": 3256
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/glazing.webp",
+      "bytes": 3130
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/heat-pump.webp",
+      "bytes": 4936
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/pv.webp",
+      "bytes": 4082
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/ventilation.webp",
+      "bytes": 3674
+    },
+    {
+      "path": "reference-assets/public/assets/images/standard/icons/windows.webp",
+      "bytes": 3778
+    },
+    {
+      "path": "reference-assets/public/assets/images/ui/masterplan-compass.png",
+      "bytes": 1836459
+    },
+    {
+      "path": "reference-assets/public/assets/images/ui/masterplan-north.svg",
+      "bytes": 699
+    },
+    {
+      "path": "reference-assets/public/assets/images/ui/why-home/architecture.png",
+      "bytes": 197665
+    },
+    {
+      "path": "reference-assets/public/assets/images/ui/why-home/garden.png",
+      "bytes": 207343
+    },
+    {
+      "path": "reference-assets/public/assets/images/ui/why-home/nature.png",
+      "bytes": 200879
+    },
+    {
+      "path": "reference-assets/public/assets/images/ui/why-home/value.png",
+      "bytes": 207101
+    },
+    {
+      "path": "reference-assets/public/pdf/karta-dom-b.pdf",
+      "bytes": 226898
+    },
+    {
+      "path": "reference-assets/public/pdf/karta-dom-c.pdf",
+      "bytes": 221808
+    },
+    {
+      "path": "reference-assets/public/pdf/karta-dom-d.pdf",
+      "bytes": 225019
+    },
+    {
+      "path": "reference-assets/public/pdf/karta-dom-e.pdf",
+      "bytes": 227962
+    },
+    {
+      "path": "reference-assets/retired-decor/botanical-line-branch.svg",
+      "bytes": 1035
+    },
+    {
+      "path": "reference-assets/retired-decor/botanical-reed-right.svg",
+      "bytes": 1512
+    },
+    {
+      "path": "reference-assets/retired-decor/botanical-sprig-left.svg",
+      "bytes": 1922
+    },
+    {
+      "path": "reference-assets/retired-decor/linden-corner.png",
+      "bytes": 379168
+    },
+    {
+      "path": "reference-assets/retired-decor/panorama-preview.webp",
+      "bytes": 73808
+    },
+    {
+      "path": "reference-assets/src/components/house-selector/MasterplanRefinement.css",
+      "bytes": 1406
+    },
+    {
+      "path": "reference-assets/src/sections/Gallery/GalleryRefinement.css",
+      "bytes": 1200
+    },
+    {
+      "path": "reference-assets/src/sections/Hero/HeroRefinement.css",
+      "bytes": 1221
+    },
+    {
+      "path": "reference-assets/src/sections/Layout/LayoutRefinement.css",
+      "bytes": 1543
+    },
+    {
+      "path": "reference-assets/src/sections/Schedule/ScheduleRefinement.css",
+      "bytes": 382
+    },
+    {
+      "path": "reference-assets/src/sections/Standard/StandardRefinement.css",
+      "bytes": 1727
+    },
+    {
+      "path": "scripts/build-portable.cjs",
+      "bytes": 5874
+    },
+    {
+      "path": "scripts/generate-responsive-assets.py",
+      "bytes": 1283
+    },
+    {
+      "path": "src/components/common/MobileContactBar.tsx",
+      "bytes": 1289
+    },
+    {
+      "path": "src/components/house-selector/MasterplanRefinement.css",
+      "bytes": 1440
+    },
+    {
+      "path": "src/data/contact.ts",
+      "bytes": 96
+    },
+    {
+      "path": "src/house-page.tsx",
+      "bytes": 2349
+    },
+    {
+      "path": "src/lib/offerMarkup.d.mts",
+      "bytes": 150
+    },
+    {
+      "path": "src/lib/offerMarkup.mjs",
+      "bytes": 4521
+    },
+    {
+      "path": "src/sections/Gallery/GalleryRefinement.css",
+      "bytes": 1235
+    },
+    {
+      "path": "src/sections/Hero/HeroRefinement.css",
+      "bytes": 1245
+    },
+    {
+      "path": "src/sections/Layout/LayoutRefinement.css",
+      "bytes": 1604
+    },
+    {
+      "path": "src/sections/Schedule/ScheduleRefinement.css",
+      "bytes": 396
+    },
+    {
+      "path": "src/sections/Standard/StandardRefinement.css",
+      "bytes": 1794
+    },
+    {
+      "path": "src/styles/offer-page.css",
+      "bytes": 5025
+    },
+    {
+      "path": "vendor/LICENSE.react.txt",
+      "bytes": 1088
+    },
+    {
+      "path": "vendor/LICENSE.typescript.txt",
+      "bytes": 9142
+    },
+    {
+      "path": "vendor/README.md",
+      "bytes": 643
+    },
+    {
+      "path": "vendor/react-19.1.1.mjs",
+      "bytes": 185873
+    },
+    {
+      "path": "vendor/typescript.cjs",
+      "bytes": 9066411
+    }
+  ]
+}

@@ -13,17 +13,19 @@ const TOUR_DATA_URLS = {
   interior: '/assets/data/spacer-360-wewnetrzny.json',
   exterior: '/assets/data/spacer-360-zewnetrzny.json',
 }
-const DISCLAIMER_STORAGE_KEY = `dnp-tour-disclaimer:${mode}:v1`
+const DISCLAIMER_STORAGE_KEY = `dnp-tour-disclaimer:${mode}:session-v1`
+const LEGACY_INTERIOR_ENTRY = 'int00-podcien-wejsciowy'
+const INTERIOR_ENTRY = 'int01-wejscie-do-domu'
 const EDIT_PARAMS = new URLSearchParams(location.search)
 const editMode = EDIT_PARAMS.get('edit') === '1'
 const EDIT_DRAFT_KEY = `dnp-tour-editor-draft:${mode}:v5`
 
 function hasSeenDisclaimer() {
-  try { return localStorage.getItem(DISCLAIMER_STORAGE_KEY) === '1' } catch { return false }
+  try { return sessionStorage.getItem(DISCLAIMER_STORAGE_KEY) === '1' } catch { return false }
 }
 
 function markDisclaimerSeen() {
-  try { localStorage.setItem(DISCLAIMER_STORAGE_KEY, '1') } catch {}
+  try { sessionStorage.setItem(DISCLAIMER_STORAGE_KEY, '1') } catch {}
 }
 const app = $('tourApp')
 const layers = [$('tourImageA'), $('tourImageB')]
@@ -491,14 +493,31 @@ function loadEditorDraft(baseConfig) {
     const draft = JSON.parse(raw)
     validateConfig(draft)
     const officialScenes = new Map(baseConfig.scenes.map(scene => [scene.id, scene]))
+    if (mode === 'interior') {
+      draft.scenes = draft.scenes.filter(scene => scene.id !== LEGACY_INTERIOR_ENTRY)
+      draft.startScene = baseConfig.startScene
+      draft.rooms = baseConfig.rooms
+      draft.stats = baseConfig.stats
+    }
     for (const scene of draft.scenes) {
       const official = officialScenes.get(scene.id)
       if (!official) continue
+      for (const field of ['hotspots', 'fallbackHotspots']) {
+        if (!Array.isArray(scene[field])) continue
+        scene[field] = scene[field].map(point => {
+          if (point.target !== LEGACY_INTERIOR_ENTRY || (point.tour && point.tour !== 'interior')) return point
+          if (mode === 'interior' && scene.id === INTERIOR_ENTRY) {
+            return {...point, tour: 'exterior', target: '04_podcien_wejsciowy'}
+          }
+          return {...point, target: INTERIOR_ENTRY}
+        })
+      }
       for (const field of ['image', 'thumb', 'fallbackImage']) {
         if (typeof scene[field] === 'string' && typeof official[field] === 'string'
           && scene[field].split('?')[0] === official[field].split('?')[0]) scene[field] = official[field]
       }
     }
+    validateConfig(draft)
     return draft
   } catch (error) {
     console.warn('[Spacer editor] Nie udało się wczytać szkicu:', error.message)
@@ -1059,6 +1078,7 @@ if (typeof ResizeObserver !== 'undefined') new ResizeObserver(positionHotspots).
 window.addEventListener('hashchange', () => {
   let id
   try { id = decodeURIComponent(location.hash.slice(1)) } catch { return }
+  if (mode === 'interior' && id === LEGACY_INTERIOR_ENTRY) id = INTERIOR_ENTRY
   if (sceneMap.has(id)) showScene(id)
 })
 
@@ -1106,6 +1126,7 @@ async function init() {
     if (editMode) setupEditor()
     let hash = ''
     try { hash = decodeURIComponent(location.hash.slice(1)) } catch {}
+    if (mode === 'interior' && hash === LEGACY_INTERIOR_ENTRY) hash = INTERIOR_ENTRY
     await showScene(sceneMap.has(hash) ? hash : config.startScene)
   } catch (error) {
     $('sceneText').textContent = 'Spacer chwilowo niedostępny'

@@ -1,0 +1,74 @@
+{
+  "source": "User supplied asset sheet, 1536 x 1024. No newly generated images.",
+  "photos": {
+    "living": [
+      900,
+      9,
+      1222,
+      385
+    ],
+    "window-detail": [
+      1240,
+      9,
+      1524,
+      243
+    ],
+    "heat-pump-detail": [
+      1240,
+      269,
+      1524,
+      460
+    ]
+  },
+  "icons": {
+    "heat-pump": [
+      11,
+      35,
+      230,
+      221
+    ],
+    "ventilation": [
+      230,
+      54,
+      450,
+      223
+    ],
+    "floor-heating": [
+      451,
+      30,
+      671,
+      224
+    ],
+    "blinds": [
+      678,
+      37,
+      888,
+      225
+    ],
+    "windows": [
+      25,
+      260,
+      208,
+      445
+    ],
+    "glazing": [
+      216,
+      259,
+      440,
+      446
+    ],
+    "pv": [
+      446,
+      259,
+      668,
+      448
+    ],
+    "fence": [
+      679,
+      268,
+      889,
+      449
+    ]
+  },
+  "processing": "Crops, checkerboard removal with protected subject masks, WebP encoding. Text/buttons/line icons rendered by HTML/CSS/SVG."
+}

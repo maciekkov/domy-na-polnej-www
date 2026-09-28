@@ -11,10 +11,24 @@ import { cacheControl } from '../scripts/http-cache.mjs'
 const root=resolve(import.meta.dirname,'..')
 const readJson=path=>JSON.parse(readFileSync(join(root,path),'utf8'))
 const fresh=()=>readJson('public/data/site-data.json')
+const selling=()=>readJson('tests/fixtures/selling-baseline.json')
 const removeVersions = data => JSON.parse(JSON.stringify(data).replace(/\?v=[a-f0-9]{12,64}/g,''))
 
-test('Kontrakt danych: oferta bazowa nie zmienia cen, statusów, dat i treści',()=>{
-  assert.deepEqual(removeVersions(parseSiteData(fresh())), readJson('tests/fixtures/business-baseline.json'))
+test('Prelaunch rc.4: parametry inwestycji zachowane, aktualizacja dokumentu standardu zatwierdzona',()=>{
+  const current=removeVersions(parseSiteData(fresh())), baseline=readJson('tests/fixtures/business-baseline.json')
+  assert.equal(current.salesStage,'prelaunch');assert.equal(current.revision,5)
+  for (const h of current.houses) { assert.equal(h.price,null);assert.deepEqual(h.priceHistory,[]);assert.deepEqual(h.mandatoryPayments,[]) }
+  delete current.salesStage;delete current.revision;delete current.publishedAt
+  delete baseline.revision;delete baseline.publishedAt
+  for(const data of [current,baseline]) for(const house of data.houses) delete house.price
+  assert.equal(current.documents.find(d=>d.id==='standard').version,'1.0')
+  assert.equal(current.documents.find(d=>d.id==='standard').updatedAt,'23.09.2026')
+  // Authorized new PDF changes only its descriptive size/date; preserve all other business fields.
+  for(const data of [current,baseline]) { const document=data.documents.find(d=>d.id==='standard');delete document.updatedAt;delete document.sizeLabel }
+  assert.equal(current.contact.email,'mkdevelop2026@gmail.com')
+  assert.equal(current.contact.emailHref,'mailto:mkdevelop2026@gmail.com')
+  baseline.contact.email=current.contact.email;baseline.contact.emailHref=current.contact.emailHref
+  assert.deepEqual(current,baseline)
 })
 for (const which of ['wewnetrzny','zewnetrzny']) test(`Spacer ${which}: wszystkie kadry, piny i współrzędne niezmienione`,()=>{
   assert.deepEqual(removeVersions(readJson(`public/assets/data/spacer-360-${which}.json`)), readJson(`tests/fixtures/tour-${which}.json`))
@@ -58,11 +72,11 @@ test('Eksport produkcyjny nie zawiera prywatnych leadów, a zawiera publiczną h
   const result=parseSiteData(fresh()); assert.equal('leads' in result,false); assert.ok(result.houses.every(h=>Array.isArray(h.priceHistory) && Array.isArray(h.mandatoryPayments)))
 })
 test('Cennik używa dokładnej powierzchni użytkowej i wyliczalnej ceny brutto za m²',()=>{
-  const result=parseSiteData(fresh());
+  const result=parseSiteData(selling());
   for(const house of result.houses){ assert.equal(house.area,110.82); assert.ok(Number.isFinite(house.price/house.area)); assert.ok(house.price/house.area>0) }
 })
 test('Publikator dopisuje poprzednią cenę z poprawnymi datami i nie tworzy historii bez zmiany ceny',()=>{
-  const before=fresh(); const same=structuredClone(before); same.revision++; same.publishedAt='2026-09-18T12:00:00+02:00';
+  const before=selling(); const same=structuredClone(before); same.revision++; same.publishedAt='2026-09-18T12:00:00+02:00';
   assert.deepEqual(mergePublicPriceHistory(same,before).houses[0].priceHistory, before.houses[0].priceHistory);
   const changed=structuredClone(same); changed.houses[0].price+=10000; const merged=mergePublicPriceHistory(changed,before);
   assert.deepEqual(merged.houses[0].priceHistory[0],{price:before.houses[0].price,validFrom:before.publishedAt.slice(0,10).split('.').reverse().join('-'),validTo:'2026-09-18'});
@@ -122,20 +136,25 @@ test('Generator rozpoznaje także ścieżki Windows',()=>{
 })
 
 // Run the real migration function from the native player, not a rewritten copy.
-test('Stary szkic edytora: odświeżenie URL zdjęć bez utraty ręcznych pinezek',()=>{
+test('Stary szkic edytora: usunięty podcień nie wraca, ręczne piny zostają',()=>{
  const source=readFileSync(join(root,'public/tour/spacer-360-player.js'),'utf8')
  const extract=name=>source.match(new RegExp(`^function ${name}\\([^]*?^}`, 'm'))?.[0]
  const validate=extract('validateConfig'), load=extract('loadEditorDraft')
  assert.ok(validate && load)
  const base=readJson('public/assets/data/spacer-360-wewnetrzny.json'), draft=structuredClone(base)
+ const legacy=structuredClone(draft.scenes[0]);legacy.id='int00-podcien-wejsciowy';draft.scenes.unshift(legacy)
+ draft.startScene=legacy.id;draft.rooms[0].scene=legacy.id;draft.stats.scenes=30;draft.stats.renders=30
  draft.scenes[0].image=draft.scenes[0].image.split('?')[0]
- draft.scenes[0].hotspots[0].x=42.5;draft.scenes[0].hotspots[0].label='Moja pinezka'
+ draft.scenes[1].hotspots[0].x=42.5;draft.scenes[1].hotspots[0].label='Moja pinezka'
+ for(const field of ['hotspots','fallbackHotspots'])draft.scenes[1][field][1]={...draft.scenes[1][field][1],tour:undefined,target:legacy.id}
  const returned=runInNewContext(`${validate}\n${load}\nloadEditorDraft(base)`, {
-   base,editMode:true,EDIT_DRAFT_KEY:'test',TOUR_URLS:{interior:'in',exterior:'out'},
+   base,editMode:true,mode:'interior',LEGACY_INTERIOR_ENTRY:'int00-podcien-wejsciowy',INTERIOR_ENTRY:'int01-wejscie-do-domu',EDIT_DRAFT_KEY:'test',TOUR_URLS:{interior:'in',exterior:'out'},
    console,localStorage:{getItem:()=>JSON.stringify(draft),removeItem:()=>assert.fail('Nie wolno kasować poprawnego szkicu')},
  })
- assert.equal(returned.scenes[0].image,base.scenes[0].image)
  assert.equal(returned.scenes[0].hotspots[0].x,42.5)
  assert.equal(returned.scenes[0].hotspots[0].label,'Moja pinezka')
- assert.equal(returned.scenes.length,30)
+ assert.equal(returned.scenes[0].hotspots[1].target,'04_podcien_wejsciowy')
+ assert.equal(returned.scenes[0].hotspots[1].tour,'exterior')
+ assert.equal(returned.startScene,'int01-wejscie-do-domu')
+ assert.equal(returned.scenes.length,29)
 })

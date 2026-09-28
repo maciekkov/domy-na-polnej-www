@@ -239,7 +239,7 @@
           "pulse": false
         },
         {
-          "target": "int00-podcien-wejsciowy",
+          "target": "int01-wejscie-do-domu",
           "x": 50,
           "y": 56,
           "label": "Otwórz\ndrzwi",
@@ -269,7 +269,7 @@
           "pulse": false
         },
         {
-          "target": "int00-podcien-wejsciowy",
+          "target": "int01-wejscie-do-domu",
           "x": 50,
           "y": 56,
           "label": "Otwórz\ndrzwi",

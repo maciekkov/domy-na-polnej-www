@@ -1,7 +1,7 @@
 /* Hero: one factual message, human-controlled imagery, no autoplay. */
 .hero{position:relative;isolation:isolate;min-height:760px;height:min(100svh,1120px);color:#fff;background:#1a3127;overflow:hidden}
 .hero__media-stack,.hero__media,.hero__shade{position:absolute;inset:0;z-index:-1}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:1;animation:hero-image-in var(--duration-reveal) var(--ease) both}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:1;animation:none}
 .hero__shade{background:linear-gradient(90deg,rgba(8,23,17,.68) 0%,rgba(8,23,17,.48) 24%,rgba(8,23,17,.17) 40%,rgba(8,23,17,0) 58%)}
 .hero__content{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-block:150px 38px;gap:70px}
 .hero__copy{max-width:750px}
@@ -17,9 +17,6 @@
 .hero__facts>div{margin:0}
 .hero__facts dt{font-size:clamp(20px,1.9vw,28px);letter-spacing:-.03em;font-weight:500;white-space:nowrap}
 .hero__facts dd{margin:6px 0 0;color:#d7dfd7;font-size:12px;line-height:1.45}
-.hero__controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.hero__controls button{display:grid;place-items:center;min-width:46px;min-height:46px;padding:0;border:1px solid #bdc8bb;color:#fff;background:rgba(13,32,22,.35);border-radius:50%;cursor:pointer;transition:background var(--duration-fast)}
-.hero__controls button:hover{background:rgba(255,255,255,.2)}
 .hero__image-caption{font-size:11px;color:#e3e8de;margin-right:16px}
 .hero__image-caption b{display:block;color:#fff;font-size:13px;font-weight:500;letter-spacing:.12em;margin-top:3px}
 .hero__discover{position:absolute;right:48px;top:51%;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:50%;text-decoration:none}
@@ -43,7 +40,85 @@
  .hero__facts>div:last-child{grid-column:1/-1;display:flex;align-items:center;gap:12px}
  .hero__facts>div:last-child dd{margin:0;max-width:145px}
  .hero__facts dt{font-size:22px}.hero__facts dd{font-size:11px}
- .hero__controls{justify-content:flex-end}.hero__image-caption{margin-right:auto;display:flex;align-items:center;gap:12px}.hero__image-caption b{margin:0}
 }
 @media(max-width:360px){.hero h1{font-size:42px}.hero__content{padding-top:270px}.hero__facts dt{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.hero__media img{animation:none}}
+
+/* --- HERO: keep the complete sales message inside a normal desktop viewport. --- */
+/* Ensure the image and overlay stay inside the hero stacking context.
+   The original negative z-index could place the media below the hero background. */
+.hero__media-stack,.hero__media{z-index:0}
+.hero__shade{z-index:1}
+.hero__content{position:relative;z-index:2}
+
+@media (min-width:641px){
+  .hero{
+    height:min(100svh,920px);
+    min-height:650px;
+    max-height:920px;
+  }
+  .hero__content{
+    padding-block:clamp(98px,12vh,128px) clamp(20px,2.8vh,30px);
+    gap:clamp(24px,4.2vh,44px);
+  }
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{font-size:clamp(46px,5vw,74px);margin-bottom:18px}
+  .hero__lead{margin-bottom:22px;font-size:17px;line-height:1.55}
+  .hero__bottom{padding-top:20px}
+  .hero__facts{gap:clamp(28px,3vw,48px)}
+  .hero__facts dt{font-size:clamp(20px,1.6vw,26px)}
+  .hero__discover{display:none}
+}
+@media (min-width:641px) and (max-height:780px){
+  .hero{min-height:620px}
+  .hero__content{padding-top:92px;padding-bottom:18px;gap:20px}
+  .hero .eyebrow{margin-bottom:10px}
+  .hero h1{font-size:clamp(42px,4.5vw,62px);margin-bottom:12px}
+  .hero__lead{font-size:15.5px;line-height:1.45;margin-bottom:16px}
+  .hero__buttons .button{min-height:46px}
+  .hero__tour-link{min-height:42px}
+  .hero__bottom{padding-top:15px}
+  .hero__facts dd{margin-top:3px}
+}
+
+
+@media (max-width:640px){
+  .hero__content{padding:260px 0 16px;gap:22px}
+  .hero .eyebrow{margin-bottom:12px}
+  .hero h1{font-size:44px;margin-bottom:14px}
+  .hero__lead{font-size:15.5px;line-height:1.45;margin-bottom:19px}
+  .hero__buttons{gap:8px}
+  .hero__buttons .button{min-height:48px}
+  .hero__tour-link{min-height:36px}
+  .hero__bottom{gap:14px;padding-top:16px}
+  .hero__facts{gap:12px 10px}
+  .hero__facts dt{font-size:20px}
+}
+@media (max-width:360px){
+  .hero__content{padding-top:230px;gap:18px}
+  .hero h1{font-size:40px}
+  .hero__lead{font-size:15px}
+}
+@media (max-width:640px) and (max-height:740px){
+  .hero{height:100svh;min-height:100svh}
+  .hero__content{padding:172px 0 10px;gap:14px}
+  .hero .eyebrow{font-size:9px;margin-bottom:8px}
+  .hero h1{font-size:36px;line-height:1;margin-bottom:9px}
+  .hero__lead{font-size:14px;line-height:1.35;margin-bottom:12px}
+  .hero__buttons{gap:5px}
+  .hero__buttons .button{min-height:44px;font-size:12px}
+  .hero__tour-link{min-height:31px;font-size:12px}
+  .hero__bottom{gap:10px;padding-top:11px}
+  .hero__facts{gap:9px 8px}
+  .hero__facts dt{font-size:18px}
+  .hero__facts dd{font-size:10px}
+}
+
+/* A small factual caption, not a slideshow control. */
+.hero__visualisation-label{position:absolute;right:0;bottom:12px;padding:3px 8px;background:rgba(13,31,23,.70);border-radius:4px;font-size:10px;line-height:1.5;color:#fff}
+.hero__facts>div:last-child dd{max-width:180px}
+@media(max-width:640px){.hero__visualisation-label{top:205px;bottom:auto}.hero__bottom{position:static}}
+@media(max-width:360px){.hero__visualisation-label{top:183px}}
+/* When text grows or the screen is short, content may extend instead of being clipped. */
+@media(max-width:640px) and (max-height:740px){.hero{height:auto;min-height:100svh}.hero__visualisation-label{top:128px}}
+@media(min-width:641px) and (max-height:640px){.hero{height:auto;max-height:none;min-height:640px}.hero__content{min-height:640px}}

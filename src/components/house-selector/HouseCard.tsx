@@ -1,23 +1,28 @@
 import { useEffect, useRef } from 'react'
-import { track, trackOnce } from '../../lib/analytics'
-import { ArrowRight, BedDouble, CarFront, Download, Home, LandPlot } from '../common/Icons'
+import { trackOnce } from '../../lib/analytics'
+import { BedDouble, CarFront, Home, LandPlot } from '../common/Icons'
 import type { House } from '../../data/houses'
-import { formatArea } from '../../data/houses'
+import { useSiteData } from '../../data/runtime/SiteDataProvider'
+import { publishedPrice, publicStatus } from '../../lib/sales.mjs'
+import { formatArea, formatPrice, formatPricePerSqm } from '../../data/houses'
 
 type HouseCardProps = {
   house: House | null
   fallbackHouse: House
-  onAsk: () => void
   idPrefix?: string
 }
 
 export function StatusBadge({ status }: Pick<House, 'status'>) {
-  return <span className={`status-badge status-badge--${status === 'Rezerwacja' ? 'reserved' : status === 'Sprzedany' ? 'sold' : 'available'}`}>{status}</span>
+  const { data } = useSiteData()
+  return <span className={`status-badge status-badge--${status === 'Rezerwacja' ? 'reserved' : status === 'Sprzedany' ? 'sold' : 'available'}`}>{publicStatus(data, status)}</span>
 }
 
-export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseCardProps) {
+export function HouseCard({ house, fallbackHouse, idPrefix = '' }: HouseCardProps) {
+  const { data } = useSiteData()
   const visibleHouse = house ?? fallbackHouse
+  const showPrice = publishedPrice(data, visibleHouse)
   const cardRef = useRef<HTMLElement>(null)
+
   useEffect(() => {
     if (!house || !cardRef.current) return
     let visible = false
@@ -25,7 +30,10 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
     const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; record() }, { threshold: .25 })
     observer.observe(cardRef.current)
     window.addEventListener('dnp-consent-changed', record)
-    return () => { observer.disconnect(); window.removeEventListener('dnp-consent-changed', record) }
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('dnp-consent-changed', record)
+    }
   }, [house?.id])
 
   return (
@@ -39,7 +47,7 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
       </div>
 
       <div className="house-card__image">
-        <img src={visibleHouse.image} alt={house ? `Frontowa elewacja — ${visibleHouse.name}` : 'Przykładowy widok domu'} width="1672" height="941" loading="lazy" /><span className="house-card__image-label">Wizualizacja</span>
+        <img src={visibleHouse.image} alt={house ? `Frontowa elewacja — ${visibleHouse.name}` : 'Przykładowy widok domu'} width="1672" height="941" loading="lazy" />
       </div>
 
       {house ? (
@@ -50,19 +58,37 @@ export function HouseCard({ house, fallbackHouse, onAsk, idPrefix = '' }: HouseC
             <li><BedDouble aria-hidden="true" /><span><strong>{visibleHouse.rooms}</strong> pokoi</span></li>
             <li><CarFront aria-hidden="true" /><span><strong>{visibleHouse.parking}</strong> miejsca postojowe</span></li>
           </ul>
-          <div className="house-card__price house-card__price--pending">
-            <span>Cena brutto</span>
-            <strong>Już wkrótce</strong>
-            <small>Cennik sprzedaży jest w przygotowaniu.</small>
+
+          <div className={`house-card__price ${showPrice ? '' : 'house-card__price--pending'}`.trim()}>
+            <span>{showPrice ? 'Cena łączna' : 'Cena'}</span>
+            <strong>{showPrice ? formatPrice(visibleHouse.price) : 'Cena w przygotowaniu'}</strong>
+            <small>{showPrice ? `${formatPricePerSqm(visibleHouse)} brutto za 1 m² powierzchni użytkowej` : 'Docelowa cena łączna i cena za 1 m² pojawią się tutaj po publikacji cennika.'}</small>
           </div>
-          <button className="button button--olive house-card__cta" type="button" onClick={onAsk}>
-            Zapytaj o dom {visibleHouse.id} <ArrowRight size={17} aria-hidden="true" />
-          </button>
-          {visibleHouse.pdf && (<a className="house-card__pdf" onClick={() => track('house_pdf_download', visibleHouse.id)} href={visibleHouse.pdf} target="_blank" rel="noreferrer">
-            <Download size={18} aria-hidden="true" /> Pobierz kartę PDF
-          </a>)}
+
+          {showPrice && (
+            <details className="house-card__price-history">
+              <summary>Historia ceny</summary>
+              {visibleHouse.priceHistory.length ? (
+                <ul>
+                  {visibleHouse.priceHistory.map((entry, index) => (
+                    <li key={`${entry.validFrom}-${index}`}>
+                      <span>{entry.validFrom.slice(0, 10)} – {entry.validTo.slice(0, 10)}</span>
+                      <strong>{formatPrice(entry.price)}</strong>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>Brak wcześniejszych zmian ceny w publicznej historii.</p>
+              )}
+            </details>
+          )}
         </>
-      ) : <div className="house-card__empty-copy"><p>Wybierz literę A–E na planie. Zobaczysz powierzchnię działki, status i kartę konkretnego domu.</p><a href="#lista-domow">Porównaj wszystkie domy <ArrowRight size={16} /></a></div>}
+      ) : (
+        <div className="house-card__empty-copy">
+          <p>Wybierz literę A–E na planie. Zobaczysz powierzchnię działki, status i kartę konkretnego domu.</p>
+          <a href="#lista-domow">Porównaj wszystkie domy</a>
+        </div>
+      )}
     </article>
   )
 }

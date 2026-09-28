@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from 'react'
-import { ArrowRight, Mail } from '../../components/common/Icons'
+import { ArrowRight, Bell, FileText, Gem, Mail } from '../../components/common/Icons'
 import { useSiteData } from '../../data/runtime/SiteDataProvider'
 
 export function Presale() {
@@ -37,7 +37,7 @@ export function Presale() {
       <div className="presale-section__copy"><div className="section-kicker"><span />Przed pierwszym etapem</div>
         <h2 id="presale-title">Twój dom zaczyna się<br /><em>od pierwszej wiadomości.</em></h2>
         <p>Przygotowujemy specjalną ofertę przedsprzedażową przed rozpoczęciem budowy. Zostaw e-mail — poznasz datę startu i warunki promocji, gdy będą gotowe.</p>
-        <span className="presale-section__note">Bez zobowiązań. Zapis nie jest rezerwacją domu.</span>
+        <div className="presale-section__benefits"><div><Bell aria-hidden="true" /><span><strong>Bądź pierwszy</strong><small>Otrzymasz informacje wcześniej niż inni zainteresowani.</small></span></div><div><FileText aria-hidden="true" /><span><strong>Tylko konkretne informacje</strong><small>Prześlemy datę startu, warunki promocji i kluczowe szczegóły.</small></span></div><div><Gem aria-hidden="true" /><span><strong>Bez zobowiązań</strong><small>Zapis nie jest rezerwacją domu. Możesz zrezygnować w każdej chwili.</small></span></div></div>
       </div>
       <div className="presale-section__signup"><form className="presale-form" aria-labelledby="presale-form-title" aria-busy={state === 'sending'} onSubmit={submit} noValidate>
         <Mail size={25} aria-hidden="true" /><h3 id="presale-form-title">Daj znać, kiedy ruszy przedsprzedaż</h3>

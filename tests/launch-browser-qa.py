@@ -37,7 +37,7 @@ with sync_playwright() as p:
  b=p.chromium.launch(executable_path=os.environ.get('PLAYWRIGHT_CHROMIUM_EXECUTABLE') or ('/usr/bin/chromium' if Path('/usr/bin/chromium').exists() else None),headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader'])
  h=Harness(b,1440,900,reduced=True);pg=h.page;pg.set_default_timeout(4000);h.load();h.dismiss();pg.evaluate("document.documentElement.style.scrollBehavior='auto'")
  def hero():
-  expect(pg.locator('.hero img')).to_have_count(1);expect(pg.locator('.hero__controls')).to_have_count(0);expect(pg.locator('.hero__visualisation-label')).to_have_text('Wizualizacja')
+  expect(pg.locator('.hero img')).to_have_count(1);expect(pg.locator('.hero__controls')).to_have_count(0);expect(pg.locator('.hero__visualisation-label')).to_have_count(0)
   expect(pg.locator('.hero__facts')).to_contain_text('Już wkrótce');assert pg.locator('.hero img').evaluate('(e)=>e.complete&&e.naturalWidth>0')
   expect(pg.locator('header .site-header__nav')).to_contain_text('Domy i działki');bodycheck(pg)
  check('single estate HERO, factual caption, prelaunch menu and no prices',hero)

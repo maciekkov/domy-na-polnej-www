@@ -1,0 +1,368 @@
+/* rc.26: scoped final component layouts. IDs deliberately override earlier legacy
+   refinement sheets; the actual sizes are covered by browser regression tests. */
+
+/* Compact entrances to the viewers — 230 px instead of 460 px on desktop. */
+#spacer-360 { padding-block: 44px; }
+#spacer-360 .immersive-heading { margin-bottom: 24px; }
+#spacer-360 .immersive-heading h2 { margin-block: 14px 12px; font-size: clamp(32px, 3vw, 44px); }
+#spacer-360 .immersive-heading p { font-size: 15px; line-height: 1.55; }
+#spacer-360 .immersive-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+#spacer-360 .immersive-card { height: 230px; min-height: 230px; border-radius: 8px; }
+#spacer-360 .immersive-card > img { object-fit: cover; object-position: center 54%; }
+#spacer-360 .immersive-card--panorama > img { object-position: center 42%; }
+#spacer-360 .immersive-card__shade {
+  background: linear-gradient(90deg, #071e16df 0%, #071e169e 60%, #071e1636 100%), linear-gradient(0deg, #071e16b3, transparent 80%);
+}
+#spacer-360 .immersive-card__content {
+  display: flex; position: relative; inset: auto; height: 100%; min-width: 0;
+  padding: 22px 26px; justify-content: center; align-items: flex-start;
+}
+#spacer-360 .immersive-card__topline {
+  display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+#spacer-360 .immersive-card__topline .eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0;
+  font: 600 10px/1.3 var(--font-body); letter-spacing: .1em; color: #dec58f;
+}
+#spacer-360 .immersive-card__topline svg { width: 20px; height: 20px; flex: none; stroke-width: 1.5; }
+#spacer-360 .immersive-card__count { color: #f2f3e9; font-size: 10px; line-height: 1.3; text-align: right; }
+#spacer-360 .immersive-card__content h3 { margin: 0 0 8px; font: 400 32px/1.1 var(--font-heading); color: #fffdf7; }
+#spacer-360 .immersive-card__content p { margin: 0 0 16px; max-width: none; font-size: 14px; line-height: 1.45; color: #f2f3e9; }
+#spacer-360 .immersive-card__actions { display: flex; align-items: center; gap: 14px; width: 100%; }
+#spacer-360 .immersive-card__actions .button { min-height: 44px; padding: 8px 17px; flex: none; font-size: 13px; white-space: nowrap; }
+#spacer-360 .immersive-card__actions small { margin: 0; font-size: 11px; line-height: 1.35; color: #dbe2d5; }
+#spacer-360 .immersive-signature { margin-top: 22px; }
+
+/* Cathedral section: the approved two-column composition, original photograph,
+   correct client-supplied height and no floor-plan CTA on any breakpoint. */
+#wysoki-sufit { padding-block: 58px; background: #f7f5ef; }
+#wysoki-sufit .cathedral-ceiling__grid {
+  display: grid; grid-template-columns: 37% minmax(0, 63%); min-height: 600px;
+  overflow: hidden; border: 1px solid #d9dcd0; border-radius: 2px;
+  box-shadow: 0 14px 40px #243b2810;
+}
+#wysoki-sufit .cathedral-ceiling__intro {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  padding: 42px 38px 36px; color: #fbfaf4; background-color: #163b2c;
+}
+#wysoki-sufit .cathedral-ceiling__intro > * { position: relative; z-index: 1; }
+#wysoki-sufit .cathedral-ceiling__eyebrow { gap: 12px; font-size: 10px; line-height: 1.5; letter-spacing: .15em; color: #d1ba88; }
+#wysoki-sufit .cathedral-ceiling__intro h2 {
+  max-width: none; margin: 40px 0 26px; font: 400 clamp(40px, 3.6vw, 56px)/1.08 var(--font-heading);
+  letter-spacing: -.035em; color: #fbfaf4;
+}
+#wysoki-sufit .cathedral-ceiling__intro h2 em { font-family: var(--font-editorial); color: #d1ba88; font-weight: 400; }
+#wysoki-sufit .cathedral-ceiling__intro > p {
+  display: block; max-width: 390px; margin: 0 0 28px; color: #f0f1e9;
+  font: 400 15px/1.65 var(--font-body);
+}
+#wysoki-sufit .cathedral-ceiling__metric {
+  display: grid; grid-template-columns: minmax(0, 1fr) 89px; gap: 15px; align-items: center;
+  margin: auto 0 0; padding: 25px 0 0; border: 0; border-top: 1px solid #d1ba8866;
+  background: none; border-radius: 0; box-shadow: none; color: #d1ba88;
+}
+#wysoki-sufit .cathedral-ceiling__value { display: flex; align-items: baseline; gap: 9px; white-space: nowrap; }
+#wysoki-sufit .cathedral-ceiling__value > span {
+  margin: 0; max-width: none; font: 400 24px/1 var(--font-editorial); text-transform: none; letter-spacing: 0; color: inherit;
+}
+#wysoki-sufit .cathedral-ceiling__value strong {
+  font: 400 clamp(52px, 4.1vw, 64px)/1.1 var(--font-editorial); color: inherit; letter-spacing: -.045em;
+}
+#wysoki-sufit .cathedral-ceiling__value strong small { font-size: .72em; letter-spacing: -.04em; }
+#wysoki-sufit .cathedral-ceiling__metric .cathedral-ceiling__metric-label {
+  display: block; margin: 12px 0 0; max-width: none; font: 500 10px/1.3 var(--font-body);
+  text-transform: uppercase; letter-spacing: .25em; color: inherit;
+}
+#wysoki-sufit .cathedral-ceiling__space { align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-left: 12px; border-left: 1px solid #d1ba8866; }
+#wysoki-sufit .cathedral-ceiling__space svg { width: 56px; height: 62px; }
+#wysoki-sufit .cathedral-ceiling__space span {
+  margin-top: 8px; max-width: none; font: 500 9px/1.6 var(--font-body); text-transform: uppercase;
+  text-align: center; letter-spacing: .15em; color: inherit;
+}
+#wysoki-sufit .cathedral-ceiling__visual { display: grid; grid-template-rows: minmax(350px, 1fr) auto; min-width: 0; background: #fbfaf4; }
+#wysoki-sufit .cathedral-ceiling__photo { position: relative; display: block; min-height: 350px; margin: 0; padding: 0; overflow: hidden; }
+#wysoki-sufit .cathedral-ceiling__photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-height: none; aspect-ratio: auto; object-fit: cover; object-position: center 44%; }
+#wysoki-sufit .cathedral-ceiling__photo figcaption { display: block; position: absolute; inset: auto 0 0 auto; z-index: 1; max-width: 100%; padding: 8px 10px; margin: 0; color: #fff; background: #183d2b9e; font-size: 9px; line-height: 1.4; }
+#wysoki-sufit .cathedral-ceiling__garden { display: block; padding: 31px 36px 34px; }
+#wysoki-sufit .garden-eyebrow { display: block; margin-bottom: 17px; font-size: 10px; letter-spacing: .16em; color: #947a51; }
+#wysoki-sufit .cathedral-ceiling__garden h3 { display: block; margin: 0 0 17px; color: #193a2c; font: 400 clamp(27px, 2.45vw, 37px)/1.15 var(--font-heading); }
+#wysoki-sufit .cathedral-ceiling__garden p { display: block; margin: 0; max-width: 640px; font-size: 15px; line-height: 1.6; color: #30463c; }
+
+/* One compact full-width PDF strip, not a tall card below the right column. */
+#standard .standard-section__visuals { gap: 0; }
+#standard .standard-lifestyle { margin: 0; background: none; box-shadow: none; border: 0; }
+#standard .standard-lifestyle__media { width: 100%; height: auto; aspect-ratio: 16 / 10; border-radius: 8px; background: transparent; }
+#standard .standard-lifestyle__media > img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+#standard .standard-download {
+  display: grid; grid-template-columns: 36px minmax(0, 1fr) auto;
+  align-items: center; gap: 20px; width: 100%; margin-top: 16px; padding: 22px 28px;
+  border: 1px solid #d3d8c9; border-radius: 7px; background: #eeefe5;
+}
+#standard .standard-download__icon { width: 30px; height: 36px; color: #345742; stroke-width: 1.5; }
+#standard .standard-download h3 { margin: 0 0 5px; font: 400 25px/1.15 var(--font-heading); color: #203e2f; }
+#standard .standard-download p { margin: 0; color: #59675e; font-size: 14px; line-height: 1.45; }
+#standard .standard-download .button { min-height: 46px; padding: 10px 20px; font-size: 13px; white-space: nowrap; }
+#standard .standard-download__pending { font-size: 14px; color: #526348; }
+#standard .standard-section__grid > .scope-note { grid-column: 1 / -1; grid-row: auto; margin-top: 18px; }
+
+/* Match the requested readable accordion hierarchy despite legacy h3 selectors. */
+#standard .standard-accordion { display: grid; gap: 10px; }
+#standard .standard-accordion__item { border: 1px solid #d3d8c9; border-radius: 8px; background: #fbfaf6; }
+#standard .standard-accordion__item h3 { margin: 0; }
+#standard .standard-accordion__item h3 button { min-height: 57px; padding: 14px 18px; font: 600 18px/1.35 var(--font-body); letter-spacing: 0; color: #274635; }
+#standard .standard-accordion__item.is-open { background: #fffefa; border-color: #9da889; box-shadow: 0 4px 12px #29433409; }
+#standard .standard-accordion__item.is-open h3 button { background: #ebeee2; }
+#standard .standard-accordion__panel { padding: 17px 18px 20px; }
+#standard .standard-accordion__panel[hidden] { display: none; }
+#standard .standard-accordion__panel strong { font: 600 14px/1.6 var(--font-body); color: #395440; }
+#standard .standard-accordion__panel p { margin: 8px 0 0; font: 400 14px/1.65 var(--font-body); color: #526057; }
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  #spacer-360 .immersive-card__content { padding: 18px 20px; }
+  #spacer-360 .immersive-card__content h3 { font-size: 30px; }
+  #spacer-360 .immersive-card__actions { gap: 10px; }
+  #spacer-360 .immersive-card__actions small { max-width: 125px; font-size: 10px; }
+  #wysoki-sufit .cathedral-ceiling__grid { grid-template-columns: 41% 59%; }
+  #wysoki-sufit .cathedral-ceiling__intro { padding: 32px 26px; }
+  #wysoki-sufit .cathedral-ceiling__intro h2 { font-size: 40px; margin-top: 30px; }
+  #wysoki-sufit .cathedral-ceiling__metric { grid-template-columns: minmax(0, 1fr) 68px; gap: 9px; }
+  #wysoki-sufit .cathedral-ceiling__value { gap: 6px; }
+  #wysoki-sufit .cathedral-ceiling__value > span { font-size: 19px; }
+  #wysoki-sufit .cathedral-ceiling__value strong { font-size: 45px; }
+  #wysoki-sufit .cathedral-ceiling__space { padding-left: 7px; }
+  #wysoki-sufit .cathedral-ceiling__space span { font-size: 8px; letter-spacing: .08em; }
+  #wysoki-sufit .cathedral-ceiling__garden { padding: 28px; }
+}
+@media (max-width: 960px) {
+  #standard .standard-download { grid-template-columns: 30px minmax(0, 1fr); gap: 12px 16px; padding: 20px; }
+  #standard .standard-download .button, #standard .standard-download__pending { grid-column: 2; justify-self: start; }
+}
+@media (max-width: 760px) {
+  #spacer-360 { padding-block: 36px; }
+  #spacer-360 .immersive-grid { grid-template-columns: 1fr; gap: 16px; }
+  #spacer-360 .immersive-card { height: 250px; min-height: 250px; }
+  #spacer-360 .immersive-card__content { padding: 20px 22px; }
+  #spacer-360 .immersive-card__content h3 { font-size: 32px; }
+  #spacer-360 .immersive-card__topline .eyebrow { font-size: 9px; letter-spacing: .07em; }
+  #spacer-360 .immersive-card__count { max-width: 126px; font-size: 10px; }
+  #spacer-360 .immersive-card__actions small { max-width: 145px; font-size: 10px; }
+  #wysoki-sufit { padding-block: 38px; }
+  #wysoki-sufit .cathedral-ceiling__grid { grid-template-columns: 1fr; min-height: 0; }
+  #wysoki-sufit .cathedral-ceiling__intro { padding: 30px; }
+  #wysoki-sufit .cathedral-ceiling__intro h2 { font-size: clamp(40px, 7.5vw, 52px); margin-block: 28px 22px; }
+  #wysoki-sufit .cathedral-ceiling__intro > p { max-width: 550px; font-size: 15px; }
+  #wysoki-sufit .cathedral-ceiling__metric { grid-template-columns: minmax(0, 1fr) 94px; margin-top: 0; gap: 18px; }
+  #wysoki-sufit .cathedral-ceiling__value strong { font-size: clamp(52px, 9vw, 68px); }
+  #wysoki-sufit .cathedral-ceiling__visual { grid-template-rows: auto auto; }
+  #wysoki-sufit .cathedral-ceiling__photo { min-height: 0; aspect-ratio: 16/10; }
+  #wysoki-sufit .cathedral-ceiling__garden { padding: 27px 30px 30px; }
+  #wysoki-sufit .cathedral-ceiling__garden h3 { font-size: 29px; }
+  #standard .standard-download { margin-top: 22px; }
+}
+@media (max-width: 640px) {
+  #standard .standard-download { margin-top: 0; padding: 19px; }
+  #standard .standard-download h3 { font-size: 23px; }
+  #standard .standard-download p { font-size: 13px; }
+  #standard .standard-download .button { grid-column: 1 / -1; justify-self: stretch; min-width: 0; font-size: 12px; padding-inline: 10px; }
+  #standard .standard-section__grid > .scope-note { margin-top: 0; }
+}
+@media (max-width: 390px) {
+  #spacer-360 .immersive-card__content { padding-inline: 18px; }
+  #spacer-360 .immersive-card__actions small { display: none; }
+  #spacer-360 .immersive-card__content h3 { font-size: 30px; }
+  #wysoki-sufit .cathedral-ceiling__intro { padding: 26px 23px; }
+  #wysoki-sufit .cathedral-ceiling__metric { grid-template-columns: minmax(0, 1fr) 63px; gap: 8px; }
+  #wysoki-sufit .cathedral-ceiling__value { gap: 5px; }
+  #wysoki-sufit .cathedral-ceiling__value > span { font-size: 20px; }
+  #wysoki-sufit .cathedral-ceiling__value strong { font-size: 47px; }
+  #wysoki-sufit .cathedral-ceiling__space { padding-left: 6px; }
+  #wysoki-sufit .cathedral-ceiling__space svg { width: 44px; height: 52px; }
+  #wysoki-sufit .cathedral-ceiling__space span { font-size: 8px; letter-spacing: .06em; }
+}
+
+
+/* rc.27 — restore PDF download as a right-column container next to the left explanations. */
+@media (min-width: 961px) {
+  #standard .standard-section__visuals { display: grid; gap: 16px; align-content: start; }
+  #standard .standard-download { margin-top: 0; }
+}
+@media (max-width: 960px) {
+  #standard .standard-section__visuals { display: grid; gap: 16px; }
+}
+
+/* rc.28 — approved compact desktop Standard composition: all explanations visible, no accordion. */
+#standard.standard-section {
+  padding-block: 34px 38px;
+}
+
+#standard .standard-section__grid {
+  align-items: start;
+}
+
+#standard .standard-section__intro .section-kicker {
+  margin-bottom: 10px;
+}
+
+#standard .standard-section__intro h2 {
+  margin: 0 0 10px;
+  font-size: clamp(38px, 3.15vw, 50px);
+  line-height: 1.03;
+}
+
+#standard .standard-section__lead {
+  max-width: 720px;
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#standard .standard-section__body {
+  display: grid;
+  gap: 18px;
+}
+
+#standard .standard-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#standard .standard-highlight {
+  min-height: 112px;
+  padding: 8px 5px 10px;
+  border: 1px solid rgba(65,76,64,.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 4px 16px rgba(29,49,34,.025);
+}
+
+#standard .standard-section .standard-highlight__icon,
+#standard .standard-highlight__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 4px;
+}
+
+#standard .standard-highlight > span:last-child {
+  font-size: 12px;
+  line-height: 1.12;
+  text-align: center;
+}
+
+#standard .standard-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#standard .standard-group-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0,1fr) 18px;
+  gap: 11px;
+  align-items: start;
+  min-height: 108px;
+  padding: 16px 14px;
+  border: 1px solid #d1d6c8;
+  border-radius: 8px;
+  background: rgba(252,251,247,.86);
+}
+
+#standard .standard-group-card:first-child {
+  border-color: #9eaa8e;
+  background: #f0f2e8;
+}
+
+#standard .standard-group-card__icon {
+  width: 29px;
+  height: 29px;
+  margin-top: 2px;
+  color: #355f49;
+  stroke-width: 1.5;
+}
+
+#standard .standard-group-card__copy h3 {
+  margin: 0 0 7px;
+  color: #173a2c;
+  font: 500 17px/1.15 var(--font-heading);
+  letter-spacing: -.025em;
+}
+
+#standard .standard-group-card__copy p {
+  margin: 0;
+  color: #536159;
+  font-size: 11px;
+  line-height: 1.42;
+}
+
+#standard .standard-group-card__arrow {
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  color: #315844;
+}
+
+#standard .standard-section__visuals {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+#standard .standard-lifestyle__media {
+  aspect-ratio: 16 / 10.25;
+}
+
+#standard .standard-download {
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 18px;
+  margin-top: 0;
+  padding: 19px 22px;
+}
+
+#standard .standard-download h3 {
+  margin-bottom: 5px;
+  font-size: 23px;
+  line-height: 1.05;
+}
+
+#standard .standard-download p {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#standard .standard-download .button {
+  min-height: 42px;
+  padding-inline: 18px;
+  font-size: 11px;
+}
+
+@media (min-width: 961px) {
+  #standard .standard-section__grid {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+    column-gap: 30px;
+  }
+}
+
+@media (max-width: 960px) {
+  #standard .standard-groups {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  #standard.standard-section {
+    padding-block: 34px;
+  }
+  #standard .standard-highlights {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  #standard .standard-groups {
+    grid-template-columns: 1fr;
+  }
+  #standard .standard-group-card {
+    min-height: 0;
+  }
+}

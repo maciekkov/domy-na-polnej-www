@@ -1031,3 +1031,6 @@
     font-size: 24px;
   }
 }
+/* Immersive viewers occupy the full visual viewport, including the reserved page gutter. */
+.tour-frame-modal,.panorama-modal{width:100vw;height:100dvh}
+html:has(body.modal-open){scrollbar-gutter:auto}

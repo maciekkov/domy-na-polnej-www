@@ -1,0 +1,185 @@
+{
+  "transport": "In-memory local asset mapping; supplied source compiled with TypeScript 5.8.3 and original React runtime. No HTTP/Vite/PHP verification.",
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false,
+      "cards": [
+        {
+          "width": 280,
+          "height": 250,
+          "button": 44,
+          "contentFits": true
+        },
+        {
+          "width": 280,
+          "height": 250,
+          "button": 44,
+          "contentFits": true
+        }
+      ],
+      "fullWidthPdf": true,
+      "metricFits": true,
+      "selectedGallery": "Okolica",
+      "constructionOpen": true,
+      "ceilingCta": 0,
+      "oldPdfCard": 0,
+      "materialsCaption": 0,
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "cards": [
+        {
+          "width": 335,
+          "height": 250,
+          "button": 44,
+          "contentFits": true
+        },
+        {
+          "width": 335,
+          "height": 250,
+          "button": 44,
+          "contentFits": true
+        }
+      ],
+      "fullWidthPdf": true,
+      "metricFits": true,
+      "selectedGallery": "Okolica",
+      "constructionOpen": true,
+      "ceilingCta": 0,
+      "oldPdfCard": 0,
+      "materialsCaption": 0,
+      "pageErrors": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "cards": [
+        {
+          "width": 333,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        },
+        {
+          "width": 333,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        }
+      ],
+      "fullWidthPdf": true,
+      "metricFits": true,
+      "selectedGallery": "Okolica",
+      "constructionOpen": true,
+      "ceilingCta": 0,
+      "oldPdfCard": 0,
+      "materialsCaption": 0,
+      "pageErrors": []
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "cards": [
+        {
+          "width": 461,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        },
+        {
+          "width": 461,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        }
+      ],
+      "fullWidthPdf": true,
+      "metricFits": true,
+      "selectedGallery": "Okolica",
+      "constructionOpen": true,
+      "ceilingCta": 0,
+      "oldPdfCard": 0,
+      "materialsCaption": 0,
+      "pageErrors": []
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "cards": [
+        {
+          "width": 608,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        },
+        {
+          "width": 608,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        }
+      ],
+      "fullWidthPdf": true,
+      "metricFits": true,
+      "selectedGallery": "Okolica",
+      "constructionOpen": true,
+      "ceilingCta": 0,
+      "oldPdfCard": 0,
+      "materialsCaption": 0,
+      "gallerySlides": [
+        "01 / 04\nDziałki od strony lasu",
+        "02 / 04\nDziałki z lotu ptaka",
+        "03 / 04\nWidok od strony pól",
+        "04 / 04\nPanorama okolicy"
+      ],
+      "tourChoiceOpens": true,
+      "pageErrors": []
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "cards": [
+        {
+          "width": 608,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        },
+        {
+          "width": 608,
+          "height": 230,
+          "button": 44,
+          "contentFits": true
+        }
+      ],
+      "fullWidthPdf": true,
+      "metricFits": true,
+      "selectedGallery": "Okolica",
+      "constructionOpen": true,
+      "ceilingCta": 0,
+      "oldPdfCard": 0,
+      "materialsCaption": 0,
+      "pageErrors": []
+    }
+  ],
+  "version": "5.2.0-rc.26",
+  "logicTests": {
+    "pass": 105,
+    "fail": 0,
+    "fullNpmTestCompleted": false
+  },
+  "sourceCheck": 148,
+  "tourDataChecks": 1136,
+  "syntaxCheck": {
+    "typescriptVersion": "5.8.3",
+    "tsModules": 59,
+    "jsFiles": 17
+  },
+  "viteBuildExecuted": false,
+  "fullTypecheckExecuted": false,
+  "githubChanged": false,
+  "productionChanged": false
+}

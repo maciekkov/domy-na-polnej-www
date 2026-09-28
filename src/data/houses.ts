@@ -11,7 +11,7 @@ export type House = {
   name: string
   parcel: string
   status: HouseStatus
-  price: number
+  price: number | null
   area: number
   plot: number
   rooms: number
@@ -35,12 +35,14 @@ export type HouseSelection = HouseId | 'unknown'
 export const isHouseId = (value: string | null): value is HouseId =>
   houses.some((house) => house.id === value)
 
-export const formatPrice = (price: number) =>
+export const formatPrice = (price: number | null) =>
+  price === null ? 'Już wkrótce' :
   new Intl.NumberFormat('pl-PL').format(price).replace(/\u00a0/g, ' ') + ' zł'
 
 export const formatArea = (area: number) =>
   new Intl.NumberFormat('pl-PL', { minimumFractionDigits: Number.isInteger(area) ? 0 : 2, maximumFractionDigits: 2 }).format(area).replace(/\u00a0/g, ' ') + ' m²'
 
-export const pricePerSqm = (house: Pick<House, 'price' | 'area'>) => house.price / house.area
+export const pricePerSqm = (house: Pick<House, 'price' | 'area'>) => house.price === null ? null : house.price / house.area
 export const formatPricePerSqm = (house: Pick<House, 'price' | 'area'>) =>
-  new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(pricePerSqm(house)).replace(/\u00a0/g, ' ') + ' zł/m²'
+  house.price === null ? 'Już wkrótce' :
+  new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(house.price / house.area).replace(/\u00a0/g, ' ') + ' zł/m²'

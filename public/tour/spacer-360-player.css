@@ -371,7 +371,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
    direction remains in data-kind and controls the transition, not its icon. */
 .tour-hotspot__core {
   border: 0;
-  background: transparent url('/tour/pin-premium.png?v=7fc0cda7179bfbad') center / 152% no-repeat;
+  background: transparent url('/tour/pin-premium.webp?v=6211411ea41738a9') center / 152% no-repeat;
   box-shadow: none;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,.42));
   transition: transform 220ms var(--ease), filter 220ms ease;
@@ -380,7 +380,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
 .tour-hotspot:focus-visible .tour-hotspot__core {
   transform: scale(1.12);
   border: 0;
-  background: transparent url('/tour/pin-premium.png?v=7fc0cda7179bfbad') center / 152% no-repeat;
+  background: transparent url('/tour/pin-premium.webp?v=6211411ea41738a9') center / 152% no-repeat;
   box-shadow: none;
   filter: brightness(1.18) drop-shadow(0 0 12px rgba(233,211,160,.45)) drop-shadow(0 8px 14px rgba(0,0,0,.42));
 }
@@ -388,12 +388,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-
 .tour-hotspot__line { display: none; }
 .tour-hotspot__core::before,
 .tour-hotspot[data-pulse="true"] .tour-hotspot__core::before { content: none; animation: none; }
-.tour-hotspot__label { opacity: 0; pointer-events: none; transition: opacity 180ms ease, border-color 220ms ease, background 220ms ease; }
+.tour-hotspot__label { display: block; opacity: 1; pointer-events: auto; transition: border-color 220ms ease, background 220ms ease; }
 .tour-hotspot:hover .tour-hotspot__label,
-.tour-hotspot:focus-visible .tour-hotspot__label { opacity: 1; pointer-events: auto; }
-@media (hover: none) {
-  .tour-hotspot__label { display: none; }
-  .tour-app.is-editor-mode .tour-hotspot__label { display: block; opacity: 1; pointer-events: auto; }
+.tour-hotspot:focus-visible .tour-hotspot__label { border-color: rgba(231,195,111,.48); background: rgba(20,24,20,.86); }
+@media (max-width: 760px), (max-height: 540px) and (orientation: landscape) {
+  .tour-hotspot, .tour-hotspot.is-left { width: 44px; height: 44px; padding: 9px; }
+  .tour-hotspot__core,
+  .tour-hotspots[data-density="dense"] .tour-hotspot__core { width: 26px; height: 26px; }
+  .tour-hotspot__label,
+  .tour-hotspots[data-density="dense"] .tour-hotspot__label {
+    display: block; max-width: min(110px, 28vw); padding: 4px 6px; font-size: 9px; line-height: 1.2;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .tour-hotspot__core, .tour-hotspot__label { transition: none; }

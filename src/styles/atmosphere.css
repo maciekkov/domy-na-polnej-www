@@ -1,6 +1,6 @@
 /* V5 — restrained botanical system: a few accents, never behind transaction controls. */
 .homes,.why-home,.journal-section{position:relative;isolation:isolate;overflow:clip}
-.homes::after{content:"";position:absolute;z-index:-1;right:-170px;top:-90px;width:420px;aspect-ratio:4/3;background:url('/assets/images/decor/linden-corner.png?v=4e04f38fe0ea2c54') top right/contain no-repeat;opacity:.4;pointer-events:none}
+.homes::after{content:none}
 .why-home::before,.why-home::after,.standard-section::before,.standard-section::after,.journal-section::before,.journal-section::after{content:none}
 .contact-section::before{opacity:.13}
 .homes__heading{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:end;gap:36px;margin-bottom:32px}

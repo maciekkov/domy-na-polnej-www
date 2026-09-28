@@ -1,6 +1,18 @@
-# Domy na Polnej — 5.2.0-rc.16
+# Domy na Polnej — 5.2.0-rc.29
+
+Aktualizacja: dwie sekcje standardu według przesłanego wzoru. Komplet kodu, wyciętych grafik WebP i oryginalnego PDF znajduje się w tej paczce.
+
+Zmiany i zakres weryfikacji: **ZMIANY_RC29.md** oraz **QA_RC29.json**. Jest to paczka źródłowa; build Vite wymaga wykonania `npm ci` i `npm run build` w środowisku z dostępem do npm. W tej sesji sprawdzono lokalnie rzeczywisty komponent React i CSS, ale nie wykonano builda produkcyjnego (niedostępna sieć npm).
+
+---
+
+# Historia i dotychczasowe instrukcje projektu (RC23 i wcześniejsze)
+
+Poniższe informacje o dawnych wynikach testów i gotowych katalogach dotyczą wcześniejszych wydań. Aktualny zakres weryfikacji RC29 oraz brak builda opisano powyżej i w `QA_RC29.json`.
 
 Wydanie po audycie mobile. Gotowe pliki serwera: `hosting/public_html/` oraz `hosting/private/`. Instrukcja wdrożenia i konfiguracji Gmail: **WDROZENIE-HOSTING.md**.
+
+W rc.19 po interaktywnym rzucie dodano sekcję o suficie katedralnym z wysokością 5,82 m w najwyższym punkcie salonu. Używa istniejącego zdjęcia ze spaceru wewnętrznego; nie zastępuje materiału technicznego pokazującego pełny przekrój sufitu.
 
 ## Build
 
@@ -8,10 +20,10 @@ Node.js >=22.12:
 
 ```sh
 npm ci
-npm run build:hosting
+npm run build
 ```
 
-Budowanie zachowuje prywatną konfigurację i hasło analityki. Przy aktualizacji działającego hostingu zachowaj jego katalog private; przenieś do konfiguracji poprawiony adres odbiorcy oraz ustawienia SMTP opisane w instrukcji.
+Zwykły build od razu przygotowuje `hosting/public_html/` i `hosting/private/`. Komenda `npm run build:hosting` pozostaje zgodna wstecznie i uruchamia ten sam build tylko raz. Budowanie zachowuje prywatną konfigurację i hasło analityki, jeśli są już w `hosting/private/`; przy pierwszym buildzie generuje dane dostępu. Przy aktualizacji działającego hostingu zachowaj jego katalog private; ustawienia SMTP opisano w instrukcji.
 
 ## Podgląd
 
@@ -34,4 +46,4 @@ Produkcyjny panel /administrator-control/ pokazuje podsumowania, źródła, urz�
 
 ## Panel administratora v5.1 Premium (rc.10)
 
-`npm run build:hosting` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Do wysyłania wiadomości do Gmaila potrzebne jest hasło aplikacji w prywatnej konfiguracji serwera; paczka go nie zawiera. Szczegóły w `WDROZENIE-HOSTING.md`.
+`npm run build` tworzy również `/administrator/` z siedmioma zakładkami panelu v5.1. Logowanie na hostingu korzysta z bieżącego hasła w `hosting/private/dnp/DOSTEP-ANALITYKA.txt`; zmiany w zakładkach edytora pozostają lokalnym szkicem w przeglądarce. Zakładka Analityka automatycznie pobiera produkcyjne statystyki i umożliwia przeglądanie historii wizyt. `_old_copy.zip` i jego historia nie są używane. Do wysyłania wiadomości do Gmaila potrzebne jest hasło aplikacji w prywatnej konfiguracji serwera; paczka go nie zawiera. Szczegóły w `WDROZENIE-HOSTING.md`.

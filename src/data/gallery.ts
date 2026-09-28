@@ -30,9 +30,9 @@ export const galleryImages: Record<GalleryCategory, GalleryImage[]> = {
       alt: 'Tylna elewacja domu z ogrodem i tarasem',
     },
     {
-      src: '/assets/images/spacer-360/exterior/webp/10_dom_od_strony_ogrodu.webp?v=3d050a9fe333ba1a',
-      title: 'Dom od strony ogrodu',
-      alt: 'Szeroki widok domu od strony ogrodu i tarasu',
+      src: '/assets/images/spacer-360/exterior/webp/09_taras_przy_salonie.webp?v=cb834c2f372c4006',
+      title: 'Taras przy salonie',
+      alt: 'Taras przy salonie i prywatny ogród',
     },
   ],
   inside: [
@@ -47,6 +47,5 @@ export const galleryImages: Record<GalleryCategory, GalleryImage[]> = {
     { src: '/assets/images/neighborhood/plots-aerial.webp?v=1e1c177287ce686d', title: 'Działki z lotu ptaka', alt: 'Widok z drona na działki inwestycji w Grabiku' },
     { src: '/assets/images/neighborhood/fields.webp?v=24b8be2341f1952f', title: 'Widok od strony pól', alt: 'Otwarta przestrzeń i pola otaczające inwestycję' },
     { src: '/assets/images/neighborhood/forest-panorama.webp?v=66a5cc20b925ff3b', title: 'Panorama okolicy', alt: 'Panoramiczny widok zielonej okolicy i lasu' },
-    { src: '/assets/images/neighborhood/panorama-360-grabik.webp?v=c7a1986872c74640', title: 'Panorama 360° z drona', alt: 'Sferyczna panorama 360 stopni okolicy Grabika wykonana z drona' },
   ],
 }

@@ -1,3 +1,4 @@
+import { legalMarkup } from '../src/lib/legalContent.mjs'
 import { refreshPublishedSeo } from './generate-seo.mjs'
 import { parseSiteData, resolveSiteDocuments } from '../src/data/runtime/siteSchema.mjs'
 import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -15,14 +16,15 @@ mkdirSync(resolve(dist, 'assets/build'), { recursive: true })
 cpSync(resolve(root, 'scripts/build-cache.htaccess'), resolve(dist, 'assets/build/.htaccess'))
 
 mkdirSync(resolve(dist, 'api'), { recursive: true })
-for (const file of ['contact.php', 'analytics.php', 'analytics-summary.php', 'gov-sync.php', 'gov-sync-cron.php', 'event-names.json', 'config.example.php', '.htaccess']) {
+for (const file of ['contact.php', 'presale.php', 'analytics.php', 'analytics-summary.php', 'analytics-journey.php', 'gov-sync.php', 'gov-sync-cron.php', 'event-names.json', 'config.example.php', '.htaccess']) {
   cpSync(resolve(api, file), resolve(dist, 'api', file))
 }
 cpSync(resolve(api,'lib'), resolve(dist,'api/lib'), { recursive: true })
 mkdirSync(resolve(dist, 'api', 'data'), { recursive: true })
 cpSync(resolve(api, 'data', '.gitkeep'), resolve(dist, 'api', 'data', '.gitkeep'))
 
-const sourceHtml = readFileSync(resolve(dist, 'index.html'), 'utf8').replace(/<div id="root">[\s\S]*?<!--dnp-home-end--><\/div>/, '<div id="root"></div>')
+const data = resolveSiteDocuments(parseSiteData(JSON.parse(readFileSync(resolve(dist,'data/site-data.json'),'utf8'))))
+const sourceHtml = readFileSync(resolve(dist, 'index.html'), 'utf8').replace(/<div id="root">[\s\S]*?<!--dnp-home-end--><\/div>/, '<div id="root"></div>').replace(/<script id="site-schema"[^>]*>[\s\S]*?<\/script>/,'').replace(/<link rel="preload" as="image"[^>]*>/g,'')
 const legalPages = [
   {
     path: 'polityka-prywatnosci',
@@ -40,7 +42,7 @@ for (const page of legalPages) {
   const dir = resolve(dist, page.path)
   mkdirSync(dir, { recursive: true })
   const canonical = `https://domynapolnej.pl/${page.path}/`
-  const html = sourceHtml
+  const html = sourceHtml.replace('<div id="root"></div>', `<div id="root">${legalMarkup(page.path === 'polityka-prywatnosci'?'privacy':'cookies',data.contact)}</div>`)
     .replace(/<title>.*?<\/title>/s, `<title>${page.title}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${page.description}" />`)
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />`)
@@ -52,7 +54,7 @@ for (const page of legalPages) {
   writeFileSync(resolve(dir, 'index.html'), html)
 }
 
-const notFound = sourceHtml
+const notFound = sourceHtml.replace('<div id="root"></div>', '<div id="root"><main class="not-found"><div><span>404</span><h1>Nie znaleźliśmy tej strony.</h1><p>Adres mógł się zmienić albo zawiera błąd. Wróć do strony inwestycji.</p><a class="button button--olive" href="/">Strona główna</a></div></main></div>')
   .replace(/<title>.*?<\/title>/s, '<title>404 — Domy na Polnej</title>')
   .replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />')
   .replace(/<link rel="canonical" href="[^"]*" \/>/, '')

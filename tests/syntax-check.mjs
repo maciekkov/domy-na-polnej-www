@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { walk, root } from '../scripts/asset-inventory.mjs'
 const require=createRequire(import.meta.url)
 let ts
-ts=require('../vendor/typescript.cjs')
+ts=require('typescript')
 let modules=0, scripts=0
 for (const file of [...walk(join(root,'src')),join(root,'vite.config.ts')]) {
   if (!/\.tsx?$/.test(file) || file.endsWith('.d.ts')) continue
