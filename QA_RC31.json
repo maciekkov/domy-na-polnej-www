@@ -1,0 +1,32 @@
+{
+  "version": "5.2.0-rc.31",
+  "date": "2026-09-28",
+  "scope": "presale mail notification backend only",
+  "checks": {
+    "phpSyntax": {
+      "passed": 13,
+      "failed": 0
+    },
+    "sourceCheck": {
+      "passed": 151,
+      "failed": 0
+    },
+    "apiSecurityAndMail": {
+      "passed": 59,
+      "failed": 0,
+      "transport": "loopback SMTP mock; no external mail sent"
+    },
+    "defaultPhpMailPresale": {
+      "passed": true,
+      "result": "HTTP 200; recipient mkdevelop2026@gmail.com; From kontakt@domynapolnej.pl; Reply-To lead address; signup body captured through fake local sendmail"
+    },
+    "fullNpmTest": {
+      "executed": true,
+      "passed": 110,
+      "blocked": 1,
+      "reason": "overlay-history.test.mjs imports React; distribution intentionally contains no node_modules and npm install was not run. The failure is missing dependency, not a test assertion regression."
+    }
+  },
+  "frontendChanged": false,
+  "productionDeliveryNotTested": true
+}

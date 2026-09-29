@@ -1,0 +1,36 @@
+{
+  "base": "domy-na-polnej-www-5.2.0-rc.35-PREMIUM-FLOW(1).zip",
+  "version": "5.2.0-rc.36",
+  "changed": [
+    "package-lock.json",
+    "src/app/App.tsx",
+    "src/styles/site.css",
+    "src/styles/sections/cathedral-premium.css",
+    "src/styles/sections/flow-premium-bridges.css",
+    "src/sections/CathedralCeiling/CathedralCeiling.tsx",
+    "package.json"
+  ],
+  "added": [
+    "docs/RC36_AUDYT.md",
+    "docs/flow-rc36/desktop-1672.png",
+    "docs/flow-rc36/mobile-390.png",
+    "docs/flow-rc36/runtime-results.json",
+    "tests/flow-rc36.browser.mjs",
+    "tests/flow-rc36.test.mjs",
+    "CHANGED_FILES_RC36.txt",
+    "docs/flow-rc36/change-manifest.json"
+  ],
+  "removed": [],
+  "unchanged_original_files": 428,
+  "public_files_byte_identical": true,
+  "api_files_byte_identical": true,
+  "hashes_of_changed": {
+    "package-lock.json": "d239a68ef5ad5b9b2b2cc2076b3bcc6338e21eab496ac795e15704e1017e8c1a",
+    "src/app/App.tsx": "daad024d51f6726815fbf75b26cf831af0d2fa564f05c434f26178fee6db72ce",
+    "src/styles/site.css": "a60ee465ab0b243e60919086be32e0d708f70405918d24df8a007b37366b94bf",
+    "src/styles/sections/cathedral-premium.css": "0a9ba6547a837acc3d561d555e76b3417681672976f2c712f424426d5a537add",
+    "src/styles/sections/flow-premium-bridges.css": "a32e2928f6bcc3b9ed23b27ef05a31b372636ba9b5bda8edce208f73f391ca97",
+    "src/sections/CathedralCeiling/CathedralCeiling.tsx": "79ca46fc357adbc041d5bb2a7670c699bc23f6780acc2b5d442653be3ccde476",
+    "package.json": "7ec2d148dcdcb59132554a3fe901e9a9e46957d85db2d8ed62f41a96d27f058d"
+  }
+}

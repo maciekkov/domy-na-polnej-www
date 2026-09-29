@@ -41,8 +41,9 @@
 
 .contact-details > a {
   display: grid;
-  grid-template-columns: 25px 1fr;
-  gap: 13px;
+  /* Keep the text outside the circular 41 px contact icon used by the final theme. */
+  grid-template-columns: 41px minmax(0,1fr);
+  gap: 17px;
   min-height: 40px;
   align-items: start;
   text-decoration: none;

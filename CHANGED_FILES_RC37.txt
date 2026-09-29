@@ -1,0 +1,26 @@
+BAZA: RC36 EDITORIAL FLOW
+WYNIK: RC37 CHAPTER FLOW
+
+ZMIENIONE:
+CHANGELOG.md
+VERSION
+VERSION.json
+package-lock.json
+package.json
+src/sections/Gallery/Gallery.tsx
+src/sections/SecurityProcess/SecurityProcess.tsx
+src/styles/site.css
+tests/flow-rc36.test.mjs
+
+DODANE:
+docs/RC37_AUDYT.md
+docs/flow-rc37/desktop.jpg
+docs/flow-rc37/mobile.jpg
+docs/flow-rc37/runtime-results.json
+src/components/common/ChapterFlowEdge.tsx
+src/styles/sections/chapter-flow.css
+tests/chapter-flow-rc37.test.mjs
+CHANGED_FILES_RC37.txt
+
+USUNIĘTE: brak
+PUBLIC: wszystkie 186 plików identyczne bajtowo z RC36.

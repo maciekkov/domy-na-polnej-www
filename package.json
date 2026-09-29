@@ -1,7 +1,7 @@
 {
   "name": "domy-na-polnej-www",
   "private": true,
-  "version": "5.2.0-rc.30",
+  "version": "5.2.0-rc.41",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -36,7 +36,10 @@
     "test:experience": "node --test tests/experience-rc26.test.mjs",
     "test:experience:browser": "node tests/experience-rc26.browser.mjs",
     "test:standard": "node --test tests/standard-rc29.test.mjs",
-    "test:standard:browser": "node tests/standard-rc29.browser.mjs"
+    "test:standard:browser": "node tests/standard-rc29.browser.mjs",
+    "test:flow": "node --test tests/flow-rc36.test.mjs",
+    "test:flow:browser": "node tests/flow-rc36.browser.mjs",
+    "test:chapters": "node --test tests/chapter-flow-rc37.test.mjs"
   },
   "dependencies": {
     "react": "19.1.1",

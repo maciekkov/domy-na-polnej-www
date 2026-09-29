@@ -1,0 +1,1000 @@
+[
+  {
+    "width": 320,
+    "height": 844,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 320,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 44
+          },
+          {
+            "width": 320,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 45
+          },
+          {
+            "width": 320,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 44
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 11082.4375,
+          "expanded": 12091.0625
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 390,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 44
+          },
+          {
+            "width": 390,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 45
+          },
+          {
+            "width": 390,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 44
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 10848.984375,
+          "expanded": 11646.546875
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "panorama opens above sections with accessible close control",
+        "pass": true,
+        "detail": {
+          "webglAvailable": false,
+          "render3DSkipped": true,
+          "note": "This Chromium environment has WebGL disabled; the unchanged viewer shows its original fallback."
+        }
+      },
+      {
+        "test": "panorama closes without locking page",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 19,
+    "total": 19
+  },
+  {
+    "width": 768,
+    "height": 900,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 753,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 70
+          },
+          {
+            "width": 753,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 64
+          },
+          {
+            "width": 753,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 65
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 10768.40625,
+          "expanded": 11226.75
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  },
+  {
+    "width": 960,
+    "height": 900,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 945,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 70
+          },
+          {
+            "width": 945,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 64
+          },
+          {
+            "width": 945,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 65
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 10924.203125,
+          "expanded": 11320.15625
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  },
+  {
+    "width": 1024,
+    "height": 900,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 1009,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 82
+          },
+          {
+            "width": 1009,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 70
+          },
+          {
+            "width": 1009,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 62
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 7815.109375,
+          "expanded": 8419.03125
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 1425,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 103.671875
+          },
+          {
+            "width": 1425,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 90.71875
+          },
+          {
+            "width": 1425,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 83.515625
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 8115.25,
+          "expanded": 8568.09375
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  },
+  {
+    "width": 1672,
+    "height": 941,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 1657,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 120.375
+          },
+          {
+            "width": 1657,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 105.328125
+          },
+          {
+            "width": 1657,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 96.96875
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 8448.515625,
+          "expanded": 8901.359375
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "panorama opens above sections with accessible close control",
+        "pass": true,
+        "detail": {
+          "webglAvailable": false,
+          "render3DSkipped": true,
+          "note": "This Chromium environment has WebGL disabled; the unchanged viewer shows its original fallback."
+        }
+      },
+      {
+        "test": "panorama closes without locking page",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 19,
+    "total": 19
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 1905,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 138
+          },
+          {
+            "width": 1905,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 114
+          },
+          {
+            "width": 1905,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 111.359375
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 8684.265625,
+          "expanded": 9137.109375
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  },
+  {
+    "width": 2560,
+    "height": 1080,
+    "checks": [
+      {
+        "test": "all original text, links, buttons, illustrations and details retained",
+        "pass": true
+      },
+      {
+        "test": "no horizontal overflow",
+        "pass": true
+      },
+      {
+        "test": "every target image actually loaded",
+        "pass": true
+      },
+      {
+        "test": "eight highlights, six detail groups, three illustrations retained",
+        "pass": true
+      },
+      {
+        "test": "three full-width real curved SVG edges",
+        "pass": true,
+        "detail": [
+          {
+            "width": 2545,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 138
+          },
+          {
+            "width": 2545,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 114
+          },
+          {
+            "width": 2545,
+            "x": 0,
+            "ptr": "none",
+            "hidden": "true",
+            "paths": 3,
+            "svgHeight": 112
+          }
+        ]
+      },
+      {
+        "test": "decorations cannot intercept clicks or accessibility",
+        "pass": true
+      },
+      {
+        "test": "spacer CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "standard PDF CTA unobstructed",
+        "pass": true
+      },
+      {
+        "test": "document links unobstructed",
+        "pass": true
+      },
+      {
+        "test": "all six details open with readable original content",
+        "pass": true
+      },
+      {
+        "test": "expanded content pushes next chapter; not clipped by fixed heights",
+        "pass": true,
+        "detail": {
+          "closed": 9262.796875,
+          "expanded": 9715.640625
+        }
+      },
+      {
+        "test": "keyboard still expands standard detail",
+        "pass": true
+      },
+      {
+        "test": "tour chooser opens above all chapter layers",
+        "pass": true
+      },
+      {
+        "test": "tour focus stays inside dialog",
+        "pass": true
+      },
+      {
+        "test": "tour closes and restores CTA focus",
+        "pass": true
+      },
+      {
+        "test": "no page runtime errors",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "test": "no missing local preview resources",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "passed": 17,
+    "total": 17
+  }
+]

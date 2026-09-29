@@ -1,0 +1,29 @@
+{
+  "release": "5.2.0-rc.34",
+  "scope": "CathedralCeiling / #wysoki-sufit only",
+  "sourceCheck": {
+    "passed": 151,
+    "failed": 0
+  },
+  "experienceRegression": {
+    "passed": 5,
+    "failed": 0
+  },
+  "npmTest": {
+    "passed": 110,
+    "failed": 1,
+    "failure": "overlay-history.test.mjs could not import React because npm dependencies are incomplete in this runtime"
+  },
+  "typescriptSyntax": "PASS — CathedralCeiling.tsx transpileModule diagnostics: 0 errors",
+  "cssBraceBalance": "PASS",
+  "visual": {
+    "desktopViewport": "1672x941",
+    "mobileViewport": "390x844",
+    "desktopDocumentWidth": 1672,
+    "mobileDocumentWidth": 390,
+    "horizontalOverflow": false,
+    "referenceCompared": true
+  },
+  "viteBuild": "NOT RUN — complete npm dependency set unavailable in execution environment",
+  "notes": "No other user-facing section was intentionally changed. Existing approved interior and decorative assets were reused; no new architecture image was generated."
+}

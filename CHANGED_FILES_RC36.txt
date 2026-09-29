@@ -1,0 +1,23 @@
+RC36 — PREMIUM FLOW
+
+ZMIENIONE PLIKI (7):
+package-lock.json
+src/app/App.tsx
+src/styles/site.css
+src/styles/sections/cathedral-premium.css
+src/styles/sections/flow-premium-bridges.css
+src/sections/CathedralCeiling/CathedralCeiling.tsx
+package.json
+
+DODANE:
+docs/RC36_AUDYT.md
+docs/flow-rc36/desktop-1672.png
+docs/flow-rc36/mobile-390.png
+docs/flow-rc36/runtime-results.json
+tests/flow-rc36.browser.mjs
+tests/flow-rc36.test.mjs
+CHANGED_FILES_RC36.txt
+docs/flow-rc36/change-manifest.json
+
+Nie usunięto plików. Public, API, dane i pozostałe istniejące pliki zachowane bajtowo.
+Pełny opis w docs/RC36_AUDYT.md.

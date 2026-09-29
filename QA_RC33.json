@@ -1,0 +1,30 @@
+{
+  "release": "5.2.0-rc.33",
+  "scope": "WhyHome / #dom only",
+  "sourceCheck": {
+    "passed": 151,
+    "failed": 0
+  },
+  "experienceRegression": {
+    "passed": 5,
+    "failed": 0
+  },
+  "focusedNodeTests": {
+    "passed": 110,
+    "failed": 0,
+    "notRun": [
+      "tests/overlay-history.test.mjs"
+    ],
+    "notRunReason": "React dependency unavailable because node_modules could not be installed in this runtime"
+  },
+  "typescriptSyntax": "PASS",
+  "cssBraceBalance": "PASS",
+  "visual": {
+    "desktopViewport": "1672x941",
+    "mobileViewport": "390x844",
+    "horizontalOverflow": false,
+    "referenceCompared": true
+  },
+  "viteBuild": "NOT RUN — npm dependencies unavailable in execution environment",
+  "notes": "No other user-facing section was intentionally changed. Two new WebP files are derived crops from the existing approved front render, not newly generated architecture."
+}

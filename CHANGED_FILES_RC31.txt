@@ -1,0 +1,21 @@
+RC31 vs RC30 MAIL FIX
+
+MODIFIED
+VERSION
+VERSION.json
+package.json
+package-lock.json
+api/presale.php
+tests/api-security-qa.py
+tests/source-check.mjs
+CHANGELOG.md
+
+ADDED
+CHANGED_FILES_RC31.txt
+ZMIANY_RC31.md
+QA_RC31.json
+
+REMOVED
+none
+
+Functional scope: presale e-mail notification only. Public frontend/UI/assets remain unchanged from RC30.

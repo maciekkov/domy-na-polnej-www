@@ -1,3 +1,4 @@
+import { ChapterFlowEdge } from '../../components/common/ChapterFlowEdge'
 import { ClipboardList, Handshake, Home, Landmark, ScrollText, ShieldCheck } from '../../components/common/Icons'
 import { useEffect, useRef, useState } from 'react'
 import { useSiteData } from '../../data/runtime/SiteDataProvider'
@@ -57,6 +58,7 @@ export function SecurityProcess() {
   return (
     <>
     <section id="bezpieczenstwo" ref={sectionRef} className={`security-section ${visible ? 'is-visible' : ''}`} aria-labelledby="security-title">
+      <ChapterFlowEdge variant="trust" />
       <div className="shell">
         <div className="section-kicker section-kicker--dark"><span />Bezpieczeństwo + proces zakupu</div>
         <div className="security-photo" aria-hidden="true" /><h2 id="security-title">Najpierw konkret.<br /><em>Potem decyzja.</em></h2>
@@ -81,7 +83,9 @@ export function SecurityProcess() {
           <div className="document-shelf__intro"><span>Do spokojnego sprawdzenia</span><h3>Materiały do pobrania</h3><p>Przykładowa karta domu i pełny standard wykonania — bez formularza. Karty poszczególnych działek znajdziesz przy wyborze domu.</p></div>
           <div className="document-shelf__files">{downloads.map(doc=><a key={doc.id} href={doc.publicUrl} target="_blank" rel="noreferrer" aria-label={`Otwórz ${doc.type === 'house_card' ? 'przykładową kartę domu' : doc.title}, PDF`}>{doc.type === 'house_card' ? <Home size={22} aria-hidden="true" /> : <ClipboardList size={22} aria-hidden="true" />}<span><strong>{doc.type === 'house_card' ? 'Przykładowa karta domu' : doc.title}</strong></span><ArrowUpRight size={18} aria-hidden="true" /></a>)}</div>
         </div>
-        </div></section><section id="proces-zakupu" className="purchase-section" aria-labelledby="purchase-title"><div className="shell"><div className="section-kicker section-kicker--dark"><span />Proces zakupu</div><div className="security-ref__process">
+        </div>
+      <ChapterFlowEdge variant="process" />
+    </section><section id="proces-zakupu" className="purchase-section" aria-labelledby="purchase-title"><div className="shell"><div className="section-kicker section-kicker--dark"><span />Proces zakupu</div><div className="security-ref__process">
           <div className="security-ref__process-heading">
             <h2 id="purchase-title">Prosty proces<br /><em>zakupu.</em></h2>
             <p>Od wyboru konkretnego domu do odbioru kluczy — krok po kroku.</p>

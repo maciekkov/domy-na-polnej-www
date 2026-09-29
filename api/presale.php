@@ -21,15 +21,44 @@ try {
     $retry = dnpLimit($privateDir, 'presale-submit', $identity, [[5,3600],[100,3600,true]]);
     if ($retry) dnpRespond(429, ['ok'=>false,'message'=>'Odczekaj przed kolejną próbą.'], $retry);
     $changed = dnpPresaleChange($privateDir, $email, $action);
-    if ($changed) {
-        // The private list is authoritative; a temporary mail failure cannot undo a saved consent/removal.
+
+    // Każde prawidłowe zgłoszenie zapisu wysyła powiadomienie do biura.
+    // Dotyczy to również ponownego wysłania tego samego adresu: zapis w bazie
+    // pozostaje pojedynczy, ale właściciel strony dostaje e-mail z formularza.
+    if ($action === 'subscribe') {
+        $subject = $changed
+            ? 'NOWY ZAPIS — przedsprzedaż Domy na Polnej'
+            : 'PONOWNY ZAPIS — przedsprzedaż Domy na Polnej';
+        $body = "Nowe zgłoszenie z formularza przedsprzedaży Domy na Polnej\n\n" .
+                "E-mail zainteresowanego: {$email}\n" .
+                "Status: " . ($changed ? 'nowy adres zapisany na liście' : 'adres był już zapisany na liście') . "\n" .
+                "Data UTC: " . gmdate('c') . "\n\n" .
+                "Adres pozostaje zapisany w prywatnej liście przedsprzedaży.";
         try {
-            dnpSendConfiguredMail(
+            $transport = dnpSendConfiguredMail($config, $subject, $body, $email);
+            error_log('[DNP presale] signup notification accepted by ' . $transport);
+        } catch (Throwable $mailError) {
+            error_log('[DNP presale] signup saved, but notification mail delivery failed');
+            dnpRespond(502, [
+                'ok' => false,
+                'saved' => true,
+                'message' => 'Adres został zapisany, ale nie udało się wysłać powiadomienia do biura. Spróbuj ponownie za chwilę.'
+            ]);
+        }
+    } elseif ($changed) {
+        // Rezygnacja jest raportowana tylko wtedy, gdy faktycznie usunięto adres.
+        try {
+            $transport = dnpSendConfiguredMail(
                 $config,
-                $action === 'subscribe' ? 'Nowy zapis na przedsprzedaż' : 'Rezygnacja z powiadomienia',
-                "Adres: ".$email."\nOperacja: ".$action."\nData UTC: ".gmdate('c')."\nBieżąca lista w prywatnym magazynie jest wiążąca."
+                'REZYGNACJA — przedsprzedaż Domy na Polnej',
+                "Rezygnacja z listy przedsprzedaży Domy na Polnej\n\nE-mail: {$email}\nData UTC: " . gmdate('c'),
+                $email
             );
-        } catch (Throwable $mailError) { error_log('[DNP presale] Saved change; notification delivery failed. Check hosting mail transport and private list.'); }
+            error_log('[DNP presale] unsubscribe notification accepted by ' . $transport);
+        } catch (Throwable $mailError) {
+            // Rezygnacja musi pozostać skuteczna nawet przy awarii transportu pocztowego.
+            error_log('[DNP presale] unsubscribe saved; notification delivery failed');
+        }
     }
     dnpRespond(200, ['ok'=>true]);
 } catch (Throwable $error) {

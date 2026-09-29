@@ -1,0 +1,542 @@
+[
+  {
+    "width": 320,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 320,
+      "bodyWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "cat": {
+        "x": 0,
+        "y": 4426.421875,
+        "w": 320,
+        "h": 1286.21875
+      },
+      "garden": {
+        "x": 0,
+        "y": 5196.015625,
+        "w": 320,
+        "h": 516.625
+      },
+      "loc": {
+        "x": 0,
+        "y": 5682.640625,
+        "w": 320,
+        "h": 1095.953125
+      },
+      "overlap": 30,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 5683,
+      "locationDocumentY": 5682.640625,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 390,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 390,
+      "bodyWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cat": {
+        "x": 0,
+        "y": 4419.296875,
+        "w": 390,
+        "h": 1201.796875
+      },
+      "garden": {
+        "x": 0,
+        "y": 5128.46875,
+        "w": 390,
+        "h": 492.625
+      },
+      "loc": {
+        "x": 0,
+        "y": 5591.09375,
+        "w": 390,
+        "h": 1076.6875
+      },
+      "overlap": 30,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 5591,
+      "locationDocumentY": 5591.09375,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 768,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 768,
+      "bodyWidth": 753,
+      "clientWidth": 768,
+      "scrollWidth": 753,
+      "cat": {
+        "x": 0,
+        "y": 4971.53125,
+        "w": 753,
+        "h": 1197.40625
+      },
+      "garden": {
+        "x": 0,
+        "y": 5859.65625,
+        "w": 753,
+        "h": 309.28125
+      },
+      "loc": {
+        "x": 0,
+        "y": 6138.9375,
+        "w": 753,
+        "h": 1161.640625
+      },
+      "overlap": 30,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 6139,
+      "locationDocumentY": 6138.9375,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 960,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 960,
+      "bodyWidth": 945,
+      "clientWidth": 960,
+      "scrollWidth": 945,
+      "cat": {
+        "x": 0,
+        "y": 5245.5,
+        "w": 945,
+        "h": 1267.1875
+      },
+      "garden": {
+        "x": 0,
+        "y": 6197.625,
+        "w": 945,
+        "h": 315.0625
+      },
+      "loc": {
+        "x": 0,
+        "y": 6482.6875,
+        "w": 945,
+        "h": 1161.640625
+      },
+      "overlap": 30,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 6483,
+      "locationDocumentY": 6482.6875,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 1024,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 1024,
+      "bodyWidth": 1009,
+      "clientWidth": 1024,
+      "scrollWidth": 1009,
+      "cat": {
+        "x": 0,
+        "y": 4149.328125,
+        "w": 1009,
+        "h": 580.140625
+      },
+      "garden": {
+        "x": 0,
+        "y": 4561.46875,
+        "w": 1009,
+        "h": 168
+      },
+      "loc": {
+        "x": 0,
+        "y": 4630.359375,
+        "w": 1009,
+        "h": 684.546875
+      },
+      "overlap": 99.109375,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 4630,
+      "locationDocumentY": 4630.359375,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 1440,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 1440,
+      "bodyWidth": 1425,
+      "clientWidth": 1440,
+      "scrollWidth": 1425,
+      "cat": {
+        "x": 0,
+        "y": 4425.40625,
+        "w": 1425,
+        "h": 570.546875
+      },
+      "garden": {
+        "x": 0,
+        "y": 4827.484375,
+        "w": 1425,
+        "h": 168.46875
+      },
+      "loc": {
+        "x": 0,
+        "y": 4896.5625,
+        "w": 1425,
+        "h": 680.578125
+      },
+      "overlap": 99.390625,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 4897,
+      "locationDocumentY": 4896.5625,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 1672,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 1672,
+      "bodyWidth": 1657,
+      "clientWidth": 1672,
+      "scrollWidth": 1657,
+      "cat": {
+        "x": 0,
+        "y": 4658.109375,
+        "w": 1657,
+        "h": 619.171875
+      },
+      "garden": {
+        "x": 0,
+        "y": 5081.671875,
+        "w": 1657,
+        "h": 195.609375
+      },
+      "loc": {
+        "x": 0,
+        "y": 5161.875,
+        "w": 1657,
+        "h": 678.09375
+      },
+      "overlap": 115.40625,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 5162,
+      "locationDocumentY": 5161.875,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 1920,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 1920,
+      "bodyWidth": 1905,
+      "clientWidth": 1920,
+      "scrollWidth": 1905,
+      "cat": {
+        "x": 0,
+        "y": 4808.5625,
+        "w": 1905,
+        "h": 711.015625
+      },
+      "garden": {
+        "x": 0,
+        "y": 5294.953125,
+        "w": 1905,
+        "h": 224.625
+      },
+      "loc": {
+        "x": 0,
+        "y": 5387.046875,
+        "w": 1905,
+        "h": 669.5
+      },
+      "overlap": 132.53125,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 5387,
+      "locationDocumentY": 5387.046875,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "width": 2560,
+    "checks": {
+      "noHorizontalOverflow": true,
+      "fullWidthScene": true,
+      "fullWidthRibbon": true,
+      "physicalMapOverlap": true,
+      "originalInterior": true,
+      "originalMap": true,
+      "stableNavigationOffsets": true,
+      "noDuplicateSVGIds": true,
+      "textDoesNotCrossPhoto": true,
+      "directionsLinksPreserved": true,
+      "roomSelectionUpdatesPanel": true,
+      "zoneSelection": true,
+      "furnitureMode": true,
+      "locationActiveNavigation": true,
+      "noRuntimeErrors": true,
+      "noMissingAssets": true
+    },
+    "facts": {
+      "viewport": 2560,
+      "bodyWidth": 2545,
+      "clientWidth": 2560,
+      "scrollWidth": 2545,
+      "cat": {
+        "x": 0,
+        "y": 5168.75,
+        "w": 2545,
+        "h": 927.40625
+      },
+      "garden": {
+        "x": 0,
+        "y": 5836.15625,
+        "w": 2545,
+        "h": 260
+      },
+      "loc": {
+        "x": 0,
+        "y": 5942.765625,
+        "w": 2545,
+        "h": 686.9375
+      },
+      "overlap": 153.390625,
+      "photoSrc": "/assets/images/spacer-360/interior/webp/int11c-idz-do-jadalni.webp?v=ebd95fd4d4eaacba",
+      "photoLoaded": 1672,
+      "mapSrc": "/assets/images/location-map.webp?v=165b294398bf3ee5",
+      "wrapperPosition": "static",
+      "locationOffset": 5943,
+      "locationDocumentY": 5942.765625,
+      "photoTextCollisions": [],
+      "links": [
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237",
+        "https://www.google.com/maps/search/?api=1&query=51.657611,15.086237"
+      ],
+      "duplicateIds": []
+    },
+    "errors": [],
+    "missing": []
+  }
+]

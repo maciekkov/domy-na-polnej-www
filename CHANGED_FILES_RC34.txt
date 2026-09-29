@@ -1,0 +1,11 @@
+src/sections/CathedralCeiling/CathedralCeiling.tsx
+src/styles/sections/cathedral-premium.css
+src/styles/site.css
+VERSION
+VERSION.json
+package.json
+package-lock.json
+CHANGELOG.md
+ZMIANY_RC34.md
+CHANGED_FILES_RC34.txt
+QA_RC34.json

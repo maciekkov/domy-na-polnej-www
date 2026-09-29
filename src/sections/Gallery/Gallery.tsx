@@ -1,3 +1,4 @@
+import { ChapterFlowEdge } from '../../components/common/ChapterFlowEdge'
 import { ArrowUpRight, ChevronRight, Image as ImageIcon, Move3d, Scan } from '../../components/common/Icons'
 import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
@@ -110,6 +111,8 @@ export function Gallery({ selectedHouse }: GalleryProps) {
         </div>
         <div className="immersive-signature"><span />Więcej niż dom · przestrzeń do życia<span /></div>
       </div>
+
+      <ChapterFlowEdge variant="explore" />
 
       {lightboxIndex !== null && <GalleryLightbox images={images} index={lightboxIndex} onIndex={setLightboxIndex} onClose={() => setLightboxIndex(null)} />}
       {tourPickerOpen && <TourChoiceModal onClose={() => setTourPickerOpen(false)} onChooseExterior={() => openTour('exterior')} onChooseInterior={() => openTour('interior')} />}

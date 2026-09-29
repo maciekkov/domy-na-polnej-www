@@ -137,8 +137,10 @@ export function App() {
         <Homes houses={houses} selectedId={selectedId} onSelect={selectHouse} />
         <WhyHome />
         <Layout />
-        <CathedralCeiling />
-        <Location />
+        <div className="residential-flow">
+          <CathedralCeiling />
+          <Location />
+        </div>
         <Gallery selectedHouse={selectedId ?? 'unknown'} />
         <Standard pdfUrl={data.standardPdf} />
         <SecurityProcess />

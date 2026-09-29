@@ -1,0 +1,130 @@
+/* RC37: only the three chapter boundaries from the approved second concept.
+   Geometry is on decorative SVG siblings, NOT on the interactive sections:
+   no section masks / transforms / new containing blocks for fixed tour dialogs.
+   All existing text, illustrations, six details, PDF and controls remain intact. */
+#spacer-360,
+#standard.standard-editorial,
+#bezpieczenstwo,
+#proces-zakupu {
+  --chapter-paper: #f8f6ef;
+  --chapter-gold: #c9ac70;
+}
+
+.chapter-flow-edge {
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 -1px;
+  height: clamp(82px, 7.2vw, 138px);
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+}
+.chapter-flow-edge > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.chapter-flow-edge__paper { fill: var(--chapter-paper); }
+.chapter-flow-edge__gold,
+.chapter-flow-edge__champagne {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.chapter-flow-edge__gold {
+  stroke: var(--chapter-gold);
+  stroke-width: 1;
+  stroke-opacity: .72;
+  transform: translateY(10px);
+}
+.chapter-flow-edge__champagne {
+  stroke: #fffaf0;
+  stroke-width: 1.5;
+  stroke-opacity: .55;
+}
+
+/* Spacer content stays exactly where it is. Only the exit reserve grows.
+   isolation:auto lets the existing fixed dialogs outpaint later chapter shells. */
+#spacer-360 {
+  padding-bottom: clamp(88px, 5.6vw, 112px);
+  isolation: auto;
+}
+#spacer-360 > .shell { position: relative; z-index: 2; }
+#spacer-360 .immersive-signature { position: relative; z-index: 2; }
+
+/* One paper surface: the top edge, the complete Standard and the next cap.
+   The matched solid paper tone prevents horizontal colour seams at SVG edges. */
+#standard.standard-section.standard-editorial {
+  background: var(--chapter-paper);
+}
+#standard.standard-editorial > .std-top {
+  padding-top: clamp(8px, 1.1vw, 22px);
+}
+#standard.standard-editorial .std-details {
+  background: transparent;
+  border-top-color: rgba(224,223,213,.32);
+  padding-bottom: clamp(24px, 2vw, 36px);
+}
+
+/* Outgoing paper caps the incoming forest: the house remains the project image,
+   visible under the right shoulder of the curve. The actual forest is not copied. */
+#bezpieczenstwo {
+  padding-top: clamp(102px, 7.7vw, 144px);
+  padding-bottom: clamp(82px, 5.8vw, 124px);
+}
+#bezpieczenstwo > .chapter-flow-edge--trust {
+  top: -1px;
+  bottom: auto;
+  height: clamp(70px, 6.3vw, 114px);
+  z-index: 3;
+}
+.chapter-flow-edge--trust .chapter-flow-edge__gold {
+  transform: translateY(-9px);
+}
+#bezpieczenstwo .security-photo {
+  top: -61px;
+  /* Feather only the sky edge; the existing house image and its crop are unchanged. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%), linear-gradient(180deg, transparent, #000 8px);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 30%), linear-gradient(180deg, transparent, #000 8px);
+  mask-composite: intersect;
+}
+
+/* The last transition is deliberately shallower, giving the process a quiet start. */
+#bezpieczenstwo > .chapter-flow-edge--process {
+  height: clamp(62px, 5.8vw, 112px);
+}
+#proces-zakupu.purchase-section {
+  border-top: 0;
+  padding-top: clamp(14px, 1vw, 22px);
+  background: var(--chapter-paper);
+}
+
+/* Curves stay decorative on small screens. Content remains in normal flow,
+   no negative margins around controls and no fixed heights around growing text. */
+@media (max-width: 999px) {
+  #spacer-360 { padding-bottom: 95px; }
+  #spacer-360 .chapter-flow-edge { height: 70px; }
+  #standard.standard-editorial > .std-top { padding-top: 18px; }
+  #bezpieczenstwo { padding-top: 88px; padding-bottom: 94px; }
+  #bezpieczenstwo > .chapter-flow-edge--trust { height: 64px; }
+  #bezpieczenstwo > .chapter-flow-edge--process { height: 65px; }
+  #proces-zakupu.purchase-section { padding-top: 27px; }
+}
+@media (max-width: 599px) {
+  #spacer-360 { padding-bottom: 73px; }
+  #spacer-360 .chapter-flow-edge { height: 44px; }
+  #standard.standard-editorial > .std-top { padding-top: 18px; }
+  #standard.standard-editorial .std-details { padding-bottom: 27px; }
+  #bezpieczenstwo { padding-top: 65px; padding-bottom: 77px; }
+  #bezpieczenstwo > .chapter-flow-edge--trust { height: 45px; }
+  #bezpieczenstwo > .chapter-flow-edge--process { height: 44px; }
+  #bezpieczenstwo .security-photo { top: 0; }
+  #proces-zakupu.purchase-section { padding-top: 21px; }
+  .chapter-flow-edge__gold { stroke-width: .8; }
+}
+@media print {
+  .chapter-flow-edge { display: none; }
+  #spacer-360, #bezpieczenstwo, #proces-zakupu.purchase-section { padding-block: 32px; }
+}

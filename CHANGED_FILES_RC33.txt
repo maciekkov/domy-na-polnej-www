@@ -1,0 +1,14 @@
+src/sections/WhyHome/WhyHome.tsx
+src/styles/sections/why-home-premium.css
+src/styles/site.css
+public/assets/images/decor/why-home-property.webp
+public/assets/images/decor/why-home-sky.webp
+public/assets/data/asset-versions.json
+VERSION
+VERSION.json
+package.json
+package-lock.json
+CHANGELOG.md
+ZMIANY_RC33.md
+CHANGED_FILES_RC33.txt
+QA_RC33.json

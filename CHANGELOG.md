@@ -1,3 +1,28 @@
+## 5.2.0-rc.37 — Chapter Flow (2026-09-29)
+
+- Trzy organiczne granice SVG: spacer → Standard, Standard → bezpieczeństwo, bezpieczeństwo → proces.
+- Wspólna powierzchnia ivory, cienkie obrysy champagne/gold i mniejsze odstępy po audycie renderu.
+- Bez zmian w treści, danych, ilustracjach, dokumentach, formularzach i zachowaniu istniejących komponentów.
+- Kontrola Chromium 320–2560 px, porównanie treści DOM z RC36 oraz testy regresji.
+- Warstwa Standard pozostaje ostatnia w kaskadzie; test RC36 porównuje zgodność wersji zamiast zamrażać numer wydania.
+- Pełny build i render 3D WebGL niepotwierdzone w tym środowisku; szczegóły w docs/RC37_AUDYT.md.
+
+# CHANGELOG — 5.2.0-rc.33 / 29.09.2026
+
+- Sekcja „Architektura codzienności” (`#dom`) przebudowana do zaakceptowanego wariantu premium: nowa kompozycja, typografia, ikony, CTA, organiczny kadr fotografii, podwójny obrys i botaniczne akcenty.
+- Dodano dwa techniczne kadry WebP przygotowane z istniejącej wizualizacji frontu, aby zachować proporcje referencji bez zmiany projektu domu.
+- Dodano osobny, końcowy override `why-home-premium.css`; pozostałe sekcje i logika strony pozostają bez zmian.
+- QA: source-check 151/151, experience regression 5/5, kontrolny render Chromium 1672×941 i 390×844 bez poziomego overflow.
+
+---
+
+## 5.2.0-rc.31 — 2026-09-28
+
+- Formularz przedsprzedaży wysyła teraz powiadomienie do biura przy każdym prawidłowym zapisie, także ponownym.
+- `Reply-To` wskazuje adres osoby zapisującej się.
+- Awaria transportu pocztowego po zapisaniu zgody nie jest już maskowana jako pełny sukces.
+- Frontend i pozostałe sekcje bez zmian.
+
 ## 5.2.0-rc.29 — 2026-09-28
 
 - Standard przebudowany na dwa bloki według zatwierdzonej kompozycji: 8 ilustracji + trzy zdjęcia, następnie 6 rozwijanych kart + dokument PDF.
@@ -208,3 +233,10 @@ Produkcyjny panel: historia pojedynczych wizyt z istniejących logów, oś czasu
 - Stara prywatna konfiguracja z pustym Gmail SMTP nie blokuje formularza: nowa sekcja `mail` ma własne bezpieczne domyślne wartości.
 - SMTP pozostawiono jako opcjonalny, jawnie wybierany transport awaryjny; nie jest używany domyślnie.
 - QA: 150 kontroli źródłowych, 52 testy PHP/HTTP/security, składnia wszystkich plików PHP bez błędów. Nie wysyłano wiadomości do rzeczywistego Gmaila z lokalnego środowiska.
+
+## 5.2.0-rc.34 — 2026-09-29
+
+- Sekcja `#wysoki-sufit` przebudowana zgodnie z zaakceptowaną wizualizacją premium: organiczny zielony panel, szeryfowa typografia, złote linie, nieregularna maska zdjęcia i zintegrowany blok „Własna działka. Ogród za tarasem.”.
+- Zachowano oryginalną wizualizację wnętrza oraz parametr `do 5,82 m`; zmieniono wyłącznie kompozycję, ikonografię i responsywną prezentację sekcji.
+- Dodano trzy liniowe ikony benefitów ogrodu i osobny układ mobilny bez poziomego overflow.
+- QA: source-check 151/151, regresja sekcji 5/5, kontrolny render 1672×941 i 390×844.

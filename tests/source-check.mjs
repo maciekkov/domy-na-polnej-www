@@ -79,6 +79,7 @@ for (const field of ['galleryImages','layoutRooms']) {
 }
 for (const token of ["dnpLimit($privateDir,'contact-send'","$data['website']",'FILTER_VALIDATE_EMAIL']) check((read('api/contact.php')+read('api/lib/mailer.php')).includes(token),`Zachowano zabezpieczenie kontaktu: ${token}`)
 check(read('api/lib/mailer.php').includes('dnpPhpMail') && read('api/config.example.php').includes("'transport' => 'php_mail'"), 'Formularz domyślnie używa lokalnego PHP mail bez hasła Gmaila')
+check(read('api/presale.php').includes('PONOWNY ZAPIS — przedsprzedaż Domy na Polnej') && read('api/presale.php').includes('dnpSendConfiguredMail($config, $subject, $body, $email)'), 'Formularz przedsprzedaży zawsze wysyła powiadomienie do biura, także przy ponownym zapisie')
 check(read('api/lib/smtp.php').includes('AUTH LOGIN'), 'Opcjonalny transport SMTP pozostaje dostępny')
 check(read('api/contact.php').includes("'unknown'"), 'Backend akceptuje brak wyboru domu')
 const pkg=JSON.parse(read('package.json'))

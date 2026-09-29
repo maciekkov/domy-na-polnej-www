@@ -175,9 +175,29 @@ def main():
             check('SMTP: dot stuffing applied', '\r\n..Test kropki' in MAILS[0])
             status, headers, _ = request('contact', good, headers={'Cookie': 'PHPSESSID=different', 'X-Forwarded-For': '9.9.9.9'})
             check('contact: cookie-independent cooldown + Retry-After', status == 429 and int(headers.get('Retry-After', 0)) > 0 and len(MAILS) == 1)
+
+            # Presale form must notify the office on every valid subscribe submit,
+            # including a duplicate e-mail already stored on the private list.
+            (www/'data/site-data.json').write_text((ROOT/'public/data/site-data.json').read_text())
+            reset_rates()
+            presale = {'email':'lead@example.test','consent':True,'consentVersion':'presale-1.0','website':''}
+            mail_count = len(MAILS)
+            status, _, body = request('presale', presale)
+            check('presale: new signup accepted and office e-mail sent', status == 200 and json.loads(body)['ok'] and len(MAILS) == mail_count + 1)
+            check('presale: notification contains lead address + Reply-To', 'lead@example.test' in MAILS[-1] and 'Reply-To: lead@example.test' in MAILS[-1] and 'Status: nowy adres zapisany na liście' in MAILS[-1])
+            stored = list((private/'presale').glob('*.json'))
+            check('presale: signup stored exactly once', len(stored) == 1)
+            status, _, body = request('presale', presale)
+            check('presale: duplicate signup still sends office e-mail', status == 200 and json.loads(body)['ok'] and len(MAILS) == mail_count + 2)
+            check('presale: duplicate does not duplicate stored consent', len(list((private/'presale').glob('*.json'))) == 1)
+            check('presale: duplicate notification is explicit', 'Status: adres był już zapisany na liście' in MAILS[-1])
+
             configure(smtp=False)
             reset_rates()
             check('contact: explicitly selected missing SMTP is not fake success', request('contact', good)[0] == 502)
+            status, _, body = request('presale', presale)
+            failed_presale = json.loads(body)
+            check('presale: mail transport failure is visible, stored signup remains', status == 502 and failed_presale.get('saved') is True and len(list((private/'presale').glob('*.json'))) == 1)
             configure()
             reset_rates()
             for _ in range(20): request('contact', {'name':'x'})

@@ -1,29 +1,33 @@
 {
   "project": "Domy na Polnej WWW",
-  "version": "5.2.0-rc.30",
-  "releaseName": "Contact mail — PHP hosting transport, Gmail recipient without Gmail credentials",
-  "date": "2026-09-28",
-  "salesStage": "prelaunch",
-  "inputArchive": "domy-na-polnej-www-5.2.0-rc.29-MOBILE-TABLE-FIX.zip",
+  "version": "5.2.0-rc.37",
+  "releaseName": "Chapter Flow — 360 / Standard / Bezpieczeństwo / Proces",
+  "date": "2026-09-29",
+  "inputArchive": "domy-na-polnej-www-5.2.0-rc.36-EDITORIAL-FLOW.zip",
   "publishedToProduction": false,
   "pushedToGitHub": false,
-  "productionComparisonCompleted": false,
-  "fullTypecheckExecuted": false,
-  "buildMethod": "Unchanged frontend build. Backend contact/presale mail transport changed to local PHP mail() by default.",
-  "browserVerification": "Frontend untouched in RC30; mail changes verified at PHP/API layer only.",
-  "viteBuildExecuted": false,
-  "npmInstall": "Not required for backend-only RC30 change; no node_modules added to distribution.",
-  "standardPdf": "Original supplied 15-page PDF, unchanged; local browser download byte-verified.",
   "newImagesGenerated": false,
-  "sourceTests": {
-    "passed": 150,
-    "blockedFiles": [],
-    "reason": "source-check passed"
-  },
-  "syntaxCheck": "All 13 PHP API files passed php -l.",
-  "mailDelivery": "Recipient mkdevelop2026@gmail.com; default sender kontakt@domynapolnej.pl; PHP mail() on hosting; no Gmail password required. Optional SMTP path retained but disabled by default.",
-  "apiSecurityTests": {
-    "passed": 52,
-    "mode": "local PHP HTTP + loopback SMTP mock for optional SMTP path; no external email sent"
+  "projectContentChanged": false,
+  "buildExecuted": false,
+  "fullTypecheckExecuted": false,
+  "buildNote": "npm ci --offline: ENOTCACHED; npm registry DNS unavailable. Chromium render uses local TypeScript 5.8.3 transpilation and React 19.1.1 without altering project dependencies.",
+  "browserVerification": {
+    "widths": [
+      320,
+      390,
+      768,
+      960,
+      1024,
+      1440,
+      1672,
+      1920,
+      2560
+    ],
+    "checksPassed": 157,
+    "checksTotal": 157,
+    "allTargetImagesLoaded": true,
+    "contentComparedWithRC36": true,
+    "webgl3DTested": false,
+    "webglNote": "WebGL unavailable in this Chromium environment. Viewer overlay, close, focus and original fallback checked; renderer file unchanged."
   }
 }

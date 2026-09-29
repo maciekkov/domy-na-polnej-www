@@ -1,0 +1,57 @@
+/* RC36 — only Layout → Cathedral → Location. This replaces the RC35 fade/spacing
+   patch completely. Full bleed uses 100% (not 100vw, which includes the scrollbar).
+   One shared ribbon-height variable controls its overlap with the actual map. */
+#uklad.layout-section { position: relative; z-index: 0; padding-bottom: 92px; margin-bottom: 0; background: #f7f5ef; }
+#uklad.layout-section::after { display: none; }
+.residential-flow {
+  --flow-inset: 5.4vw;
+  --flow-ribbon-height: clamp(168px, 11.7vw, 260px);
+  /* Keep the wrapper static: existing section.offsetTop navigation stays document-relative. */
+  position: static;
+  isolation: isolate;
+  width: 100%;
+  max-width: none;
+  margin-top: -40px;
+  overflow: clip;
+  background: #f7f5ef;
+}
+.residential-flow > #lokalizacja {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(var(--flow-ribbon-height) * -.59);
+  padding-top: 0;
+  background: #17271c;
+}
+.residential-flow > #lokalizacja::before { display: none; }
+.residential-flow #lokalizacja .location__grid {
+  width: calc(100% - var(--flow-inset) * 2);
+  grid-template-columns: minmax(0, .36fr) minmax(0, .64fr);
+  gap: clamp(32px, 3vw, 68px);
+  padding-block: clamp(76px, 4.9vw, 126px) 52px;
+  min-height: 600px;
+}
+.residential-flow #lokalizacja .location__content { padding: 0; align-self: start; }
+.residential-flow #lokalizacja .location__content > p { max-width: 610px; }
+.residential-flow #lokalizacja .section-kicker--dark { color: #d9ba79; }
+.residential-flow #lokalizacja .location__map { border-left: 0; align-self: stretch; min-height: 440px; }
+.residential-flow #lokalizacja .location__media img { left: 32%; top: 80px; width: 90%; height: calc(100% - 80px); object-position: center top; }
+.residential-flow #lokalizacja .location__shade { background: linear-gradient(90deg,#12271df5 0%,#15291deb 25%,#15291d88 39%,#11241712 61%,#1124170d 100%); }
+.residential-flow #lokalizacja .location__travel-note { position: relative; z-index: 2; margin-top: 0; padding-bottom: 22px; color: #c1cabe; }
+@media (max-width: 1279px) and (min-width: 961px) {
+  .residential-flow { --flow-inset: 4.4vw; }
+  .residential-flow #lokalizacja .location__grid { grid-template-columns: minmax(0,.44fr) minmax(0,.56fr); }
+  .residential-flow #lokalizacja .location__facts { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+@media (max-width: 960px) {
+  #uklad.layout-section { padding-bottom: 66px; }
+  .residential-flow { --flow-inset: 32px; margin-top: -18px; }
+  .residential-flow > #lokalizacja { margin-top: -30px; }
+  .residential-flow #lokalizacja .location__grid { width: var(--shell); grid-template-columns: 1fr; padding-block: 84px 24px; min-height: 0; gap: 28px; }
+  .residential-flow #lokalizacja .location__map { min-height: 0; }
+  .residential-flow #lokalizacja .location__content { padding: 0; }
+  .residential-flow #lokalizacja .location__facts { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .residential-flow { --flow-inset: 24px; }
+  .residential-flow #lokalizacja .location__grid { padding-top: 68px; }
+}

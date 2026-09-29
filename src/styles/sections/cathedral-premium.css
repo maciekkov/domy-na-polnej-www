@@ -1,0 +1,190 @@
+/* RC36 — rebuilt as a scene + a full-width ivory ribbon (not a floating card).
+   Photo clip/outline share one contour in TSX. No new fonts, images or dependencies.
+   Geometry is content-safe: the intro remains in normal flow; its height can grow. */
+#wysoki-sufit.cathedral-ceiling--premium {
+  --cathedral-forest: #073828;
+  --cathedral-gold: #d9ba79;
+  --cathedral-ink: #173f31;
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  pointer-events: none;
+}
+#wysoki-sufit::before, #wysoki-sufit::after { display: none; }
+#wysoki-sufit .cathedral-premium__clip-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+#wysoki-sufit .cathedral-premium__canvas {
+  position: relative;
+  width: 100%;
+  min-height: clamp(488px, 31.3vw, 800px);
+  display: grid;
+  grid-template-columns: 37.5% 62.5%;
+  background: transparent;
+}
+#wysoki-sufit .cathedral-premium__green {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(106deg, #063324 0%, #093b2b 35%, #163d2d 65%);
+  clip-path: url(#cathedral-green-clip);
+  overflow: hidden;
+}
+#wysoki-sufit .cathedral-premium__green::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/decor/forest-wallpaper.webp?v=d39ee7078a4a8b21') left center / auto 115% no-repeat;
+  opacity: .11;
+  filter: blur(1.5px);
+  mix-blend-mode: luminosity;
+}
+#wysoki-sufit .cathedral-premium__green-texture {
+  position: absolute;
+  inset: auto auto -150px -125px;
+  width: clamp(250px, 22vw, 430px);
+  height: clamp(380px, 34vw, 660px);
+  background: url('/assets/images/decor/olive-branch.webp?v=c1ea5e16e77944ab') center / contain no-repeat;
+  opacity: .16;
+  filter: blur(3px) brightness(.68) saturate(.55);
+  transform: rotate(23deg);
+}
+#wysoki-sufit .cathedral-premium__intro {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+  padding: clamp(64px, 4.8vw, 116px) 16px clamp(35px, 2.5vw, 64px) var(--flow-inset, 5.4vw);
+  color: #fcfbf6;
+  pointer-events: auto;
+}
+#wysoki-sufit .cathedral-premium__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #f7f5ea;
+  font: 500 clamp(9px, .66vw, 13px)/1.3 var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+#wysoki-sufit .cathedral-premium__eyebrow span { width: 44px; height: 1px; flex: 0 0 auto; background: var(--cathedral-gold); }
+#wysoki-sufit .cathedral-premium__intro h2 {
+  margin: clamp(26px, 2.05vw, 48px) 0 0;
+  color: #fcfbf6;
+  font: 400 clamp(43px, 3.38vw, 82px)/1.03 var(--font-editorial);
+  letter-spacing: -.043em;
+}
+#wysoki-sufit .cathedral-premium__intro h2 > span { display: block; }
+#wysoki-sufit .cathedral-premium__intro h2 em { color: var(--cathedral-gold); font-weight: 400; }
+#wysoki-sufit .cathedral-premium__intro > p {
+  width: calc(100% - 12px);
+  max-width: 470px;
+  margin: clamp(20px, 1.6vw, 36px) 0 0;
+  color: #f1f2e9;
+  font: 400 clamp(14px, 1vw, 19px)/1.62 var(--font-body);
+}
+#wysoki-sufit .cathedral-premium__metric { position: relative; margin-top: clamp(16px, 1.1vw, 28px); color: var(--cathedral-gold); }
+#wysoki-sufit .cathedral-premium__value { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+#wysoki-sufit .cathedral-premium__value > span { font: 400 clamp(22px, 1.6vw, 34px)/1 var(--font-editorial); }
+#wysoki-sufit .cathedral-premium__value strong { font: 400 clamp(62px, 4.6vw, 108px)/1 var(--font-editorial); letter-spacing: -.045em; }
+#wysoki-sufit .cathedral-premium__value small { font-size: .64em; }
+#wysoki-sufit .cathedral-premium__metric-label { display: block; margin-top: 7px; color: #eeecd9; font: 400 clamp(9px, .66vw, 13px)/1.4 var(--font-body); text-transform: uppercase; letter-spacing: .19em; }
+#wysoki-sufit .cathedral-premium__visual-shell { position: absolute; z-index: 2; left: 34.7%; right: -1px; top: 12px; bottom: 32px; }
+#wysoki-sufit .cathedral-premium__photo {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  clip-path: url(#cathedral-photo-clip);
+  overflow: hidden;
+  background: #ded4c5;
+  pointer-events: auto;
+}
+#wysoki-sufit .cathedral-premium__photo > img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: 50% 10%; filter: saturate(.91) brightness(1.025); }
+#wysoki-sufit .cathedral-premium__photo-foliage { position: absolute; top: -108px; left: -40px; width: 260px; height: 330px; background: url('/assets/images/decor/olive-branch.webp?v=c1ea5e16e77944ab') center / contain no-repeat; filter: blur(2.5px) brightness(.6); opacity: .2; transform: rotate(-10deg); pointer-events: none; }
+#wysoki-sufit .cathedral-premium__photo-title { position: absolute; top: 12%; right: 6.5%; color: #334337; font: 500 clamp(9px, .64vw, 13px)/1.8 var(--font-body); text-align: right; letter-spacing: .24em; text-transform: uppercase; }
+#wysoki-sufit .cathedral-premium__photo-title i { display: block; width: 43px; height: 1px; margin: 15px 0 0 auto; background: currentColor; }
+#wysoki-sufit .cathedral-premium__photo figcaption { position: absolute; right: 4%; bottom: 11%; margin: 0; padding: 5px 10px; color: #fff; background: #203829b8; font: 400 clamp(8px, .55vw, 11px)/1.4 var(--font-body); }
+#wysoki-sufit .cathedral-premium__outline { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; pointer-events: none; }
+#wysoki-sufit .cathedral-premium__outline path { vector-effect: non-scaling-stroke; }
+#wysoki-sufit .cathedral-premium__outline--outer { transform: translate(-8px, -6px) scale(1.026, 1.026); transform-origin: 50% 50%; stroke: #c6a562c7; stroke-width: 1.05px; }
+#wysoki-sufit .cathedral-premium__outline--inner { transform: translate(-3px, -2px) scale(1.009, 1.011); transform-origin: 50% 50%; stroke: #efe4c9cf; stroke-width: 1px; }
+/* Full-width surface: its tapered left end exposes the map immediately below. */
+#wysoki-sufit .cathedral-premium__garden { position: relative; z-index: 4; width: 100%; height: var(--flow-ribbon-height); margin-top: calc(var(--flow-ribbon-height) * -.51); background: none; pointer-events: none; }
+#wysoki-sufit .cathedral-premium__ribbon { position: absolute; inset: 0; display: block; width: 100%; height: 100%; overflow: visible; }
+#wysoki-sufit .cathedral-premium__ribbon-line { fill: none; vector-effect: non-scaling-stroke; stroke: #c8a566; stroke-width: 1px; }
+#wysoki-sufit .cathedral-premium__ribbon-line--top { opacity: .36; }
+#wysoki-sufit .cathedral-premium__ribbon-line--bottom { opacity: .67; }
+#wysoki-sufit .cathedral-premium__garden-inner {
+  position: relative;
+  top: 47%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(174px, .8fr) minmax(0, 3fr);
+  align-items: center;
+  gap: clamp(18px, 1.5vw, 36px);
+  padding-left: 38.5%;
+  padding-right: 4.5%;
+  pointer-events: auto;
+}
+#wysoki-sufit .cathedral-premium__garden h3 { margin: 0; color: var(--cathedral-ink); font: 400 clamp(21px, 1.57vw, 36px)/1.05 var(--font-editorial); letter-spacing: -.025em; }
+#wysoki-sufit .cathedral-premium__garden-description { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
+#wysoki-sufit .cathedral-premium__garden-points { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; margin: 0; }
+#wysoki-sufit .cathedral-premium__garden-points > div { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: clamp(8px, .75vw, 18px); padding: 0 clamp(10px, .95vw, 24px); border-left: 1px solid #4c634524; }
+#wysoki-sufit .cathedral-premium__point-icon { width: clamp(44px, 3.5vw, 78px); height: clamp(44px, 3.5vw, 78px); display: grid; place-items: center; border: 1px solid #4a5c4029; border-radius: 50%; color: #39543a; background: #fffdf848; }
+#wysoki-sufit .cathedral-premium__point-icon svg { width: 57%; height: 57%; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+#wysoki-sufit .cathedral-premium__garden-points > div > span:last-child { font: 400 clamp(9.5px, .59vw, 12px)/1.55 var(--font-body); letter-spacing: .09em; text-transform: uppercase; color: #424d43; }
+@media (min-width: 961px) and (max-width: 1279px) {
+  #wysoki-sufit .cathedral-premium__canvas { grid-template-columns: 39% 61%; min-height: 480px; }
+  #wysoki-sufit .cathedral-premium__intro { padding: 61px 16px 58px var(--flow-inset); }
+  #wysoki-sufit .cathedral-premium__intro h2 { font-size: 43px; }
+  #wysoki-sufit .cathedral-premium__intro > p { font-size: 14px; }
+  #wysoki-sufit .cathedral-premium__garden-inner { padding-left: 28%; grid-template-columns: minmax(160px,.9fr) minmax(0,3fr); }
+  #wysoki-sufit .cathedral-premium__garden-points > div { gap: 9px; padding-inline: 12px; }
+  #wysoki-sufit .cathedral-premium__photo-title { font-size: 8px; }
+}
+@media (max-width: 960px) {
+  #wysoki-sufit .cathedral-premium__canvas { display: block; min-height: 0; }
+  #wysoki-sufit .cathedral-premium__green { display: none; }
+  #wysoki-sufit .cathedral-premium__intro { padding: 64px var(--flow-inset) 76px; background: linear-gradient(100deg,#073526f5,#0c3a2bf2), url('/assets/images/decor/forest-wallpaper.webp?v=d39ee7078a4a8b21') center / cover; clip-path: url(#cathedral-mobile-intro-clip); }
+  #wysoki-sufit .cathedral-premium__intro h2 { font-size: clamp(44px,6.8vw,62px); max-width: 730px; margin-top: 26px; }
+  #wysoki-sufit .cathedral-premium__intro > p { font-size: 16px; max-width: 650px; margin-top: 24px; }
+  #wysoki-sufit .cathedral-premium__metric { margin-top: 24px; }
+  #wysoki-sufit .cathedral-premium__value strong { font-size: 70px; }
+  #wysoki-sufit .cathedral-premium__eyebrow { font-size: 10px; }
+  #wysoki-sufit .cathedral-premium__visual-shell { position: relative; z-index: 4; inset: auto; width: 100%; height: min(62vw, 520px); min-height: 300px; margin-top: -38px; }
+  #wysoki-sufit .cathedral-premium__photo { inset: 0 14px; clip-path: none; border-radius: 52px 20px 62px 24px / 44px 20px 48px 28px; }
+  #wysoki-sufit .cathedral-premium__outline { display: none; }
+  #wysoki-sufit .cathedral-premium__photo::after { content:""; position: absolute; inset: 6px; border: 1px solid #d7b77ec2; border-radius: inherit; pointer-events: none; }
+  #wysoki-sufit .cathedral-premium__photo > img { object-position: 50% 38%; }
+  #wysoki-sufit .cathedral-premium__photo-title { font-size: 8px; top: 10%; right: 7%; }
+  #wysoki-sufit .cathedral-premium__photo figcaption { right: 7%; bottom: 8%; font-size: 9px; }
+  #wysoki-sufit .cathedral-premium__garden { height: auto; margin-top: -26px; padding: 60px var(--flow-inset) 52px; background: #f7f5ef; z-index: 1; border-radius: 0 0 45% 5% / 0 0 30px 8px; }
+  #wysoki-sufit .cathedral-premium__ribbon { display: none; }
+  #wysoki-sufit .cathedral-premium__garden-inner { position: static; display: block; padding: 0; }
+  #wysoki-sufit .cathedral-premium__garden h3 { font-size: clamp(29px,4.6vw,38px); line-height: 1.08; }
+  #wysoki-sufit .cathedral-premium__garden-description { position: static; width: auto; height: auto; margin: 17px 0 0; clip-path: none; overflow: visible; white-space: normal; color: #536157; font: 400 15px/1.6 var(--font-body); max-width: 650px; }
+  #wysoki-sufit .cathedral-premium__garden-points { margin-top: 28px; }
+  #wysoki-sufit .cathedral-premium__garden-points > div { padding-inline: 16px; gap: 12px; }
+  #wysoki-sufit .cathedral-premium__garden-points > div:first-child { padding-left:0; border-left:0; }
+  #wysoki-sufit .cathedral-premium__point-icon { width: 52px; height: 52px; }
+  #wysoki-sufit .cathedral-premium__garden-points > div > span:last-child { font-size: 9px; }
+}
+@media (max-width: 600px) {
+  #wysoki-sufit .cathedral-premium__intro { padding: 50px 24px 69px; }
+  #wysoki-sufit .cathedral-premium__intro h2 { font-size: clamp(39px,10.5vw,55px); }
+  #wysoki-sufit .cathedral-premium__eyebrow { font-size: 8.5px; letter-spacing: .15em; gap: 12px; }
+  #wysoki-sufit .cathedral-premium__eyebrow span { width: 33px; }
+  #wysoki-sufit .cathedral-premium__intro > p { font-size: 15px; }
+  #wysoki-sufit .cathedral-premium__value strong { font-size: 68px; }
+  #wysoki-sufit .cathedral-premium__photo-foliage { width: 180px; height: 230px; top: -80px; opacity: .16; }
+  #wysoki-sufit .cathedral-premium__photo-title { font-size: 7px; letter-spacing: .17em; right: 8%; }
+  #wysoki-sufit .cathedral-premium__photo figcaption { font-size: 9px; max-width: 85%; }
+  #wysoki-sufit .cathedral-premium__garden { padding: 58px 24px 44px; }
+  #wysoki-sufit .cathedral-premium__garden-points { grid-template-columns: 1fr; margin-top: 26px; }
+  #wysoki-sufit .cathedral-premium__garden-points > div,
+  #wysoki-sufit .cathedral-premium__garden-points > div:first-child { border-left: 0; border-top: 1px solid #455c4024; padding: 13px 0; grid-template-columns: 52px 1fr; gap: 17px; }
+  #wysoki-sufit .cathedral-premium__garden-points > div > span:last-child { font-size: 10px; }
+}
